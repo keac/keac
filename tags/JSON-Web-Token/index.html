@@ -346,110 +346,42 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/06/09/bugku-你从哪里来/">
+        <a class="abstract-title" href="/2019/06/22/jwt/">
             
-                <span>bugku-你从哪里来</span>
+                <span>jwt SrpingBoot</span>
         </a>
         <div class="abstract-content">
-            你从哪里来 
-123456789HTTP_REFERER 编辑HTTP Referer是header的一部分，当浏览器向web服务器发送请求的时候，一般会带上Referer，告诉服务器我是从哪个页面链接过来的，服务器基此可以获得一些信息用于处理。简而言之，HTTP Referer是header的一部分，当浏览器向web服务器发送请求的时候，一般会带上Referer，告诉服务器我是从哪个页面链接过来的，服务器藉此可以获得一些信息用于处理。比如从我主页上链接到一个朋友那里，他的服务器就能够从HTTP Referer中统计出每天有多少用户点击我主页上的链接访问他的网站。Referer的正确英语...
+            前言前几天在写微信小程序的时候，发现微信小程序不支持Cookie导致我的Session无法正常获取，查阅了资料后，找到了之前用过的jwt，之前没怎么写过，写篇博客来记录下。
+跨域认证的问题互联网服务离不开用户认证。一般流程是下面这样。
+
+1、用户向服务器发送用户名和密码。
+
+
+2、服务器验证通过后，在当前对话（session）里面保存相关数据，比如用户角色、登录时间等等。
+
+
+3、服务器向用户返回一个 session_id，写入用户的 Cookie。
+
+
+4、用户随后的每一次请求，都会通过 Cookie，将 session_id 传回服务器。
+
+
+5、服务器收到 session_id，找...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/09</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/22</span>
             </div>
             <!-- tags  -->
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="bugku">bugku</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="jwt">jwt</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="ctf">ctf</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="JSON Web Token">JSON Web Token</a>
     
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/06/09/bugku-前女友-SKCTF/">
-            
-                <span>bugku-前女友(SKCTF)</span>
-        </a>
-        <div class="abstract-content">
-            今天做了一道BugKu的简单题，来记录下
-
-打开链接第一反应打开F12查看下源码里面有什么东西
-果然有玄机，这个CSS写的..
-打开 code.txt
-123456789101112&lt;?php if(isset($_GET[&apos;v1&apos;]) &amp;&amp; isset($_GET[&apos;v2&apos;]) &amp;&amp; isset($_GET[&apos;v3&apos;]))&#123;    $v1 = $_GET[&apos;v1&apos;];    $v2 = $_GET[&apos;v2&apos;];    $v3 = $_GET...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="ctf">ctf</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Bugku">Bugku</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/06/04/ctf-web/">
-            
-                <span>ctf-web</span>
-        </a>
-        <div class="abstract-content">
-            通用（FUZZ阶段）代码泄露
-.文件名.swp/swn/swo  .bak  文件名~
-git文件泄露（可能不以.git命名）,存在HEAD文件来判断
-.svn文件泄露  wc.db  entries  文件名- .svn-base  space.xml
-robots.txt
-.phps
-.txt
-github搜索
-www.zip wwwroot.zip
-private/private.xml
-php-cgi arguments injection :  ?-s 泄露源码 [经过构造可getshell:) xd]
-
-
-PHP文件
-1.php 
-phpinfo.php 
-a.php
-con...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="ctf">ctf</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="web">web</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="SrpingBoot">SrpingBoot</a>
     
 </div>
             

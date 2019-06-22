@@ -22,7 +22,7 @@
     <meta name="description" content="Loongten,keac,world">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>keac&#39;s Blog</title>
+    <title>jwt SrpingBoot · keac&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">keac&#39;s Bolg.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">jwt SrpingBoot</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">keac's Bolg.</a>
 </header>
@@ -220,24 +231,78 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            jwt SrpingBoot
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="jwt">jwt</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="JSON Web Token">JSON Web Token</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="SrpingBoot">SrpingBoot</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1.3k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/06/22</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,126 +403,119 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/06/09/bugku-你从哪里来/">
-            
-                <span>bugku-你从哪里来</span>
-        </a>
-        <div class="abstract-content">
-            你从哪里来 
-123456789HTTP_REFERER 编辑HTTP Referer是header的一部分，当浏览器向web服务器发送请求的时候，一般会带上Referer，告诉服务器我是从哪个页面链接过来的，服务器基此可以获得一些信息用于处理。简而言之，HTTP Referer是header的一部分，当浏览器向web服务器发送请求的时候，一般会带上Referer，告诉服务器我是从哪个页面链接过来的，服务器藉此可以获得一些信息用于处理。比如从我主页上链接到一个朋友那里，他的服务器就能够从HTTP Referer中统计出每天有多少用户点击我主页上的链接访问他的网站。Referer的正确英语...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="bugku">bugku</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="ctf">ctf</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/06/09/bugku-前女友-SKCTF/">
-            
-                <span>bugku-前女友(SKCTF)</span>
-        </a>
-        <div class="abstract-content">
-            今天做了一道BugKu的简单题，来记录下
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前几天在写微信小程序的时候，发现微信小程序不支持Cookie导致我的Session无法正常获取，查阅了资料后，找到了之前用过的jwt，之前没怎么写过，写篇博客来记录下。</p>
+<h1 id="跨域认证的问题"><a href="#跨域认证的问题" class="headerlink" title="跨域认证的问题"></a>跨域认证的问题</h1><p>互联网服务离不开用户认证。一般流程是下面这样。</p>
+<blockquote>
+<p>1、用户向服务器发送用户名和密码。</p>
+</blockquote>
+<blockquote>
+<p>2、服务器验证通过后，在当前对话（session）里面保存相关数据，比如用户角色、登录时间等等。</p>
+</blockquote>
+<blockquote>
+<p>3、服务器向用户返回一个 session_id，写入用户的 Cookie。</p>
+</blockquote>
+<blockquote>
+<p>4、用户随后的每一次请求，都会通过 Cookie，将 session_id 传回服务器。</p>
+</blockquote>
+<blockquote>
+<p>5、服务器收到 session_id，找到前期保存的数据，由此得知用户的身份。</p>
+</blockquote>
+<p>这种模式的问题在于，扩展性（scaling）不好。单机当然没有问题，如果是服务器集群，或者是跨域的服务导向架构，就要求 session 数据共享，每台服务器都能够读取 session。</p>
+<p>举例来说，A 网站和 B 网站是同一家公司的关联服务。现在要求，用户只要在其中一个网站登录，再访问另一个网站就会自动登录，请问怎么实现？</p>
+<p>一种解决方案是 session 数据持久化，写入数据库或别的持久层。各种服务收到请求后，都向持久层请求数据。这种方案的优点是架构清晰，缺点是工程量比较大。另外，持久层万一挂了，就会单点失败。</p>
+<p>另一种方案是服务器索性不保存 session 数据了，所有数据都保存在客户端，每次请求都发回服务器。JWT 就是这种方案的一个代表。</p>
+<h1 id="什么是JWT"><a href="#什么是JWT" class="headerlink" title="什么是JWT"></a>什么是JWT</h1><p>JSON Web Token其实就是一个包含认证数据的JSON</p>
+<p>由三部分组成，并按.分隔</p>
+<ul>
+<li>Header （头部）</li>
+<li>Payload （负载）</li>
+<li>Signature （签名）</li>
+</ul>
+<p>写成一行 就是这样</p>
+<p>Header.Payload.Signature</p>
+<p><img src="jwt/encoded-jwt.png" alt="JWT编码"></p>
+<h2 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h2><p>Header 部分是一个 JSON 对象，描述 JWT 的元数据，通常是下面的样子。</p>
+<p>Header 通常由两部分组成</p>
+<p>alg属性表示签名的算法（algorithm）默认是 HMAC SHA256（写成 HS256）还有比如说  HMAC、SHA256、RSA</p>
+<p>typ属性表示这个令牌（token）的类型（type），JWT 令牌统一写为JWT。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;alg&quot;: &quot;HS256&quot;,</span><br><span class="line">  &quot;typ&quot;: &quot;JWT&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>之后，将上面的 JSON 对象使用 Base64URL 算法转成字符串，作为JWT的第一部分。</p>
+<h2 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h2><p>Payload 部分也是一个 JSON 对象，用来存放实际需要传递的数据。JWT 规定了7个官方字段，供选用</p>
+<ul>
+<li>iss (issuer)：签发人</li>
+<li>exp (expiration time)：过期时间</li>
+<li>sub (subject)：主题</li>
+<li>aud (audience)：受众</li>
+<li>nbf (Not Before)：生效时间</li>
+<li>iat (Issued At)：签发时间</li>
+<li>jti (JWT ID)：编号</li>
+</ul>
+<p>当然，除了官方的字段，你随便方什么都可以</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;exp&quot;:1495176357,</span><br><span class="line">  &quot;UserId&quot;: &quot;00001&quot;,</span><br><span class="line">  &quot;admin&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里要注意的是，JWT默认是不加密的，所有人都可以看到你的内容，所以说不要把信息放在这个地方.</p>
+<p>这个 JSON 对象也要使用 Base64URL 算法转成字符串。</p>
+<h2 id="Signature"><a href="#Signature" class="headerlink" title="Signature"></a>Signature</h2><p>第三部分 base64 解密出来大约是这样子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">)4&apos;7�6-DM�(�H6fJ::$c���a4�~tI2%Xd-�$nL(l</span><br></pre></td></tr></table></figure></p>
+<p>非常重要,是签名Signiture, 服务器会验证这个以防伪造. 因为JWT其实是明文传送, 任何人都能篡改里面的内容. 服务端通过验证签名, 从而确定这个JWT是自己生成的.</p>
+<p>首先，需要指定一个密钥（secret）。这个密钥只有服务器才知道，不能泄露给用户。然后，使用 Header 里面指定的签名算法（默认是 HMAC SHA256），按照下面的公式产生签名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HMACSHA256(</span><br><span class="line">  base64UrlEncode(header) + &quot;.&quot; +</span><br><span class="line">  base64UrlEncode(payload),</span><br><span class="line">  secret)</span><br></pre></td></tr></table></figure></p>
+<p>算出签名以后，把 Header、Payload、Signature 三个部分拼成一个字符串，每个部分之间用”点”（.）分隔，就可以返回给用户。</p>
+<p>就是这个样子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int signiture = (&quot;&#123;alg:HS512.&quot;typ&quot;: &quot;JWT&quot;&#125;&#123;exp:1495176357,&quot;UserId&quot;: &quot;00001&quot;,&quot;admin&quot;: true&#125;&quot; + key).hashCode();</span><br></pre></td></tr></table></figure>
+<p>附上签名之后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;alg&quot;:&quot;HS512&quot;&#125;&#123;&quot;exp&quot;:1495176357,&quot;username&quot;:&quot;admin&quot;&#125;    &apos;)4&apos;7�6-DM�(�H6fJ::$c���a4�~tI2%Xd-�$nL(l</span><br></pre></td></tr></table></figure></p>
+<p>为了方便复制和使用, 通常我们都是把JWT用base64编码之后放在http的header里面, 并且每一次呼叫api都附上这个JWT, 并且服务器每次也验证JWT是否过期</p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>扯完了原理之后，就要来讲讲怎么实现JWT，这里我参考了<br><a href="https://github.com/ZhongjunTian/spring-boot-jwt-demo" target="_blank" rel="noopener">JonTian大佬的代码</a> 稍微改动了下，适合自己的程序。</p>
+<h2 id="快速实现"><a href="#快速实现" class="headerlink" title="快速实现"></a>快速实现</h2><p>如图是我的目录结构，security包<br><img src="jwt/sec1.png" alt="目录结构"></p>
+<p><a href="https://github.com/keac/jwt" target="_blank" rel="noopener">源代码在这里</a></p>
+<p><img src="jwt/sec3.png" alt="允许请求"></p>
+<p>这里我允许了 /login/<em> 和  /msg/</em> 无需验证直接可以访问</p>
+<p><img src="jwt/sec2.png" alt="允许请求"><br>这里设置了密匙和Header头的标识</p>
+<p><img src="jwt/sec4.png" alt="使用"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String jwt = JwtUtil.generateToken(userT.getStuId());</span><br></pre></td></tr></table></figure>
+<p>使用如下代码即可添加userid进jwt</p>
+<p><img src="jwt/sec5.png" alt="使用"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@RequestHeader(value = ROLE) String userId</span><br></pre></td></tr></table></figure>
+<p>用RequestHeader来接受参数,这里的已经经过jwt验证</p>
 
-打开链接第一反应打开F12查看下源码里面有什么东西
-果然有玄机，这个CSS写的..
-打开 code.txt
-123456789101112&lt;?php if(isset($_GET[&apos;v1&apos;]) &amp;&amp; isset($_GET[&apos;v2&apos;]) &amp;&amp; isset($_GET[&apos;v3&apos;]))&#123;    $v1 = $_GET[&apos;v1&apos;];    $v2 = $_GET[&apos;v2&apos;];    $v3 = $_GET...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="ctf">ctf</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Bugku">Bugku</a>
-    
-</div>
-            
-        </div>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/06/04/ctf-web/">
-            
-                <span>ctf-web</span>
-        </a>
-        <div class="abstract-content">
-            通用（FUZZ阶段）代码泄露
-.文件名.swp/swn/swo  .bak  文件名~
-git文件泄露（可能不以.git命名）,存在HEAD文件来判断
-.svn文件泄露  wc.db  entries  文件名- .svn-base  space.xml
-robots.txt
-.phps
-.txt
-github搜索
-www.zip wwwroot.zip
-private/private.xml
-php-cgi arguments injection :  ?-s 泄露源码 [经过构造可getshell:) xd]
-
-
-PHP文件
-1.php 
-phpinfo.php 
-a.php
-con...
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://www.loongten.com">keacwu</a>
+            </p><p>原文链接：<a href="http://www.loongten.com/2019/06/22/jwt/">http://www.loongten.com/2019/06/22/jwt/</a>
+            </p><p>发表日期：<a href="http://www.loongten.com/2019/06/22/jwt/">June 22nd 2019, 1:43:10 pm</a>
+            </p><p>更新日期：<a href="http://www.loongten.com/2019/06/22/jwt/">June 22nd 2019, 3:37:57 pm</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="ctf">ctf</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="web">web</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/06/18/vs2019/" title="vs2019 安装到非系统盘">
+                    <div class="prevTitle">vs2019 安装到非系统盘</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -539,6 +597,24 @@ con...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#跨域认证的问题"><span class="toc-number">2.</span> <span class="toc-text">跨域认证的问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是JWT"><span class="toc-number">3.</span> <span class="toc-text">什么是JWT</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Header"><span class="toc-number">3.1.</span> <span class="toc-text">Header</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Payload"><span class="toc-number">3.2.</span> <span class="toc-text">Payload</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Signature"><span class="toc-number">3.3.</span> <span class="toc-text">Signature</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现"><span class="toc-number">4.</span> <span class="toc-text">实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#快速实现"><span class="toc-number">4.1.</span> <span class="toc-text">快速实现</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -834,6 +910,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
