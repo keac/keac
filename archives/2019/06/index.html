@@ -346,6 +346,102 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/06/27/zsh/">
+            
+                <span>zsh</span>
+        </a>
+        <div class="abstract-content">
+            wsl在windows应用商店里面有，直接搜kali或者ubuntu就有了
+wsl2装了windows预览版 试了下wsl2
+（目前还没试出来 wsl 和 wsl2 的区别在哪）
+
+
+完整版kali装的是kali，因为kali主要用的是工具，所以我安装了完整的工具包
+apt-get update
+apt-get install kali-linux-full
+
+
+
+去掉提示音wsl的提示音真的难听。。。
+
+1vim /etc/inputrc
+找到 set bell-style none 把注释去掉
+ 
+zsh不过。。。root  权限运行的kali wsl真的挺丑的。
+ 
+ 我们来装个z...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/27</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="zsh">zsh</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="wsl2">wsl2</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/06/25/usbWindows10/">
+            
+                <span>usbWindows10</span>
+        </a>
+        <div class="abstract-content">
+            今天把一台kali安装回windows来记录下
+一个空U盘
+镜像
+我选用了 msdn我告诉你 提供的官方的镜像
+地址:https://msdn.itellyou.cn/
+
+
+ed2k://|file|cn_windows_10_consumer_edition_version_1903_updated_june_2019_x64_dvd_cedfd58d.iso|5126440960|73CC4AC1F0FA133E76DA82ECE0A3B240|/
+
+复制粘贴到迅雷下载，我这用了迅雷破解版
+刻录下载好之后我们用UltraISO来刻录
+打开镜像
+
+选择U盘，格式化之后点写入
+耐心等一会...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/25</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="usb">usb</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="windwos10">windwos10</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="安装系统">安装系统</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/06/23/WMITools/">
             
                 <span>WMITools</span>
@@ -673,104 +769,11 @@ Cmder 下载地址
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/06/08/pi-screen/">
-            
-                <span>树莓派分辨率调整</span>
-        </a>
-        <div class="abstract-content">
-            换了一台电脑vnc连接树莓派，发现分辨率不太对，有马赛克
-第一步
-
-sudo raspi-config
-
-选择 Advanced Options
-
-下一步选择 Resolution  
-
-接下来就可以看到选择分辨率的选项了
-
-选择想要的分辨率
-
- 如图所示，就代表你成功了
-
-接下来选择 Finish 
-
-提示我们是否重启树莓派，我们这里选择是
-
-重启完成之后可以看到分辨率已经调整为适合的状态了
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Raspberry Pi">Raspberry Pi</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/06/04/ctf-web/">
-            
-                <span>ctf-web</span>
-        </a>
-        <div class="abstract-content">
-            通用（FUZZ阶段）代码泄露
-.文件名.swp/swn/swo  .bak  文件名~
-git文件泄露（可能不以.git命名）,存在HEAD文件来判断
-.svn文件泄露  wc.db  entries  文件名- .svn-base  space.xml
-robots.txt
-.phps
-.txt
-github搜索
-www.zip wwwroot.zip
-private/private.xml
-php-cgi arguments injection :  ?-s 泄露源码 [经过构造可getshell:) xd]
-
-
-PHP文件
-1.php 
-phpinfo.php 
-a.php
-con...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="ctf">ctf</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="web">web</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
+    
+    <nav class="page-nav">
+        <span class="page-number current">1</span><a class="page-number" href="/archives/2019/06/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/06/page/2/">NEXT &#62;</a>
+    </nav>
     
 </main>
             <!-- profile -->
@@ -977,9 +980,39 @@ con...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 11
+        Total : 13
         </div>
         <!-- search  -->
         
@@ -992,6 +1025,16 @@ con...
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/27</span><a class="archive-post-title" href="/2019/06/27/zsh/">zsh</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/25</span><a class="archive-post-title" href="/2019/06/25/usbWindows10/">usbWindows10</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1063,6 +1106,12 @@ con...
     
         <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
     
+        <span class="sidebar-tag-name" data-tags="主页劫持"><span class="iconfont-archer">&#xe606;</span>主页劫持</span>
+    
+        <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer">&#xe606;</span>浏览器</span>
+    
+        <span class="sidebar-tag-name" data-tags="vmitools"><span class="iconfont-archer">&#xe606;</span>vmitools</span>
+    
         <span class="sidebar-tag-name" data-tags="Bugku"><span class="iconfont-archer">&#xe606;</span>Bugku</span>
     
         <span class="sidebar-tag-name" data-tags="cmder"><span class="iconfont-archer">&#xe606;</span>cmder</span>
@@ -1073,15 +1122,21 @@ con...
     
         <span class="sidebar-tag-name" data-tags="右键清理"><span class="iconfont-archer">&#xe606;</span>右键清理</span>
     
-        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
-    
         <span class="sidebar-tag-name" data-tags="jwt"><span class="iconfont-archer">&#xe606;</span>jwt</span>
     
         <span class="sidebar-tag-name" data-tags="JSON Web Token"><span class="iconfont-archer">&#xe606;</span>JSON Web Token</span>
     
         <span class="sidebar-tag-name" data-tags="SrpingBoot"><span class="iconfont-archer">&#xe606;</span>SrpingBoot</span>
     
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+    
         <span class="sidebar-tag-name" data-tags="Raspberry Pi"><span class="iconfont-archer">&#xe606;</span>Raspberry Pi</span>
+    
+        <span class="sidebar-tag-name" data-tags="usb"><span class="iconfont-archer">&#xe606;</span>usb</span>
+    
+        <span class="sidebar-tag-name" data-tags="windwos10"><span class="iconfont-archer">&#xe606;</span>windwos10</span>
+    
+        <span class="sidebar-tag-name" data-tags="安装系统"><span class="iconfont-archer">&#xe606;</span>安装系统</span>
     
         <span class="sidebar-tag-name" data-tags="vs"><span class="iconfont-archer">&#xe606;</span>vs</span>
     
@@ -1091,17 +1146,15 @@ con...
     
         <span class="sidebar-tag-name" data-tags="Visual Studio"><span class="iconfont-archer">&#xe606;</span>Visual Studio</span>
     
+        <span class="sidebar-tag-name" data-tags="zsh"><span class="iconfont-archer">&#xe606;</span>zsh</span>
+    
+        <span class="sidebar-tag-name" data-tags="wsl2"><span class="iconfont-archer">&#xe606;</span>wsl2</span>
+    
         <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
     
         <span class="sidebar-tag-name" data-tags="uni-app"><span class="iconfont-archer">&#xe606;</span>uni-app</span>
     
         <span class="sidebar-tag-name" data-tags="小程序"><span class="iconfont-archer">&#xe606;</span>小程序</span>
-    
-        <span class="sidebar-tag-name" data-tags="主页劫持"><span class="iconfont-archer">&#xe606;</span>主页劫持</span>
-    
-        <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer">&#xe606;</span>浏览器</span>
-    
-        <span class="sidebar-tag-name" data-tags="vmitools"><span class="iconfont-archer">&#xe606;</span>vmitools</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
