@@ -346,34 +346,31 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/06/09/HTML字符实体/">
+        <a class="abstract-title" href="/2019/07/24/idea-auto-import/">
             
-                <span>HTML字符实体</span>
+                <span>idea 自动导包</span>
         </a>
         <div class="abstract-content">
-            今天在做耗子师傅的 https://xss.haozi.me
-发现对HTML实体字符还不算太深入了解
-字符实体是用一个编号写入HTML代码中来代替一个字符，在使用浏览器访问网页时会将这个编号解析还原为字符以供阅读。
+            今天听课的时候听到一个问题，代码借（复）鉴（制）来的时候，包一个个都要手工去alt+enter 去导入很麻烦。
+在网上查了下 
+Editor -&gt; General -&gt; Auto Import
 
-解决HTML代码编写中的一些问题。例如需要在网页上显示小于号（&lt;）和大于号（&gt;），由于它们是HTML的预留标签，可能会被误解析。这时就需要将小于号和大于号写成字符实体：123小于号这样写：&amp;lt; 或 &amp;#60;大于号这样写：&amp;gt; 或 &amp;#62;&amp;#十进制; &amp;#x十六进制;
-
-
-比如 ) Html 实体字符为...
+标注的位置打上勾勾1、IntelliJ IDEA 将在我们书写代码的时候自动帮我们优化导入的包，比如自动去掉一些没有用到的包
+2、IntelliJ IDEA 将在我们书写代码的时候自动帮我们导入需要用到的包。但是对于那些同名的包，还是需要手动 Alt + Enter 进行导入的
+idea有很多快捷方式(Alt+Insert)，比如get,set,构造函数，hashcode,equla...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/09</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/24</span>
             </div>
             <!-- tags  -->
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="Html">Html</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="idea">idea</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="实体字符">实体字符</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="xss">xss</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="自动导包">自动导包</a>
     
 </div>
             
