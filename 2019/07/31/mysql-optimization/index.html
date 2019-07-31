@@ -17,7 +17,7 @@
     <meta name="renderer" content="webkit">
     <meta name="copyright" content="keacwu">
     
-    <meta name="keywords" content="keac,ctf,keac">
+    <meta name="keywords" content="keac,ctf,keac Blog">
     
     <meta name="description" content="Loongten,keac,world">
     <meta http-equiv="Cache-control" content="no-cache">
@@ -492,7 +492,7 @@ height:50vh;
 <h2 id="2NF"><a href="#2NF" class="headerlink" title="2NF"></a>2NF</h2><p>2NF是对记录的惟一性约束，表中的记录是唯一的, 就满足2NF, 通常我们设计一个主键来实现，主键不能包含业务逻辑。</p>
 <p>第二范式要满足以下的条件：首先要满足第一范式，其次每个非主属性要完全函数依赖与候选键，或者是主键。也就是说，每个非主属性是由整个主键函数决定的，而不能由主键的一部分来决定</p>
 <p>举个例子</p>
-<p>（学生选课表）<br>学生 | 课程 | 教师 | 教师职称 | 教材 | 教室 | 上课时间<br>:-:|:-:|:-:|:-:|:-:|:-:|:-:|<br>李四 | SpringBoot | 王老师 | Java讲师 | 《SpringBoot深入浅出》 | 301 | 8:00<br>张三 | Mysql | 李老师 | Mysql 讲师 | 《Mysql 从删库到跑路》 | 302 | 9:22</p>
+<p>（学生选课表）<br>学生 | 课程 | 教师 | 教师职称 | 教材 | 教室 | 上课时间 |<br>:-:|:-:|:-:|:-:|:-:|:-:|:-:|<br>李四 | SpringBoot | 王老师 | Java讲师 | 《SpringBoot深入浅出》 | 301 | 8:00<br>张三 | Mysql | 李老师 | Mysql 讲师 | 《Mysql 从删库到跑路》 | 302 | 9:22</p>
 <p>这里通过（学生，课程）可以确定教师、教师职称，教材，教室和上课时间，所以可以把（学生，课程）作为主键。</p>
 <p>但是，教材并不完全依赖于（学生，课程），只拿出课程就可以确定教材，因为一个课程，一定指定了某个教材。这就叫不完全依赖，或者部分依赖。出现这种情况，就不满足第二范式。</p>
 <p>修改后</p>
@@ -748,7 +748,7 @@ height:50vh;
             <p>原文作者：<a href="http://www.loongten.com">keacwu</a>
             </p><p>原文链接：<a href="http://www.loongten.com/2019/07/31/mysql-optimization/">http://www.loongten.com/2019/07/31/mysql-optimization/</a>
             </p><p>发表日期：<a href="http://www.loongten.com/2019/07/31/mysql-optimization/">July 31st 2019, 9:33:31 am</a>
-            </p><p>更新日期：<a href="http://www.loongten.com/2019/07/31/mysql-optimization/">July 31st 2019, 11:22:50 am</a>
+            </p><p>更新日期：<a href="http://www.loongten.com/2019/07/31/mysql-optimization/">July 31st 2019, 5:41:08 pm</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -817,7 +817,7 @@ height:50vh;
     
         
             
-                <a href="/keacwu" class="iconfont-archer zhihu" target="_blank" title="zhihu"></a>
+                <a href="//www.zhihu.com/people/keac" class="iconfont-archer zhihu" target="_blank" title="zhihu"></a>
             
         
     
@@ -895,8 +895,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
     
     
     
@@ -1319,12 +1317,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/07</span><a class="archive-post-title" href="/2019/07/07/pentesterlab/">pentesterlab</a>
+            <span class="archive-post-date">07/07</span><a class="archive-post-title" href="/2019/07/07/pentesterlab-xss/">pentesterlab_xss</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/07</span><a class="archive-post-title" href="/2019/07/07/pentesterlab-xss/">pentesterlab_xss</a>
+            <span class="archive-post-date">07/07</span><a class="archive-post-title" href="/2019/07/07/pentesterlab/">pentesterlab</a>
         </li>
     
     
@@ -1418,17 +1416,15 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="vmitools"><span class="iconfont-archer">&#xe606;</span>vmitools</span>
     
-        <span class="sidebar-tag-name" data-tags="centos7"><span class="iconfont-archer">&#xe606;</span>centos7</span>
-    
-        <span class="sidebar-tag-name" data-tags="tomcat"><span class="iconfont-archer">&#xe606;</span>tomcat</span>
-    
         <span class="sidebar-tag-name" data-tags="bugku"><span class="iconfont-archer">&#xe606;</span>bugku</span>
     
         <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
     
         <span class="sidebar-tag-name" data-tags="Bugku"><span class="iconfont-archer">&#xe606;</span>Bugku</span>
     
-        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+        <span class="sidebar-tag-name" data-tags="centos7"><span class="iconfont-archer">&#xe606;</span>centos7</span>
+    
+        <span class="sidebar-tag-name" data-tags="tomcat"><span class="iconfont-archer">&#xe606;</span>tomcat</span>
     
         <span class="sidebar-tag-name" data-tags="cmder"><span class="iconfont-archer">&#xe606;</span>cmder</span>
     
@@ -1438,17 +1434,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="右键清理"><span class="iconfont-archer">&#xe606;</span>右键清理</span>
     
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+    
         <span class="sidebar-tag-name" data-tags="hackbar"><span class="iconfont-archer">&#xe606;</span>hackbar</span>
     
         <span class="sidebar-tag-name" data-tags="许可证"><span class="iconfont-archer">&#xe606;</span>许可证</span>
     
-        <span class="sidebar-tag-name" data-tags="jwt"><span class="iconfont-archer">&#xe606;</span>jwt</span>
-    
-        <span class="sidebar-tag-name" data-tags="JSON Web Token"><span class="iconfont-archer">&#xe606;</span>JSON Web Token</span>
-    
         <span class="sidebar-tag-name" data-tags="idea"><span class="iconfont-archer">&#xe606;</span>idea</span>
     
         <span class="sidebar-tag-name" data-tags="自动导包"><span class="iconfont-archer">&#xe606;</span>自动导包</span>
+    
+        <span class="sidebar-tag-name" data-tags="jwt"><span class="iconfont-archer">&#xe606;</span>jwt</span>
+    
+        <span class="sidebar-tag-name" data-tags="JSON Web Token"><span class="iconfont-archer">&#xe606;</span>JSON Web Token</span>
     
         <span class="sidebar-tag-name" data-tags="pentesterlab"><span class="iconfont-archer">&#xe606;</span>pentesterlab</span>
     
@@ -1460,25 +1458,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="swagger2"><span class="iconfont-archer">&#xe606;</span>swagger2</span>
     
-        <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
-    
         <span class="sidebar-tag-name" data-tags="springboot"><span class="iconfont-archer">&#xe606;</span>springboot</span>
     
         <span class="sidebar-tag-name" data-tags="打包"><span class="iconfont-archer">&#xe606;</span>打包</span>
     
         <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
     
+        <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
+    
         <span class="sidebar-tag-name" data-tags="usb"><span class="iconfont-archer">&#xe606;</span>usb</span>
     
         <span class="sidebar-tag-name" data-tags="windwos10"><span class="iconfont-archer">&#xe606;</span>windwos10</span>
     
         <span class="sidebar-tag-name" data-tags="安装系统"><span class="iconfont-archer">&#xe606;</span>安装系统</span>
-    
-        <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
-    
-        <span class="sidebar-tag-name" data-tags="uni-app"><span class="iconfont-archer">&#xe606;</span>uni-app</span>
-    
-        <span class="sidebar-tag-name" data-tags="小程序"><span class="iconfont-archer">&#xe606;</span>小程序</span>
     
         <span class="sidebar-tag-name" data-tags="vs"><span class="iconfont-archer">&#xe606;</span>vs</span>
     
@@ -1487,6 +1479,12 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="vs2019"><span class="iconfont-archer">&#xe606;</span>vs2019</span>
     
         <span class="sidebar-tag-name" data-tags="Visual Studio"><span class="iconfont-archer">&#xe606;</span>Visual Studio</span>
+    
+        <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
+    
+        <span class="sidebar-tag-name" data-tags="uni-app"><span class="iconfont-archer">&#xe606;</span>uni-app</span>
+    
+        <span class="sidebar-tag-name" data-tags="小程序"><span class="iconfont-archer">&#xe606;</span>小程序</span>
     
         <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer">&#xe606;</span>vue-cli</span>
     
