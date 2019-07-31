@@ -452,7 +452,33 @@ height:50vh;
 </blockquote>
 <p>例如:顾客表(姓名、编号、地址、……)其中”地址”列还可以细分为国家、省、市、区等。</p>
 <p>学生（学号，姓名，性别，出生年月日），如果认为最后一列还可以再分成（出生年，出生月，出生日），它就不是一范式了，否则就是；</p>
-<p>比如<br>id | name | address<br>:-:|:-:|:-:|<br>1 | zhangsan  | 上海市浦东新区，10001,15911111111<br>2 | lisi  | 上海市xxx区，10001,15921111111<br>3 | laowu  | 上海市yyyy区，10001,15721111111</p>
+<p>比如</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">id</th>
+<th style="text-align:center">name</th>
+<th style="text-align:center">address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">zhangsan</td>
+<td style="text-align:center">上海市浦东新区，10001,15911111111</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">lisi</td>
+<td style="text-align:center">上海市xxx区，10001,15921111111</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">laowu</td>
+<td style="text-align:center">上海市yyyy区，10001,15721111111</td>
+</tr>
+</tbody>
+</table>
 <p>就不符合1NF规范,后面address 字段还可以再拆分，在大数据时代通常会使用json格式的数据来储存</p>
 <table>
 <thead>
@@ -492,7 +518,40 @@ height:50vh;
 <h2 id="2NF"><a href="#2NF" class="headerlink" title="2NF"></a>2NF</h2><p>2NF是对记录的惟一性约束，表中的记录是唯一的, 就满足2NF, 通常我们设计一个主键来实现，主键不能包含业务逻辑。</p>
 <p>第二范式要满足以下的条件：首先要满足第一范式，其次每个非主属性要完全函数依赖与候选键，或者是主键。也就是说，每个非主属性是由整个主键函数决定的，而不能由主键的一部分来决定</p>
 <p>举个例子</p>
-<p>（学生选课表）<br>学生 | 课程 | 教师 | 教师职称 | 教材 | 教室 | 上课时间 |<br>:-:|:-:|:-:|:-:|:-:|:-:|:-:|<br>李四 | SpringBoot | 王老师 | Java讲师 | 《SpringBoot深入浅出》 | 301 | 8:00<br>张三 | Mysql | 李老师 | Mysql 讲师 | 《Mysql 从删库到跑路》 | 302 | 9:22</p>
+<p>（学生选课表）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">学生</th>
+<th style="text-align:center">课程</th>
+<th style="text-align:center">教师</th>
+<th style="text-align:center">教师职称</th>
+<th style="text-align:center">教材</th>
+<th style="text-align:center">教室</th>
+<th style="text-align:center">上课时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">李四</td>
+<td style="text-align:center">SpringBoot</td>
+<td style="text-align:center">王老师</td>
+<td style="text-align:center">Java讲师</td>
+<td style="text-align:center">《SpringBoot深入浅出》</td>
+<td style="text-align:center">301</td>
+<td style="text-align:center">8:00</td>
+</tr>
+<tr>
+<td style="text-align:center">张三</td>
+<td style="text-align:center">Mysql</td>
+<td style="text-align:center">李老师</td>
+<td style="text-align:center">Mysql 讲师</td>
+<td style="text-align:center">《Mysql 从删库到跑路》</td>
+<td style="text-align:center">302</td>
+<td style="text-align:center">9:22</td>
+</tr>
+</tbody>
+</table>
 <p>这里通过（学生，课程）可以确定教师、教师职称，教材，教室和上课时间，所以可以把（学生，课程）作为主键。</p>
 <p>但是，教材并不完全依赖于（学生，课程），只拿出课程就可以确定教材，因为一个课程，一定指定了某个教材。这就叫不完全依赖，或者部分依赖。出现这种情况，就不满足第二范式。</p>
 <p>修改后</p>
@@ -748,7 +807,7 @@ height:50vh;
             <p>原文作者：<a href="http://www.loongten.com">keacwu</a>
             </p><p>原文链接：<a href="http://www.loongten.com/2019/07/31/mysql-optimization/">http://www.loongten.com/2019/07/31/mysql-optimization/</a>
             </p><p>发表日期：<a href="http://www.loongten.com/2019/07/31/mysql-optimization/">July 31st 2019, 9:33:31 am</a>
-            </p><p>更新日期：<a href="http://www.loongten.com/2019/07/31/mysql-optimization/">July 31st 2019, 5:41:08 pm</a>
+            </p><p>更新日期：<a href="http://www.loongten.com/2019/07/31/mysql-optimization/">July 31st 2019, 5:55:26 pm</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
