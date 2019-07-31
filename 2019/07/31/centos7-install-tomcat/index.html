@@ -22,7 +22,7 @@
     <meta name="description" content="Loongten,keac,world">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>centos7-install-tomcat · keac&#39;s Blog</title>
+    <title>centos7 安装tomcat9 · keac&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -238,7 +238,7 @@
                 <a href="/">keac&#39;s Bolg.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">centos7-install-tomcat</a>
+                <a href="#" class="post-name">centos7 安装tomcat9</a>
             </div>
     </div>
     
@@ -268,7 +268,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            centos7-install-tomcat
+            centos7 安装tomcat9
             <!-- 404 -->
             
         </h1>
@@ -295,7 +295,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">157</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">818</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -426,17 +426,56 @@ height:50vh;
     <article class="article-entry">
         <h1 id="安装Centos7"><a href="#安装Centos7" class="headerlink" title="安装Centos7"></a>安装Centos7</h1><h2 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h2><p>推荐Centos7 Minimal镜像 <a href="http://mirrors.aliyun.com/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1810.iso" target="_blank" rel="noopener">http://mirrors.aliyun.com/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1810.iso</a></p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>下载下来之后用新建虚拟机，开始安装</p>
-<p><img src="centos7-install-tomcat/1.png" alt><br><img src="centos7-install-tomcat/2.png" alt><br><img src="centos7-install-tomcat/3.png" alt></p>
+<p><img src="1.png" alt><br><img src="2.png" alt><br><img src="3.png" alt></p>
 <h2 id="查看ip"><a href="#查看ip" class="headerlink" title="查看ip"></a>查看ip</h2><p>因为没有ifconfig 所以我们 输入 ip addr show 来查看当前ip 地址</p>
-<p><img src="centos7-install-tomcat/4.png" alt></p>
+<p><img src="4.png" alt></p>
 <h2 id="检测连接"><a href="#检测连接" class="headerlink" title="检测连接"></a>检测连接</h2><p>ping下检测下是否联通</p>
-<p><img src="centos7-install-tomcat/5.png" alt></p>
+<p><img src="5.png" alt></p>
 <h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>用Xshell 或者什么软件连接</p>
-<p><img src="centos7-install-tomcat/6.png" alt></p>
+<p><img src="6.png" alt></p>
 <h2 id="修改yum-源"><a href="#修改yum-源" class="headerlink" title="修改yum 源"></a>修改yum 源</h2><p>因为我们在国内，所以访问国外的网站会很慢</p>
 <p>先 yum update 一下，安装wget</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum update</span><br><span class="line"></span><br><span class="line">yum install wget -y</span><br></pre></td></tr></table></figure>
+<p>开始换成国内yum源</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/yum.repo.d</span><br><span class="line">mv CentOS-Base.repo CentOS-Base.repo.bak</span><br><span class="line">wget http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line">mv Centos-7.repo CentOS-Base.repo</span><br><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br><span class="line">yum update</span><br></pre></td></tr></table></figure>
+<p><img src="7.png" alt></p>
+<h1 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h1><p> yum search java|grep jdk</p>
+<p> <img src="8.png" alt></p>
+<p> 我安装了 java-1.8.0-openjdk </p>
+<p> yum install java-1.8.0-openjdk</p>
+<p>Java -version 来测试下有没有安装成功</p>
+<p>  <img src="9.png" alt></p>
+<p>  如图就表示安装成功了</p>
+<h1 id="安装Tomcat"><a href="#安装Tomcat" class="headerlink" title="安装Tomcat"></a>安装Tomcat</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>Centos7 源里面的Tomcat最新版本是7，我们可以从官网下载最新的9</p>
+<p>  <a href="https://tomcat.apache.org/download-90.cgi" target="_blank" rel="noopener">https://tomcat.apache.org/download-90.cgi</a></p>
+<p>  <img src="10.png" alt></p>
+<p>  可能速度比较慢 </p>
+<p>  链接：<a href="https://share.weiyun.com/5a7Kque" target="_blank" rel="noopener">https://share.weiyun.com/5a7Kque</a> 密码：666666<br>  sha512</p>
+<p>  9d3d93f8e03b5dc74e8d2ebc3f9daeb481485a391fb10289e23848063c23f52e8cf8566ebc7ff4f62c9b9f71591fad368a2bab487d31377c85a2607be3e029ff *apache-tomcat-9.0.22.tar.gz</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-9/v9.0.22/bin/apache-tomcat-9.0.22.tar.gz</span><br></pre></td></tr></table></figure>
+<p>先建个文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /opt/tomcat</span><br></pre></td></tr></table></figure>
+<p>压缩文件有11M大小<br><img src="11.png" alt></p>
+<h2 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h2><h3 id="把Tomcat-解压到-opt-tomcat"><a href="#把Tomcat-解压到-opt-tomcat" class="headerlink" title="把Tomcat 解压到 /opt/tomcat"></a>把Tomcat 解压到 /opt/tomcat</h3><p>tar -zxvf apache-tomcat-9.0.22.tar.gz -C /opt/tomcat/<br><img src="12.png" alt></p>
+<h3 id="创建链接文件"><a href="#创建链接文件" class="headerlink" title="创建链接文件"></a>创建链接文件</h3><p>ln -sv /opt/tomcat/apache-tomcat-9.0.22 /usr/local/tomcat9<br><img src="13.png" alt></p>
+<h3 id="配置tomcat9启动环境"><a href="#配置tomcat9启动环境" class="headerlink" title="配置tomcat9启动环境"></a>配置tomcat9启动环境</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/profile.d/tomcat9.sh</span><br><span class="line"></span><br><span class="line">(vi新手提示，首先按i或者insert 把下面那段复制进去再按ecs :wq 就可以保存退出了)</span><br><span class="line"></span><br><span class="line">export CATALINA_HOME=/usr/local/tomcat9</span><br><span class="line">export PATH=$TOMCAT_HOME/bin:$PATH</span><br></pre></td></tr></table></figure>
+<p>再执行</p>
+<p>source /etc/profile.d/tomcat9.sh</p>
+<p>没有提示就是没有报错 </p>
+<p>官方建议在tomcat安装目录的bin目录下建一个setenv.sh,将JAVA_HOME,JRE_HOME等环境变量信息指定。示例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CATALINA_HOME=/usr/local/tomcat9</span><br><span class="line">CATALINA_BASE=/usr/local/tomcat9</span><br><span class="line">JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.222.b10-0.el7_6.x86_64/jre/bin/java</span><br><span class="line">JRE_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.222.b10-0.el7_6.x86_64/jre</span><br><span class="line">CATALINA_PID=/usr/local/tomcat9/tomcat9.pid</span><br></pre></td></tr></table></figure></p>
+<p>切换到 bin 目录  ./startup.sh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost bin]# ss -tnpl |grep 8080</span><br><span class="line">LISTEN     0      100         :::8080                    :::*                   users:((&quot;java&quot;,pid=11246,fd=54))</span><br></pre></td></tr></table></figure>
+<p><img src="15.png" alt></p>
+<p>访问 8080端口看到如下界面，就代表成功了</p>
+<p><img src="14.png" alt></p>
+<p>如果可以看到端口，但是不能访问 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">查看防火墙状态</span><br><span class="line">firewall-cmd --state</span><br><span class="line">停止firewall</span><br><span class="line">systemctl stop firewalld.service</span><br></pre></td></tr></table></figure>
+<h3 id="注册为服务"><a href="#注册为服务" class="headerlink" title="注册为服务"></a>注册为服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/lib/systemd/system/tomcat9.service</span><br></pre></td></tr></table></figure>
+<h3 id="配置访问tomcat9管理界面"><a href="#配置访问tomcat9管理界面" class="headerlink" title="配置访问tomcat9管理界面"></a>配置访问tomcat9管理界面</h3><p>修改conf/tomcat-users.xml</p>
+<p>添加如下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--  </span><br><span class="line">  &lt;role rolename=&quot;tomcat&quot;/&gt;</span><br><span class="line">  &lt;role rolename=&quot;role1&quot;/&gt;</span><br><span class="line">  &lt;user username=&quot;tomcat&quot; password=&quot;tomcat&quot; roles=&quot;tomcat&quot;/&gt;</span><br><span class="line">  &lt;user username=&quot;both&quot; password=&quot;tomcat&quot; roles=&quot;tomcat,role1&quot;/&gt;</span><br><span class="line">  &lt;user username=&quot;role1&quot; password=&quot;tomcat&quot; roles=&quot;role1&quot;/&gt;</span><br><span class="line">--&gt;</span><br><span class="line">  &lt;role rolename=&quot;manager-gui&quot;/&gt;</span><br><span class="line">  &lt;role rolename=&quot;manager-script&quot; /&gt;</span><br><span class="line">  &lt;user username=&quot;admin&quot; password=&quot;tomcat&quot; roles=&quot;manager-gui,manager-script&quot; /&gt;</span><br><span class="line">&lt;/tomcat-users&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">修改webapps/manager/META-INF目录下的context.xml,在allow行的末尾加上|\d+.\d+.\d+.\d+表示允许所有主机访问。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Context antiResourceLocking=&quot;false&quot; privileged=&quot;true&quot; &gt;</span><br><span class="line">  &lt;Valve className=&quot;org.apache.catalina.valves.RemoteAddrValve&quot;</span><br><span class="line">         allow=&quot;127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1|\d+\.\d+\.\d+\.\d+&quot; /&gt;</span><br><span class="line">  &lt;Manager sessionAttributeValueClassNameFilter=&quot;java\.lang\.(?:Boolean|Integer|Long|Number|String)|org\.apache\.catalina\.filters\.CsrfPreventionFilter\$LruCache(?:\$1)?|java\.util\.(?:Linked)?HashMap&quot;/&gt;</span><br><span class="line">&lt;/Context&gt;</span><br></pre></td></tr></table></figure>
+<p>重启tomcat9生效</p>
 
     </article>
     <!-- license  -->
@@ -445,7 +484,7 @@ height:50vh;
             <p>原文作者：<a href="http://www.loongten.com">keacwu</a>
             </p><p>原文链接：<a href="http://www.loongten.com/2019/07/31/centos7-install-tomcat/">http://www.loongten.com/2019/07/31/centos7-install-tomcat/</a>
             </p><p>发表日期：<a href="http://www.loongten.com/2019/07/31/centos7-install-tomcat/">July 31st 2019, 2:58:10 pm</a>
-            </p><p>更新日期：<a href="http://www.loongten.com/2019/07/31/centos7-install-tomcat/">July 31st 2019, 4:30:56 pm</a>
+            </p><p>更新日期：<a href="http://www.loongten.com/2019/07/31/centos7-install-tomcat/">July 31st 2019, 5:36:39 pm</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -574,7 +613,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Centos7"><span class="toc-number">1.</span> <span class="toc-text">安装Centos7</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#镜像"><span class="toc-number">1.1.</span> <span class="toc-text">镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看ip"><span class="toc-number">1.3.</span> <span class="toc-text">查看ip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检测连接"><span class="toc-number">1.4.</span> <span class="toc-text">检测连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接"><span class="toc-number">1.5.</span> <span class="toc-text">连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改yum-源"><span class="toc-number">1.6.</span> <span class="toc-text">修改yum 源</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Centos7"><span class="toc-number">1.</span> <span class="toc-text">安装Centos7</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#镜像"><span class="toc-number">1.1.</span> <span class="toc-text">镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看ip"><span class="toc-number">1.3.</span> <span class="toc-text">查看ip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检测连接"><span class="toc-number">1.4.</span> <span class="toc-text">检测连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接"><span class="toc-number">1.5.</span> <span class="toc-text">连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改yum-源"><span class="toc-number">1.6.</span> <span class="toc-text">修改yum 源</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装jdk"><span class="toc-number">2.</span> <span class="toc-text">安装jdk</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Tomcat"><span class="toc-number">3.</span> <span class="toc-text">安装Tomcat</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载"><span class="toc-number">3.1.</span> <span class="toc-text">下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-1"><span class="toc-number">3.2.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#把Tomcat-解压到-opt-tomcat"><span class="toc-number">3.2.1.</span> <span class="toc-text">把Tomcat 解压到 /opt/tomcat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建链接文件"><span class="toc-number">3.2.2.</span> <span class="toc-text">创建链接文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置tomcat9启动环境"><span class="toc-number">3.2.3.</span> <span class="toc-text">配置tomcat9启动环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注册为服务"><span class="toc-number">3.2.4.</span> <span class="toc-text">注册为服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置访问tomcat9管理界面"><span class="toc-number">3.2.5.</span> <span class="toc-text">配置访问tomcat9管理界面</span></a></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -587,10 +626,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
     
     
     
@@ -955,7 +990,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/31</span><a class="archive-post-title" href="/2019/07/31/centos7-install-tomcat/">centos7-install-tomcat</a>
+            <span class="archive-post-date">07/31</span><a class="archive-post-title" href="/2019/07/31/centos7-install-tomcat/">centos7 安装tomcat9</a>
         </li>
     
     
@@ -1108,15 +1143,15 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="多环境"><span class="iconfont-archer">&#xe606;</span>多环境</span>
     
-        <span class="sidebar-tag-name" data-tags="centos7"><span class="iconfont-archer">&#xe606;</span>centos7</span>
-    
-        <span class="sidebar-tag-name" data-tags="tomcat"><span class="iconfont-archer">&#xe606;</span>tomcat</span>
-    
         <span class="sidebar-tag-name" data-tags="主页劫持"><span class="iconfont-archer">&#xe606;</span>主页劫持</span>
     
         <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer">&#xe606;</span>浏览器</span>
     
         <span class="sidebar-tag-name" data-tags="vmitools"><span class="iconfont-archer">&#xe606;</span>vmitools</span>
+    
+        <span class="sidebar-tag-name" data-tags="centos7"><span class="iconfont-archer">&#xe606;</span>centos7</span>
+    
+        <span class="sidebar-tag-name" data-tags="tomcat"><span class="iconfont-archer">&#xe606;</span>tomcat</span>
     
         <span class="sidebar-tag-name" data-tags="bugku"><span class="iconfont-archer">&#xe606;</span>bugku</span>
     
@@ -1148,19 +1183,13 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="pentesterlab"><span class="iconfont-archer">&#xe606;</span>pentesterlab</span>
     
-        <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer">&#xe606;</span>SpringBoot</span>
-    
-        <span class="sidebar-tag-name" data-tags="swagger2"><span class="iconfont-archer">&#xe606;</span>swagger2</span>
-    
         <span class="sidebar-tag-name" data-tags="Raspberry Pi"><span class="iconfont-archer">&#xe606;</span>Raspberry Pi</span>
+    
+        <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer">&#xe606;</span>SpringBoot</span>
     
         <span class="sidebar-tag-name" data-tags="mybatis"><span class="iconfont-archer">&#xe606;</span>mybatis</span>
     
-        <span class="sidebar-tag-name" data-tags="usb"><span class="iconfont-archer">&#xe606;</span>usb</span>
-    
-        <span class="sidebar-tag-name" data-tags="windwos10"><span class="iconfont-archer">&#xe606;</span>windwos10</span>
-    
-        <span class="sidebar-tag-name" data-tags="安装系统"><span class="iconfont-archer">&#xe606;</span>安装系统</span>
+        <span class="sidebar-tag-name" data-tags="swagger2"><span class="iconfont-archer">&#xe606;</span>swagger2</span>
     
         <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
     
@@ -1169,6 +1198,12 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="打包"><span class="iconfont-archer">&#xe606;</span>打包</span>
     
         <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
+    
+        <span class="sidebar-tag-name" data-tags="usb"><span class="iconfont-archer">&#xe606;</span>usb</span>
+    
+        <span class="sidebar-tag-name" data-tags="windwos10"><span class="iconfont-archer">&#xe606;</span>windwos10</span>
+    
+        <span class="sidebar-tag-name" data-tags="安装系统"><span class="iconfont-archer">&#xe606;</span>安装系统</span>
     
         <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
     
@@ -1184,11 +1219,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Visual Studio"><span class="iconfont-archer">&#xe606;</span>Visual Studio</span>
     
-        <span class="sidebar-tag-name" data-tags="windows"><span class="iconfont-archer">&#xe606;</span>windows</span>
-    
         <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer">&#xe606;</span>vue-cli</span>
     
         <span class="sidebar-tag-name" data-tags="升级"><span class="iconfont-archer">&#xe606;</span>升级</span>
+    
+        <span class="sidebar-tag-name" data-tags="windows"><span class="iconfont-archer">&#xe606;</span>windows</span>
     
         <span class="sidebar-tag-name" data-tags="zsh"><span class="iconfont-archer">&#xe606;</span>zsh</span>
     
