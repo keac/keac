@@ -367,33 +367,36 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/07/24/vue/">
+        <a class="abstract-title" href="/2019/07/31/centos7-install-tomcat/">
             
-                <span>vue-cli 升级踩坑</span>
+                <span>centos7-install-tomcat</span>
         </a>
         <div class="abstract-content">
-            好久没用vue-cli脚手架来写东西了
-按照官网的说法是
+            安装Centos7镜像推荐Centos7 Minimal镜像 http://mirrors.aliyun.com/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1810.iso
+安装下载下来之后用新建虚拟机，开始安装
 
-Vue CLI 的包名称由 vue-cli 改成了 @cli。 如果你已经全局安装了旧版本的 vue-cli (1.x 或 2.x)，你需要先通过 npm uninstall vue-cli -g 或 yarn global remove vue-cli 卸载它。https://cli.vuejs.org/zh/guide/installation.html
+查看ip因为没有ifconfig 所以我们 输入 ip addr show 来查看当前ip 地址
 
-看了眼本地的vuecli 是 2.x的 先 npm uninstall vue-cli -g 卸载了
-vue create hello-world 走起
+检测连接ping下检测下是否联通
 
-报错 仔细看了...
+连接用Xshell 或者什么软件连接
+
+修改yum 源因为我们在国内，所以访问国外的网站会很慢
+先 yum update 一下，安装wget
+123yum updateyum install w...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/24</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/31</span>
             </div>
             <!-- tags  -->
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="vue-cli">vue-cli</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="centos7">centos7</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="升级">升级</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="tomcat">tomcat</a>
     
 </div>
             
