@@ -367,6 +367,78 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/08/02/centos7-docker/">
+            
+                <span>Centos7 安装 Docker-ce</span>
+        </a>
+        <div class="abstract-content">
+            前言Docker 提供了两个版本：社区版 (CE) 和企业版 (EE)。
+Docker 社区版 (CE) 是开发人员和小型团队开始使用 Docker 并尝试使用基于容器的应用的理想之选。
+本文介绍下Docker 社区版 (CE) 在CentOS 7系统中的里两种安装方式
+安装前提
+64 位版本的 CentOS 7
+CentOS 系统的内核版本高于 3.10（uname -r命令可查看系统内核版本）
+
+安装 Docker CE1) 设置 Docker 的镜像仓库并从中进行安装2) 下载 RPM 软件包并手动进行安装（例如，在不能访问互联网的隔离系统中安装 Docker）
+从镜像仓库安装 (...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/02</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="centos7">centos7</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="docker-ce">docker-ce</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/08/01/redis-Loophole/">
+            
+                <span>redis 未授权访问漏洞</span>
+        </a>
+        <div class="abstract-content">
+            yum install epel-release
+yum install redis
+
+去除ip访问限制，允许本机之外的主机登陆本机
+
+protected-mode no 设为no
+
+12345λ .\redis-cli.exe -h 192.168.224.129192.168.224.129:6379&gt; config get dir1) &quot;dir&quot;2) &quot;/var/lib/redis&quot;192.168.224.129:6379&gt;
+更改redis备份路径为ssh公钥存放目录(一般默认为/root/.ssh)
+先放在这，有空再写
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/01</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/08/01/centos7-mysql/">
             
                 <span>centos7 yum 方式安装mysql</span>
@@ -496,9 +568,9 @@ systemctl start n...
     
         <a class="post-tag" href="javascript:void(0);" data-tags="mysql">mysql</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="sql">sql</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags="优化">优化</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="sql">sql</a>
     
 </div>
             
@@ -1007,9 +1079,31 @@ systemctl start n...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 32
+        Total : 34
         </div>
         <!-- search  -->
         
@@ -1022,6 +1116,16 @@ systemctl start n...
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/02</span><a class="archive-post-title" href="/2019/08/02/centos7-docker/">Centos7 安装 Docker-ce</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href="/2019/08/01/redis-Loophole/">redis 未授权访问漏洞</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1194,27 +1298,27 @@ systemctl start n...
     
         <span class="sidebar-tag-name" data-tags="xss"><span class="iconfont-archer">&#xe606;</span>xss</span>
     
-        <span class="sidebar-tag-name" data-tags="主页劫持"><span class="iconfont-archer">&#xe606;</span>主页劫持</span>
-    
-        <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer">&#xe606;</span>浏览器</span>
-    
-        <span class="sidebar-tag-name" data-tags="vmitools"><span class="iconfont-archer">&#xe606;</span>vmitools</span>
-    
-        <span class="sidebar-tag-name" data-tags="SrpingBoot"><span class="iconfont-archer">&#xe606;</span>SrpingBoot</span>
-    
-        <span class="sidebar-tag-name" data-tags="多环境"><span class="iconfont-archer">&#xe606;</span>多环境</span>
-    
         <span class="sidebar-tag-name" data-tags="bugku"><span class="iconfont-archer">&#xe606;</span>bugku</span>
     
         <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
     
         <span class="sidebar-tag-name" data-tags="centos7"><span class="iconfont-archer">&#xe606;</span>centos7</span>
     
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+        <span class="sidebar-tag-name" data-tags="docker-ce"><span class="iconfont-archer">&#xe606;</span>docker-ce</span>
+    
+        <span class="sidebar-tag-name" data-tags="SrpingBoot"><span class="iconfont-archer">&#xe606;</span>SrpingBoot</span>
+    
+        <span class="sidebar-tag-name" data-tags="多环境"><span class="iconfont-archer">&#xe606;</span>多环境</span>
+    
+        <span class="sidebar-tag-name" data-tags="Bugku"><span class="iconfont-archer">&#xe606;</span>Bugku</span>
     
         <span class="sidebar-tag-name" data-tags="tomcat"><span class="iconfont-archer">&#xe606;</span>tomcat</span>
     
-        <span class="sidebar-tag-name" data-tags="Bugku"><span class="iconfont-archer">&#xe606;</span>Bugku</span>
+        <span class="sidebar-tag-name" data-tags="主页劫持"><span class="iconfont-archer">&#xe606;</span>主页劫持</span>
+    
+        <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer">&#xe606;</span>浏览器</span>
+    
+        <span class="sidebar-tag-name" data-tags="vmitools"><span class="iconfont-archer">&#xe606;</span>vmitools</span>
     
         <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
     
@@ -1225,6 +1329,8 @@ systemctl start n...
         <span class="sidebar-tag-name" data-tags="regedit"><span class="iconfont-archer">&#xe606;</span>regedit</span>
     
         <span class="sidebar-tag-name" data-tags="右键清理"><span class="iconfont-archer">&#xe606;</span>右键清理</span>
+    
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
         <span class="sidebar-tag-name" data-tags="hackbar"><span class="iconfont-archer">&#xe606;</span>hackbar</span>
     
@@ -1276,6 +1382,8 @@ systemctl start n...
     
         <span class="sidebar-tag-name" data-tags="Visual Studio"><span class="iconfont-archer">&#xe606;</span>Visual Studio</span>
     
+        <span class="sidebar-tag-name" data-tags="windows"><span class="iconfont-archer">&#xe606;</span>windows</span>
+    
         <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer">&#xe606;</span>vue-cli</span>
     
         <span class="sidebar-tag-name" data-tags="升级"><span class="iconfont-archer">&#xe606;</span>升级</span>
@@ -1284,13 +1392,11 @@ systemctl start n...
     
         <span class="sidebar-tag-name" data-tags="wsl2"><span class="iconfont-archer">&#xe606;</span>wsl2</span>
     
-        <span class="sidebar-tag-name" data-tags="windows"><span class="iconfont-archer">&#xe606;</span>windows</span>
-    
         <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer">&#xe606;</span>nginx</span>
     
-        <span class="sidebar-tag-name" data-tags="sql"><span class="iconfont-archer">&#xe606;</span>sql</span>
-    
         <span class="sidebar-tag-name" data-tags="优化"><span class="iconfont-archer">&#xe606;</span>优化</span>
+    
+        <span class="sidebar-tag-name" data-tags="sql"><span class="iconfont-archer">&#xe606;</span>sql</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
