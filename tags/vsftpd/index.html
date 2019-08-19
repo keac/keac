@@ -22,7 +22,7 @@
     <meta name="description" content="Loongten,keac,world">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>vs2019 安装到非系统盘 · keac&#39;s Blog</title>
+    <title>keac&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -224,23 +224,12 @@
 </head>
 
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/">keac&#39;s Bolg.</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">vs2019 安装到非系统盘</a>
-            </div>
-    </div>
     
     <a class="home-link" href="/">keac's Bolg.</a>
 </header>
@@ -252,80 +241,24 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-            vs2019 安装到非系统盘
-            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                    <div class="post-intro-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="vs">vs</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="2019">2019</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="vs2019">vs2019</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Visual Studio">Visual Studio</a>
-    
-</div>
-                
-                
-                    <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">595</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/06/18</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -426,74 +359,45 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <p>我的SSD只有120G，装完一些必备的东西就不够用了。</p>
-<p>vs2019 正式版发布的时候，把旧版的VS卸了，瞬间空出30G。。</p>
-<h1 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h1><ul>
-<li>从微软官网下载 Visual Studio Community 2019(其他版本类似)</li>
-<li>运行下载的安装程序，到选择安装的组件时退出程序</li>
-</ul>
-<h1 id="第二步：使用-mklink-创建链接"><a href="#第二步：使用-mklink-创建链接" class="headerlink" title="第二步：使用 mklink 创建链接"></a>第二步：使用 mklink 创建链接</h1><blockquote>
-<p>原理：这一步的目的是欺骗 VS 安装程序，把它（将要或已经）放在系统盘的内容转移到其他盘，这样 VS 安装时仍然读写的是系统盘的路径，但实际上这些路径被我们转移到了非系统盘了，如此便释放了系统盘空间。</p>
-</blockquote>
-<p>基本用法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mklink /d &quot;链接需要放置的路径&quot; &quot;链接指向的路径&quot;</span><br></pre></td></tr></table></figure></p>
-<p>以下为 VS 占用的系统盘文件夹路径（我的系统盘符是 C）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files (x86)\Microsoft SDKs </span><br><span class="line">C:\Program Files (x86)\Microsoft Visual Studio </span><br><span class="line">C:\Program Files (x86)\Windows Kits </span><br><span class="line">C:\ProgramData\Microsoft\VisualStudio </span><br><span class="line">C:\ProgramData\Package Cache</span><br></pre></td></tr></table></figure></p>
-<p>知道了原理操作起来就十分简单，这些必要的文件夹如果有文件在里面，就把这些文件夹移动到非系统盘，如果没有就删除他们（因为之后我们要创建链接，不删除就不能用他们的名字创建链接）</p>
-<p>对上面那些文件夹移动完成后使用mklink /d创建链接即可 </p>
-<p>下面是一段代码示例（注意 cmd 以管理员身份运行）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mklink /d &quot;C:\Program Files (x86)\Microsoft SDKs&quot; D:\Program Files (x86)\Microsoft SDKs&quot; </span><br><span class="line">mklink /d &quot;C:\Program Files (x86)\Microsoft Visual Studio&quot; D:\Program Files (x86)\Microsoft Visual Studio&quot; </span><br><span class="line">mklink /d &quot;C:\Program Files (x86)\Windows Kits&quot; &quot;D:\Program Files (x86)\Windows Kits&quot; </span><br><span class="line">mklink /d &quot;C:\ProgramData\Microsoft\VisualStudio&quot; &quot;D:\ProgramData\Microsoft\VisualStudio&quot; </span><br><span class="line">mklink /d &quot;C:\ProgramData\Package Cache&quot; &quot;D:\ProgramData\Package Cache&quot;</span><br></pre></td></tr></table></figure>
-<p><img src="1.png" alt="vs1"></p>
-<p><img src="2.png" alt="vs2"></p>
-<p>目标文件夹可以自己根据喜好自定义，对安装无影响。</p>
-<h1 id="第三步：以正常方式安装-VS2017"><a href="#第三步：以正常方式安装-VS2017" class="headerlink" title="第三步：以正常方式安装 VS2017"></a>第三步：以正常方式安装 VS2017</h1><p>第一步会在你的系统上装一个 Visual Studio Installer，这次直接运行这个程序安装。</p>
-<p>注意：安装程序中自定义路径的那一步最好还是自定义到非系统盘，这样能最小化系统盘占用。</p>
-<p>温馨提示：目标文件夹一定要创建好，不然从 C 盘点过去会提示不存在导致 VS 安装失败。</p>
-
-    </article>
-    <!-- license  -->
+            <main class="main index-page">
     
-        <div class="license-wrapper">
-            <p>原文作者：<a href="http://www.loongten.com">keacwu</a>
-            </p><p>原文链接：<a href="http://www.loongten.com/2019/06/18/vs2019/">http://www.loongten.com/2019/06/18/vs2019/</a>
-            </p><p>发表日期：<a href="http://www.loongten.com/2019/06/18/vs2019/">June 18th 2019, 8:16:51 pm</a>
-            </p><p>更新日期：<a href="http://www.loongten.com/2019/06/18/vs2019/">June 19th 2019, 8:48:07 am</a>
-            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/08/19/ubuntu-vsftpd/">
+            
+                <span>ubuntu 搭建 vsftpd 遇到的坑</span>
+        </a>
+        <div class="abstract-content">
+            今天在配置公司服务器环境的时候遇到点问题来记录下
+安装配置安装 vsftpd 
+sudo apt-get install vsftpd
+修改配置文件 /etc/vsftpd.conf
+12345678910111213141516171819202122#是否允许匿名访问，NO为不允许anonymous_enable=NO#是否允许本地用户访问,就是linux本机中存在的用户，YES允许local_enable=YES#去掉下边这句的注释&quot;#&quot;。是否开启写模式，YES为开启write_enable=YES#是否启动userlist为通过模式，YES的话只有存在于use...
         </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="ubuntu">ubuntu</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="vsftpd">vsftpd</a>
+    
+</div>
+            
+        </div>
+    </article>
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2019/06/22/jwt/" title="jwt SrpingBoot">
-                    <div class="nextTitle">jwt SrpingBoot</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/06/14/vue-change/" title="vue-change">
-                    <div class="prevTitle">vue-change</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
     
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -575,24 +479,6 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一步"><span class="toc-number">1.</span> <span class="toc-text">第一步</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二步：使用-mklink-创建链接"><span class="toc-number">2.</span> <span class="toc-text">第二步：使用 mklink 创建链接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第三步：以正常方式安装-VS2017"><span class="toc-number">3.</span> <span class="toc-text">第三步：以正常方式安装 VS2017</span></a></li></ol>
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1468,8 +1354,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
