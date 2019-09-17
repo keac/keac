@@ -367,6 +367,63 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/09/17/kali-install/">
+            
+                <span>kali_install</span>
+        </a>
+        <div class="abstract-content">
+            kali 安装 到实体机出现了点问题，我用u盘安装，重启的时候发现 找不到 /dev/sdb2
+
+这里说一下问题所在，一般是由于系统启动路径而导致的问题
+解决办法就是修改一下启动路径
+快速方法我试了下，拿个u盘插各个口，再启动看看，就启动进去系统了
+临时修改输入blkid,查看分区状况，记下ext4这个盘，最好能拍个照，截个屏什么的，这个就是kali安装的位置
+
+记录好之后，重启物理机(ctrl+alt+del)，在kali首页那边，按e进入编辑模式进行修改
+
+按上下查看，找到初始化内存盘的样子，有一行在linux 后面有 /dev/sdb2 ro 这样的 改为 /dev/sda2 rw...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/17</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/09/10/spring-aliyun-oss/">
+            
+                <span>SpringBoot 整合 oss</span>
+        </a>
+        <div class="abstract-content">
+            Maven 添加依赖
+1234&lt;dependency&gt;     &lt;groupId&gt;com.aliyun.oss&lt;/groupId&gt;     &lt;artifactId&gt;aliyun-sdk-oss&lt;/artifactId&gt;&lt;/dependency&gt;
+yml 配置123456aliyun:    access-id:   你的id    access-key:  你的key    bucket:      你的buket    endpoint:    你的endpoint    dir:         设置文件存放文件...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/10</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/09/07/Raspbian3b-Buster/">
             
                 <span>Raspbian3b+ 折腾 Buster</span>
@@ -987,9 +1044,45 @@ Username: pi Password: raspberry
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 38
+        Total : 40
         </div>
         <!-- search  -->
         
@@ -1002,6 +1095,16 @@ Username: pi Password: raspberry
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/17</span><a class="archive-post-title" href="/2019/09/17/kali-install/">kali_install</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/10</span><a class="archive-post-title" href="/2019/09/10/spring-aliyun-oss/">SpringBoot 整合 oss</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1208,15 +1311,15 @@ Username: pi Password: raspberry
     
         <span class="sidebar-tag-name" data-tags="多环境"><span class="iconfont-archer">&#xe606;</span>多环境</span>
     
-        <span class="sidebar-tag-name" data-tags="bugku"><span class="iconfont-archer">&#xe606;</span>bugku</span>
-    
-        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
-    
         <span class="sidebar-tag-name" data-tags="主页劫持"><span class="iconfont-archer">&#xe606;</span>主页劫持</span>
     
         <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer">&#xe606;</span>浏览器</span>
     
         <span class="sidebar-tag-name" data-tags="vmitools"><span class="iconfont-archer">&#xe606;</span>vmitools</span>
+    
+        <span class="sidebar-tag-name" data-tags="bugku"><span class="iconfont-archer">&#xe606;</span>bugku</span>
+    
+        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
     
         <span class="sidebar-tag-name" data-tags="Bugku"><span class="iconfont-archer">&#xe606;</span>Bugku</span>
     
@@ -1228,12 +1331,6 @@ Username: pi Password: raspberry
     
         <span class="sidebar-tag-name" data-tags="tomcat"><span class="iconfont-archer">&#xe606;</span>tomcat</span>
     
-        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
-    
-        <span class="sidebar-tag-name" data-tags="hackbar"><span class="iconfont-archer">&#xe606;</span>hackbar</span>
-    
-        <span class="sidebar-tag-name" data-tags="许可证"><span class="iconfont-archer">&#xe606;</span>许可证</span>
-    
         <span class="sidebar-tag-name" data-tags="cmder"><span class="iconfont-archer">&#xe606;</span>cmder</span>
     
         <span class="sidebar-tag-name" data-tags="cmder here"><span class="iconfont-archer">&#xe606;</span>cmder here</span>
@@ -1242,11 +1339,17 @@ Username: pi Password: raspberry
     
         <span class="sidebar-tag-name" data-tags="右键清理"><span class="iconfont-archer">&#xe606;</span>右键清理</span>
     
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+    
+        <span class="sidebar-tag-name" data-tags="idea"><span class="iconfont-archer">&#xe606;</span>idea</span>
+    
+        <span class="sidebar-tag-name" data-tags="hackbar"><span class="iconfont-archer">&#xe606;</span>hackbar</span>
+    
+        <span class="sidebar-tag-name" data-tags="许可证"><span class="iconfont-archer">&#xe606;</span>许可证</span>
+    
         <span class="sidebar-tag-name" data-tags="jwt"><span class="iconfont-archer">&#xe606;</span>jwt</span>
     
         <span class="sidebar-tag-name" data-tags="JSON Web Token"><span class="iconfont-archer">&#xe606;</span>JSON Web Token</span>
-    
-        <span class="sidebar-tag-name" data-tags="idea"><span class="iconfont-archer">&#xe606;</span>idea</span>
     
         <span class="sidebar-tag-name" data-tags="自动导包"><span class="iconfont-archer">&#xe606;</span>自动导包</span>
     
@@ -1256,17 +1359,25 @@ Username: pi Password: raspberry
     
         <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer">&#xe606;</span>SpringBoot</span>
     
-        <span class="sidebar-tag-name" data-tags="mybatis"><span class="iconfont-archer">&#xe606;</span>mybatis</span>
-    
         <span class="sidebar-tag-name" data-tags="swagger2"><span class="iconfont-archer">&#xe606;</span>swagger2</span>
-    
-        <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
     
         <span class="sidebar-tag-name" data-tags="springboot"><span class="iconfont-archer">&#xe606;</span>springboot</span>
     
         <span class="sidebar-tag-name" data-tags="打包"><span class="iconfont-archer">&#xe606;</span>打包</span>
     
         <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
+    
+        <span class="sidebar-tag-name" data-tags="ubuntu"><span class="iconfont-archer">&#xe606;</span>ubuntu</span>
+    
+        <span class="sidebar-tag-name" data-tags="vsftpd"><span class="iconfont-archer">&#xe606;</span>vsftpd</span>
+    
+        <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
+    
+        <span class="sidebar-tag-name" data-tags="usb"><span class="iconfont-archer">&#xe606;</span>usb</span>
+    
+        <span class="sidebar-tag-name" data-tags="windwos10"><span class="iconfont-archer">&#xe606;</span>windwos10</span>
+    
+        <span class="sidebar-tag-name" data-tags="安装系统"><span class="iconfont-archer">&#xe606;</span>安装系统</span>
     
         <span class="sidebar-tag-name" data-tags="vs"><span class="iconfont-archer">&#xe606;</span>vs</span>
     
@@ -1276,19 +1387,7 @@ Username: pi Password: raspberry
     
         <span class="sidebar-tag-name" data-tags="Visual Studio"><span class="iconfont-archer">&#xe606;</span>Visual Studio</span>
     
-        <span class="sidebar-tag-name" data-tags="ubuntu"><span class="iconfont-archer">&#xe606;</span>ubuntu</span>
-    
-        <span class="sidebar-tag-name" data-tags="vsftpd"><span class="iconfont-archer">&#xe606;</span>vsftpd</span>
-    
-        <span class="sidebar-tag-name" data-tags="usb"><span class="iconfont-archer">&#xe606;</span>usb</span>
-    
-        <span class="sidebar-tag-name" data-tags="windwos10"><span class="iconfont-archer">&#xe606;</span>windwos10</span>
-    
-        <span class="sidebar-tag-name" data-tags="安装系统"><span class="iconfont-archer">&#xe606;</span>安装系统</span>
-    
-        <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer">&#xe606;</span>vue-cli</span>
-    
-        <span class="sidebar-tag-name" data-tags="升级"><span class="iconfont-archer">&#xe606;</span>升级</span>
+        <span class="sidebar-tag-name" data-tags="mybatis"><span class="iconfont-archer">&#xe606;</span>mybatis</span>
     
         <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
     
@@ -1297,6 +1396,10 @@ Username: pi Password: raspberry
         <span class="sidebar-tag-name" data-tags="小程序"><span class="iconfont-archer">&#xe606;</span>小程序</span>
     
         <span class="sidebar-tag-name" data-tags="windows"><span class="iconfont-archer">&#xe606;</span>windows</span>
+    
+        <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer">&#xe606;</span>vue-cli</span>
+    
+        <span class="sidebar-tag-name" data-tags="升级"><span class="iconfont-archer">&#xe606;</span>升级</span>
     
         <span class="sidebar-tag-name" data-tags="zsh"><span class="iconfont-archer">&#xe606;</span>zsh</span>
     

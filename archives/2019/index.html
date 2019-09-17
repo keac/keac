@@ -367,6 +367,63 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/09/17/kali-install/">
+            
+                <span>kali_install</span>
+        </a>
+        <div class="abstract-content">
+            kali 安装 到实体机出现了点问题，我用u盘安装，重启的时候发现 找不到 /dev/sdb2
+
+这里说一下问题所在，一般是由于系统启动路径而导致的问题
+解决办法就是修改一下启动路径
+快速方法我试了下，拿个u盘插各个口，再启动看看，就启动进去系统了
+临时修改输入blkid,查看分区状况，记下ext4这个盘，最好能拍个照，截个屏什么的，这个就是kali安装的位置
+
+记录好之后，重启物理机(ctrl+alt+del)，在kali首页那边，按e进入编辑模式进行修改
+
+按上下查看，找到初始化内存盘的样子，有一行在linux 后面有 /dev/sdb2 ro 这样的 改为 /dev/sda2 rw...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/17</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/09/10/spring-aliyun-oss/">
+            
+                <span>SpringBoot 整合 oss</span>
+        </a>
+        <div class="abstract-content">
+            Maven 添加依赖
+1234&lt;dependency&gt;     &lt;groupId&gt;com.aliyun.oss&lt;/groupId&gt;     &lt;artifactId&gt;aliyun-sdk-oss&lt;/artifactId&gt;&lt;/dependency&gt;
+yml 配置123456aliyun:    access-id:   你的id    access-key:  你的key    bucket:      你的buket    endpoint:    你的endpoint    dir:         设置文件存放文件...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/10</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/09/07/Raspbian3b-Buster/">
             
                 <span>Raspbian3b+ 折腾 Buster</span>
@@ -636,81 +693,6 @@ PS. –permanent为永久生效，没有此参数centos重启后该配置将失�
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/01</span>
             </div>
             <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/08/01/centos7-nginx/">
-            
-                <span>Centos7 安装 Nginx 实现 负载均衡和反向代理.</span>
-        </a>
-        <div class="abstract-content">
-            准备首先准备好Centos7 系统 在我之前的博客有介绍安装 可以参考下
-惯例，连接上系统先 yum update 一下
-安装Centos7 默认 yum源里面没有nginx
-1sudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
-
-yum search nginx 看下有没有Nginx的包了
-
-yum install -y nginx 开始安装
-
-看到 Complete! 就说明已经安装成功了！
-
-systemctl start n...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="centos7">centos7</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="nginx">nginx</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/08/01/mysql-optimization2/">
-            
-                <span>Mysql 索引</span>
-        </a>
-        <div class="abstract-content">
-            索引什么是索引我们知道，数据库查询是数据库的最主要功能之一。我们都希望查询数据的速度能尽可能的快，因此数据库系统的设计者会从查询算法的角度进行优化。最基本的查询算法当然是顺序查找（linear search），这种复杂度为O(n)的算法在数据量很大时显然是糟糕的，好在计算机科学的发展提供了很多更优秀的查找算法，例如二分查找（binary search）、二叉树查找（binary tree search）等。如果稍微分析一下会发现，每种查找算法都只能应用于特定的数据结构之上，例如二分查找要求被检索数据有序，而二叉树查找只能应用于二叉查找树上，但是数据本身的组织结构不可能完全满足各种数据结构...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="mysql">mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="优化">优化</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="sql">sql</a>
-    
-</div>
             
         </div>
     </article>
@@ -1309,9 +1291,45 @@ systemctl start n...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 38
+        Total : 40
         </div>
         <!-- search  -->
         
@@ -1324,6 +1342,16 @@ systemctl start n...
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/17</span><a class="archive-post-title" href="/2019/09/17/kali-install/">kali_install</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/10</span><a class="archive-post-title" href="/2019/09/10/spring-aliyun-oss/">SpringBoot 整合 oss</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1530,15 +1558,15 @@ systemctl start n...
     
         <span class="sidebar-tag-name" data-tags="多环境"><span class="iconfont-archer">&#xe606;</span>多环境</span>
     
-        <span class="sidebar-tag-name" data-tags="bugku"><span class="iconfont-archer">&#xe606;</span>bugku</span>
-    
-        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
-    
         <span class="sidebar-tag-name" data-tags="主页劫持"><span class="iconfont-archer">&#xe606;</span>主页劫持</span>
     
         <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer">&#xe606;</span>浏览器</span>
     
         <span class="sidebar-tag-name" data-tags="vmitools"><span class="iconfont-archer">&#xe606;</span>vmitools</span>
+    
+        <span class="sidebar-tag-name" data-tags="bugku"><span class="iconfont-archer">&#xe606;</span>bugku</span>
+    
+        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
     
         <span class="sidebar-tag-name" data-tags="Bugku"><span class="iconfont-archer">&#xe606;</span>Bugku</span>
     
@@ -1550,12 +1578,6 @@ systemctl start n...
     
         <span class="sidebar-tag-name" data-tags="tomcat"><span class="iconfont-archer">&#xe606;</span>tomcat</span>
     
-        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
-    
-        <span class="sidebar-tag-name" data-tags="hackbar"><span class="iconfont-archer">&#xe606;</span>hackbar</span>
-    
-        <span class="sidebar-tag-name" data-tags="许可证"><span class="iconfont-archer">&#xe606;</span>许可证</span>
-    
         <span class="sidebar-tag-name" data-tags="cmder"><span class="iconfont-archer">&#xe606;</span>cmder</span>
     
         <span class="sidebar-tag-name" data-tags="cmder here"><span class="iconfont-archer">&#xe606;</span>cmder here</span>
@@ -1564,11 +1586,17 @@ systemctl start n...
     
         <span class="sidebar-tag-name" data-tags="右键清理"><span class="iconfont-archer">&#xe606;</span>右键清理</span>
     
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+    
+        <span class="sidebar-tag-name" data-tags="idea"><span class="iconfont-archer">&#xe606;</span>idea</span>
+    
+        <span class="sidebar-tag-name" data-tags="hackbar"><span class="iconfont-archer">&#xe606;</span>hackbar</span>
+    
+        <span class="sidebar-tag-name" data-tags="许可证"><span class="iconfont-archer">&#xe606;</span>许可证</span>
+    
         <span class="sidebar-tag-name" data-tags="jwt"><span class="iconfont-archer">&#xe606;</span>jwt</span>
     
         <span class="sidebar-tag-name" data-tags="JSON Web Token"><span class="iconfont-archer">&#xe606;</span>JSON Web Token</span>
-    
-        <span class="sidebar-tag-name" data-tags="idea"><span class="iconfont-archer">&#xe606;</span>idea</span>
     
         <span class="sidebar-tag-name" data-tags="自动导包"><span class="iconfont-archer">&#xe606;</span>自动导包</span>
     
@@ -1578,17 +1606,25 @@ systemctl start n...
     
         <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer">&#xe606;</span>SpringBoot</span>
     
-        <span class="sidebar-tag-name" data-tags="mybatis"><span class="iconfont-archer">&#xe606;</span>mybatis</span>
-    
         <span class="sidebar-tag-name" data-tags="swagger2"><span class="iconfont-archer">&#xe606;</span>swagger2</span>
-    
-        <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
     
         <span class="sidebar-tag-name" data-tags="springboot"><span class="iconfont-archer">&#xe606;</span>springboot</span>
     
         <span class="sidebar-tag-name" data-tags="打包"><span class="iconfont-archer">&#xe606;</span>打包</span>
     
         <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
+    
+        <span class="sidebar-tag-name" data-tags="ubuntu"><span class="iconfont-archer">&#xe606;</span>ubuntu</span>
+    
+        <span class="sidebar-tag-name" data-tags="vsftpd"><span class="iconfont-archer">&#xe606;</span>vsftpd</span>
+    
+        <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
+    
+        <span class="sidebar-tag-name" data-tags="usb"><span class="iconfont-archer">&#xe606;</span>usb</span>
+    
+        <span class="sidebar-tag-name" data-tags="windwos10"><span class="iconfont-archer">&#xe606;</span>windwos10</span>
+    
+        <span class="sidebar-tag-name" data-tags="安装系统"><span class="iconfont-archer">&#xe606;</span>安装系统</span>
     
         <span class="sidebar-tag-name" data-tags="vs"><span class="iconfont-archer">&#xe606;</span>vs</span>
     
@@ -1598,19 +1634,7 @@ systemctl start n...
     
         <span class="sidebar-tag-name" data-tags="Visual Studio"><span class="iconfont-archer">&#xe606;</span>Visual Studio</span>
     
-        <span class="sidebar-tag-name" data-tags="ubuntu"><span class="iconfont-archer">&#xe606;</span>ubuntu</span>
-    
-        <span class="sidebar-tag-name" data-tags="vsftpd"><span class="iconfont-archer">&#xe606;</span>vsftpd</span>
-    
-        <span class="sidebar-tag-name" data-tags="usb"><span class="iconfont-archer">&#xe606;</span>usb</span>
-    
-        <span class="sidebar-tag-name" data-tags="windwos10"><span class="iconfont-archer">&#xe606;</span>windwos10</span>
-    
-        <span class="sidebar-tag-name" data-tags="安装系统"><span class="iconfont-archer">&#xe606;</span>安装系统</span>
-    
-        <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer">&#xe606;</span>vue-cli</span>
-    
-        <span class="sidebar-tag-name" data-tags="升级"><span class="iconfont-archer">&#xe606;</span>升级</span>
+        <span class="sidebar-tag-name" data-tags="mybatis"><span class="iconfont-archer">&#xe606;</span>mybatis</span>
     
         <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
     
@@ -1619,6 +1643,10 @@ systemctl start n...
         <span class="sidebar-tag-name" data-tags="小程序"><span class="iconfont-archer">&#xe606;</span>小程序</span>
     
         <span class="sidebar-tag-name" data-tags="windows"><span class="iconfont-archer">&#xe606;</span>windows</span>
+    
+        <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer">&#xe606;</span>vue-cli</span>
+    
+        <span class="sidebar-tag-name" data-tags="升级"><span class="iconfont-archer">&#xe606;</span>升级</span>
     
         <span class="sidebar-tag-name" data-tags="zsh"><span class="iconfont-archer">&#xe606;</span>zsh</span>
     

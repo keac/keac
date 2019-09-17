@@ -380,6 +380,81 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/08/01/centos7-nginx/">
+            
+                <span>Centos7 安装 Nginx 实现 负载均衡和反向代理.</span>
+        </a>
+        <div class="abstract-content">
+            准备首先准备好Centos7 系统 在我之前的博客有介绍安装 可以参考下
+惯例，连接上系统先 yum update 一下
+安装Centos7 默认 yum源里面没有nginx
+1sudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+
+yum search nginx 看下有没有Nginx的包了
+
+yum install -y nginx 开始安装
+
+看到 Complete! 就说明已经安装成功了！
+
+systemctl start n...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/01</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="centos7">centos7</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="nginx">nginx</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/08/01/mysql-optimization2/">
+            
+                <span>Mysql 索引</span>
+        </a>
+        <div class="abstract-content">
+            索引什么是索引我们知道，数据库查询是数据库的最主要功能之一。我们都希望查询数据的速度能尽可能的快，因此数据库系统的设计者会从查询算法的角度进行优化。最基本的查询算法当然是顺序查找（linear search），这种复杂度为O(n)的算法在数据量很大时显然是糟糕的，好在计算机科学的发展提供了很多更优秀的查找算法，例如二分查找（binary search）、二叉树查找（binary tree search）等。如果稍微分析一下会发现，每种查找算法都只能应用于特定的数据结构之上，例如二分查找要求被检索数据有序，而二叉树查找只能应用于二叉查找树上，但是数据本身的组织结构不可能完全满足各种数据结构...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/01</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="mysql">mysql</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="优化">优化</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="sql">sql</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/07/31/centos7-install-tomcat/">
             
                 <span>centos7 安装tomcat9</span>
@@ -682,74 +757,6 @@ SpringBo...
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/07/25/spirngboot-mybatis/">
-            
-                <span>spirngboot学习 整合mybatis</span>
-        </a>
-        <div class="abstract-content">
-            SpirngBoot 学习  整合mybatis加入依赖1234567891011121314151617&lt;!--JDBC--&gt;&lt;dependency&gt;    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    &lt;artifactId&gt;spring-boot-starter-jdbc&lt;/artifactId&gt;&lt;/dependency&gt;&lt;!--mybatis--&gt;&lt;dependency&gt;    &lt;groupId&gt;org.mybat...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="SpringBoot">SpringBoot</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="mybatis">mybatis</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/07/24/idea-auto-import/">
-            
-                <span>idea 自动导包</span>
-        </a>
-        <div class="abstract-content">
-            今天听课的时候听到一个问题，代码借（复）鉴（制）来的时候，包一个个都要手工去alt+enter 去导入很麻烦。
-在网上查了下 
-Editor -&gt; General -&gt; Auto Import
-
-标注的位置打上勾勾1、IntelliJ IDEA 将在我们书写代码的时候自动帮我们优化导入的包，比如自动去掉一些没有用到的包
-2、IntelliJ IDEA 将在我们书写代码的时候自动帮我们导入需要用到的包。但是对于那些同名的包，还是需要手动 Alt + Enter 进行导入的
-idea有很多快捷方式(Alt+Insert)，比如get,set,构造函数，hashcode,equla...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="idea">idea</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="自动导包">自动导包</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
@@ -832,7 +839,7 @@ idea有很多快捷方式(Alt+Insert)，比如get,set,构造函数，hashcode,eq
             
                 
                     <span>
-                        <a href="//www.google.com" target="_black">Google</a>
+                        <a href="//hacknical.com/keac/github?locale=zh" target="_black">简历</a>
                     </span>
                 
             
@@ -1442,9 +1449,45 @@ idea有很多快捷方式(Alt+Insert)，比如get,set,构造函数，hashcode,eq
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 38
+        Total : 40
         </div>
         <!-- search  -->
         
@@ -1457,6 +1500,16 @@ idea有很多快捷方式(Alt+Insert)，比如get,set,构造函数，hashcode,eq
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/17</span><a class="archive-post-title" href="/2019/09/17/kali-install/">kali_install</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/10</span><a class="archive-post-title" href="/2019/09/10/spring-aliyun-oss/">SpringBoot 整合 oss</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1663,15 +1716,15 @@ idea有很多快捷方式(Alt+Insert)，比如get,set,构造函数，hashcode,eq
     
         <span class="sidebar-tag-name" data-tags="多环境"><span class="iconfont-archer">&#xe606;</span>多环境</span>
     
-        <span class="sidebar-tag-name" data-tags="bugku"><span class="iconfont-archer">&#xe606;</span>bugku</span>
-    
-        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
-    
         <span class="sidebar-tag-name" data-tags="主页劫持"><span class="iconfont-archer">&#xe606;</span>主页劫持</span>
     
         <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer">&#xe606;</span>浏览器</span>
     
         <span class="sidebar-tag-name" data-tags="vmitools"><span class="iconfont-archer">&#xe606;</span>vmitools</span>
+    
+        <span class="sidebar-tag-name" data-tags="bugku"><span class="iconfont-archer">&#xe606;</span>bugku</span>
+    
+        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
     
         <span class="sidebar-tag-name" data-tags="Bugku"><span class="iconfont-archer">&#xe606;</span>Bugku</span>
     
@@ -1683,12 +1736,6 @@ idea有很多快捷方式(Alt+Insert)，比如get,set,构造函数，hashcode,eq
     
         <span class="sidebar-tag-name" data-tags="tomcat"><span class="iconfont-archer">&#xe606;</span>tomcat</span>
     
-        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
-    
-        <span class="sidebar-tag-name" data-tags="hackbar"><span class="iconfont-archer">&#xe606;</span>hackbar</span>
-    
-        <span class="sidebar-tag-name" data-tags="许可证"><span class="iconfont-archer">&#xe606;</span>许可证</span>
-    
         <span class="sidebar-tag-name" data-tags="cmder"><span class="iconfont-archer">&#xe606;</span>cmder</span>
     
         <span class="sidebar-tag-name" data-tags="cmder here"><span class="iconfont-archer">&#xe606;</span>cmder here</span>
@@ -1697,11 +1744,17 @@ idea有很多快捷方式(Alt+Insert)，比如get,set,构造函数，hashcode,eq
     
         <span class="sidebar-tag-name" data-tags="右键清理"><span class="iconfont-archer">&#xe606;</span>右键清理</span>
     
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+    
+        <span class="sidebar-tag-name" data-tags="idea"><span class="iconfont-archer">&#xe606;</span>idea</span>
+    
+        <span class="sidebar-tag-name" data-tags="hackbar"><span class="iconfont-archer">&#xe606;</span>hackbar</span>
+    
+        <span class="sidebar-tag-name" data-tags="许可证"><span class="iconfont-archer">&#xe606;</span>许可证</span>
+    
         <span class="sidebar-tag-name" data-tags="jwt"><span class="iconfont-archer">&#xe606;</span>jwt</span>
     
         <span class="sidebar-tag-name" data-tags="JSON Web Token"><span class="iconfont-archer">&#xe606;</span>JSON Web Token</span>
-    
-        <span class="sidebar-tag-name" data-tags="idea"><span class="iconfont-archer">&#xe606;</span>idea</span>
     
         <span class="sidebar-tag-name" data-tags="自动导包"><span class="iconfont-archer">&#xe606;</span>自动导包</span>
     
@@ -1711,17 +1764,25 @@ idea有很多快捷方式(Alt+Insert)，比如get,set,构造函数，hashcode,eq
     
         <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer">&#xe606;</span>SpringBoot</span>
     
-        <span class="sidebar-tag-name" data-tags="mybatis"><span class="iconfont-archer">&#xe606;</span>mybatis</span>
-    
         <span class="sidebar-tag-name" data-tags="swagger2"><span class="iconfont-archer">&#xe606;</span>swagger2</span>
-    
-        <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
     
         <span class="sidebar-tag-name" data-tags="springboot"><span class="iconfont-archer">&#xe606;</span>springboot</span>
     
         <span class="sidebar-tag-name" data-tags="打包"><span class="iconfont-archer">&#xe606;</span>打包</span>
     
         <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
+    
+        <span class="sidebar-tag-name" data-tags="ubuntu"><span class="iconfont-archer">&#xe606;</span>ubuntu</span>
+    
+        <span class="sidebar-tag-name" data-tags="vsftpd"><span class="iconfont-archer">&#xe606;</span>vsftpd</span>
+    
+        <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
+    
+        <span class="sidebar-tag-name" data-tags="usb"><span class="iconfont-archer">&#xe606;</span>usb</span>
+    
+        <span class="sidebar-tag-name" data-tags="windwos10"><span class="iconfont-archer">&#xe606;</span>windwos10</span>
+    
+        <span class="sidebar-tag-name" data-tags="安装系统"><span class="iconfont-archer">&#xe606;</span>安装系统</span>
     
         <span class="sidebar-tag-name" data-tags="vs"><span class="iconfont-archer">&#xe606;</span>vs</span>
     
@@ -1731,19 +1792,7 @@ idea有很多快捷方式(Alt+Insert)，比如get,set,构造函数，hashcode,eq
     
         <span class="sidebar-tag-name" data-tags="Visual Studio"><span class="iconfont-archer">&#xe606;</span>Visual Studio</span>
     
-        <span class="sidebar-tag-name" data-tags="ubuntu"><span class="iconfont-archer">&#xe606;</span>ubuntu</span>
-    
-        <span class="sidebar-tag-name" data-tags="vsftpd"><span class="iconfont-archer">&#xe606;</span>vsftpd</span>
-    
-        <span class="sidebar-tag-name" data-tags="usb"><span class="iconfont-archer">&#xe606;</span>usb</span>
-    
-        <span class="sidebar-tag-name" data-tags="windwos10"><span class="iconfont-archer">&#xe606;</span>windwos10</span>
-    
-        <span class="sidebar-tag-name" data-tags="安装系统"><span class="iconfont-archer">&#xe606;</span>安装系统</span>
-    
-        <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer">&#xe606;</span>vue-cli</span>
-    
-        <span class="sidebar-tag-name" data-tags="升级"><span class="iconfont-archer">&#xe606;</span>升级</span>
+        <span class="sidebar-tag-name" data-tags="mybatis"><span class="iconfont-archer">&#xe606;</span>mybatis</span>
     
         <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
     
@@ -1752,6 +1801,10 @@ idea有很多快捷方式(Alt+Insert)，比如get,set,构造函数，hashcode,eq
         <span class="sidebar-tag-name" data-tags="小程序"><span class="iconfont-archer">&#xe606;</span>小程序</span>
     
         <span class="sidebar-tag-name" data-tags="windows"><span class="iconfont-archer">&#xe606;</span>windows</span>
+    
+        <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer">&#xe606;</span>vue-cli</span>
+    
+        <span class="sidebar-tag-name" data-tags="升级"><span class="iconfont-archer">&#xe606;</span>升级</span>
     
         <span class="sidebar-tag-name" data-tags="zsh"><span class="iconfont-archer">&#xe606;</span>zsh</span>
     

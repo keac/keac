@@ -380,6 +380,98 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/06/22/jwt/">
+            
+                <span>jwt SrpingBoot</span>
+        </a>
+        <div class="abstract-content">
+            前言前几天在写微信小程序的时候，发现微信小程序不支持Cookie导致我的Session无法正常获取，查阅了资料后，找到了之前用过的jwt，之前没怎么写过，写篇博客来记录下。
+跨域认证的问题互联网服务离不开用户认证。一般流程是下面这样。
+
+1、用户向服务器发送用户名和密码。
+
+
+2、服务器验证通过后，在当前对话（session）里面保存相关数据，比如用户角色、登录时间等等。
+
+
+3、服务器向用户返回一个 session_id，写入用户的 Cookie。
+
+
+4、用户随后的每一次请求，都会通过 Cookie，将 session_id 传回服务器。
+
+
+5、服务器收到 session_id，找...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/22</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="SrpingBoot">SrpingBoot</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="jwt">jwt</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="JSON Web Token">JSON Web Token</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/06/18/vs2019/">
+            
+                <span>vs2019 安装到非系统盘</span>
+        </a>
+        <div class="abstract-content">
+            我的SSD只有120G，装完一些必备的东西就不够用了。
+vs2019 正式版发布的时候，把旧版的VS卸了，瞬间空出30G。。
+第一步
+从微软官网下载 Visual Studio Community 2019(其他版本类似)
+运行下载的安装程序，到选择安装的组件时退出程序
+
+第二步：使用 mklink 创建链接
+原理：这一步的目的是欺骗 VS 安装程序，把它（将要或已经）放在系统盘的内容转移到其他盘，这样 VS 安装时仍然读写的是系统盘的路径，但实际上这些路径被我们转移到了非系统盘了，如此便释放了系统盘空间。
+
+基本用法：1mklink /d &quot;链接需要放置的路径&quot; &...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/18</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="vs">vs</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="2019">2019</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="vs2019">vs2019</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Visual Studio">Visual Studio</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/06/14/vue-change/">
             
                 <span>vue-change</span>
@@ -773,7 +865,7 @@ con...
             
                 
                     <span>
-                        <a href="//www.google.com" target="_black">Google</a>
+                        <a href="//hacknical.com/keac/github?locale=zh" target="_black">简历</a>
                     </span>
                 
             
@@ -1383,9 +1475,45 @@ con...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 38
+        Total : 40
         </div>
         <!-- search  -->
         
@@ -1398,6 +1526,16 @@ con...
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/17</span><a class="archive-post-title" href="/2019/09/17/kali-install/">kali_install</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/10</span><a class="archive-post-title" href="/2019/09/10/spring-aliyun-oss/">SpringBoot 整合 oss</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1604,15 +1742,15 @@ con...
     
         <span class="sidebar-tag-name" data-tags="多环境"><span class="iconfont-archer">&#xe606;</span>多环境</span>
     
-        <span class="sidebar-tag-name" data-tags="bugku"><span class="iconfont-archer">&#xe606;</span>bugku</span>
-    
-        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
-    
         <span class="sidebar-tag-name" data-tags="主页劫持"><span class="iconfont-archer">&#xe606;</span>主页劫持</span>
     
         <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer">&#xe606;</span>浏览器</span>
     
         <span class="sidebar-tag-name" data-tags="vmitools"><span class="iconfont-archer">&#xe606;</span>vmitools</span>
+    
+        <span class="sidebar-tag-name" data-tags="bugku"><span class="iconfont-archer">&#xe606;</span>bugku</span>
+    
+        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
     
         <span class="sidebar-tag-name" data-tags="Bugku"><span class="iconfont-archer">&#xe606;</span>Bugku</span>
     
@@ -1624,12 +1762,6 @@ con...
     
         <span class="sidebar-tag-name" data-tags="tomcat"><span class="iconfont-archer">&#xe606;</span>tomcat</span>
     
-        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
-    
-        <span class="sidebar-tag-name" data-tags="hackbar"><span class="iconfont-archer">&#xe606;</span>hackbar</span>
-    
-        <span class="sidebar-tag-name" data-tags="许可证"><span class="iconfont-archer">&#xe606;</span>许可证</span>
-    
         <span class="sidebar-tag-name" data-tags="cmder"><span class="iconfont-archer">&#xe606;</span>cmder</span>
     
         <span class="sidebar-tag-name" data-tags="cmder here"><span class="iconfont-archer">&#xe606;</span>cmder here</span>
@@ -1638,11 +1770,17 @@ con...
     
         <span class="sidebar-tag-name" data-tags="右键清理"><span class="iconfont-archer">&#xe606;</span>右键清理</span>
     
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+    
+        <span class="sidebar-tag-name" data-tags="idea"><span class="iconfont-archer">&#xe606;</span>idea</span>
+    
+        <span class="sidebar-tag-name" data-tags="hackbar"><span class="iconfont-archer">&#xe606;</span>hackbar</span>
+    
+        <span class="sidebar-tag-name" data-tags="许可证"><span class="iconfont-archer">&#xe606;</span>许可证</span>
+    
         <span class="sidebar-tag-name" data-tags="jwt"><span class="iconfont-archer">&#xe606;</span>jwt</span>
     
         <span class="sidebar-tag-name" data-tags="JSON Web Token"><span class="iconfont-archer">&#xe606;</span>JSON Web Token</span>
-    
-        <span class="sidebar-tag-name" data-tags="idea"><span class="iconfont-archer">&#xe606;</span>idea</span>
     
         <span class="sidebar-tag-name" data-tags="自动导包"><span class="iconfont-archer">&#xe606;</span>自动导包</span>
     
@@ -1652,17 +1790,25 @@ con...
     
         <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer">&#xe606;</span>SpringBoot</span>
     
-        <span class="sidebar-tag-name" data-tags="mybatis"><span class="iconfont-archer">&#xe606;</span>mybatis</span>
-    
         <span class="sidebar-tag-name" data-tags="swagger2"><span class="iconfont-archer">&#xe606;</span>swagger2</span>
-    
-        <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
     
         <span class="sidebar-tag-name" data-tags="springboot"><span class="iconfont-archer">&#xe606;</span>springboot</span>
     
         <span class="sidebar-tag-name" data-tags="打包"><span class="iconfont-archer">&#xe606;</span>打包</span>
     
         <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
+    
+        <span class="sidebar-tag-name" data-tags="ubuntu"><span class="iconfont-archer">&#xe606;</span>ubuntu</span>
+    
+        <span class="sidebar-tag-name" data-tags="vsftpd"><span class="iconfont-archer">&#xe606;</span>vsftpd</span>
+    
+        <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
+    
+        <span class="sidebar-tag-name" data-tags="usb"><span class="iconfont-archer">&#xe606;</span>usb</span>
+    
+        <span class="sidebar-tag-name" data-tags="windwos10"><span class="iconfont-archer">&#xe606;</span>windwos10</span>
+    
+        <span class="sidebar-tag-name" data-tags="安装系统"><span class="iconfont-archer">&#xe606;</span>安装系统</span>
     
         <span class="sidebar-tag-name" data-tags="vs"><span class="iconfont-archer">&#xe606;</span>vs</span>
     
@@ -1672,19 +1818,7 @@ con...
     
         <span class="sidebar-tag-name" data-tags="Visual Studio"><span class="iconfont-archer">&#xe606;</span>Visual Studio</span>
     
-        <span class="sidebar-tag-name" data-tags="ubuntu"><span class="iconfont-archer">&#xe606;</span>ubuntu</span>
-    
-        <span class="sidebar-tag-name" data-tags="vsftpd"><span class="iconfont-archer">&#xe606;</span>vsftpd</span>
-    
-        <span class="sidebar-tag-name" data-tags="usb"><span class="iconfont-archer">&#xe606;</span>usb</span>
-    
-        <span class="sidebar-tag-name" data-tags="windwos10"><span class="iconfont-archer">&#xe606;</span>windwos10</span>
-    
-        <span class="sidebar-tag-name" data-tags="安装系统"><span class="iconfont-archer">&#xe606;</span>安装系统</span>
-    
-        <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer">&#xe606;</span>vue-cli</span>
-    
-        <span class="sidebar-tag-name" data-tags="升级"><span class="iconfont-archer">&#xe606;</span>升级</span>
+        <span class="sidebar-tag-name" data-tags="mybatis"><span class="iconfont-archer">&#xe606;</span>mybatis</span>
     
         <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
     
@@ -1693,6 +1827,10 @@ con...
         <span class="sidebar-tag-name" data-tags="小程序"><span class="iconfont-archer">&#xe606;</span>小程序</span>
     
         <span class="sidebar-tag-name" data-tags="windows"><span class="iconfont-archer">&#xe606;</span>windows</span>
+    
+        <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer">&#xe606;</span>vue-cli</span>
+    
+        <span class="sidebar-tag-name" data-tags="升级"><span class="iconfont-archer">&#xe606;</span>升级</span>
     
         <span class="sidebar-tag-name" data-tags="zsh"><span class="iconfont-archer">&#xe606;</span>zsh</span>
     
