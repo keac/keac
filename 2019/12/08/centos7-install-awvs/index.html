@@ -427,7 +427,7 @@ height:50vh;
 <p>然后可能有些依赖还是找不到…</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Checking os...</span><br><span class="line">Checking for dependencies...</span><br><span class="line">    - dependency libgdk-3.so.0 not found on the system</span><br><span class="line">    - dependency libgdk_pixbuf-2.0.so.0 not found on the system</span><br><span class="line">    - dependency libgtk-3.so.0 not found on the system</span><br><span class="line">Some dependencies are not found on the system. Aborting installation.</span><br><span class="line">Aborting installation</span><br></pre></td></tr></table></figure>
 <p>运行 <code>yum provides libgdk-3.so.0</code></p>
-<p><img src="centos7-install-awvs/1.png" alt></p>
+<p><img src="1.png" alt></p>
 <p>找到为 gtk3-3.22.30-3.el7.i686 包含</p>
 <p><code>yum install gtk3-3.22.30-3.el7.i686</code></p>
 <p>其他同理，之后一路安装下去。安装过程就不贴图了</p>
@@ -442,7 +442,7 @@ height:50vh;
 <p>破解成功会显示</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt; xs3c.co &gt;</span><br><span class="line"> ------------</span><br><span class="line">       \   ,__,</span><br><span class="line">        \  (oo)____</span><br><span class="line">           (__)    )\</span><br><span class="line">              ||--|| *</span><br><span class="line">Crack by bigchan.Tested on v_190325161.</span><br><span class="line">Usage: Copy me to the scanner folder and run as root.</span><br><span class="line"></span><br><span class="line">Check environment.</span><br><span class="line">Generating license.</span><br><span class="line">Patch executable.</span><br><span class="line">Jobs done, there you go.</span><br></pre></td></tr></table></figure>
 <h2 id="找不到证书"><a href="#找不到证书" class="headerlink" title="找不到证书"></a>找不到证书</h2><p>但是我这 Can not Locate license file</p>
-<p><img src="centos7-install-awvs/2.png" alt></p>
+<p><img src="2.png" alt></p>
 <p>有点问题</p>
 <ol>
 <li>放置路径错了</li>
@@ -450,7 +450,7 @@ height:50vh;
 </ol>
 <p>看了眼路径是对的，那就是证书的问题了。</p>
 <p><code>strings /usr/lib64/libstdc++.so.6 | grep GLIBCXX</code></p>
-<p><img src="centos7-install-awvs/3.png" alt></p>
+<p><img src="3.png" alt></p>
 <p>需要包含 GLIBCXX_3.4.20，否则安装awvs时无法生成证书文件，破解补丁自然会失败，我这最高也就19</p>
 <p>找找看本地有没有20版本的 <code>find / -name  libstdc++.so.6*</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@test ~]# find / -name  libstdc++.so.6*</span><br><span class="line">/usr/lib64/libstdc++.so.6</span><br><span class="line">/usr/lib64/libstdc++.so.6.0.19</span><br><span class="line">/usr/share/gdb/auto-load/usr/lib64/libstdc++.so.6.0.19-gdb.pyo</span><br><span class="line">/usr/share/gdb/auto-load/usr/lib64/libstdc++.so.6.0.19-gdb.pyc</span><br><span class="line">/usr/share/gdb/auto-load/usr/lib64/libstdc++.so.6.0.19-gdb.py</span><br><span class="line">/usr/share/gdb/auto-load/usr/lib/libstdc++.so.6.0.19-gdb.pyo</span><br><span class="line">/usr/share/gdb/auto-load/usr/lib/libstdc++.so.6.0.19-gdb.pyc</span><br><span class="line">/usr/share/gdb/auto-load/usr/lib/libstdc++.so.6.0.19-gdb.py</span><br><span class="line">/usr/lib/libstdc++.so.6</span><br><span class="line">/usr/lib/libstdc++.so.6.0.19</span><br></pre></td></tr></table></figure>
@@ -476,9 +476,9 @@ height:50vh;
 </ol>
 <p>之后再去访问下 activate 看到 License Key 里面有东西了，再去运行下</p>
 <p><code>./patch_awvs</code></p>
-<p><img src="centos7-install-awvs/4.png" alt></p>
+<p><img src="4.png" alt></p>
 <p>成功激活</p>
-<p><img src="centos7-install-awvs/5.png" alt></p>
+<p><img src="5.png" alt></p>
 <h2 id="保护license不失效"><a href="#保护license不失效" class="headerlink" title="保护license不失效"></a>保护license不失效</h2><p>执行完成patch之后，尽快执行如下的命令，不然license会被修改的。</p>
 <p><code>chattr +i /home/acunetix/.acunetix_trial/data/license/license_info.json</code></p>
 <h2 id="awvs破解后14天失效问题解决"><a href="#awvs破解后14天失效问题解决" class="headerlink" title="awvs破解后14天失效问题解决"></a>awvs破解后14天失效问题解决</h2><p>参考大佬的博客,通过日志的查看和命令行模式的调试</p>
@@ -505,7 +505,7 @@ height:50vh;
             <p>原文作者：<a href="http://www.loongten.com">keacwu</a>
             </p><p>原文链接：<a href="http://www.loongten.com/2019/12/08/centos7-install-awvs/">http://www.loongten.com/2019/12/08/centos7-install-awvs/</a>
             </p><p>发表日期：<a href="http://www.loongten.com/2019/12/08/centos7-install-awvs/">December 8th 2019, 3:53:11 pm</a>
-            </p><p>更新日期：<a href="http://www.loongten.com/2019/12/08/centos7-install-awvs/">December 8th 2019, 5:20:08 pm</a>
+            </p><p>更新日期：<a href="http://www.loongten.com/2019/12/08/centos7-install-awvs/">December 8th 2019, 5:23:21 pm</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -1309,88 +1309,6 @@ top:50vh;
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 46
@@ -1414,12 +1332,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/06</span><a class="archive-post-title" href="/2019/12/06/pentest-disposable-mobile-number/">渗透测试资源-一次性手机号</a>
+            <span class="archive-post-date">12/06</span><a class="archive-post-title" href="/2019/12/06/Burpsuite-v2-1-install/">Burpsuite 激活简便使用</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/06</span><a class="archive-post-title" href="/2019/12/06/Burpsuite-v2-1-install/">Burpsuite 激活简便使用</a>
+            <span class="archive-post-date">12/06</span><a class="archive-post-title" href="/2019/12/06/pentest-disposable-mobile-number/">渗透测试资源-一次性手机号</a>
         </li>
     
     
@@ -1484,12 +1402,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/01</span><a class="archive-post-title" href="/2019/08/01/firewalld/">firewalld</a>
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href="/2019/08/01/centos7-nginx/">Centos7 安装 Nginx 实现 负载均衡和反向代理.</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/01</span><a class="archive-post-title" href="/2019/08/01/centos7-nginx/">Centos7 安装 Nginx 实现 负载均衡和反向代理.</a>
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href="/2019/08/01/firewalld/">firewalld</a>
         </li>
     
     
@@ -1514,12 +1432,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/29</span><a class="archive-post-title" href="/2019/07/29/windows-tomcat/">windows 安装tomcat</a>
+            <span class="archive-post-date">07/29</span><a class="archive-post-title" href="/2019/07/29/springboot-package/">SpringBoot 打包</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/29</span><a class="archive-post-title" href="/2019/07/29/springboot-package/">SpringBoot 打包</a>
+            <span class="archive-post-date">07/29</span><a class="archive-post-title" href="/2019/07/29/windows-tomcat/">windows 安装tomcat</a>
         </li>
     
     
@@ -1544,12 +1462,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/idea-auto-import/">idea 自动导包</a>
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/springboot-and-swagger2/">学习SpringBoot之整合 Swagger2</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/springboot-and-swagger2/">学习SpringBoot之整合 Swagger2</a>
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/idea-auto-import/">idea 自动导包</a>
         </li>
     
     
@@ -1642,21 +1560,17 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="Burpsuite"><span class="iconfont-archer">&#xe606;</span>Burpsuite</span>
-    
-        <span class="sidebar-tag-name" data-tags="激活"><span class="iconfont-archer">&#xe606;</span>激活</span>
-    
-        <span class="sidebar-tag-name" data-tags="工具使用"><span class="iconfont-archer">&#xe606;</span>工具使用</span>
-    
         <span class="sidebar-tag-name" data-tags="Html"><span class="iconfont-archer">&#xe606;</span>Html</span>
     
         <span class="sidebar-tag-name" data-tags="实体字符"><span class="iconfont-archer">&#xe606;</span>实体字符</span>
     
         <span class="sidebar-tag-name" data-tags="xss"><span class="iconfont-archer">&#xe606;</span>xss</span>
     
-        <span class="sidebar-tag-name" data-tags="SrpingBoot"><span class="iconfont-archer">&#xe606;</span>SrpingBoot</span>
+        <span class="sidebar-tag-name" data-tags="Burpsuite"><span class="iconfont-archer">&#xe606;</span>Burpsuite</span>
     
-        <span class="sidebar-tag-name" data-tags="多环境"><span class="iconfont-archer">&#xe606;</span>多环境</span>
+        <span class="sidebar-tag-name" data-tags="激活"><span class="iconfont-archer">&#xe606;</span>激活</span>
+    
+        <span class="sidebar-tag-name" data-tags="工具使用"><span class="iconfont-archer">&#xe606;</span>工具使用</span>
     
         <span class="sidebar-tag-name" data-tags="主页劫持"><span class="iconfont-archer">&#xe606;</span>主页劫持</span>
     
@@ -1664,21 +1578,23 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="vmitools"><span class="iconfont-archer">&#xe606;</span>vmitools</span>
     
-        <span class="sidebar-tag-name" data-tags="Bugku"><span class="iconfont-archer">&#xe606;</span>Bugku</span>
+        <span class="sidebar-tag-name" data-tags="bugku"><span class="iconfont-archer">&#xe606;</span>bugku</span>
     
         <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
+    
+        <span class="sidebar-tag-name" data-tags="SrpingBoot"><span class="iconfont-archer">&#xe606;</span>SrpingBoot</span>
+    
+        <span class="sidebar-tag-name" data-tags="多环境"><span class="iconfont-archer">&#xe606;</span>多环境</span>
+    
+        <span class="sidebar-tag-name" data-tags="Bugku"><span class="iconfont-archer">&#xe606;</span>Bugku</span>
     
         <span class="sidebar-tag-name" data-tags="centos7"><span class="iconfont-archer">&#xe606;</span>centos7</span>
     
         <span class="sidebar-tag-name" data-tags="docker-ce"><span class="iconfont-archer">&#xe606;</span>docker-ce</span>
     
-        <span class="sidebar-tag-name" data-tags="bugku"><span class="iconfont-archer">&#xe606;</span>bugku</span>
-    
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
-    
         <span class="sidebar-tag-name" data-tags="tomcat"><span class="iconfont-archer">&#xe606;</span>tomcat</span>
     
-        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
         <span class="sidebar-tag-name" data-tags="cmder"><span class="iconfont-archer">&#xe606;</span>cmder</span>
     
@@ -1688,6 +1604,12 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="右键清理"><span class="iconfont-archer">&#xe606;</span>右键清理</span>
     
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+    
+        <span class="sidebar-tag-name" data-tags="hackbar"><span class="iconfont-archer">&#xe606;</span>hackbar</span>
+    
+        <span class="sidebar-tag-name" data-tags="许可证"><span class="iconfont-archer">&#xe606;</span>许可证</span>
+    
         <span class="sidebar-tag-name" data-tags="数字经济"><span class="iconfont-archer">&#xe606;</span>数字经济</span>
     
         <span class="sidebar-tag-name" data-tags="云安全共测大赛初赛"><span class="iconfont-archer">&#xe606;</span>云安全共测大赛初赛</span>
@@ -1695,10 +1617,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="gameapp"><span class="iconfont-archer">&#xe606;</span>gameapp</span>
     
         <span class="sidebar-tag-name" data-tags="idea"><span class="iconfont-archer">&#xe606;</span>idea</span>
-    
-        <span class="sidebar-tag-name" data-tags="hackbar"><span class="iconfont-archer">&#xe606;</span>hackbar</span>
-    
-        <span class="sidebar-tag-name" data-tags="许可证"><span class="iconfont-archer">&#xe606;</span>许可证</span>
     
         <span class="sidebar-tag-name" data-tags="自动导包"><span class="iconfont-archer">&#xe606;</span>自动导包</span>
     
@@ -1728,9 +1646,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
     
-        <span class="sidebar-tag-name" data-tags="swagger2"><span class="iconfont-archer">&#xe606;</span>swagger2</span>
-    
         <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
+    
+        <span class="sidebar-tag-name" data-tags="swagger2"><span class="iconfont-archer">&#xe606;</span>swagger2</span>
     
         <span class="sidebar-tag-name" data-tags="vs"><span class="iconfont-archer">&#xe606;</span>vs</span>
     
@@ -1744,19 +1662,23 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="vsftpd"><span class="iconfont-archer">&#xe606;</span>vsftpd</span>
     
-        <span class="sidebar-tag-name" data-tags="usb"><span class="iconfont-archer">&#xe606;</span>usb</span>
-    
-        <span class="sidebar-tag-name" data-tags="windwos10"><span class="iconfont-archer">&#xe606;</span>windwos10</span>
-    
-        <span class="sidebar-tag-name" data-tags="安装系统"><span class="iconfont-archer">&#xe606;</span>安装系统</span>
-    
         <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
     
         <span class="sidebar-tag-name" data-tags="uni-app"><span class="iconfont-archer">&#xe606;</span>uni-app</span>
     
         <span class="sidebar-tag-name" data-tags="小程序"><span class="iconfont-archer">&#xe606;</span>小程序</span>
     
+        <span class="sidebar-tag-name" data-tags="usb"><span class="iconfont-archer">&#xe606;</span>usb</span>
+    
+        <span class="sidebar-tag-name" data-tags="windwos10"><span class="iconfont-archer">&#xe606;</span>windwos10</span>
+    
+        <span class="sidebar-tag-name" data-tags="安装系统"><span class="iconfont-archer">&#xe606;</span>安装系统</span>
+    
         <span class="sidebar-tag-name" data-tags="windows"><span class="iconfont-archer">&#xe606;</span>windows</span>
+    
+        <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer">&#xe606;</span>vue-cli</span>
+    
+        <span class="sidebar-tag-name" data-tags="升级"><span class="iconfont-archer">&#xe606;</span>升级</span>
     
         <span class="sidebar-tag-name" data-tags="浙江省"><span class="iconfont-archer">&#xe606;</span>浙江省</span>
     
@@ -1767,10 +1689,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="wsl2"><span class="iconfont-archer">&#xe606;</span>wsl2</span>
     
         <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
-    
-        <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer">&#xe606;</span>vue-cli</span>
-    
-        <span class="sidebar-tag-name" data-tags="升级"><span class="iconfont-archer">&#xe606;</span>升级</span>
     
         <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer">&#xe606;</span>nginx</span>
     
