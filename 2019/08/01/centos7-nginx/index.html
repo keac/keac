@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="">
-    <!-- title -->
-
-
-
-
-<!-- keywords -->
-
-
-
-
-<head><meta name="generator" content="Hexo 3.9.0">
+<!DOCTYPE html><html lang><!-- title --><!-- keywords --><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="author" content="keacwu">
@@ -22,7 +10,7 @@
     <meta name="description" content="A Network Security Amateur">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Centos7 安装 Nginx 实现 负载均衡和反向代理. · keac&#39;s Blog</title>
+    <title>Centos7 安装 Nginx 实现 负载均衡和反向代理. · keac's Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -230,19 +218,19 @@
 <header class="header">
 
     <div class="read-progress"></div>
-    <div class="header-sidebar-menu">&#xe775;</div>
+    <div class="header-sidebar-menu"></div>
     <!-- post页的toggle banner  -->
     
     <div class="banner">
             <div class="blog-title">
-                <a href="/" >keac&#39;s Bolg.</a>
+                <a href="/">keac's Bolg.</a>
             </div>
             <div class="post-title">
                 <a href="#" class="post-name">Centos7 安装 Nginx 实现 负载均衡和反向代理.</a>
             </div>
     </div>
     
-    <a class="home-link" href=/>keac's Bolg.</a>
+    <a class="home-link" href="/">keac's Bolg.</a>
 </header>
     <div class="wrapper">
         <div class="site-intro" style="
@@ -285,11 +273,11 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
-                    <div class= post-intro-tags >
+                    <div class="post-intro-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "centos7">centos7</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="centos7">centos7</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "nginx">nginx</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="nginx">nginx</a>
     
 </div>
                 
@@ -299,25 +287,25 @@ height:50vh;
                     </div>
                 
                 <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-calander iconfont-archer"></span>
                     <span class="post-intro-time">2019/08/01</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
+                        <span class="iconfont-archer"></span>
                         <span id="busuanzi_value_page_pv"></span>
                     </span>
                     
                     <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="iconfont-archer shareIcon"></span>
                         <span class="shareText">Share</span>
                         <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                            <li class="iconfont-archer share-qr" data-type="qr">
                                 <div class="share-qrcode"></div>
                             </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                            <li class="iconfont-archer" data-type="weibo"></li>
+                            <li class="iconfont-archer" data-type="qzone"></li>
+                            <li class="iconfont-archer" data-type="twitter"></li>
+                            <li class="iconfont-archer" data-type="facebook"></li>
                         </ul>
                     </span>
                 </div>
@@ -420,14 +408,14 @@ height:50vh;
     "/lib/webfontloader.min.js"
   ], asyncCb, asyncErr)
 </script>        
-        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;">
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
         <h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><p>首先准备好Centos7 系统 <a href="https://www.loongten.com/2019/07/31/centos7-install-tomcat/">在我之前的博客有介绍安装</a> 可以参考下</p>
 <p>惯例，连接上系统先 yum update 一下</p>
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>Centos7 默认 yum源里面没有nginx</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</span><br></pre></td></tr></tbody></table></figure>
 <p><img src="1.png" alt></p>
 <p><code>yum search nginx</code> 看下有没有Nginx的包了</p>
 <p><img src="2.png" alt></p>
@@ -446,43 +434,43 @@ height:50vh;
 <p>配置文件在 <code>/etc/nginx/conf.d/</code></p>
 <p>找不到默认web目录可以通过<code>cat /etc/nginx/conf.d/default.conf</code></p>
 <p>找到 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">     root   /usr/share/nginx/html;</span><br><span class="line">     index  index.html index.htm;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location / {</span><br><span class="line">     root   /usr/share/nginx/html;</span><br><span class="line">     index  index.html index.htm;</span><br><span class="line"> }</span><br></pre></td></tr></tbody></table></figure>
 <h1 id="反代"><a href="#反代" class="headerlink" title="反代"></a>反代</h1><p>nginx作为web服务器一个重要的功能就是反向代理</p>
 <p><img src="1.jpg" alt><br>Nginx在做反向代理时，提供性能稳定，并且能够提供配置灵活的转发功能。Nginx可以根据不同的正则匹配，采取不同的转发策略，比如图片文件结尾的走文件服务器，动态页面走web服务器，只要你正则写的没问题，又有相对应的服务器解决方案，你就可以随心所欲的玩。并且Nginx对返回结果进行错误页跳转，异常判断等。如果被分发的服务器存在异常，他可以将请求重新转发给另外一台服务器，然后自动去除异常服务器。</p>
 <p>我的SpringBoot 项目运行在 本地的8080端口，我们用Nginx 去反代这个端口</p>
-<p>在命令后面加 &amp; 就可以保持在后台运行</p>
-<p> <code>java -jar demo-0.0.1-SNAPSHOT.jar &amp;</code></p>
+<p>在命令后面加 & 就可以保持在后台运行</p>
+<p> <code>java -jar demo-0.0.1-SNAPSHOT.jar &</code></p>
 <p>在配置文件里面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> location / &#123;</span><br><span class="line">        #root   /usr/share/nginx/html;</span><br><span class="line">        #index  index.html index.htm;</span><br><span class="line">        proxy_pass  http://127.0.0.1:8080;</span><br><span class="line">        #Proxy Settings</span><br><span class="line">        proxy_redirect     off;</span><br><span class="line">        proxy_set_header   Host             $host;</span><br><span class="line">        proxy_set_header   X-Real-IP        $remote_addr;</span><br><span class="line">        proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;</span><br><span class="line">        proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;</span><br><span class="line">        proxy_max_temp_file_size 0;</span><br><span class="line">        proxy_connect_timeout      90;</span><br><span class="line">        proxy_send_timeout         90;</span><br><span class="line">        proxy_read_timeout         90;</span><br><span class="line">        proxy_buffer_size          4k;</span><br><span class="line">        proxy_buffers              4 32k;</span><br><span class="line">        proxy_busy_buffers_size    64k;</span><br><span class="line">        proxy_temp_file_write_size 64k;</span><br><span class="line">        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> location / {</span><br><span class="line">        #root   /usr/share/nginx/html;</span><br><span class="line">        #index  index.html index.htm;</span><br><span class="line">        proxy_pass  http://127.0.0.1:8080;</span><br><span class="line">        #Proxy Settings</span><br><span class="line">        proxy_redirect     off;</span><br><span class="line">        proxy_set_header   Host             $host;</span><br><span class="line">        proxy_set_header   X-Real-IP        $remote_addr;</span><br><span class="line">        proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;</span><br><span class="line">        proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;</span><br><span class="line">        proxy_max_temp_file_size 0;</span><br><span class="line">        proxy_connect_timeout      90;</span><br><span class="line">        proxy_send_timeout         90;</span><br><span class="line">        proxy_read_timeout         90;</span><br><span class="line">        proxy_buffer_size          4k;</span><br><span class="line">        proxy_buffers              4 32k;</span><br><span class="line">        proxy_busy_buffers_size    64k;</span><br><span class="line">        proxy_temp_file_write_size 64k;</span><br><span class="line">        </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>这样配置就可以进行反代127.0.0.1:8080</p>
 <p>重启下Nginx  <code>systemctl reload nginx</code></p>
 <p>打开报错502</p>
 <p><img src="7.png" alt></p>
 <p>首先去看下错误日志 <code>cat /var/log/nginx/error.log</code></p>
 <p><img src="8.png" alt></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">connect() to 127.0.0.1:8080 failed (13: Permission denied) while connecting to upstream</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">connect() to 127.0.0.1:8080 failed (13: Permission denied) while connecting to upstream</span><br></pre></td></tr></tbody></table></figure>
 <p> Google 搜了下，似乎是 SeLinux 的锅</p>
 <p> <code>setsebool -P httpd_can_network_connect 1</code></p>
 <p>反代成功</p>
 <p> <img src="9.png" alt></p>
 <h2 id="反代配置解释"><a href="#反代配置解释" class="headerlink" title="反代配置解释"></a>反代配置解释</h2><h3 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h3><p> <img src="4.jpg" alt></p>
 <p>如果负载均衡中其中web2发生这样的情况，nginx首先会去web1请求，但是nginx在配置不当的情况下会继续分发请求道web2，然后等待web2响应，直到我们的响应时间超时，才会把请求重新分发给web1，这里的响应时间如果过长，用户等待的时间就会越长。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">proxy_connect_timeout 1;   #nginx服务器与被代理的服务器建立连接的超时时间，默认60秒</span><br><span class="line">proxy_read_timeout 1; #nginx服务器想被代理服务器组发出read请求后，等待响应的超时间，默认为60秒。</span><br><span class="line">proxy_send_timeout 1; #nginx服务器想被代理服务器组发出write请求后，等待响应的超时间，默认为60秒。</span><br><span class="line">proxy_ignore_client_abort on;  #客户端断网时，nginx服务器是否终端对被代理服务器的请求。默认为off。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">proxy_connect_timeout 1;   #nginx服务器与被代理的服务器建立连接的超时时间，默认60秒</span><br><span class="line">proxy_read_timeout 1; #nginx服务器想被代理服务器组发出read请求后，等待响应的超时间，默认为60秒。</span><br><span class="line">proxy_send_timeout 1; #nginx服务器想被代理服务器组发出write请求后，等待响应的超时间，默认为60秒。</span><br><span class="line">proxy_ignore_client_abort on;  #客户端断网时，nginx服务器是否终端对被代理服务器的请求。默认为off。</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="upstream"><a href="#upstream" class="headerlink" title="upstream"></a>upstream</h3><p>如果使用upstream指令配置，一组服务器作为被代理服务器，服务器中的访问算法遵循配置的负载均衡规则，同时可以使用该指令配置在发生哪些异常情况时，将请求顺次交由下一组服务器处理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxy_next_upstream timeout;  #反向代理upstream中设置的服务器组，出现故障时，被代理服务器返回的状态值。error|timeout|invalid_header|http_500|http_502|http_503|http_504|http_404|off</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxy_next_upstream timeout;  #反向代理upstream中设置的服务器组，出现故障时，被代理服务器返回的状态值。error|timeout|invalid_header|http_500|http_502|http_503|http_504|http_404|off</span><br></pre></td></tr></tbody></table></figure>
 <p>error：建立连接或向被代理的服务器发送请求或读取响应信息时服务器发生错误。</p>
 <p>timeout：建立连接，想被代理服务器发送请求或读取响应信息时服务器发生超时。</p>
 <p>invalid_header:被代理服务器返回的响应头异常。</p>
 <p>off:无法将请求分发给被代理的服务器。</p>
 <p>http_400，….:被代理服务器返回的状态码为400，500，502，等。</p>
-<h3 id="真实ip"><a href="#真实ip" class="headerlink" title="真实ip"></a>真实ip</h3><p>如果你想通过http获取客户的真是ip而不是获取代理服务器的ip地址，那么要做如下的设置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">proxy_set_header Host $host; #只要用户在浏览器中访问的域名绑定了 VIP VIP 下面有RS；则就用$host ；host是访问URL中的域名和端口  www.taobao.com:80</span><br><span class="line">proxy_set_header X-Real-IP $remote_addr;  #把源IP 【$remote_addr,建立HTTP连接header里面的信息】赋值给X-Real-IP;这样在代码中 $X-Real-IP来获取 源IP</span><br><span class="line">proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;#在nginx 作为代理服务器时，设置的IP列表，会把经过的机器ip，代理机器ip都记录下来，用 【，】隔开；代码中用 echo $x-forwarded-for |awk -F, &apos;&#123;print $1&#125;&apos; 来作为源IP</span><br></pre></td></tr></table></figure></p>
-<h3 id="配置文件详细解释"><a href="#配置文件详细解释" class="headerlink" title="配置文件详细解释"></a>配置文件详细解释</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">include       mime.types;   #文件扩展名与文件类型映射表</span><br><span class="line">default_type  application/octet-stream; #默认文件类型，默认为text/plain</span><br><span class="line">#access_log off; #取消服务日志    </span><br><span class="line">log_format myFormat &apos; $remote_addr–$remote_user [$time_local] $request $status $body_bytes_sent $http_referer $http_user_agent $http_x_forwarded_for&apos;; #自定义格式</span><br><span class="line">access_log log/access.log myFormat;  #combined为日志格式的默认值</span><br><span class="line">sendfile on;   #允许sendfile方式传输文件，默认为off，可以在http块，server块，location块。</span><br><span class="line">sendfile_max_chunk 100k;  #每个进程每次调用传输数量不能大于设定的值，默认为0，即不设上限。</span><br><span class="line">keepalive_timeout 65;  #连接超时时间，默认为75s，可以在http，server，location块。</span><br><span class="line">proxy_connect_timeout 1;   #nginx服务器与被代理的服务器建立连接的超时时间，默认60秒</span><br><span class="line">proxy_read_timeout 1; #nginx服务器想被代理服务器组发出read请求后，等待响应的超时间，默认为60秒。</span><br><span class="line">proxy_send_timeout 1; #nginx服务器想被代理服务器组发出write请求后，等待响应的超时间，默认为60秒。</span><br><span class="line">proxy_http_version 1.0 ; #Nginx服务器提供代理服务的http协议版本1.0，1.1，默认设置为1.0版本。</span><br><span class="line">#proxy_method get;    #支持客户端的请求方法。post/get；</span><br><span class="line">proxy_ignore_client_abort on;  #客户端断网时，nginx服务器是否终端对被代理服务器的请求。默认为off。</span><br><span class="line">proxy_ignore_headers &quot;Expires&quot; &quot;Set-Cookie&quot;;  #Nginx服务器不处理设置的http相应投中的头域，这里空格隔开可以设置多个。</span><br><span class="line">proxy_intercept_errors on;    #如果被代理服务器返回的状态码为400或者大于400，设置的error_page配置起作用。默认为off。</span><br><span class="line">proxy_headers_hash_max_size 1024; #存放http报文头的哈希表容量上限，默认为512个字符。</span><br><span class="line">proxy_headers_hash_bucket_size 128; #nginx服务器申请存放http报文头的哈希表容量大小。默认为64个字符。</span><br><span class="line">proxy_next_upstream timeout;  #反向代理upstream中设置的服务器组，出现故障时，被代理服务器返回的状态值。error|timeout|invalid_header|http_500|http_502|http_503|http_504|http_404|off</span><br><span class="line">#proxy_ssl_session_reuse on; 默认为on，如果我们在错误日志中发现“SSL3_GET_FINSHED:digest check failed”的情况时，可以将该指令设置为off。</span><br></pre></td></tr></table></figure>
+<h3 id="真实ip"><a href="#真实ip" class="headerlink" title="真实ip"></a>真实ip</h3><p>如果你想通过http获取客户的真是ip而不是获取代理服务器的ip地址，那么要做如下的设置。<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">proxy_set_header Host $host; #只要用户在浏览器中访问的域名绑定了 VIP VIP 下面有RS；则就用$host ；host是访问URL中的域名和端口  www.taobao.com:80</span><br><span class="line">proxy_set_header X-Real-IP $remote_addr;  #把源IP 【$remote_addr,建立HTTP连接header里面的信息】赋值给X-Real-IP;这样在代码中 $X-Real-IP来获取 源IP</span><br><span class="line">proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;#在nginx 作为代理服务器时，设置的IP列表，会把经过的机器ip，代理机器ip都记录下来，用 【，】隔开；代码中用 echo $x-forwarded-for |awk -F, '{print $1}' 来作为源IP</span><br></pre></td></tr></tbody></table></figure><p></p>
+<h3 id="配置文件详细解释"><a href="#配置文件详细解释" class="headerlink" title="配置文件详细解释"></a>配置文件详细解释</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">include       mime.types;   #文件扩展名与文件类型映射表</span><br><span class="line">default_type  application/octet-stream; #默认文件类型，默认为text/plain</span><br><span class="line">#access_log off; #取消服务日志    </span><br><span class="line">log_format myFormat ' $remote_addr–$remote_user [$time_local] $request $status $body_bytes_sent $http_referer $http_user_agent $http_x_forwarded_for'; #自定义格式</span><br><span class="line">access_log log/access.log myFormat;  #combined为日志格式的默认值</span><br><span class="line">sendfile on;   #允许sendfile方式传输文件，默认为off，可以在http块，server块，location块。</span><br><span class="line">sendfile_max_chunk 100k;  #每个进程每次调用传输数量不能大于设定的值，默认为0，即不设上限。</span><br><span class="line">keepalive_timeout 65;  #连接超时时间，默认为75s，可以在http，server，location块。</span><br><span class="line">proxy_connect_timeout 1;   #nginx服务器与被代理的服务器建立连接的超时时间，默认60秒</span><br><span class="line">proxy_read_timeout 1; #nginx服务器想被代理服务器组发出read请求后，等待响应的超时间，默认为60秒。</span><br><span class="line">proxy_send_timeout 1; #nginx服务器想被代理服务器组发出write请求后，等待响应的超时间，默认为60秒。</span><br><span class="line">proxy_http_version 1.0 ; #Nginx服务器提供代理服务的http协议版本1.0，1.1，默认设置为1.0版本。</span><br><span class="line">#proxy_method get;    #支持客户端的请求方法。post/get；</span><br><span class="line">proxy_ignore_client_abort on;  #客户端断网时，nginx服务器是否终端对被代理服务器的请求。默认为off。</span><br><span class="line">proxy_ignore_headers "Expires" "Set-Cookie";  #Nginx服务器不处理设置的http相应投中的头域，这里空格隔开可以设置多个。</span><br><span class="line">proxy_intercept_errors on;    #如果被代理服务器返回的状态码为400或者大于400，设置的error_page配置起作用。默认为off。</span><br><span class="line">proxy_headers_hash_max_size 1024; #存放http报文头的哈希表容量上限，默认为512个字符。</span><br><span class="line">proxy_headers_hash_bucket_size 128; #nginx服务器申请存放http报文头的哈希表容量大小。默认为64个字符。</span><br><span class="line">proxy_next_upstream timeout;  #反向代理upstream中设置的服务器组，出现故障时，被代理服务器返回的状态值。error|timeout|invalid_header|http_500|http_502|http_503|http_504|http_404|off</span><br><span class="line">#proxy_ssl_session_reuse on; 默认为on，如果我们在错误日志中发现“SSL3_GET_FINSHED:digest check failed”的情况时，可以将该指令设置为off。</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="反代负载均衡"><a href="#反代负载均衡" class="headerlink" title="反代负载均衡"></a>反代负载均衡</h2><h1 id="负载均衡-1"><a href="#负载均衡-1" class="headerlink" title="负载均衡"></a>负载均衡</h1><p>Nginx提供的负载均衡策略有2种：内置策略和扩展策略。内置策略为轮询，加权轮询，Ip hash。扩展策略。</p>
 <p><img src="2.jpg" alt></p>
 <p>Ip hash算法，对客户端请求的ip进行hash操作，然后根据hash结果将同一个客户端ip的请求分发给同一台服务器进行处理，可以解决session不共享的问题。</p>
 <p><img src="3.jpg" alt></p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>upstream这个配置的，这个配置是写一组被代理的服务器地址，然后配置负载均衡的算法。这里的被代理服务器地址有2中写法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">upstream mysvr &#123;</span><br><span class="line">    server 127.0.0.1:8080;</span><br><span class="line">    server 192.168.1.15:8080;</span><br><span class="line">&#125;  </span><br><span class="line">server &#123;</span><br><span class="line">    ....</span><br><span class="line">    location  ~*^.+$ &#123;         </span><br><span class="line">        proxy_pass  http://mysvr;  #请求转向mysvr 定义的服务器列表         </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">upstream mysvr {</span><br><span class="line">    server 127.0.0.1:8080;</span><br><span class="line">    server 192.168.1.15:8080;</span><br><span class="line">}  </span><br><span class="line">server {</span><br><span class="line">    ....</span><br><span class="line">    location  ~*^.+$ {         </span><br><span class="line">        proxy_pass  http://mysvr;  #请求转向mysvr 定义的服务器列表         </span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>修改配置文件需要重启！！！！！！！！</p>
 <p>我们来测试下， ps 找到刚刚在后台运行的SpringBoot 进程</p>
 <p><img src="10.png" alt></p>
@@ -498,13 +486,13 @@ height:50vh;
 <p><img src="15.png" alt></p>
 <p>当持续访问的时候，两台分别打印信息</p>
 <h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="热备"><a href="#热备" class="headerlink" title="热备"></a>热备</h3><p>如果你有2台服务器，当一台服务器发生事故时，才启用第二台服务器给提供服务。服务器处理请求的顺序：AAAAAA Boom，BBBBBBBBBBBBBB…..</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">upstream mysvr &#123; </span><br><span class="line">    server 127.0.0.1:8080; </span><br><span class="line">    server 192.168.1.15:8080 backup;  #热备     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">upstream mysvr { </span><br><span class="line">    server 127.0.0.1:8080; </span><br><span class="line">    server 192.168.1.15:8080 backup;  #热备     </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="轮询"><a href="#轮询" class="headerlink" title="轮询"></a>轮询</h3><p>nginx默认就是轮询其权重都默认为1，服务器处理请求的顺序：ABABABABAB….</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">upstream mysvr &#123; </span><br><span class="line">    server 127.0.0.1:8080;</span><br><span class="line">    server 192.168.1.15:8080;       </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">upstream mysvr { </span><br><span class="line">    server 127.0.0.1:8080;</span><br><span class="line">    server 192.168.1.15:8080;       </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="加权轮询"><a href="#加权轮询" class="headerlink" title="加权轮询"></a>加权轮询</h3><p>跟据配置的权重的大小而分发给不同服务器不同数量的请求。如果不设置，则默认为1。下面服务器的请求顺序为：ABBABBABBABBABB….</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">upstream mysvr &#123; </span><br><span class="line">    server 127.0.0.1:8080 weight=1;</span><br><span class="line">    server 192.168.1.15:8080 weight=2;       </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">upstream mysvr { </span><br><span class="line">    server 127.0.0.1:8080 weight=1;</span><br><span class="line">    server 192.168.1.15:8080 weight=2;       </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="ip-hash"><a href="#ip-hash" class="headerlink" title="ip_hash"></a>ip_hash</h3><p>nginx会让相同的客户端ip请求相同的服务器。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">upstream mysvr &#123; </span><br><span class="line">    server 127.0.0.1:8080;</span><br><span class="line">    server 192.168.1.15:8080;    </span><br><span class="line">    ip_hash;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">upstream mysvr { </span><br><span class="line">    server 127.0.0.1:8080;</span><br><span class="line">    server 192.168.1.15:8080;    </span><br><span class="line">    ip_hash;   </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>关于nginx负载均衡配置的几个状态参数讲解。</p>
 <ul>
 <li><p>down，表示当前的server暂时不参与负载均衡。</p>
@@ -523,10 +511,10 @@ height:50vh;
     
         <div class="license-wrapper">
             <p>原文作者：<a href="http://www.loongten.com">keacwu</a>
-            <p>原文链接：<a href="http://www.loongten.com/2019/08/01/centos7-nginx/">http://www.loongten.com/2019/08/01/centos7-nginx/</a>
-            <p>发表日期：<a href="http://www.loongten.com/2019/08/01/centos7-nginx/">August 1st 2019, 10:02:39 am</a>
-            <p>更新日期：<a href="http://www.loongten.com/2019/08/01/centos7-nginx/">August 1st 2019, 1:07:57 pm</a>
-            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+            </p><p>原文链接：<a href="http://www.loongten.com/2019/08/01/centos7-nginx/">http://www.loongten.com/2019/08/01/centos7-nginx/</a>
+            </p><p>发表日期：<a href="http://www.loongten.com/2019/08/01/centos7-nginx/">August 1st 2019, 10:02:39 am</a>
+            </p><p>更新日期：<a href="http://www.loongten.com/2019/08/01/centos7-nginx/">August 1st 2019, 1:07:57 pm</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
     <!-- paginator  -->
@@ -534,7 +522,7 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/08/01/firewalld/" title= "firewalld">
+                <a href="/2019/08/01/firewalld/" title="firewalld">
                     <div class="nextTitle">firewalld</div>
                 </a>
             
@@ -542,7 +530,7 @@ height:50vh;
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/08/01/mysql-optimization2/" title= "Mysql 索引">
+                <a href="/2019/08/01/mysql-optimization2/" title="Mysql 索引">
                     <div class="prevTitle">Mysql 索引</div>
                 </a>
             
@@ -574,13 +562,13 @@ height:50vh;
     
         
             
-                <a href="mailto:admin@wgpsec.org" class="iconfont-archer email" title=email ></a>
+                <a href="mailto:admin@wgpsec.org" class="iconfont-archer email" title="email"></a>
             
         
     
         
             
-                <a href="//github.com/keac" class="iconfont-archer github" target="_blank" title=github></a>
+                <a href="//github.com/keac" class="iconfont-archer github" target="_blank" title="github"></a>
             
         
     
@@ -594,7 +582,7 @@ height:50vh;
     
         
             
-                <a href="//www.zhihu.com/people/keac" class="iconfont-archer zhihu" target="_blank" title=zhihu></a>
+                <a href="//www.zhihu.com/people/keac" class="iconfont-archer zhihu" target="_blank" title="zhihu"></a>
             
         
     
@@ -629,7 +617,7 @@ height:50vh;
     
     <!-- powered by Hexo  -->
     <div class="copyright">
-        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power"></span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
     </div>
     <!-- 不蒜子  -->
     
@@ -644,34 +632,103 @@ height:50vh;
     </div>
     <!-- toc -->
     
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
+    <div class="toc-wrapper" style="top:50vh;">
         <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+            <span class="iconfont-archer catalog-icon"></span><span>CATALOG</span>
         </div>
         <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#准备"><span class="toc-number">1.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置文件"><span class="toc-number">3.</span> <span class="toc-text">配置文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#反代"><span class="toc-number">4.</span> <span class="toc-text">反代</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#反代配置解释"><span class="toc-number">4.1.</span> <span class="toc-text">反代配置解释</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#负载均衡"><span class="toc-number">4.1.1.</span> <span class="toc-text">负载均衡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#upstream"><span class="toc-number">4.1.2.</span> <span class="toc-text">upstream</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#真实ip"><span class="toc-number">4.1.3.</span> <span class="toc-text">真实ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置文件详细解释"><span class="toc-number">4.1.4.</span> <span class="toc-text">配置文件详细解释</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#反代负载均衡"><span class="toc-number">4.2.</span> <span class="toc-text">反代负载均衡</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#负载均衡-1"><span class="toc-number">5.</span> <span class="toc-text">负载均衡</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">5.1.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-number">5.2.</span> <span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分类"><span class="toc-number">5.3.</span> <span class="toc-text">分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#热备"><span class="toc-number">5.3.1.</span> <span class="toc-text">热备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#轮询"><span class="toc-number">5.3.2.</span> <span class="toc-text">轮询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加权轮询"><span class="toc-number">5.3.3.</span> <span class="toc-text">加权轮询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ip-hash"><span class="toc-number">5.3.4.</span> <span class="toc-text">ip_hash</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态"><span class="toc-number">5.4.</span> <span class="toc-text">状态</span></a></li></ol></li></ol>
     </div>
     
-    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="back-top iconfont-archer"></div>
     <div class="sidebar sidebar-hide">
     <ul class="sidebar-tabs sidebar-tabs-active-0">
-        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
-        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
-        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+        <li class="sidebar-tab-archives"><span class="iconfont-archer"></span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer"></span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer"></span><span class="tab-name">Cate</span></li>
     </ul>
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -1320,385 +1377,384 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/08</span><a class="archive-post-title" href= "/2019/12/08/centos7-install-awvs/" >Centos7 安装 AWVS</a>
+            <span class="archive-post-date">12/08</span><a class="archive-post-title" href="/2019/12/08/centos7-install-awvs/">Centos7 安装 AWVS</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/06</span><a class="archive-post-title" href= "/2019/12/06/pentest-disposable-mobile-number/" >渗透测试资源-一次性手机号</a>
+            <span class="archive-post-date">12/06</span><a class="archive-post-title" href="/2019/12/06/pentest-disposable-mobile-number/">渗透测试资源-一次性手机号</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/06</span><a class="archive-post-title" href= "/2019/12/06/Burpsuite-v2-1-install/" >Burpsuite 激活简便使用</a>
+            <span class="archive-post-date">12/06</span><a class="archive-post-title" href="/2019/12/06/Burpsuite-v2-1-install/">Burpsuite 激活简便使用</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/22</span><a class="archive-post-title" href= "/2019/09/22/zhejiang-ctf-College-Students-Offline-competition/" >浙江省第二届大学生网络与信息安全竞赛线下赛</a>
+            <span class="archive-post-date">09/22</span><a class="archive-post-title" href="/2019/09/22/zhejiang-ctf-College-Students-Offline-competition/">浙江省第二届大学生网络与信息安全竞赛线下赛</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/22</span><a class="archive-post-title" href= "/2019/09/22/zhejiang-ctf-College-Students-Online-competition/" >浙江省第二届大学生网络与信息安全竞赛线上赛</a>
+            <span class="archive-post-date">09/22</span><a class="archive-post-title" href="/2019/09/22/zhejiang-ctf-College-Students-Online-competition/">浙江省第二届大学生网络与信息安全竞赛线上赛</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/20</span><a class="archive-post-title" href= "/2019/09/20/gc-xctf-gameapp/" >数字经济”云安全共测大赛初赛 gameapp</a>
+            <span class="archive-post-date">09/20</span><a class="archive-post-title" href="/2019/09/20/gc-xctf-gameapp/">数字经济”云安全共测大赛初赛 gameapp</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/17</span><a class="archive-post-title" href= "/2019/09/17/kali-install/" >kali_install</a>
+            <span class="archive-post-date">09/17</span><a class="archive-post-title" href="/2019/09/17/kali-install/">kali_install</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/10</span><a class="archive-post-title" href= "/2019/09/10/spring-aliyun-oss/" >SpringBoot 整合 oss</a>
+            <span class="archive-post-date">09/10</span><a class="archive-post-title" href="/2019/09/10/spring-aliyun-oss/">SpringBoot 整合 oss</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/07</span><a class="archive-post-title" href= "/2019/09/07/Raspbian3b-Buster/" >Raspbian3b+ 折腾 Buster</a>
+            <span class="archive-post-date">09/07</span><a class="archive-post-title" href="/2019/09/07/Raspbian3b-Buster/">Raspbian3b+ 折腾 Buster</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/19</span><a class="archive-post-title" href= "/2019/08/19/ubuntu-vsftpd/" >ubuntu 搭建 vsftpd 遇到的坑</a>
+            <span class="archive-post-date">08/19</span><a class="archive-post-title" href="/2019/08/19/ubuntu-vsftpd/">ubuntu 搭建 vsftpd 遇到的坑</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/07</span><a class="archive-post-title" href= "/2019/08/07/vsftpd/" >centos7 安装配置 vsftpd</a>
+            <span class="archive-post-date">08/07</span><a class="archive-post-title" href="/2019/08/07/vsftpd/">centos7 安装配置 vsftpd</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/07</span><a class="archive-post-title" href= "/2019/08/07/idea-Generate/" >idea 自动添加get set</a>
+            <span class="archive-post-date">08/07</span><a class="archive-post-title" href="/2019/08/07/idea-Generate/">idea 自动添加get set</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/02</span><a class="archive-post-title" href= "/2019/08/02/centos7-docker/" >Centos7 安装 Docker-ce</a>
+            <span class="archive-post-date">08/02</span><a class="archive-post-title" href="/2019/08/02/centos7-docker/">Centos7 安装 Docker-ce</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/01</span><a class="archive-post-title" href= "/2019/08/01/redis-Loophole/" >redis 未授权访问漏洞</a>
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href="/2019/08/01/redis-Loophole/">redis 未授权访问漏洞</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/01</span><a class="archive-post-title" href= "/2019/08/01/centos7-mysql/" >centos7 yum 方式安装mysql</a>
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href="/2019/08/01/centos7-mysql/">centos7 yum 方式安装mysql</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/01</span><a class="archive-post-title" href= "/2019/08/01/firewalld/" >firewalld</a>
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href="/2019/08/01/centos7-nginx/">Centos7 安装 Nginx 实现 负载均衡和反向代理.</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/01</span><a class="archive-post-title" href= "/2019/08/01/centos7-nginx/" >Centos7 安装 Nginx 实现 负载均衡和反向代理.</a>
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href="/2019/08/01/firewalld/">firewalld</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/01</span><a class="archive-post-title" href= "/2019/08/01/mysql-optimization2/" >Mysql 索引</a>
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href="/2019/08/01/mysql-optimization2/">Mysql 索引</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/31</span><a class="archive-post-title" href= "/2019/07/31/centos7-install-tomcat/" >centos7 安装tomcat9</a>
+            <span class="archive-post-date">07/31</span><a class="archive-post-title" href="/2019/07/31/centos7-install-tomcat/">centos7 安装tomcat9</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/31</span><a class="archive-post-title" href= "/2019/07/31/mysql-optimization/" >mysql 优化</a>
+            <span class="archive-post-date">07/31</span><a class="archive-post-title" href="/2019/07/31/mysql-optimization/">mysql 优化</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/29</span><a class="archive-post-title" href= "/2019/07/29/SpringBoot-profiles/" >SpringBoot 多环境配置</a>
+            <span class="archive-post-date">07/29</span><a class="archive-post-title" href="/2019/07/29/SpringBoot-profiles/">SpringBoot 多环境配置</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/29</span><a class="archive-post-title" href= "/2019/07/29/windows-tomcat/" >windows 安装tomcat</a>
+            <span class="archive-post-date">07/29</span><a class="archive-post-title" href="/2019/07/29/windows-tomcat/">windows 安装tomcat</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/29</span><a class="archive-post-title" href= "/2019/07/29/springboot-package/" >SpringBoot 打包</a>
+            <span class="archive-post-date">07/29</span><a class="archive-post-title" href="/2019/07/29/springboot-package/">SpringBoot 打包</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2019/07/26/SpringBoot-Mapper/" >SpringBoot-Mapper</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href="/2019/07/26/SpringBoot-Mapper/">SpringBoot-Mapper</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2019/07/26/SpringBoot-jpa/" >SpringBoot-jpa</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href="/2019/07/26/SpringBoot-jpa/">SpringBoot-jpa</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2019/07/26/springboot-redis/" >springboot学习 整合redis</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href="/2019/07/26/springboot-redis/">springboot学习 整合redis</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/25</span><a class="archive-post-title" href= "/2019/07/25/spirngboot-mybatis/" >spirngboot学习 整合mybatis</a>
+            <span class="archive-post-date">07/25</span><a class="archive-post-title" href="/2019/07/25/spirngboot-mybatis/">spirngboot学习 整合mybatis</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/springboot-and-swagger2/" >学习SpringBoot之整合 Swagger2</a>
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/springboot-and-swagger2/">学习SpringBoot之整合 Swagger2</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/idea-auto-import/" >idea 自动导包</a>
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/idea-auto-import/">idea 自动导包</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/vue/" >vue-cli 升级踩坑</a>
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/vue/">vue-cli 升级踩坑</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/07</span><a class="archive-post-title" href= "/2019/07/07/pentesterlab/" >pentesterlab</a>
+            <span class="archive-post-date">07/07</span><a class="archive-post-title" href="/2019/07/07/pentesterlab-xss/">pentesterlab_xss</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/07</span><a class="archive-post-title" href= "/2019/07/07/pentesterlab-xss/" >pentesterlab_xss</a>
+            <span class="archive-post-date">07/07</span><a class="archive-post-title" href="/2019/07/07/pentesterlab/">pentesterlab</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/30</span><a class="archive-post-title" href= "/2019/06/30/hackbar/" >hackbar</a>
+            <span class="archive-post-date">06/30</span><a class="archive-post-title" href="/2019/06/30/hackbar/">hackbar</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/27</span><a class="archive-post-title" href= "/2019/06/27/zsh/" >zsh</a>
+            <span class="archive-post-date">06/27</span><a class="archive-post-title" href="/2019/06/27/zsh/">zsh</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/25</span><a class="archive-post-title" href= "/2019/06/25/usbWindows10/" >usbWindows10</a>
+            <span class="archive-post-date">06/25</span><a class="archive-post-title" href="/2019/06/25/usbWindows10/">usbWindows10</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/23</span><a class="archive-post-title" href= "/2019/06/23/WMITools/" >WMITools</a>
+            <span class="archive-post-date">06/23</span><a class="archive-post-title" href="/2019/06/23/WMITools/">WMITools</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/22</span><a class="archive-post-title" href= "/2019/06/22/jwt/" >jwt SrpingBoot</a>
+            <span class="archive-post-date">06/22</span><a class="archive-post-title" href="/2019/06/22/jwt/">jwt SrpingBoot</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/18</span><a class="archive-post-title" href= "/2019/06/18/vs2019/" >vs2019 安装到非系统盘</a>
+            <span class="archive-post-date">06/18</span><a class="archive-post-title" href="/2019/06/18/vs2019/">vs2019 安装到非系统盘</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/14</span><a class="archive-post-title" href= "/2019/06/14/vue-change/" >vue-change</a>
+            <span class="archive-post-date">06/14</span><a class="archive-post-title" href="/2019/06/14/vue-change/">vue-change</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2019/06/10/cmder-here/" >cmder-here</a>
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href="/2019/06/10/cmder-here/">cmder-here</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/09</span><a class="archive-post-title" href= "/2019/06/09/HTML字符实体/" >HTML字符实体</a>
+            <span class="archive-post-date">06/09</span><a class="archive-post-title" href="/2019/06/09/HTML字符实体/">HTML字符实体</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/09</span><a class="archive-post-title" href= "/2019/06/09/bugku-前女友-SKCTF/" >bugku-前女友(SKCTF)</a>
+            <span class="archive-post-date">06/09</span><a class="archive-post-title" href="/2019/06/09/bugku-你从哪里来/">bugku-你从哪里来</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/09</span><a class="archive-post-title" href= "/2019/06/09/bugku-你从哪里来/" >bugku-你从哪里来</a>
+            <span class="archive-post-date">06/09</span><a class="archive-post-title" href="/2019/06/09/bugku-前女友-SKCTF/">bugku-前女友(SKCTF)</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/08</span><a class="archive-post-title" href= "/2019/06/08/pi-screen/" >树莓派分辨率调整</a>
+            <span class="archive-post-date">06/08</span><a class="archive-post-title" href="/2019/06/08/pi-screen/">树莓派分辨率调整</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/04</span><a class="archive-post-title" href= "/2019/06/04/ctf-web/" >ctf-web</a>
+            <span class="archive-post-date">06/04</span><a class="archive-post-title" href="/2019/06/04/ctf-web/">ctf-web</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/04</span><a class="archive-post-title" href= "/2019/05/04/hello-world/" >Hello world</a>
+            <span class="archive-post-date">05/04</span><a class="archive-post-title" href="/2019/05/04/hello-world/">Hello world</a>
         </li>
     
-    </div>
+    </ul></div>
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="Burpsuite"><span class="iconfont-archer">&#xe606;</span>Burpsuite</span>
+        <span class="sidebar-tag-name" data-tags="Burpsuite"><span class="iconfont-archer"></span>Burpsuite</span>
     
-        <span class="sidebar-tag-name" data-tags="激活"><span class="iconfont-archer">&#xe606;</span>激活</span>
+        <span class="sidebar-tag-name" data-tags="激活"><span class="iconfont-archer"></span>激活</span>
     
-        <span class="sidebar-tag-name" data-tags="工具使用"><span class="iconfont-archer">&#xe606;</span>工具使用</span>
+        <span class="sidebar-tag-name" data-tags="工具使用"><span class="iconfont-archer"></span>工具使用</span>
     
-        <span class="sidebar-tag-name" data-tags="Html"><span class="iconfont-archer">&#xe606;</span>Html</span>
+        <span class="sidebar-tag-name" data-tags="Html"><span class="iconfont-archer"></span>Html</span>
     
-        <span class="sidebar-tag-name" data-tags="实体字符"><span class="iconfont-archer">&#xe606;</span>实体字符</span>
+        <span class="sidebar-tag-name" data-tags="实体字符"><span class="iconfont-archer"></span>实体字符</span>
     
-        <span class="sidebar-tag-name" data-tags="xss"><span class="iconfont-archer">&#xe606;</span>xss</span>
+        <span class="sidebar-tag-name" data-tags="xss"><span class="iconfont-archer"></span>xss</span>
     
-        <span class="sidebar-tag-name" data-tags="SrpingBoot"><span class="iconfont-archer">&#xe606;</span>SrpingBoot</span>
+        <span class="sidebar-tag-name" data-tags="SrpingBoot"><span class="iconfont-archer"></span>SrpingBoot</span>
     
-        <span class="sidebar-tag-name" data-tags="多环境"><span class="iconfont-archer">&#xe606;</span>多环境</span>
+        <span class="sidebar-tag-name" data-tags="多环境"><span class="iconfont-archer"></span>多环境</span>
     
-        <span class="sidebar-tag-name" data-tags="主页劫持"><span class="iconfont-archer">&#xe606;</span>主页劫持</span>
+        <span class="sidebar-tag-name" data-tags="主页劫持"><span class="iconfont-archer"></span>主页劫持</span>
     
-        <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer">&#xe606;</span>浏览器</span>
+        <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer"></span>浏览器</span>
     
-        <span class="sidebar-tag-name" data-tags="vmitools"><span class="iconfont-archer">&#xe606;</span>vmitools</span>
+        <span class="sidebar-tag-name" data-tags="vmitools"><span class="iconfont-archer"></span>vmitools</span>
     
-        <span class="sidebar-tag-name" data-tags="Bugku"><span class="iconfont-archer">&#xe606;</span>Bugku</span>
+        <span class="sidebar-tag-name" data-tags="bugku"><span class="iconfont-archer"></span>bugku</span>
     
-        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
+        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer"></span>ctf</span>
     
-        <span class="sidebar-tag-name" data-tags="bugku"><span class="iconfont-archer">&#xe606;</span>bugku</span>
+        <span class="sidebar-tag-name" data-tags="Bugku"><span class="iconfont-archer"></span>Bugku</span>
     
-        <span class="sidebar-tag-name" data-tags="centos7"><span class="iconfont-archer">&#xe606;</span>centos7</span>
+        <span class="sidebar-tag-name" data-tags="centos7"><span class="iconfont-archer"></span>centos7</span>
     
-        <span class="sidebar-tag-name" data-tags="docker-ce"><span class="iconfont-archer">&#xe606;</span>docker-ce</span>
+        <span class="sidebar-tag-name" data-tags="docker-ce"><span class="iconfont-archer"></span>docker-ce</span>
     
-        <span class="sidebar-tag-name" data-tags="tomcat"><span class="iconfont-archer">&#xe606;</span>tomcat</span>
+        <span class="sidebar-tag-name" data-tags="tomcat"><span class="iconfont-archer"></span>tomcat</span>
     
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer"></span>mysql</span>
     
-        <span class="sidebar-tag-name" data-tags="cmder"><span class="iconfont-archer">&#xe606;</span>cmder</span>
+        <span class="sidebar-tag-name" data-tags="cmder"><span class="iconfont-archer"></span>cmder</span>
     
-        <span class="sidebar-tag-name" data-tags="cmder here"><span class="iconfont-archer">&#xe606;</span>cmder here</span>
+        <span class="sidebar-tag-name" data-tags="cmder here"><span class="iconfont-archer"></span>cmder here</span>
     
-        <span class="sidebar-tag-name" data-tags="regedit"><span class="iconfont-archer">&#xe606;</span>regedit</span>
+        <span class="sidebar-tag-name" data-tags="regedit"><span class="iconfont-archer"></span>regedit</span>
     
-        <span class="sidebar-tag-name" data-tags="右键清理"><span class="iconfont-archer">&#xe606;</span>右键清理</span>
+        <span class="sidebar-tag-name" data-tags="右键清理"><span class="iconfont-archer"></span>右键清理</span>
     
-        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer"></span>web</span>
     
-        <span class="sidebar-tag-name" data-tags="数字经济"><span class="iconfont-archer">&#xe606;</span>数字经济</span>
+        <span class="sidebar-tag-name" data-tags="数字经济"><span class="iconfont-archer"></span>数字经济</span>
     
-        <span class="sidebar-tag-name" data-tags="云安全共测大赛初赛"><span class="iconfont-archer">&#xe606;</span>云安全共测大赛初赛</span>
+        <span class="sidebar-tag-name" data-tags="云安全共测大赛初赛"><span class="iconfont-archer"></span>云安全共测大赛初赛</span>
     
-        <span class="sidebar-tag-name" data-tags="gameapp"><span class="iconfont-archer">&#xe606;</span>gameapp</span>
+        <span class="sidebar-tag-name" data-tags="gameapp"><span class="iconfont-archer"></span>gameapp</span>
     
-        <span class="sidebar-tag-name" data-tags="hackbar"><span class="iconfont-archer">&#xe606;</span>hackbar</span>
+        <span class="sidebar-tag-name" data-tags="hackbar"><span class="iconfont-archer"></span>hackbar</span>
     
-        <span class="sidebar-tag-name" data-tags="许可证"><span class="iconfont-archer">&#xe606;</span>许可证</span>
+        <span class="sidebar-tag-name" data-tags="许可证"><span class="iconfont-archer"></span>许可证</span>
     
-        <span class="sidebar-tag-name" data-tags="idea"><span class="iconfont-archer">&#xe606;</span>idea</span>
+        <span class="sidebar-tag-name" data-tags="idea"><span class="iconfont-archer"></span>idea</span>
     
-        <span class="sidebar-tag-name" data-tags="自动导包"><span class="iconfont-archer">&#xe606;</span>自动导包</span>
+        <span class="sidebar-tag-name" data-tags="自动导包"><span class="iconfont-archer"></span>自动导包</span>
     
-        <span class="sidebar-tag-name" data-tags="jwt"><span class="iconfont-archer">&#xe606;</span>jwt</span>
+        <span class="sidebar-tag-name" data-tags="jwt"><span class="iconfont-archer"></span>jwt</span>
     
-        <span class="sidebar-tag-name" data-tags="JSON Web Token"><span class="iconfont-archer">&#xe606;</span>JSON Web Token</span>
+        <span class="sidebar-tag-name" data-tags="JSON Web Token"><span class="iconfont-archer"></span>JSON Web Token</span>
     
-        <span class="sidebar-tag-name" data-tags="pentesterlab"><span class="iconfont-archer">&#xe606;</span>pentesterlab</span>
+        <span class="sidebar-tag-name" data-tags="onetime"><span class="iconfont-archer"></span>onetime</span>
     
-        <span class="sidebar-tag-name" data-tags="onetime"><span class="iconfont-archer">&#xe606;</span>onetime</span>
+        <span class="sidebar-tag-name" data-tags="phone"><span class="iconfont-archer"></span>phone</span>
     
-        <span class="sidebar-tag-name" data-tags="phone"><span class="iconfont-archer">&#xe606;</span>phone</span>
+        <span class="sidebar-tag-name" data-tags="sms"><span class="iconfont-archer"></span>sms</span>
     
-        <span class="sidebar-tag-name" data-tags="sms"><span class="iconfont-archer">&#xe606;</span>sms</span>
+        <span class="sidebar-tag-name" data-tags="渗透测试资源"><span class="iconfont-archer"></span>渗透测试资源</span>
     
-        <span class="sidebar-tag-name" data-tags="渗透测试资源"><span class="iconfont-archer">&#xe606;</span>渗透测试资源</span>
+        <span class="sidebar-tag-name" data-tags="pentesterlab"><span class="iconfont-archer"></span>pentesterlab</span>
     
-        <span class="sidebar-tag-name" data-tags="Raspberry Pi"><span class="iconfont-archer">&#xe606;</span>Raspberry Pi</span>
+        <span class="sidebar-tag-name" data-tags="Raspberry Pi"><span class="iconfont-archer"></span>Raspberry Pi</span>
     
-        <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer">&#xe606;</span>SpringBoot</span>
+        <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer"></span>SpringBoot</span>
     
-        <span class="sidebar-tag-name" data-tags="mybatis"><span class="iconfont-archer">&#xe606;</span>mybatis</span>
+        <span class="sidebar-tag-name" data-tags="mybatis"><span class="iconfont-archer"></span>mybatis</span>
     
-        <span class="sidebar-tag-name" data-tags="ubuntu"><span class="iconfont-archer">&#xe606;</span>ubuntu</span>
+        <span class="sidebar-tag-name" data-tags="swagger2"><span class="iconfont-archer"></span>swagger2</span>
     
-        <span class="sidebar-tag-name" data-tags="vsftpd"><span class="iconfont-archer">&#xe606;</span>vsftpd</span>
+        <span class="sidebar-tag-name" data-tags="springboot"><span class="iconfont-archer"></span>springboot</span>
     
-        <span class="sidebar-tag-name" data-tags="swagger2"><span class="iconfont-archer">&#xe606;</span>swagger2</span>
+        <span class="sidebar-tag-name" data-tags="打包"><span class="iconfont-archer"></span>打包</span>
     
-        <span class="sidebar-tag-name" data-tags="springboot"><span class="iconfont-archer">&#xe606;</span>springboot</span>
+        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer"></span>maven</span>
     
-        <span class="sidebar-tag-name" data-tags="打包"><span class="iconfont-archer">&#xe606;</span>打包</span>
+        <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer"></span>redis</span>
     
-        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
+        <span class="sidebar-tag-name" data-tags="ubuntu"><span class="iconfont-archer"></span>ubuntu</span>
     
-        <span class="sidebar-tag-name" data-tags="usb"><span class="iconfont-archer">&#xe606;</span>usb</span>
+        <span class="sidebar-tag-name" data-tags="vsftpd"><span class="iconfont-archer"></span>vsftpd</span>
     
-        <span class="sidebar-tag-name" data-tags="windwos10"><span class="iconfont-archer">&#xe606;</span>windwos10</span>
+        <span class="sidebar-tag-name" data-tags="usb"><span class="iconfont-archer"></span>usb</span>
     
-        <span class="sidebar-tag-name" data-tags="安装系统"><span class="iconfont-archer">&#xe606;</span>安装系统</span>
+        <span class="sidebar-tag-name" data-tags="windwos10"><span class="iconfont-archer"></span>windwos10</span>
     
-        <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
+        <span class="sidebar-tag-name" data-tags="安装系统"><span class="iconfont-archer"></span>安装系统</span>
     
-        <span class="sidebar-tag-name" data-tags="vs"><span class="iconfont-archer">&#xe606;</span>vs</span>
+        <span class="sidebar-tag-name" data-tags="vs"><span class="iconfont-archer"></span>vs</span>
     
-        <span class="sidebar-tag-name" data-tags="2019"><span class="iconfont-archer">&#xe606;</span>2019</span>
+        <span class="sidebar-tag-name" data-tags="2019"><span class="iconfont-archer"></span>2019</span>
     
-        <span class="sidebar-tag-name" data-tags="vs2019"><span class="iconfont-archer">&#xe606;</span>vs2019</span>
+        <span class="sidebar-tag-name" data-tags="vs2019"><span class="iconfont-archer"></span>vs2019</span>
     
-        <span class="sidebar-tag-name" data-tags="Visual Studio"><span class="iconfont-archer">&#xe606;</span>Visual Studio</span>
+        <span class="sidebar-tag-name" data-tags="Visual Studio"><span class="iconfont-archer"></span>Visual Studio</span>
     
-        <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
+        <span class="sidebar-tag-name" data-tags="windows"><span class="iconfont-archer"></span>windows</span>
     
-        <span class="sidebar-tag-name" data-tags="uni-app"><span class="iconfont-archer">&#xe606;</span>uni-app</span>
+        <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer"></span>vue</span>
     
-        <span class="sidebar-tag-name" data-tags="小程序"><span class="iconfont-archer">&#xe606;</span>小程序</span>
+        <span class="sidebar-tag-name" data-tags="uni-app"><span class="iconfont-archer"></span>uni-app</span>
     
-        <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer">&#xe606;</span>vue-cli</span>
+        <span class="sidebar-tag-name" data-tags="小程序"><span class="iconfont-archer"></span>小程序</span>
     
-        <span class="sidebar-tag-name" data-tags="升级"><span class="iconfont-archer">&#xe606;</span>升级</span>
+        <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer"></span>vue-cli</span>
     
-        <span class="sidebar-tag-name" data-tags="windows"><span class="iconfont-archer">&#xe606;</span>windows</span>
+        <span class="sidebar-tag-name" data-tags="升级"><span class="iconfont-archer"></span>升级</span>
     
-        <span class="sidebar-tag-name" data-tags="浙江省"><span class="iconfont-archer">&#xe606;</span>浙江省</span>
+        <span class="sidebar-tag-name" data-tags="浙江省"><span class="iconfont-archer"></span>浙江省</span>
     
-        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
+        <span class="sidebar-tag-name" data-tags="网络与信息安全"><span class="iconfont-archer"></span>网络与信息安全</span>
     
-        <span class="sidebar-tag-name" data-tags="网络与信息安全"><span class="iconfont-archer">&#xe606;</span>网络与信息安全</span>
+        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer"></span>信息安全</span>
     
-        <span class="sidebar-tag-name" data-tags="zsh"><span class="iconfont-archer">&#xe606;</span>zsh</span>
+        <span class="sidebar-tag-name" data-tags="zsh"><span class="iconfont-archer"></span>zsh</span>
     
-        <span class="sidebar-tag-name" data-tags="wsl2"><span class="iconfont-archer">&#xe606;</span>wsl2</span>
+        <span class="sidebar-tag-name" data-tags="wsl2"><span class="iconfont-archer"></span>wsl2</span>
     
-        <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer">&#xe606;</span>nginx</span>
+        <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer"></span>nginx</span>
     
-        <span class="sidebar-tag-name" data-tags="优化"><span class="iconfont-archer">&#xe606;</span>优化</span>
+        <span class="sidebar-tag-name" data-tags="优化"><span class="iconfont-archer"></span>优化</span>
     
-        <span class="sidebar-tag-name" data-tags="sql"><span class="iconfont-archer">&#xe606;</span>sql</span>
+        <span class="sidebar-tag-name" data-tags="sql"><span class="iconfont-archer"></span>sql</span>
     
     </div>
-    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="iconfont-archer sidebar-tags-empty"></div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
-    缺失模块。<br/>
-    1、请确保node版本大于6.2<br/>
-    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
-    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    缺失模块。<br>
+    1、请确保node版本大于6.2<br>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br>
     3、在根目录_config.yml里添加配置：
-    <pre style="color: #787878; font-size: 0.6rem;">
-jsonContent:
+    <pre style="color: #787878; font-size: 0.6rem;">jsonContent:
   meta: false
   pages: false
   posts:
@@ -1723,7 +1779,7 @@ jsonContent:
     <div class="sidebar-categories-name">
     
     </div>
-    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="iconfont-archer sidebar-categories-empty"></div>
     <div class="sidebar-categories-list"></div>
 </div>
     </div>
@@ -1752,12 +1808,13 @@ jsonContent:
     
     <!-- CNZZ  -->
     
-    </div>
+    
     <!-- async load share.js -->
     
         <script src="/scripts/share.js" async></script>    
      
-    </body>
-</html>
+    
 
 
+
+<script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>

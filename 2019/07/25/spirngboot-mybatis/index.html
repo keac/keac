@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="">
-    <!-- title -->
-
-
-
-
-<!-- keywords -->
-
-
-
-
-<head><meta name="generator" content="Hexo 3.9.0">
+<!DOCTYPE html><html lang><!-- title --><!-- keywords --><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="author" content="keacwu">
@@ -22,7 +10,7 @@
     <meta name="description" content="A Network Security Amateur">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>spirngboot学习 整合mybatis · keac&#39;s Blog</title>
+    <title>spirngboot学习 整合mybatis · keac's Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -230,19 +218,19 @@
 <header class="header">
 
     <div class="read-progress"></div>
-    <div class="header-sidebar-menu">&#xe775;</div>
+    <div class="header-sidebar-menu"></div>
     <!-- post页的toggle banner  -->
     
     <div class="banner">
             <div class="blog-title">
-                <a href="/" >keac&#39;s Bolg.</a>
+                <a href="/">keac's Bolg.</a>
             </div>
             <div class="post-title">
                 <a href="#" class="post-name">spirngboot学习 整合mybatis</a>
             </div>
     </div>
     
-    <a class="home-link" href=/>keac's Bolg.</a>
+    <a class="home-link" href="/">keac's Bolg.</a>
 </header>
     <div class="wrapper">
         <div class="site-intro" style="
@@ -285,39 +273,39 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
-                    <div class= post-intro-tags >
+                    <div class="post-intro-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "SpringBoot">SpringBoot</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="SpringBoot">SpringBoot</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "mybatis">mybatis</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="mybatis">mybatis</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1k</span>阅读时长: <span class="post-count reading-time">5 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">310</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-calander iconfont-archer"></span>
                     <span class="post-intro-time">2019/07/25</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
+                        <span class="iconfont-archer"></span>
                         <span id="busuanzi_value_page_pv"></span>
                     </span>
                     
                     <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="iconfont-archer shareIcon"></span>
                         <span class="shareText">Share</span>
                         <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                            <li class="iconfont-archer share-qr" data-type="qr">
                                 <div class="share-qrcode"></div>
                             </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                            <li class="iconfont-archer" data-type="weibo"></li>
+                            <li class="iconfont-archer" data-type="qzone"></li>
+                            <li class="iconfont-archer" data-type="twitter"></li>
+                            <li class="iconfont-archer" data-type="facebook"></li>
                         </ul>
                     </span>
                 </div>
@@ -420,22 +408,22 @@ height:50vh;
     "/lib/webfontloader.min.js"
   ], asyncCb, asyncErr)
 </script>        
-        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;">
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="SpirngBoot-学习-整合mybatis"><a href="#SpirngBoot-学习-整合mybatis" class="headerlink" title="SpirngBoot 学习  整合mybatis"></a>SpirngBoot 学习  整合mybatis</h1><h2 id="加入依赖"><a href="#加入依赖" class="headerlink" title="加入依赖"></a>加入依赖</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--JDBC--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-jdbc&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!--mybatis--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.1&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!--Mysql--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">    &lt;scope&gt;runtime&lt;/scope&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+        <h1 id="SpirngBoot-学习-整合mybatis"><a href="#SpirngBoot-学习-整合mybatis" class="headerlink" title="SpirngBoot 学习  整合mybatis"></a>SpirngBoot 学习  整合mybatis</h1><h2 id="加入依赖"><a href="#加入依赖" class="headerlink" title="加入依赖"></a>加入依赖</h2><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><!--JDBC--></span><br><span class="line"><dependency></dependency></span><br><span class="line">    <groupid>org.springframework.boot</groupid></span><br><span class="line">    <artifactid>spring-boot-starter-jdbc</artifactid></span><br><span class="line"></span><br><span class="line"><!--mybatis--></span><br><span class="line"><dependency></dependency></span><br><span class="line">    <groupid>org.mybatis.spring.boot</groupid></span><br><span class="line">    <artifactid>mybatis-spring-boot-starter</artifactid></span><br><span class="line">    <version>2.0.1</version></span><br><span class="line"></span><br><span class="line"><!--Mysql--></span><br><span class="line"><dependency></dependency></span><br><span class="line">    <groupid>mysql</groupid></span><br><span class="line">    <artifactid>mysql-connector-java</artifactid></span><br><span class="line">    <scope>runtime</scope></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 <p> 再下面的plugins 加入</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">    &lt;groupId&gt;org.mybatis.generator&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mybatis-generator-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.3.1&lt;/version&gt;</span><br><span class="line">    &lt;configuration&gt;</span><br><span class="line">        &lt;configurationFile&gt;$&#123;basedir&#125;/src/main/resources/generator/generatorConfig.xml&lt;/configurationFile&gt;</span><br><span class="line">        &lt;overwrite&gt;true&lt;/overwrite&gt;</span><br><span class="line">        &lt;verbose&gt;true&lt;/verbose&gt;</span><br><span class="line">     &lt;/configuration&gt;</span><br><span class="line">&lt;/plugin&gt;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><plugin></plugin></span><br><span class="line">    <groupid>org.mybatis.generator</groupid></span><br><span class="line">    <artifactid>mybatis-generator-maven-plugin</artifactid></span><br><span class="line">    <version>1.3.1</version></span><br><span class="line">    <configuration></configuration></span><br><span class="line">        <configurationfile>${basedir}/src/main/resources/generator/generatorConfig.xml</configurationfile></span><br><span class="line">        <overwrite>true</overwrite></span><br><span class="line">        <verbose>true</verbose></span><br><span class="line">     </span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 <h2 id="新建-application-yml"><a href="#新建-application-yml" class="headerlink" title="新建 application.yml"></a>新建 application.yml</h2><p>在 resources 文件夹下新建 application.yml</p>
 <p>在配置文件里面不要使用中文注释，非常容易乱码 </p>
 <p>mysql://127.0.0.1/t?…. 这里的t修改为自己的数据库名字</p>
-<p>?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=GMT%2B8</p>
+<p>?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8</p>
 <p>这一段是使用了Unicode编码，另外把字符集编码设为utf-8防止乱码，服务器时间设为+8地区</p>
 <p>（注意缩进问题）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: 8080 </span><br><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    url: jdbc:mysql://127.0.0.1/t?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=GMT%2B8</span><br><span class="line">    username: root</span><br><span class="line">    password: root</span><br><span class="line">    driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">mybatis:</span><br><span class="line">  mapper-locations: classpath:mapper/*.xml</span><br><span class="line">  type-aliases-package: com.keac</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: 8080 </span><br><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    url: jdbc:mysql://127.0.0.1/t?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8</span><br><span class="line">    username: root</span><br><span class="line">    password: root</span><br><span class="line">    driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">mybatis:</span><br><span class="line">  mapper-locations: classpath:mapper/*.xml</span><br><span class="line">  type-aliases-package: com.keac</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="建立-generator"><a href="#建立-generator" class="headerlink" title="建立 generator"></a>建立 generator</h2><p>在 resources 下面建立一个文件夹叫做 generator ，再在这个文件夹下面新建 generatorConfig.xml</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE generatorConfiguration</span><br><span class="line">        PUBLIC &quot;-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN&quot;</span><br><span class="line">        &quot;http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&quot;&gt;</span><br><span class="line">&lt;generatorConfiguration&gt;</span><br><span class="line">    &lt;!-- 数据库驱动:选择你的本地硬盘上面的数据库驱动包--&gt;</span><br><span class="line">    &lt;classPathEntry  location=&quot;C:\Users\11765\.m2\repository\mysql\mysql-connector-java\8.0.15\mysql-connector-java-8.0.15.jar&quot;/&gt;</span><br><span class="line">    &lt;context id=&quot;DB2Tables&quot;  targetRuntime=&quot;MyBatis3&quot;&gt;</span><br><span class="line">        &lt;commentGenerator&gt;</span><br><span class="line">            &lt;property name=&quot;suppressDate&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">            &lt;!-- 是否去除自动生成的注释 true：是 ： false:否 --&gt;</span><br><span class="line">            &lt;property name=&quot;suppressAllComments&quot; value=&quot;false&quot;/&gt;</span><br><span class="line">        &lt;/commentGenerator&gt;</span><br><span class="line">        &lt;!--数据库连接驱动类,URL，用户名、密码 --&gt;</span><br><span class="line">        &lt;jdbcConnection driverClass=&quot;com.mysql.cj.jdbc.Driver&quot; connectionURL=&quot;jdbc:mysql://127.0.0.1/t?serverTimezone=GMT%2B8&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf-8&quot; userId=&quot;root&quot; password=&quot;root&quot;&gt;</span><br><span class="line">            &lt;property name=&quot;nullCatalogMeansCurrent&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">        &lt;/jdbcConnection&gt;</span><br><span class="line">        &lt;javaTypeResolver&gt;</span><br><span class="line">            &lt;property name=&quot;forceBigDecimals&quot; value=&quot;false&quot;/&gt;</span><br><span class="line">        &lt;/javaTypeResolver&gt;</span><br><span class="line">        &lt;!-- 生成(实体)模型的包名和位置--&gt;</span><br><span class="line">        &lt;javaModelGenerator targetPackage=&quot;com.keac.pojo&quot; targetProject=&quot;src\main\java&quot;&gt;</span><br><span class="line">            &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">            &lt;property name=&quot;trimStrings&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">        &lt;/javaModelGenerator&gt;</span><br><span class="line">        &lt;!-- 生成XML映射文件的包名和位置--&gt;</span><br><span class="line">        &lt;sqlMapGenerator targetPackage=&quot;resources.mapper&quot; targetProject=&quot;src\main&quot;&gt;</span><br><span class="line">            &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">        &lt;/sqlMapGenerator&gt;</span><br><span class="line">        &lt;!-- 生成DAO接口的包名和位置--&gt;</span><br><span class="line">        &lt;javaClientGenerator type=&quot;XMLMAPPER&quot; targetPackage=&quot;com.keac.mapper&quot; targetProject=&quot;src\main\java&quot;&gt;</span><br><span class="line">            &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">        &lt;/javaClientGenerator&gt;</span><br><span class="line">        &lt;!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名--&gt;</span><br><span class="line">        &lt;table tableName=&quot;user&quot; domainObjectName=&quot;User&quot; enableCountByExample=&quot;false&quot; enableUpdateByExample=&quot;false&quot; enableDeleteByExample=&quot;false&quot; enableSelectByExample=&quot;false&quot; selectByExampleQueryId=&quot;false&quot;&gt;&lt;/table&gt;</span><br><span class="line">    &lt;/context&gt;</span><br><span class="line">&lt;/generatorConfiguration&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><!--?xml version="1.0" encoding="UTF-8"?--></span><br><span class="line"><br><span class="line">        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"</span><br><span class="line">        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd"></span><br><span class="line"><generatorconfiguration></generatorconfiguration></span><br><span class="line">    <!-- 数据库驱动:选择你的本地硬盘上面的数据库驱动包--></span><br><span class="line">    <classpathentry location="C:\Users\11765\.m2\repository\mysql\mysql-connector-java\8.0.15\mysql-connector-java-8.0.15.jar"></classpathentry></span><br><span class="line">    <context id="DB2Tables" targetruntime="MyBatis3"></context></span><br><span class="line">        <commentgenerator></commentgenerator></span><br><span class="line">            <property name="suppressDate" value="true"></property></span><br><span class="line">            <!-- 是否去除自动生成的注释 true：是 ： false:否 --></span><br><span class="line">            <property name="suppressAllComments" value="false"></property></span><br><span class="line">        </span><br><span class="line">        <!--数据库连接驱动类,URL，用户名、密码 --></span><br><span class="line">        <jdbcconnection driverclass="com.mysql.cj.jdbc.Driver" connectionurl="jdbc:mysql://127.0.0.1/t?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8" userid="root" password="root"></jdbcconnection></span><br><span class="line">            <property name="nullCatalogMeansCurrent" value="true"></property></span><br><span class="line">        </span><br><span class="line">        <javatyperesolver></javatyperesolver></span><br><span class="line">            <property name="forceBigDecimals" value="false"></property></span><br><span class="line">        </span><br><span class="line">        <!-- 生成(实体)模型的包名和位置--></span><br><span class="line">        <javamodelgenerator targetpackage="com.keac.pojo" targetproject="src\main\java"></javamodelgenerator></span><br><span class="line">            <property name="enableSubPackages" value="true"></property></span><br><span class="line">            <property name="trimStrings" value="true"></property></span><br><span class="line">        </span><br><span class="line">        <!-- 生成XML映射文件的包名和位置--></span><br><span class="line">        <sqlmapgenerator targetpackage="resources.mapper" targetproject="src\main"></sqlmapgenerator></span><br><span class="line">            <property name="enableSubPackages" value="true"></property></span><br><span class="line">        </span><br><span class="line">        <!-- 生成DAO接口的包名和位置--></span><br><span class="line">        <javaclientgenerator type="XMLMAPPER" targetpackage="com.keac.mapper" targetproject="src\main\java"></javaclientgenerator></span><br><span class="line">            <property name="enableSubPackages" value="true"></property></span><br><span class="line">        </span><br><span class="line">        <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名--></span><br><span class="line">        <table tablename="user" domainobjectname="User" enablecountbyexample="false" enableupdatebyexample="false" enabledeletebyexample="false" enableselectbyexample="false" selectbyexamplequeryid="false"></table></span><br><span class="line">    </span><br><span class="line"></span><br></span></pre></td></tr></tbody></table></figure>
 <p>在这个地方可能会爆红</p>
 <p><img src="b.png" alt="sdfsdf"></p>
 <p>在设置里面添加以下 </p>
@@ -444,27 +432,27 @@ height:50vh;
 <p>复制自己驱动包的位置，放到 classPathEntry  location=”” 这里面</p>
 <p><img src="3.png" alt="sdfsdf"></p>
 <p>按照注释修改下配置</p>
-<p>在最后的table里面写入自己的表面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;table tableName=&quot;user&quot;</span><br></pre></td></tr></table></figure></p>
+<p>在最后的table里面写入自己的表面<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><br><table tablename="user" < span></table><p></p>
 <h2 id="generator运行配置"><a href="#generator运行配置" class="headerlink" title="generator运行配置"></a>generator运行配置</h2><p><img src="4.png" alt="generator运行配置"></p>
 <p>新建一个Maven  命名为 generator 在里面 打上 mybatis-generator:generate -e</p>
 <p><img src="5.png" alt="generator运行配置"></p>
 <p>配置好之后运行 generator </p>
 <p>之后就可以看到下多出了几个文件夹，可以看到mysql已经被映射为实体类了</p>
 <p><img src="6.png" alt="generator运行配置"></p>
-<p>在主函数上面加入，配置扫描mapper的文件路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@MapperScan(basePackages = &quot;com.keac.mapper&quot;)</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">   private UserMapper userMapper;</span><br><span class="line">@RequestMapping(&quot;/index&quot;)</span><br><span class="line">   public String index()&#123;</span><br><span class="line">       return userMapper.selectByPrimaryKey(1).getName();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>在主函数上面加入，配置扫描mapper的文件路径<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@MapperScan(basePackages = "com.keac.mapper")</span><br></pre></td></tr></tbody></table></figure><p></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">   private UserMapper userMapper;</span><br><span class="line">@RequestMapping("/index")</span><br><span class="line">   public String index(){</span><br><span class="line">       return userMapper.selectByPrimaryKey(1).getName();</span><br><span class="line">   }</span><br></pre></td></tr></tbody></table></figure>
 <p>访问/index后可以看到从数据库里面查出来的name </p>
 <p><img src="7.png" alt="generator运行配置"></p>
 
-    </article>
+    
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="http://www.loongten.com">keacwu</a>
-            <p>原文链接：<a href="http://www.loongten.com/2019/07/25/spirngboot-mybatis/">http://www.loongten.com/2019/07/25/spirngboot-mybatis/</a>
-            <p>发表日期：<a href="http://www.loongten.com/2019/07/25/spirngboot-mybatis/">July 25th 2019, 2:34:16 pm</a>
-            <p>更新日期：<a href="http://www.loongten.com/2019/07/25/spirngboot-mybatis/">July 25th 2019, 3:50:22 pm</a>
-            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+            </p><p>原文链接：<a href="http://www.loongten.com/2019/07/25/spirngboot-mybatis/">http://www.loongten.com/2019/07/25/spirngboot-mybatis/</a>
+            </p><p>发表日期：<a href="http://www.loongten.com/2019/07/25/spirngboot-mybatis/">July 25th 2019, 2:34:16 pm</a>
+            </p><p>更新日期：<a href="http://www.loongten.com/2019/07/25/spirngboot-mybatis/">July 25th 2019, 3:50:22 pm</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
     <!-- paginator  -->
@@ -472,7 +460,7 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/07/26/springboot-redis/" title= "springboot学习 整合redis">
+                <a href="/2019/07/26/springboot-redis/" title="springboot学习 整合redis">
                     <div class="nextTitle">springboot学习 整合redis</div>
                 </a>
             
@@ -480,7 +468,7 @@ height:50vh;
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/07/24/idea-auto-import/" title= "idea 自动导包">
+                <a href="/2019/07/24/idea-auto-import/" title="idea 自动导包">
                     <div class="prevTitle">idea 自动导包</div>
                 </a>
             
@@ -500,10 +488,10 @@ height:50vh;
     
 
     <!-- 评论 -->
-</main>
+
             <!-- profile -->
             
-        </div>
+        
         <footer class="footer footer-unloaded">
     <!-- social  -->
     
@@ -512,13 +500,13 @@ height:50vh;
     
         
             
-                <a href="mailto:admin@wgpsec.org" class="iconfont-archer email" title=email ></a>
+                <a href="mailto:admin@wgpsec.org" class="iconfont-archer email" title="email"></a>
             
         
     
         
             
-                <a href="//github.com/keac" class="iconfont-archer github" target="_blank" title=github></a>
+                <a href="//github.com/keac" class="iconfont-archer github" target="_blank" title="github"></a>
             
         
     
@@ -532,7 +520,7 @@ height:50vh;
     
         
             
-                <a href="//www.zhihu.com/people/keac" class="iconfont-archer zhihu" target="_blank" title=zhihu></a>
+                <a href="//www.zhihu.com/people/keac" class="iconfont-archer zhihu" target="_blank" title="zhihu"></a>
             
         
     
@@ -567,7 +555,7 @@ height:50vh;
     
     <!-- powered by Hexo  -->
     <div class="copyright">
-        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power"></span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
     </div>
     <!-- 不蒜子  -->
     
@@ -579,37 +567,106 @@ height:50vh;
     </div>
     
 </footer>
-    </div>
+    
     <!-- toc -->
     
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
+    <div class="toc-wrapper" style="top:50vh;">
         <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+            <span class="iconfont-archer catalog-icon"></span><span>CATALOG</span>
         </div>
         <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SpirngBoot-学习-整合mybatis"><span class="toc-number">1.</span> <span class="toc-text">SpirngBoot 学习  整合mybatis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#加入依赖"><span class="toc-number">1.1.</span> <span class="toc-text">加入依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建-application-yml"><span class="toc-number">1.2.</span> <span class="toc-text">新建 application.yml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立-generator"><span class="toc-number">1.3.</span> <span class="toc-text">建立 generator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#generator运行配置"><span class="toc-number">1.4.</span> <span class="toc-text">generator运行配置</span></a></li></ol></li></ol>
     </div>
     
-    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="back-top iconfont-archer"></div>
     <div class="sidebar sidebar-hide">
     <ul class="sidebar-tabs sidebar-tabs-active-0">
-        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
-        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
-        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+        <li class="sidebar-tab-archives"><span class="iconfont-archer"></span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer"></span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer"></span><span class="tab-name">Cate</span></li>
     </ul>
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -1258,385 +1315,384 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/08</span><a class="archive-post-title" href= "/2019/12/08/centos7-install-awvs/" >Centos7 安装 AWVS</a>
+            <span class="archive-post-date">12/08</span><a class="archive-post-title" href="/2019/12/08/centos7-install-awvs/">Centos7 安装 AWVS</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/06</span><a class="archive-post-title" href= "/2019/12/06/pentest-disposable-mobile-number/" >渗透测试资源-一次性手机号</a>
+            <span class="archive-post-date">12/06</span><a class="archive-post-title" href="/2019/12/06/pentest-disposable-mobile-number/">渗透测试资源-一次性手机号</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/06</span><a class="archive-post-title" href= "/2019/12/06/Burpsuite-v2-1-install/" >Burpsuite 激活简便使用</a>
+            <span class="archive-post-date">12/06</span><a class="archive-post-title" href="/2019/12/06/Burpsuite-v2-1-install/">Burpsuite 激活简便使用</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/22</span><a class="archive-post-title" href= "/2019/09/22/zhejiang-ctf-College-Students-Offline-competition/" >浙江省第二届大学生网络与信息安全竞赛线下赛</a>
+            <span class="archive-post-date">09/22</span><a class="archive-post-title" href="/2019/09/22/zhejiang-ctf-College-Students-Offline-competition/">浙江省第二届大学生网络与信息安全竞赛线下赛</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/22</span><a class="archive-post-title" href= "/2019/09/22/zhejiang-ctf-College-Students-Online-competition/" >浙江省第二届大学生网络与信息安全竞赛线上赛</a>
+            <span class="archive-post-date">09/22</span><a class="archive-post-title" href="/2019/09/22/zhejiang-ctf-College-Students-Online-competition/">浙江省第二届大学生网络与信息安全竞赛线上赛</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/20</span><a class="archive-post-title" href= "/2019/09/20/gc-xctf-gameapp/" >数字经济”云安全共测大赛初赛 gameapp</a>
+            <span class="archive-post-date">09/20</span><a class="archive-post-title" href="/2019/09/20/gc-xctf-gameapp/">数字经济”云安全共测大赛初赛 gameapp</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/17</span><a class="archive-post-title" href= "/2019/09/17/kali-install/" >kali_install</a>
+            <span class="archive-post-date">09/17</span><a class="archive-post-title" href="/2019/09/17/kali-install/">kali_install</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/10</span><a class="archive-post-title" href= "/2019/09/10/spring-aliyun-oss/" >SpringBoot 整合 oss</a>
+            <span class="archive-post-date">09/10</span><a class="archive-post-title" href="/2019/09/10/spring-aliyun-oss/">SpringBoot 整合 oss</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/07</span><a class="archive-post-title" href= "/2019/09/07/Raspbian3b-Buster/" >Raspbian3b+ 折腾 Buster</a>
+            <span class="archive-post-date">09/07</span><a class="archive-post-title" href="/2019/09/07/Raspbian3b-Buster/">Raspbian3b+ 折腾 Buster</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/19</span><a class="archive-post-title" href= "/2019/08/19/ubuntu-vsftpd/" >ubuntu 搭建 vsftpd 遇到的坑</a>
+            <span class="archive-post-date">08/19</span><a class="archive-post-title" href="/2019/08/19/ubuntu-vsftpd/">ubuntu 搭建 vsftpd 遇到的坑</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/07</span><a class="archive-post-title" href= "/2019/08/07/vsftpd/" >centos7 安装配置 vsftpd</a>
+            <span class="archive-post-date">08/07</span><a class="archive-post-title" href="/2019/08/07/vsftpd/">centos7 安装配置 vsftpd</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/07</span><a class="archive-post-title" href= "/2019/08/07/idea-Generate/" >idea 自动添加get set</a>
+            <span class="archive-post-date">08/07</span><a class="archive-post-title" href="/2019/08/07/idea-Generate/">idea 自动添加get set</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/02</span><a class="archive-post-title" href= "/2019/08/02/centos7-docker/" >Centos7 安装 Docker-ce</a>
+            <span class="archive-post-date">08/02</span><a class="archive-post-title" href="/2019/08/02/centos7-docker/">Centos7 安装 Docker-ce</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/01</span><a class="archive-post-title" href= "/2019/08/01/redis-Loophole/" >redis 未授权访问漏洞</a>
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href="/2019/08/01/redis-Loophole/">redis 未授权访问漏洞</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/01</span><a class="archive-post-title" href= "/2019/08/01/centos7-mysql/" >centos7 yum 方式安装mysql</a>
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href="/2019/08/01/centos7-mysql/">centos7 yum 方式安装mysql</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/01</span><a class="archive-post-title" href= "/2019/08/01/firewalld/" >firewalld</a>
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href="/2019/08/01/centos7-nginx/">Centos7 安装 Nginx 实现 负载均衡和反向代理.</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/01</span><a class="archive-post-title" href= "/2019/08/01/centos7-nginx/" >Centos7 安装 Nginx 实现 负载均衡和反向代理.</a>
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href="/2019/08/01/firewalld/">firewalld</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/01</span><a class="archive-post-title" href= "/2019/08/01/mysql-optimization2/" >Mysql 索引</a>
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href="/2019/08/01/mysql-optimization2/">Mysql 索引</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/31</span><a class="archive-post-title" href= "/2019/07/31/centos7-install-tomcat/" >centos7 安装tomcat9</a>
+            <span class="archive-post-date">07/31</span><a class="archive-post-title" href="/2019/07/31/centos7-install-tomcat/">centos7 安装tomcat9</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/31</span><a class="archive-post-title" href= "/2019/07/31/mysql-optimization/" >mysql 优化</a>
+            <span class="archive-post-date">07/31</span><a class="archive-post-title" href="/2019/07/31/mysql-optimization/">mysql 优化</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/29</span><a class="archive-post-title" href= "/2019/07/29/SpringBoot-profiles/" >SpringBoot 多环境配置</a>
+            <span class="archive-post-date">07/29</span><a class="archive-post-title" href="/2019/07/29/SpringBoot-profiles/">SpringBoot 多环境配置</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/29</span><a class="archive-post-title" href= "/2019/07/29/windows-tomcat/" >windows 安装tomcat</a>
+            <span class="archive-post-date">07/29</span><a class="archive-post-title" href="/2019/07/29/windows-tomcat/">windows 安装tomcat</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/29</span><a class="archive-post-title" href= "/2019/07/29/springboot-package/" >SpringBoot 打包</a>
+            <span class="archive-post-date">07/29</span><a class="archive-post-title" href="/2019/07/29/springboot-package/">SpringBoot 打包</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2019/07/26/SpringBoot-Mapper/" >SpringBoot-Mapper</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href="/2019/07/26/SpringBoot-Mapper/">SpringBoot-Mapper</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2019/07/26/SpringBoot-jpa/" >SpringBoot-jpa</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href="/2019/07/26/SpringBoot-jpa/">SpringBoot-jpa</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2019/07/26/springboot-redis/" >springboot学习 整合redis</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href="/2019/07/26/springboot-redis/">springboot学习 整合redis</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/25</span><a class="archive-post-title" href= "/2019/07/25/spirngboot-mybatis/" >spirngboot学习 整合mybatis</a>
+            <span class="archive-post-date">07/25</span><a class="archive-post-title" href="/2019/07/25/spirngboot-mybatis/">spirngboot学习 整合mybatis</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/springboot-and-swagger2/" >学习SpringBoot之整合 Swagger2</a>
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/springboot-and-swagger2/">学习SpringBoot之整合 Swagger2</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/idea-auto-import/" >idea 自动导包</a>
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/idea-auto-import/">idea 自动导包</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/vue/" >vue-cli 升级踩坑</a>
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/vue/">vue-cli 升级踩坑</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/07</span><a class="archive-post-title" href= "/2019/07/07/pentesterlab/" >pentesterlab</a>
+            <span class="archive-post-date">07/07</span><a class="archive-post-title" href="/2019/07/07/pentesterlab-xss/">pentesterlab_xss</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/07</span><a class="archive-post-title" href= "/2019/07/07/pentesterlab-xss/" >pentesterlab_xss</a>
+            <span class="archive-post-date">07/07</span><a class="archive-post-title" href="/2019/07/07/pentesterlab/">pentesterlab</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/30</span><a class="archive-post-title" href= "/2019/06/30/hackbar/" >hackbar</a>
+            <span class="archive-post-date">06/30</span><a class="archive-post-title" href="/2019/06/30/hackbar/">hackbar</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/27</span><a class="archive-post-title" href= "/2019/06/27/zsh/" >zsh</a>
+            <span class="archive-post-date">06/27</span><a class="archive-post-title" href="/2019/06/27/zsh/">zsh</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/25</span><a class="archive-post-title" href= "/2019/06/25/usbWindows10/" >usbWindows10</a>
+            <span class="archive-post-date">06/25</span><a class="archive-post-title" href="/2019/06/25/usbWindows10/">usbWindows10</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/23</span><a class="archive-post-title" href= "/2019/06/23/WMITools/" >WMITools</a>
+            <span class="archive-post-date">06/23</span><a class="archive-post-title" href="/2019/06/23/WMITools/">WMITools</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/22</span><a class="archive-post-title" href= "/2019/06/22/jwt/" >jwt SrpingBoot</a>
+            <span class="archive-post-date">06/22</span><a class="archive-post-title" href="/2019/06/22/jwt/">jwt SrpingBoot</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/18</span><a class="archive-post-title" href= "/2019/06/18/vs2019/" >vs2019 安装到非系统盘</a>
+            <span class="archive-post-date">06/18</span><a class="archive-post-title" href="/2019/06/18/vs2019/">vs2019 安装到非系统盘</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/14</span><a class="archive-post-title" href= "/2019/06/14/vue-change/" >vue-change</a>
+            <span class="archive-post-date">06/14</span><a class="archive-post-title" href="/2019/06/14/vue-change/">vue-change</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2019/06/10/cmder-here/" >cmder-here</a>
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href="/2019/06/10/cmder-here/">cmder-here</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/09</span><a class="archive-post-title" href= "/2019/06/09/HTML字符实体/" >HTML字符实体</a>
+            <span class="archive-post-date">06/09</span><a class="archive-post-title" href="/2019/06/09/HTML字符实体/">HTML字符实体</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/09</span><a class="archive-post-title" href= "/2019/06/09/bugku-前女友-SKCTF/" >bugku-前女友(SKCTF)</a>
+            <span class="archive-post-date">06/09</span><a class="archive-post-title" href="/2019/06/09/bugku-你从哪里来/">bugku-你从哪里来</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/09</span><a class="archive-post-title" href= "/2019/06/09/bugku-你从哪里来/" >bugku-你从哪里来</a>
+            <span class="archive-post-date">06/09</span><a class="archive-post-title" href="/2019/06/09/bugku-前女友-SKCTF/">bugku-前女友(SKCTF)</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/08</span><a class="archive-post-title" href= "/2019/06/08/pi-screen/" >树莓派分辨率调整</a>
+            <span class="archive-post-date">06/08</span><a class="archive-post-title" href="/2019/06/08/pi-screen/">树莓派分辨率调整</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/04</span><a class="archive-post-title" href= "/2019/06/04/ctf-web/" >ctf-web</a>
+            <span class="archive-post-date">06/04</span><a class="archive-post-title" href="/2019/06/04/ctf-web/">ctf-web</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/04</span><a class="archive-post-title" href= "/2019/05/04/hello-world/" >Hello world</a>
+            <span class="archive-post-date">05/04</span><a class="archive-post-title" href="/2019/05/04/hello-world/">Hello world</a>
         </li>
     
-    </div>
+    </ul></div>
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="Burpsuite"><span class="iconfont-archer">&#xe606;</span>Burpsuite</span>
+        <span class="sidebar-tag-name" data-tags="Burpsuite"><span class="iconfont-archer"></span>Burpsuite</span>
     
-        <span class="sidebar-tag-name" data-tags="激活"><span class="iconfont-archer">&#xe606;</span>激活</span>
+        <span class="sidebar-tag-name" data-tags="激活"><span class="iconfont-archer"></span>激活</span>
     
-        <span class="sidebar-tag-name" data-tags="工具使用"><span class="iconfont-archer">&#xe606;</span>工具使用</span>
+        <span class="sidebar-tag-name" data-tags="工具使用"><span class="iconfont-archer"></span>工具使用</span>
     
-        <span class="sidebar-tag-name" data-tags="Html"><span class="iconfont-archer">&#xe606;</span>Html</span>
+        <span class="sidebar-tag-name" data-tags="Html"><span class="iconfont-archer"></span>Html</span>
     
-        <span class="sidebar-tag-name" data-tags="实体字符"><span class="iconfont-archer">&#xe606;</span>实体字符</span>
+        <span class="sidebar-tag-name" data-tags="实体字符"><span class="iconfont-archer"></span>实体字符</span>
     
-        <span class="sidebar-tag-name" data-tags="xss"><span class="iconfont-archer">&#xe606;</span>xss</span>
+        <span class="sidebar-tag-name" data-tags="xss"><span class="iconfont-archer"></span>xss</span>
     
-        <span class="sidebar-tag-name" data-tags="SrpingBoot"><span class="iconfont-archer">&#xe606;</span>SrpingBoot</span>
+        <span class="sidebar-tag-name" data-tags="SrpingBoot"><span class="iconfont-archer"></span>SrpingBoot</span>
     
-        <span class="sidebar-tag-name" data-tags="多环境"><span class="iconfont-archer">&#xe606;</span>多环境</span>
+        <span class="sidebar-tag-name" data-tags="多环境"><span class="iconfont-archer"></span>多环境</span>
     
-        <span class="sidebar-tag-name" data-tags="主页劫持"><span class="iconfont-archer">&#xe606;</span>主页劫持</span>
+        <span class="sidebar-tag-name" data-tags="主页劫持"><span class="iconfont-archer"></span>主页劫持</span>
     
-        <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer">&#xe606;</span>浏览器</span>
+        <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer"></span>浏览器</span>
     
-        <span class="sidebar-tag-name" data-tags="vmitools"><span class="iconfont-archer">&#xe606;</span>vmitools</span>
+        <span class="sidebar-tag-name" data-tags="vmitools"><span class="iconfont-archer"></span>vmitools</span>
     
-        <span class="sidebar-tag-name" data-tags="Bugku"><span class="iconfont-archer">&#xe606;</span>Bugku</span>
+        <span class="sidebar-tag-name" data-tags="bugku"><span class="iconfont-archer"></span>bugku</span>
     
-        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
+        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer"></span>ctf</span>
     
-        <span class="sidebar-tag-name" data-tags="bugku"><span class="iconfont-archer">&#xe606;</span>bugku</span>
+        <span class="sidebar-tag-name" data-tags="Bugku"><span class="iconfont-archer"></span>Bugku</span>
     
-        <span class="sidebar-tag-name" data-tags="centos7"><span class="iconfont-archer">&#xe606;</span>centos7</span>
+        <span class="sidebar-tag-name" data-tags="centos7"><span class="iconfont-archer"></span>centos7</span>
     
-        <span class="sidebar-tag-name" data-tags="docker-ce"><span class="iconfont-archer">&#xe606;</span>docker-ce</span>
+        <span class="sidebar-tag-name" data-tags="docker-ce"><span class="iconfont-archer"></span>docker-ce</span>
     
-        <span class="sidebar-tag-name" data-tags="tomcat"><span class="iconfont-archer">&#xe606;</span>tomcat</span>
+        <span class="sidebar-tag-name" data-tags="tomcat"><span class="iconfont-archer"></span>tomcat</span>
     
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer"></span>mysql</span>
     
-        <span class="sidebar-tag-name" data-tags="cmder"><span class="iconfont-archer">&#xe606;</span>cmder</span>
+        <span class="sidebar-tag-name" data-tags="cmder"><span class="iconfont-archer"></span>cmder</span>
     
-        <span class="sidebar-tag-name" data-tags="cmder here"><span class="iconfont-archer">&#xe606;</span>cmder here</span>
+        <span class="sidebar-tag-name" data-tags="cmder here"><span class="iconfont-archer"></span>cmder here</span>
     
-        <span class="sidebar-tag-name" data-tags="regedit"><span class="iconfont-archer">&#xe606;</span>regedit</span>
+        <span class="sidebar-tag-name" data-tags="regedit"><span class="iconfont-archer"></span>regedit</span>
     
-        <span class="sidebar-tag-name" data-tags="右键清理"><span class="iconfont-archer">&#xe606;</span>右键清理</span>
+        <span class="sidebar-tag-name" data-tags="右键清理"><span class="iconfont-archer"></span>右键清理</span>
     
-        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer"></span>web</span>
     
-        <span class="sidebar-tag-name" data-tags="数字经济"><span class="iconfont-archer">&#xe606;</span>数字经济</span>
+        <span class="sidebar-tag-name" data-tags="数字经济"><span class="iconfont-archer"></span>数字经济</span>
     
-        <span class="sidebar-tag-name" data-tags="云安全共测大赛初赛"><span class="iconfont-archer">&#xe606;</span>云安全共测大赛初赛</span>
+        <span class="sidebar-tag-name" data-tags="云安全共测大赛初赛"><span class="iconfont-archer"></span>云安全共测大赛初赛</span>
     
-        <span class="sidebar-tag-name" data-tags="gameapp"><span class="iconfont-archer">&#xe606;</span>gameapp</span>
+        <span class="sidebar-tag-name" data-tags="gameapp"><span class="iconfont-archer"></span>gameapp</span>
     
-        <span class="sidebar-tag-name" data-tags="hackbar"><span class="iconfont-archer">&#xe606;</span>hackbar</span>
+        <span class="sidebar-tag-name" data-tags="hackbar"><span class="iconfont-archer"></span>hackbar</span>
     
-        <span class="sidebar-tag-name" data-tags="许可证"><span class="iconfont-archer">&#xe606;</span>许可证</span>
+        <span class="sidebar-tag-name" data-tags="许可证"><span class="iconfont-archer"></span>许可证</span>
     
-        <span class="sidebar-tag-name" data-tags="idea"><span class="iconfont-archer">&#xe606;</span>idea</span>
+        <span class="sidebar-tag-name" data-tags="idea"><span class="iconfont-archer"></span>idea</span>
     
-        <span class="sidebar-tag-name" data-tags="自动导包"><span class="iconfont-archer">&#xe606;</span>自动导包</span>
+        <span class="sidebar-tag-name" data-tags="自动导包"><span class="iconfont-archer"></span>自动导包</span>
     
-        <span class="sidebar-tag-name" data-tags="jwt"><span class="iconfont-archer">&#xe606;</span>jwt</span>
+        <span class="sidebar-tag-name" data-tags="jwt"><span class="iconfont-archer"></span>jwt</span>
     
-        <span class="sidebar-tag-name" data-tags="JSON Web Token"><span class="iconfont-archer">&#xe606;</span>JSON Web Token</span>
+        <span class="sidebar-tag-name" data-tags="JSON Web Token"><span class="iconfont-archer"></span>JSON Web Token</span>
     
-        <span class="sidebar-tag-name" data-tags="pentesterlab"><span class="iconfont-archer">&#xe606;</span>pentesterlab</span>
+        <span class="sidebar-tag-name" data-tags="onetime"><span class="iconfont-archer"></span>onetime</span>
     
-        <span class="sidebar-tag-name" data-tags="onetime"><span class="iconfont-archer">&#xe606;</span>onetime</span>
+        <span class="sidebar-tag-name" data-tags="phone"><span class="iconfont-archer"></span>phone</span>
     
-        <span class="sidebar-tag-name" data-tags="phone"><span class="iconfont-archer">&#xe606;</span>phone</span>
+        <span class="sidebar-tag-name" data-tags="sms"><span class="iconfont-archer"></span>sms</span>
     
-        <span class="sidebar-tag-name" data-tags="sms"><span class="iconfont-archer">&#xe606;</span>sms</span>
+        <span class="sidebar-tag-name" data-tags="渗透测试资源"><span class="iconfont-archer"></span>渗透测试资源</span>
     
-        <span class="sidebar-tag-name" data-tags="渗透测试资源"><span class="iconfont-archer">&#xe606;</span>渗透测试资源</span>
+        <span class="sidebar-tag-name" data-tags="pentesterlab"><span class="iconfont-archer"></span>pentesterlab</span>
     
-        <span class="sidebar-tag-name" data-tags="Raspberry Pi"><span class="iconfont-archer">&#xe606;</span>Raspberry Pi</span>
+        <span class="sidebar-tag-name" data-tags="Raspberry Pi"><span class="iconfont-archer"></span>Raspberry Pi</span>
     
-        <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer">&#xe606;</span>SpringBoot</span>
+        <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer"></span>SpringBoot</span>
     
-        <span class="sidebar-tag-name" data-tags="mybatis"><span class="iconfont-archer">&#xe606;</span>mybatis</span>
+        <span class="sidebar-tag-name" data-tags="mybatis"><span class="iconfont-archer"></span>mybatis</span>
     
-        <span class="sidebar-tag-name" data-tags="ubuntu"><span class="iconfont-archer">&#xe606;</span>ubuntu</span>
+        <span class="sidebar-tag-name" data-tags="swagger2"><span class="iconfont-archer"></span>swagger2</span>
     
-        <span class="sidebar-tag-name" data-tags="vsftpd"><span class="iconfont-archer">&#xe606;</span>vsftpd</span>
+        <span class="sidebar-tag-name" data-tags="springboot"><span class="iconfont-archer"></span>springboot</span>
     
-        <span class="sidebar-tag-name" data-tags="swagger2"><span class="iconfont-archer">&#xe606;</span>swagger2</span>
+        <span class="sidebar-tag-name" data-tags="打包"><span class="iconfont-archer"></span>打包</span>
     
-        <span class="sidebar-tag-name" data-tags="springboot"><span class="iconfont-archer">&#xe606;</span>springboot</span>
+        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer"></span>maven</span>
     
-        <span class="sidebar-tag-name" data-tags="打包"><span class="iconfont-archer">&#xe606;</span>打包</span>
+        <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer"></span>redis</span>
     
-        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
+        <span class="sidebar-tag-name" data-tags="ubuntu"><span class="iconfont-archer"></span>ubuntu</span>
     
-        <span class="sidebar-tag-name" data-tags="usb"><span class="iconfont-archer">&#xe606;</span>usb</span>
+        <span class="sidebar-tag-name" data-tags="vsftpd"><span class="iconfont-archer"></span>vsftpd</span>
     
-        <span class="sidebar-tag-name" data-tags="windwos10"><span class="iconfont-archer">&#xe606;</span>windwos10</span>
+        <span class="sidebar-tag-name" data-tags="usb"><span class="iconfont-archer"></span>usb</span>
     
-        <span class="sidebar-tag-name" data-tags="安装系统"><span class="iconfont-archer">&#xe606;</span>安装系统</span>
+        <span class="sidebar-tag-name" data-tags="windwos10"><span class="iconfont-archer"></span>windwos10</span>
     
-        <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
+        <span class="sidebar-tag-name" data-tags="安装系统"><span class="iconfont-archer"></span>安装系统</span>
     
-        <span class="sidebar-tag-name" data-tags="vs"><span class="iconfont-archer">&#xe606;</span>vs</span>
+        <span class="sidebar-tag-name" data-tags="vs"><span class="iconfont-archer"></span>vs</span>
     
-        <span class="sidebar-tag-name" data-tags="2019"><span class="iconfont-archer">&#xe606;</span>2019</span>
+        <span class="sidebar-tag-name" data-tags="2019"><span class="iconfont-archer"></span>2019</span>
     
-        <span class="sidebar-tag-name" data-tags="vs2019"><span class="iconfont-archer">&#xe606;</span>vs2019</span>
+        <span class="sidebar-tag-name" data-tags="vs2019"><span class="iconfont-archer"></span>vs2019</span>
     
-        <span class="sidebar-tag-name" data-tags="Visual Studio"><span class="iconfont-archer">&#xe606;</span>Visual Studio</span>
+        <span class="sidebar-tag-name" data-tags="Visual Studio"><span class="iconfont-archer"></span>Visual Studio</span>
     
-        <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
+        <span class="sidebar-tag-name" data-tags="windows"><span class="iconfont-archer"></span>windows</span>
     
-        <span class="sidebar-tag-name" data-tags="uni-app"><span class="iconfont-archer">&#xe606;</span>uni-app</span>
+        <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer"></span>vue</span>
     
-        <span class="sidebar-tag-name" data-tags="小程序"><span class="iconfont-archer">&#xe606;</span>小程序</span>
+        <span class="sidebar-tag-name" data-tags="uni-app"><span class="iconfont-archer"></span>uni-app</span>
     
-        <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer">&#xe606;</span>vue-cli</span>
+        <span class="sidebar-tag-name" data-tags="小程序"><span class="iconfont-archer"></span>小程序</span>
     
-        <span class="sidebar-tag-name" data-tags="升级"><span class="iconfont-archer">&#xe606;</span>升级</span>
+        <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer"></span>vue-cli</span>
     
-        <span class="sidebar-tag-name" data-tags="windows"><span class="iconfont-archer">&#xe606;</span>windows</span>
+        <span class="sidebar-tag-name" data-tags="升级"><span class="iconfont-archer"></span>升级</span>
     
-        <span class="sidebar-tag-name" data-tags="浙江省"><span class="iconfont-archer">&#xe606;</span>浙江省</span>
+        <span class="sidebar-tag-name" data-tags="浙江省"><span class="iconfont-archer"></span>浙江省</span>
     
-        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
+        <span class="sidebar-tag-name" data-tags="网络与信息安全"><span class="iconfont-archer"></span>网络与信息安全</span>
     
-        <span class="sidebar-tag-name" data-tags="网络与信息安全"><span class="iconfont-archer">&#xe606;</span>网络与信息安全</span>
+        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer"></span>信息安全</span>
     
-        <span class="sidebar-tag-name" data-tags="zsh"><span class="iconfont-archer">&#xe606;</span>zsh</span>
+        <span class="sidebar-tag-name" data-tags="zsh"><span class="iconfont-archer"></span>zsh</span>
     
-        <span class="sidebar-tag-name" data-tags="wsl2"><span class="iconfont-archer">&#xe606;</span>wsl2</span>
+        <span class="sidebar-tag-name" data-tags="wsl2"><span class="iconfont-archer"></span>wsl2</span>
     
-        <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer">&#xe606;</span>nginx</span>
+        <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer"></span>nginx</span>
     
-        <span class="sidebar-tag-name" data-tags="优化"><span class="iconfont-archer">&#xe606;</span>优化</span>
+        <span class="sidebar-tag-name" data-tags="优化"><span class="iconfont-archer"></span>优化</span>
     
-        <span class="sidebar-tag-name" data-tags="sql"><span class="iconfont-archer">&#xe606;</span>sql</span>
+        <span class="sidebar-tag-name" data-tags="sql"><span class="iconfont-archer"></span>sql</span>
     
     </div>
-    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="iconfont-archer sidebar-tags-empty"></div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
-    缺失模块。<br/>
-    1、请确保node版本大于6.2<br/>
-    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
-    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    缺失模块。<br>
+    1、请确保node版本大于6.2<br>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br>
     3、在根目录_config.yml里添加配置：
-    <pre style="color: #787878; font-size: 0.6rem;">
-jsonContent:
+    <pre style="color: #787878; font-size: 0.6rem;">jsonContent:
   meta: false
   pages: false
   posts:
@@ -1661,7 +1717,7 @@ jsonContent:
     <div class="sidebar-categories-name">
     
     </div>
-    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="iconfont-archer sidebar-categories-empty"></div>
     <div class="sidebar-categories-list"></div>
 </div>
     </div>
@@ -1690,12 +1746,13 @@ jsonContent:
     
     <!-- CNZZ  -->
     
-    </div>
+    
     <!-- async load share.js -->
     
         <script src="/scripts/share.js" async></script>    
      
-    </body>
-</html>
+    
 
 
+
+</span></pre></td></tr></tbody></table></figure></article></main></div></div><script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>

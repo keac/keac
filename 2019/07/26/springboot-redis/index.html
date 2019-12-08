@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="">
-    <!-- title -->
-
-
-
-
-<!-- keywords -->
-
-
-
-
-<head><meta name="generator" content="Hexo 3.9.0">
+<!DOCTYPE html><html lang><!-- title --><!-- keywords --><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="author" content="keacwu">
@@ -22,7 +10,7 @@
     <meta name="description" content="A Network Security Amateur">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>springboot学习 整合redis · keac&#39;s Blog</title>
+    <title>springboot学习 整合redis · keac's Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -230,19 +218,19 @@
 <header class="header">
 
     <div class="read-progress"></div>
-    <div class="header-sidebar-menu">&#xe775;</div>
+    <div class="header-sidebar-menu"></div>
     <!-- post页的toggle banner  -->
     
     <div class="banner">
             <div class="blog-title">
-                <a href="/" >keac&#39;s Bolg.</a>
+                <a href="/">keac's Bolg.</a>
             </div>
             <div class="post-title">
                 <a href="#" class="post-name">springboot学习 整合redis</a>
             </div>
     </div>
     
-    <a class="home-link" href=/>keac's Bolg.</a>
+    <a class="home-link" href="/">keac's Bolg.</a>
 </header>
     <div class="wrapper">
         <div class="site-intro" style="
@@ -285,39 +273,39 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
-                    <div class= post-intro-tags >
+                    <div class="post-intro-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "SpringBoot">SpringBoot</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="SpringBoot">SpringBoot</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "redis">redis</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="redis">redis</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">558</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">499</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-calander iconfont-archer"></span>
                     <span class="post-intro-time">2019/07/26</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
+                        <span class="iconfont-archer"></span>
                         <span id="busuanzi_value_page_pv"></span>
                     </span>
                     
                     <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="iconfont-archer shareIcon"></span>
                         <span class="shareText">Share</span>
                         <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                            <li class="iconfont-archer share-qr" data-type="qr">
                                 <div class="share-qrcode"></div>
                             </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                            <li class="iconfont-archer" data-type="weibo"></li>
+                            <li class="iconfont-archer" data-type="qzone"></li>
+                            <li class="iconfont-archer" data-type="twitter"></li>
+                            <li class="iconfont-archer" data-type="facebook"></li>
                         </ul>
                     </span>
                 </div>
@@ -420,7 +408,7 @@ height:50vh;
     "/lib/webfontloader.min.js"
   ], asyncCb, asyncErr)
 </script>        
-        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;">
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
@@ -433,15 +421,15 @@ height:50vh;
 <p><img src="2.png" alt="windows Github 下载"></p>
 <h1 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h1><p><a href="https://github.com/keac/spring-demo/tree/042438160a776f5f7329a50c2aeb5ae64c4954b7" target="_blank" rel="noopener">我的源码的Github地址</a></p>
 <h1 id="SpringBoot-依赖"><a href="#SpringBoot-依赖" class="headerlink" title="SpringBoot 依赖"></a>SpringBoot 依赖</h1><p>在pom.xml 加入 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--redis--&gt;</span><br><span class="line"> &lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
-<p>在 application.yml 下加入，大多数情况下默认配置即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  redis:</span><br><span class="line">    ###数据库索引（默认0</span><br><span class="line">    database: 0</span><br><span class="line">    host: 127.0.0.1</span><br><span class="line">    port: 6379</span><br><span class="line">    password:</span><br><span class="line">    jedis:</span><br><span class="line">      pool:</span><br><span class="line">        ###最大连接数（负数没有限制</span><br><span class="line">        max-active: 8</span><br><span class="line">        ###连接池最大阻塞等待时间（负数没有限制</span><br><span class="line">        max-wait: -1</span><br><span class="line">        ###最大空闲连接</span><br><span class="line">        max-idle: 5</span><br><span class="line">        ###最小空闲连接</span><br><span class="line">        min-idle: 0</span><br><span class="line">    ###连接超时时间</span><br><span class="line">    timeout: 10000</span><br></pre></td></tr></table></figure></p>
-<h1 id="添加-redis-config"><a href="#添加-redis-config" class="headerlink" title="添加 redis config"></a>添加 redis config</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">package com.keac.config;</span><br><span class="line"></span><br><span class="line">import org.springframework.context.annotation.Bean;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line">import org.springframework.data.redis.connection.RedisConnectionFactory;</span><br><span class="line">import org.springframework.data.redis.core.RedisTemplate;</span><br><span class="line">import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;</span><br><span class="line">import org.springframework.data.redis.serializer.StringRedisSerializer;</span><br><span class="line"></span><br><span class="line">import java.io.Serializable;</span><br><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line">public class RedisConfig &#123;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public RedisTemplate&lt;Serializable, Object&gt; redisTemplate(RedisConnectionFactory connectionFactory) &#123;</span><br><span class="line">        RedisTemplate&lt;Serializable, Object&gt; template = new RedisTemplate&lt;Serializable, Object&gt;();</span><br><span class="line">        template.setConnectionFactory(connectionFactory);</span><br><span class="line">        template.afterPropertiesSet();</span><br><span class="line">        // redis存取对象的关键配置</span><br><span class="line">        template.setKeySerializer(new StringRedisSerializer());</span><br><span class="line">        // ObjectRedisSerializer类为java对象的序列化和反序列化工具类</span><br><span class="line">        template.setValueSerializer(new GenericJackson2JsonRedisSerializer());</span><br><span class="line">        return template;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="测试-redis"><a href="#测试-redis" class="headerlink" title="测试 redis"></a>测试 redis</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">package com.keac.controller;</span><br><span class="line"></span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.data.redis.core.StringRedisTemplate;</span><br><span class="line">import org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line">@RestController</span><br><span class="line">public class RedisC &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private StringRedisTemplate stringRedisTemplate;</span><br><span class="line"></span><br><span class="line">    //添加</span><br><span class="line">    @GetMapping(value=&quot;/redisAdd&quot;)</span><br><span class="line">    public void saveRedis()&#123;</span><br><span class="line">        stringRedisTemplate.opsForValue().set(&quot;a&quot;,&quot;bbbb&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //获取</span><br><span class="line">    @GetMapping(value=&quot;/redisGet&quot;)</span><br><span class="line">    public String getRedis()&#123;</span><br><span class="line">        return stringRedisTemplate.opsForValue().get(&quot;a&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><!--redis--></span><br><span class="line"> <dependency></dependency></span><br><span class="line">    <groupid>org.springframework.boot</groupid></span><br><span class="line">    <artifactid>spring-boot-starter-data-redis</artifactid></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>在 application.yml 下加入，大多数情况下默认配置即可<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  redis:</span><br><span class="line">    ###数据库索引（默认0</span><br><span class="line">    database: 0</span><br><span class="line">    host: 127.0.0.1</span><br><span class="line">    port: 6379</span><br><span class="line">    password:</span><br><span class="line">    jedis:</span><br><span class="line">      pool:</span><br><span class="line">        ###最大连接数（负数没有限制</span><br><span class="line">        max-active: 8</span><br><span class="line">        ###连接池最大阻塞等待时间（负数没有限制</span><br><span class="line">        max-wait: -1</span><br><span class="line">        ###最大空闲连接</span><br><span class="line">        max-idle: 5</span><br><span class="line">        ###最小空闲连接</span><br><span class="line">        min-idle: 0</span><br><span class="line">    ###连接超时时间</span><br><span class="line">    timeout: 10000</span><br></pre></td></tr></tbody></table></figure><p></p>
+<h1 id="添加-redis-config"><a href="#添加-redis-config" class="headerlink" title="添加 redis config"></a>添加 redis config</h1><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">package com.keac.config;</span><br><span class="line"></span><br><span class="line">import org.springframework.context.annotation.Bean;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line">import org.springframework.data.redis.connection.RedisConnectionFactory;</span><br><span class="line">import org.springframework.data.redis.core.RedisTemplate;</span><br><span class="line">import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;</span><br><span class="line">import org.springframework.data.redis.serializer.StringRedisSerializer;</span><br><span class="line"></span><br><span class="line">import java.io.Serializable;</span><br><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line">public class RedisConfig {</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public RedisTemplate<serializable, object> redisTemplate(RedisConnectionFactory connectionFactory) {</serializable,></span><br><span class="line">        RedisTemplate<serializable, object> template = new RedisTemplate<serializable, object>();</serializable,></serializable,></span><br><span class="line">        template.setConnectionFactory(connectionFactory);</span><br><span class="line">        template.afterPropertiesSet();</span><br><span class="line">        // redis存取对象的关键配置</span><br><span class="line">        template.setKeySerializer(new StringRedisSerializer());</span><br><span class="line">        // ObjectRedisSerializer类为java对象的序列化和反序列化工具类</span><br><span class="line">        template.setValueSerializer(new GenericJackson2JsonRedisSerializer());</span><br><span class="line">        return template;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="测试-redis"><a href="#测试-redis" class="headerlink" title="测试 redis"></a>测试 redis</h1><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">package com.keac.controller;</span><br><span class="line"></span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.data.redis.core.StringRedisTemplate;</span><br><span class="line">import org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line">@RestController</span><br><span class="line">public class RedisC {</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private StringRedisTemplate stringRedisTemplate;</span><br><span class="line"></span><br><span class="line">    //添加</span><br><span class="line">    @GetMapping(value="/redisAdd")</span><br><span class="line">    public void saveRedis(){</span><br><span class="line">        stringRedisTemplate.opsForValue().set("a","bbbb");</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    //获取</span><br><span class="line">    @GetMapping(value="/redisGet")</span><br><span class="line">    public String getRedis(){</span><br><span class="line">        return stringRedisTemplate.opsForValue().get("a");</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>访问下 <a href="http://127.0.0.1:8080/redisAdd" target="_blank" rel="noopener">http://127.0.0.1:8080/redisAdd</a> </p>
 <p>RedisDesktopManager (链接：<a href="https://share.weiyun.com/5DXnl0d" target="_blank" rel="noopener">https://share.weiyun.com/5DXnl0d</a> 密码：666666)</p>
 <p>用 RedisDesktopManager 可以看到已经添加进去了<br><img src="3.png" alt="RedisDesktopManager"><br><img src="4.png" alt="RedisDesktopManager"><br><img src="5.png" alt="RedisDesktopManager"></p>
 <p>不过在过程中遇到点问题 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- Bean method &apos;redisConnectionFactory&apos; in &apos;JedisConnectionConfiguration&apos; not loaded because @ConditionalOnMissingBean (types: org.springframework.data.redis.connection.RedisConnectionFactory; SearchStrategy: all) found beans of type &apos;org.springframework.data.redis.connection.RedisConnectionFactory&apos; redisConnectionFactory</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- Bean method 'redisConnectionFactory' in 'JedisConnectionConfiguration' not loaded because @ConditionalOnMissingBean (types: org.springframework.data.redis.connection.RedisConnectionFactory; SearchStrategy: all) found beans of type 'org.springframework.data.redis.connection.RedisConnectionFactory' redisConnectionFactory</span><br></pre></td></tr></tbody></table></figure>
 <p>换了下SpringBoot 版本 到 2.1.5.RELEASE 就没问题了，有点神奇 回头研究研究</p>
 
     </article>
@@ -449,10 +437,10 @@ height:50vh;
     
         <div class="license-wrapper">
             <p>原文作者：<a href="http://www.loongten.com">keacwu</a>
-            <p>原文链接：<a href="http://www.loongten.com/2019/07/26/springboot-redis/">http://www.loongten.com/2019/07/26/springboot-redis/</a>
-            <p>发表日期：<a href="http://www.loongten.com/2019/07/26/springboot-redis/">July 26th 2019, 9:32:47 am</a>
-            <p>更新日期：<a href="http://www.loongten.com/2019/07/26/springboot-redis/">July 26th 2019, 1:04:40 pm</a>
-            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+            </p><p>原文链接：<a href="http://www.loongten.com/2019/07/26/springboot-redis/">http://www.loongten.com/2019/07/26/springboot-redis/</a>
+            </p><p>发表日期：<a href="http://www.loongten.com/2019/07/26/springboot-redis/">July 26th 2019, 9:32:47 am</a>
+            </p><p>更新日期：<a href="http://www.loongten.com/2019/07/26/springboot-redis/">July 26th 2019, 1:04:40 pm</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
     <!-- paginator  -->
@@ -460,7 +448,7 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/07/26/SpringBoot-jpa/" title= "SpringBoot-jpa">
+                <a href="/2019/07/26/SpringBoot-jpa/" title="SpringBoot-jpa">
                     <div class="nextTitle">SpringBoot-jpa</div>
                 </a>
             
@@ -468,7 +456,7 @@ height:50vh;
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/07/25/spirngboot-mybatis/" title= "spirngboot学习 整合mybatis">
+                <a href="/2019/07/25/spirngboot-mybatis/" title="spirngboot学习 整合mybatis">
                     <div class="prevTitle">spirngboot学习 整合mybatis</div>
                 </a>
             
@@ -500,13 +488,13 @@ height:50vh;
     
         
             
-                <a href="mailto:admin@wgpsec.org" class="iconfont-archer email" title=email ></a>
+                <a href="mailto:admin@wgpsec.org" class="iconfont-archer email" title="email"></a>
             
         
     
         
             
-                <a href="//github.com/keac" class="iconfont-archer github" target="_blank" title=github></a>
+                <a href="//github.com/keac" class="iconfont-archer github" target="_blank" title="github"></a>
             
         
     
@@ -520,7 +508,7 @@ height:50vh;
     
         
             
-                <a href="//www.zhihu.com/people/keac" class="iconfont-archer zhihu" target="_blank" title=zhihu></a>
+                <a href="//www.zhihu.com/people/keac" class="iconfont-archer zhihu" target="_blank" title="zhihu"></a>
             
         
     
@@ -555,7 +543,7 @@ height:50vh;
     
     <!-- powered by Hexo  -->
     <div class="copyright">
-        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power"></span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
     </div>
     <!-- 不蒜子  -->
     
@@ -570,34 +558,103 @@ height:50vh;
     </div>
     <!-- toc -->
     
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
+    <div class="toc-wrapper" style="top:50vh;">
         <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+            <span class="iconfont-archer catalog-icon"></span><span>CATALOG</span>
         </div>
         <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#下载windows版本的redis"><span class="toc-number">1.</span> <span class="toc-text">下载windows版本的redis</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目"><span class="toc-number">2.</span> <span class="toc-text">项目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringBoot-依赖"><span class="toc-number">3.</span> <span class="toc-text">SpringBoot 依赖</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加-redis-config"><span class="toc-number">4.</span> <span class="toc-text">添加 redis config</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#测试-redis"><span class="toc-number">5.</span> <span class="toc-text">测试 redis</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#测试"><span class="toc-number">6.</span> <span class="toc-text">测试</span></a></li></ol>
     </div>
     
-    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="back-top iconfont-archer"></div>
     <div class="sidebar sidebar-hide">
     <ul class="sidebar-tabs sidebar-tabs-active-0">
-        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
-        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
-        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+        <li class="sidebar-tab-archives"><span class="iconfont-archer"></span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer"></span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer"></span><span class="tab-name">Cate</span></li>
     </ul>
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -1246,385 +1303,384 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/08</span><a class="archive-post-title" href= "/2019/12/08/centos7-install-awvs/" >Centos7 安装 AWVS</a>
+            <span class="archive-post-date">12/08</span><a class="archive-post-title" href="/2019/12/08/centos7-install-awvs/">Centos7 安装 AWVS</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/06</span><a class="archive-post-title" href= "/2019/12/06/pentest-disposable-mobile-number/" >渗透测试资源-一次性手机号</a>
+            <span class="archive-post-date">12/06</span><a class="archive-post-title" href="/2019/12/06/pentest-disposable-mobile-number/">渗透测试资源-一次性手机号</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/06</span><a class="archive-post-title" href= "/2019/12/06/Burpsuite-v2-1-install/" >Burpsuite 激活简便使用</a>
+            <span class="archive-post-date">12/06</span><a class="archive-post-title" href="/2019/12/06/Burpsuite-v2-1-install/">Burpsuite 激活简便使用</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/22</span><a class="archive-post-title" href= "/2019/09/22/zhejiang-ctf-College-Students-Offline-competition/" >浙江省第二届大学生网络与信息安全竞赛线下赛</a>
+            <span class="archive-post-date">09/22</span><a class="archive-post-title" href="/2019/09/22/zhejiang-ctf-College-Students-Offline-competition/">浙江省第二届大学生网络与信息安全竞赛线下赛</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/22</span><a class="archive-post-title" href= "/2019/09/22/zhejiang-ctf-College-Students-Online-competition/" >浙江省第二届大学生网络与信息安全竞赛线上赛</a>
+            <span class="archive-post-date">09/22</span><a class="archive-post-title" href="/2019/09/22/zhejiang-ctf-College-Students-Online-competition/">浙江省第二届大学生网络与信息安全竞赛线上赛</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/20</span><a class="archive-post-title" href= "/2019/09/20/gc-xctf-gameapp/" >数字经济”云安全共测大赛初赛 gameapp</a>
+            <span class="archive-post-date">09/20</span><a class="archive-post-title" href="/2019/09/20/gc-xctf-gameapp/">数字经济”云安全共测大赛初赛 gameapp</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/17</span><a class="archive-post-title" href= "/2019/09/17/kali-install/" >kali_install</a>
+            <span class="archive-post-date">09/17</span><a class="archive-post-title" href="/2019/09/17/kali-install/">kali_install</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/10</span><a class="archive-post-title" href= "/2019/09/10/spring-aliyun-oss/" >SpringBoot 整合 oss</a>
+            <span class="archive-post-date">09/10</span><a class="archive-post-title" href="/2019/09/10/spring-aliyun-oss/">SpringBoot 整合 oss</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/07</span><a class="archive-post-title" href= "/2019/09/07/Raspbian3b-Buster/" >Raspbian3b+ 折腾 Buster</a>
+            <span class="archive-post-date">09/07</span><a class="archive-post-title" href="/2019/09/07/Raspbian3b-Buster/">Raspbian3b+ 折腾 Buster</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/19</span><a class="archive-post-title" href= "/2019/08/19/ubuntu-vsftpd/" >ubuntu 搭建 vsftpd 遇到的坑</a>
+            <span class="archive-post-date">08/19</span><a class="archive-post-title" href="/2019/08/19/ubuntu-vsftpd/">ubuntu 搭建 vsftpd 遇到的坑</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/07</span><a class="archive-post-title" href= "/2019/08/07/vsftpd/" >centos7 安装配置 vsftpd</a>
+            <span class="archive-post-date">08/07</span><a class="archive-post-title" href="/2019/08/07/vsftpd/">centos7 安装配置 vsftpd</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/07</span><a class="archive-post-title" href= "/2019/08/07/idea-Generate/" >idea 自动添加get set</a>
+            <span class="archive-post-date">08/07</span><a class="archive-post-title" href="/2019/08/07/idea-Generate/">idea 自动添加get set</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/02</span><a class="archive-post-title" href= "/2019/08/02/centos7-docker/" >Centos7 安装 Docker-ce</a>
+            <span class="archive-post-date">08/02</span><a class="archive-post-title" href="/2019/08/02/centos7-docker/">Centos7 安装 Docker-ce</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/01</span><a class="archive-post-title" href= "/2019/08/01/redis-Loophole/" >redis 未授权访问漏洞</a>
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href="/2019/08/01/redis-Loophole/">redis 未授权访问漏洞</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/01</span><a class="archive-post-title" href= "/2019/08/01/centos7-mysql/" >centos7 yum 方式安装mysql</a>
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href="/2019/08/01/centos7-mysql/">centos7 yum 方式安装mysql</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/01</span><a class="archive-post-title" href= "/2019/08/01/firewalld/" >firewalld</a>
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href="/2019/08/01/centos7-nginx/">Centos7 安装 Nginx 实现 负载均衡和反向代理.</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/01</span><a class="archive-post-title" href= "/2019/08/01/centos7-nginx/" >Centos7 安装 Nginx 实现 负载均衡和反向代理.</a>
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href="/2019/08/01/firewalld/">firewalld</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/01</span><a class="archive-post-title" href= "/2019/08/01/mysql-optimization2/" >Mysql 索引</a>
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href="/2019/08/01/mysql-optimization2/">Mysql 索引</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/31</span><a class="archive-post-title" href= "/2019/07/31/centos7-install-tomcat/" >centos7 安装tomcat9</a>
+            <span class="archive-post-date">07/31</span><a class="archive-post-title" href="/2019/07/31/centos7-install-tomcat/">centos7 安装tomcat9</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/31</span><a class="archive-post-title" href= "/2019/07/31/mysql-optimization/" >mysql 优化</a>
+            <span class="archive-post-date">07/31</span><a class="archive-post-title" href="/2019/07/31/mysql-optimization/">mysql 优化</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/29</span><a class="archive-post-title" href= "/2019/07/29/SpringBoot-profiles/" >SpringBoot 多环境配置</a>
+            <span class="archive-post-date">07/29</span><a class="archive-post-title" href="/2019/07/29/SpringBoot-profiles/">SpringBoot 多环境配置</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/29</span><a class="archive-post-title" href= "/2019/07/29/windows-tomcat/" >windows 安装tomcat</a>
+            <span class="archive-post-date">07/29</span><a class="archive-post-title" href="/2019/07/29/windows-tomcat/">windows 安装tomcat</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/29</span><a class="archive-post-title" href= "/2019/07/29/springboot-package/" >SpringBoot 打包</a>
+            <span class="archive-post-date">07/29</span><a class="archive-post-title" href="/2019/07/29/springboot-package/">SpringBoot 打包</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2019/07/26/SpringBoot-Mapper/" >SpringBoot-Mapper</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href="/2019/07/26/SpringBoot-Mapper/">SpringBoot-Mapper</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2019/07/26/SpringBoot-jpa/" >SpringBoot-jpa</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href="/2019/07/26/SpringBoot-jpa/">SpringBoot-jpa</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2019/07/26/springboot-redis/" >springboot学习 整合redis</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href="/2019/07/26/springboot-redis/">springboot学习 整合redis</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/25</span><a class="archive-post-title" href= "/2019/07/25/spirngboot-mybatis/" >spirngboot学习 整合mybatis</a>
+            <span class="archive-post-date">07/25</span><a class="archive-post-title" href="/2019/07/25/spirngboot-mybatis/">spirngboot学习 整合mybatis</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/springboot-and-swagger2/" >学习SpringBoot之整合 Swagger2</a>
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/springboot-and-swagger2/">学习SpringBoot之整合 Swagger2</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/idea-auto-import/" >idea 自动导包</a>
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/idea-auto-import/">idea 自动导包</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/vue/" >vue-cli 升级踩坑</a>
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/vue/">vue-cli 升级踩坑</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/07</span><a class="archive-post-title" href= "/2019/07/07/pentesterlab/" >pentesterlab</a>
+            <span class="archive-post-date">07/07</span><a class="archive-post-title" href="/2019/07/07/pentesterlab-xss/">pentesterlab_xss</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/07</span><a class="archive-post-title" href= "/2019/07/07/pentesterlab-xss/" >pentesterlab_xss</a>
+            <span class="archive-post-date">07/07</span><a class="archive-post-title" href="/2019/07/07/pentesterlab/">pentesterlab</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/30</span><a class="archive-post-title" href= "/2019/06/30/hackbar/" >hackbar</a>
+            <span class="archive-post-date">06/30</span><a class="archive-post-title" href="/2019/06/30/hackbar/">hackbar</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/27</span><a class="archive-post-title" href= "/2019/06/27/zsh/" >zsh</a>
+            <span class="archive-post-date">06/27</span><a class="archive-post-title" href="/2019/06/27/zsh/">zsh</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/25</span><a class="archive-post-title" href= "/2019/06/25/usbWindows10/" >usbWindows10</a>
+            <span class="archive-post-date">06/25</span><a class="archive-post-title" href="/2019/06/25/usbWindows10/">usbWindows10</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/23</span><a class="archive-post-title" href= "/2019/06/23/WMITools/" >WMITools</a>
+            <span class="archive-post-date">06/23</span><a class="archive-post-title" href="/2019/06/23/WMITools/">WMITools</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/22</span><a class="archive-post-title" href= "/2019/06/22/jwt/" >jwt SrpingBoot</a>
+            <span class="archive-post-date">06/22</span><a class="archive-post-title" href="/2019/06/22/jwt/">jwt SrpingBoot</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/18</span><a class="archive-post-title" href= "/2019/06/18/vs2019/" >vs2019 安装到非系统盘</a>
+            <span class="archive-post-date">06/18</span><a class="archive-post-title" href="/2019/06/18/vs2019/">vs2019 安装到非系统盘</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/14</span><a class="archive-post-title" href= "/2019/06/14/vue-change/" >vue-change</a>
+            <span class="archive-post-date">06/14</span><a class="archive-post-title" href="/2019/06/14/vue-change/">vue-change</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2019/06/10/cmder-here/" >cmder-here</a>
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href="/2019/06/10/cmder-here/">cmder-here</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/09</span><a class="archive-post-title" href= "/2019/06/09/HTML字符实体/" >HTML字符实体</a>
+            <span class="archive-post-date">06/09</span><a class="archive-post-title" href="/2019/06/09/HTML字符实体/">HTML字符实体</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/09</span><a class="archive-post-title" href= "/2019/06/09/bugku-前女友-SKCTF/" >bugku-前女友(SKCTF)</a>
+            <span class="archive-post-date">06/09</span><a class="archive-post-title" href="/2019/06/09/bugku-你从哪里来/">bugku-你从哪里来</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/09</span><a class="archive-post-title" href= "/2019/06/09/bugku-你从哪里来/" >bugku-你从哪里来</a>
+            <span class="archive-post-date">06/09</span><a class="archive-post-title" href="/2019/06/09/bugku-前女友-SKCTF/">bugku-前女友(SKCTF)</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/08</span><a class="archive-post-title" href= "/2019/06/08/pi-screen/" >树莓派分辨率调整</a>
+            <span class="archive-post-date">06/08</span><a class="archive-post-title" href="/2019/06/08/pi-screen/">树莓派分辨率调整</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/04</span><a class="archive-post-title" href= "/2019/06/04/ctf-web/" >ctf-web</a>
+            <span class="archive-post-date">06/04</span><a class="archive-post-title" href="/2019/06/04/ctf-web/">ctf-web</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/04</span><a class="archive-post-title" href= "/2019/05/04/hello-world/" >Hello world</a>
+            <span class="archive-post-date">05/04</span><a class="archive-post-title" href="/2019/05/04/hello-world/">Hello world</a>
         </li>
     
-    </div>
+    </ul></div>
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="Burpsuite"><span class="iconfont-archer">&#xe606;</span>Burpsuite</span>
+        <span class="sidebar-tag-name" data-tags="Burpsuite"><span class="iconfont-archer"></span>Burpsuite</span>
     
-        <span class="sidebar-tag-name" data-tags="激活"><span class="iconfont-archer">&#xe606;</span>激活</span>
+        <span class="sidebar-tag-name" data-tags="激活"><span class="iconfont-archer"></span>激活</span>
     
-        <span class="sidebar-tag-name" data-tags="工具使用"><span class="iconfont-archer">&#xe606;</span>工具使用</span>
+        <span class="sidebar-tag-name" data-tags="工具使用"><span class="iconfont-archer"></span>工具使用</span>
     
-        <span class="sidebar-tag-name" data-tags="Html"><span class="iconfont-archer">&#xe606;</span>Html</span>
+        <span class="sidebar-tag-name" data-tags="Html"><span class="iconfont-archer"></span>Html</span>
     
-        <span class="sidebar-tag-name" data-tags="实体字符"><span class="iconfont-archer">&#xe606;</span>实体字符</span>
+        <span class="sidebar-tag-name" data-tags="实体字符"><span class="iconfont-archer"></span>实体字符</span>
     
-        <span class="sidebar-tag-name" data-tags="xss"><span class="iconfont-archer">&#xe606;</span>xss</span>
+        <span class="sidebar-tag-name" data-tags="xss"><span class="iconfont-archer"></span>xss</span>
     
-        <span class="sidebar-tag-name" data-tags="SrpingBoot"><span class="iconfont-archer">&#xe606;</span>SrpingBoot</span>
+        <span class="sidebar-tag-name" data-tags="SrpingBoot"><span class="iconfont-archer"></span>SrpingBoot</span>
     
-        <span class="sidebar-tag-name" data-tags="多环境"><span class="iconfont-archer">&#xe606;</span>多环境</span>
+        <span class="sidebar-tag-name" data-tags="多环境"><span class="iconfont-archer"></span>多环境</span>
     
-        <span class="sidebar-tag-name" data-tags="主页劫持"><span class="iconfont-archer">&#xe606;</span>主页劫持</span>
+        <span class="sidebar-tag-name" data-tags="主页劫持"><span class="iconfont-archer"></span>主页劫持</span>
     
-        <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer">&#xe606;</span>浏览器</span>
+        <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer"></span>浏览器</span>
     
-        <span class="sidebar-tag-name" data-tags="vmitools"><span class="iconfont-archer">&#xe606;</span>vmitools</span>
+        <span class="sidebar-tag-name" data-tags="vmitools"><span class="iconfont-archer"></span>vmitools</span>
     
-        <span class="sidebar-tag-name" data-tags="Bugku"><span class="iconfont-archer">&#xe606;</span>Bugku</span>
+        <span class="sidebar-tag-name" data-tags="bugku"><span class="iconfont-archer"></span>bugku</span>
     
-        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
+        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer"></span>ctf</span>
     
-        <span class="sidebar-tag-name" data-tags="bugku"><span class="iconfont-archer">&#xe606;</span>bugku</span>
+        <span class="sidebar-tag-name" data-tags="Bugku"><span class="iconfont-archer"></span>Bugku</span>
     
-        <span class="sidebar-tag-name" data-tags="centos7"><span class="iconfont-archer">&#xe606;</span>centos7</span>
+        <span class="sidebar-tag-name" data-tags="centos7"><span class="iconfont-archer"></span>centos7</span>
     
-        <span class="sidebar-tag-name" data-tags="docker-ce"><span class="iconfont-archer">&#xe606;</span>docker-ce</span>
+        <span class="sidebar-tag-name" data-tags="docker-ce"><span class="iconfont-archer"></span>docker-ce</span>
     
-        <span class="sidebar-tag-name" data-tags="tomcat"><span class="iconfont-archer">&#xe606;</span>tomcat</span>
+        <span class="sidebar-tag-name" data-tags="tomcat"><span class="iconfont-archer"></span>tomcat</span>
     
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer"></span>mysql</span>
     
-        <span class="sidebar-tag-name" data-tags="cmder"><span class="iconfont-archer">&#xe606;</span>cmder</span>
+        <span class="sidebar-tag-name" data-tags="cmder"><span class="iconfont-archer"></span>cmder</span>
     
-        <span class="sidebar-tag-name" data-tags="cmder here"><span class="iconfont-archer">&#xe606;</span>cmder here</span>
+        <span class="sidebar-tag-name" data-tags="cmder here"><span class="iconfont-archer"></span>cmder here</span>
     
-        <span class="sidebar-tag-name" data-tags="regedit"><span class="iconfont-archer">&#xe606;</span>regedit</span>
+        <span class="sidebar-tag-name" data-tags="regedit"><span class="iconfont-archer"></span>regedit</span>
     
-        <span class="sidebar-tag-name" data-tags="右键清理"><span class="iconfont-archer">&#xe606;</span>右键清理</span>
+        <span class="sidebar-tag-name" data-tags="右键清理"><span class="iconfont-archer"></span>右键清理</span>
     
-        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer"></span>web</span>
     
-        <span class="sidebar-tag-name" data-tags="数字经济"><span class="iconfont-archer">&#xe606;</span>数字经济</span>
+        <span class="sidebar-tag-name" data-tags="数字经济"><span class="iconfont-archer"></span>数字经济</span>
     
-        <span class="sidebar-tag-name" data-tags="云安全共测大赛初赛"><span class="iconfont-archer">&#xe606;</span>云安全共测大赛初赛</span>
+        <span class="sidebar-tag-name" data-tags="云安全共测大赛初赛"><span class="iconfont-archer"></span>云安全共测大赛初赛</span>
     
-        <span class="sidebar-tag-name" data-tags="gameapp"><span class="iconfont-archer">&#xe606;</span>gameapp</span>
+        <span class="sidebar-tag-name" data-tags="gameapp"><span class="iconfont-archer"></span>gameapp</span>
     
-        <span class="sidebar-tag-name" data-tags="hackbar"><span class="iconfont-archer">&#xe606;</span>hackbar</span>
+        <span class="sidebar-tag-name" data-tags="hackbar"><span class="iconfont-archer"></span>hackbar</span>
     
-        <span class="sidebar-tag-name" data-tags="许可证"><span class="iconfont-archer">&#xe606;</span>许可证</span>
+        <span class="sidebar-tag-name" data-tags="许可证"><span class="iconfont-archer"></span>许可证</span>
     
-        <span class="sidebar-tag-name" data-tags="idea"><span class="iconfont-archer">&#xe606;</span>idea</span>
+        <span class="sidebar-tag-name" data-tags="idea"><span class="iconfont-archer"></span>idea</span>
     
-        <span class="sidebar-tag-name" data-tags="自动导包"><span class="iconfont-archer">&#xe606;</span>自动导包</span>
+        <span class="sidebar-tag-name" data-tags="自动导包"><span class="iconfont-archer"></span>自动导包</span>
     
-        <span class="sidebar-tag-name" data-tags="jwt"><span class="iconfont-archer">&#xe606;</span>jwt</span>
+        <span class="sidebar-tag-name" data-tags="jwt"><span class="iconfont-archer"></span>jwt</span>
     
-        <span class="sidebar-tag-name" data-tags="JSON Web Token"><span class="iconfont-archer">&#xe606;</span>JSON Web Token</span>
+        <span class="sidebar-tag-name" data-tags="JSON Web Token"><span class="iconfont-archer"></span>JSON Web Token</span>
     
-        <span class="sidebar-tag-name" data-tags="pentesterlab"><span class="iconfont-archer">&#xe606;</span>pentesterlab</span>
+        <span class="sidebar-tag-name" data-tags="onetime"><span class="iconfont-archer"></span>onetime</span>
     
-        <span class="sidebar-tag-name" data-tags="onetime"><span class="iconfont-archer">&#xe606;</span>onetime</span>
+        <span class="sidebar-tag-name" data-tags="phone"><span class="iconfont-archer"></span>phone</span>
     
-        <span class="sidebar-tag-name" data-tags="phone"><span class="iconfont-archer">&#xe606;</span>phone</span>
+        <span class="sidebar-tag-name" data-tags="sms"><span class="iconfont-archer"></span>sms</span>
     
-        <span class="sidebar-tag-name" data-tags="sms"><span class="iconfont-archer">&#xe606;</span>sms</span>
+        <span class="sidebar-tag-name" data-tags="渗透测试资源"><span class="iconfont-archer"></span>渗透测试资源</span>
     
-        <span class="sidebar-tag-name" data-tags="渗透测试资源"><span class="iconfont-archer">&#xe606;</span>渗透测试资源</span>
+        <span class="sidebar-tag-name" data-tags="pentesterlab"><span class="iconfont-archer"></span>pentesterlab</span>
     
-        <span class="sidebar-tag-name" data-tags="Raspberry Pi"><span class="iconfont-archer">&#xe606;</span>Raspberry Pi</span>
+        <span class="sidebar-tag-name" data-tags="Raspberry Pi"><span class="iconfont-archer"></span>Raspberry Pi</span>
     
-        <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer">&#xe606;</span>SpringBoot</span>
+        <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer"></span>SpringBoot</span>
     
-        <span class="sidebar-tag-name" data-tags="mybatis"><span class="iconfont-archer">&#xe606;</span>mybatis</span>
+        <span class="sidebar-tag-name" data-tags="mybatis"><span class="iconfont-archer"></span>mybatis</span>
     
-        <span class="sidebar-tag-name" data-tags="ubuntu"><span class="iconfont-archer">&#xe606;</span>ubuntu</span>
+        <span class="sidebar-tag-name" data-tags="swagger2"><span class="iconfont-archer"></span>swagger2</span>
     
-        <span class="sidebar-tag-name" data-tags="vsftpd"><span class="iconfont-archer">&#xe606;</span>vsftpd</span>
+        <span class="sidebar-tag-name" data-tags="springboot"><span class="iconfont-archer"></span>springboot</span>
     
-        <span class="sidebar-tag-name" data-tags="swagger2"><span class="iconfont-archer">&#xe606;</span>swagger2</span>
+        <span class="sidebar-tag-name" data-tags="打包"><span class="iconfont-archer"></span>打包</span>
     
-        <span class="sidebar-tag-name" data-tags="springboot"><span class="iconfont-archer">&#xe606;</span>springboot</span>
+        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer"></span>maven</span>
     
-        <span class="sidebar-tag-name" data-tags="打包"><span class="iconfont-archer">&#xe606;</span>打包</span>
+        <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer"></span>redis</span>
     
-        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
+        <span class="sidebar-tag-name" data-tags="ubuntu"><span class="iconfont-archer"></span>ubuntu</span>
     
-        <span class="sidebar-tag-name" data-tags="usb"><span class="iconfont-archer">&#xe606;</span>usb</span>
+        <span class="sidebar-tag-name" data-tags="vsftpd"><span class="iconfont-archer"></span>vsftpd</span>
     
-        <span class="sidebar-tag-name" data-tags="windwos10"><span class="iconfont-archer">&#xe606;</span>windwos10</span>
+        <span class="sidebar-tag-name" data-tags="usb"><span class="iconfont-archer"></span>usb</span>
     
-        <span class="sidebar-tag-name" data-tags="安装系统"><span class="iconfont-archer">&#xe606;</span>安装系统</span>
+        <span class="sidebar-tag-name" data-tags="windwos10"><span class="iconfont-archer"></span>windwos10</span>
     
-        <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
+        <span class="sidebar-tag-name" data-tags="安装系统"><span class="iconfont-archer"></span>安装系统</span>
     
-        <span class="sidebar-tag-name" data-tags="vs"><span class="iconfont-archer">&#xe606;</span>vs</span>
+        <span class="sidebar-tag-name" data-tags="vs"><span class="iconfont-archer"></span>vs</span>
     
-        <span class="sidebar-tag-name" data-tags="2019"><span class="iconfont-archer">&#xe606;</span>2019</span>
+        <span class="sidebar-tag-name" data-tags="2019"><span class="iconfont-archer"></span>2019</span>
     
-        <span class="sidebar-tag-name" data-tags="vs2019"><span class="iconfont-archer">&#xe606;</span>vs2019</span>
+        <span class="sidebar-tag-name" data-tags="vs2019"><span class="iconfont-archer"></span>vs2019</span>
     
-        <span class="sidebar-tag-name" data-tags="Visual Studio"><span class="iconfont-archer">&#xe606;</span>Visual Studio</span>
+        <span class="sidebar-tag-name" data-tags="Visual Studio"><span class="iconfont-archer"></span>Visual Studio</span>
     
-        <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
+        <span class="sidebar-tag-name" data-tags="windows"><span class="iconfont-archer"></span>windows</span>
     
-        <span class="sidebar-tag-name" data-tags="uni-app"><span class="iconfont-archer">&#xe606;</span>uni-app</span>
+        <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer"></span>vue</span>
     
-        <span class="sidebar-tag-name" data-tags="小程序"><span class="iconfont-archer">&#xe606;</span>小程序</span>
+        <span class="sidebar-tag-name" data-tags="uni-app"><span class="iconfont-archer"></span>uni-app</span>
     
-        <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer">&#xe606;</span>vue-cli</span>
+        <span class="sidebar-tag-name" data-tags="小程序"><span class="iconfont-archer"></span>小程序</span>
     
-        <span class="sidebar-tag-name" data-tags="升级"><span class="iconfont-archer">&#xe606;</span>升级</span>
+        <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer"></span>vue-cli</span>
     
-        <span class="sidebar-tag-name" data-tags="windows"><span class="iconfont-archer">&#xe606;</span>windows</span>
+        <span class="sidebar-tag-name" data-tags="升级"><span class="iconfont-archer"></span>升级</span>
     
-        <span class="sidebar-tag-name" data-tags="浙江省"><span class="iconfont-archer">&#xe606;</span>浙江省</span>
+        <span class="sidebar-tag-name" data-tags="浙江省"><span class="iconfont-archer"></span>浙江省</span>
     
-        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
+        <span class="sidebar-tag-name" data-tags="网络与信息安全"><span class="iconfont-archer"></span>网络与信息安全</span>
     
-        <span class="sidebar-tag-name" data-tags="网络与信息安全"><span class="iconfont-archer">&#xe606;</span>网络与信息安全</span>
+        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer"></span>信息安全</span>
     
-        <span class="sidebar-tag-name" data-tags="zsh"><span class="iconfont-archer">&#xe606;</span>zsh</span>
+        <span class="sidebar-tag-name" data-tags="zsh"><span class="iconfont-archer"></span>zsh</span>
     
-        <span class="sidebar-tag-name" data-tags="wsl2"><span class="iconfont-archer">&#xe606;</span>wsl2</span>
+        <span class="sidebar-tag-name" data-tags="wsl2"><span class="iconfont-archer"></span>wsl2</span>
     
-        <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer">&#xe606;</span>nginx</span>
+        <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer"></span>nginx</span>
     
-        <span class="sidebar-tag-name" data-tags="优化"><span class="iconfont-archer">&#xe606;</span>优化</span>
+        <span class="sidebar-tag-name" data-tags="优化"><span class="iconfont-archer"></span>优化</span>
     
-        <span class="sidebar-tag-name" data-tags="sql"><span class="iconfont-archer">&#xe606;</span>sql</span>
+        <span class="sidebar-tag-name" data-tags="sql"><span class="iconfont-archer"></span>sql</span>
     
     </div>
-    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="iconfont-archer sidebar-tags-empty"></div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
-    缺失模块。<br/>
-    1、请确保node版本大于6.2<br/>
-    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
-    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    缺失模块。<br>
+    1、请确保node版本大于6.2<br>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br>
     3、在根目录_config.yml里添加配置：
-    <pre style="color: #787878; font-size: 0.6rem;">
-jsonContent:
+    <pre style="color: #787878; font-size: 0.6rem;">jsonContent:
   meta: false
   pages: false
   posts:
@@ -1649,7 +1705,7 @@ jsonContent:
     <div class="sidebar-categories-name">
     
     </div>
-    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="iconfont-archer sidebar-categories-empty"></div>
     <div class="sidebar-categories-list"></div>
 </div>
     </div>
@@ -1678,12 +1734,13 @@ jsonContent:
     
     <!-- CNZZ  -->
     
-    </div>
+    
     <!-- async load share.js -->
     
         <script src="/scripts/share.js" async></script>    
      
-    </body>
-</html>
+    
 
 
+
+<script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>
