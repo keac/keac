@@ -368,6 +368,42 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/09/07/Raspbian3b-Buster/">
+            
+                <span>Raspbian3b+ 折腾 Buster</span>
+        </a>
+        <div class="abstract-content">
+            好久没折腾过树莓派了，看了下7月发布了新系统 Buster
+准备镜像
+我选择了 Raspbian Buster with desktop and recommended software 加上了推荐软件
+解压之后有5.99GB大小
+
+烧入sd卡我准备好了系统，接下来要把他烧入到sd卡里面
+我用了 Win32DiskImager 来烧入
+注意 需要以管理员身份运行，否则会显示无权限
+
+提示成功之后，在boot驱动器下，建立一个 SSH 文件，无后缀，默认开启ssh
+配置vnc烧入好之后，插入树莓派启动 
+Username: pi Password: raspberry
+用xhsell连接
+...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2019/09/07</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/08/19/ubuntu-vsftpd/">
             
                 <span>ubuntu 搭建 vsftpd 遇到的坑</span>
@@ -674,48 +710,6 @@ systemctl start n...
         <a class="post-tag" href="javascript:void(0);" data-tags="sql">sql</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags="优化">优化</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/07/31/centos7-install-tomcat/">
-            
-                <span>centos7 安装tomcat9</span>
-        </a>
-        <div class="abstract-content">
-            安装Centos7镜像推荐Centos7 Minimal镜像 http://mirrors.aliyun.com/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1810.iso
-安装下载下来之后用新建虚拟机，开始安装
-
-查看ip因为没有ifconfig 所以我们 输入 ip addr show 来查看当前ip 地址
-
-检测连接ping下检测下是否联通
-
-连接用Xshell 或者什么软件连接
-
-修改yum 源因为我们在国内，所以访问国外的网站会很慢
-先 yum update 一下，安装wget
-123yum updateyum install w...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2019/07/31</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="centos7">centos7</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="tomcat">tomcat</a>
     
 </div>
             
@@ -1597,9 +1591,38 @@ systemctl start n...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 47
+        Total : 48
         </div>
         <!-- search  -->
         
@@ -1612,6 +1635,11 @@ systemctl start n...
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/20</span><a class="archive-post-title" href="/2019/12/20/find-alibaba-xss/">一枚阿里巴巴主站XSS挖掘之旅</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1755,12 +1783,12 @@ systemctl start n...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/springboot-and-swagger2/">学习SpringBoot之整合 Swagger2</a>
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/idea-auto-import/">idea 自动导包</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/idea-auto-import/">idea 自动导包</a>
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/springboot-and-swagger2/">学习SpringBoot之整合 Swagger2</a>
         </li>
     
     
@@ -1853,17 +1881,23 @@ systemctl start n...
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name" data-tags="Html"><span class="iconfont-archer"></span>Html</span>
+    
+        <span class="sidebar-tag-name" data-tags="实体字符"><span class="iconfont-archer"></span>实体字符</span>
+    
+        <span class="sidebar-tag-name" data-tags="xss"><span class="iconfont-archer"></span>xss</span>
+    
         <span class="sidebar-tag-name" data-tags="Burpsuite"><span class="iconfont-archer"></span>Burpsuite</span>
     
         <span class="sidebar-tag-name" data-tags="激活"><span class="iconfont-archer"></span>激活</span>
     
         <span class="sidebar-tag-name" data-tags="工具使用"><span class="iconfont-archer"></span>工具使用</span>
     
-        <span class="sidebar-tag-name" data-tags="Html"><span class="iconfont-archer"></span>Html</span>
+        <span class="sidebar-tag-name" data-tags="主页劫持"><span class="iconfont-archer"></span>主页劫持</span>
     
-        <span class="sidebar-tag-name" data-tags="实体字符"><span class="iconfont-archer"></span>实体字符</span>
+        <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer"></span>浏览器</span>
     
-        <span class="sidebar-tag-name" data-tags="xss"><span class="iconfont-archer"></span>xss</span>
+        <span class="sidebar-tag-name" data-tags="vmitools"><span class="iconfont-archer"></span>vmitools</span>
     
         <span class="sidebar-tag-name" data-tags="SrpingBoot"><span class="iconfont-archer"></span>SrpingBoot</span>
     
@@ -1873,21 +1907,17 @@ systemctl start n...
     
         <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer"></span>ctf</span>
     
-        <span class="sidebar-tag-name" data-tags="主页劫持"><span class="iconfont-archer"></span>主页劫持</span>
-    
-        <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer"></span>浏览器</span>
-    
-        <span class="sidebar-tag-name" data-tags="vmitools"><span class="iconfont-archer"></span>vmitools</span>
-    
         <span class="sidebar-tag-name" data-tags="Bugku"><span class="iconfont-archer"></span>Bugku</span>
     
         <span class="sidebar-tag-name" data-tags="centos7"><span class="iconfont-archer"></span>centos7</span>
     
         <span class="sidebar-tag-name" data-tags="docker-ce"><span class="iconfont-archer"></span>docker-ce</span>
     
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer"></span>mysql</span>
+    
         <span class="sidebar-tag-name" data-tags="tomcat"><span class="iconfont-archer"></span>tomcat</span>
     
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer"></span>mysql</span>
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer"></span>web</span>
     
         <span class="sidebar-tag-name" data-tags="cmder"><span class="iconfont-archer"></span>cmder</span>
     
@@ -1897,8 +1927,6 @@ systemctl start n...
     
         <span class="sidebar-tag-name" data-tags="右键清理"><span class="iconfont-archer"></span>右键清理</span>
     
-        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer"></span>web</span>
-    
         <span class="sidebar-tag-name" data-tags="数字经济"><span class="iconfont-archer"></span>数字经济</span>
     
         <span class="sidebar-tag-name" data-tags="云安全共测大赛初赛"><span class="iconfont-archer"></span>云安全共测大赛初赛</span>
@@ -1906,6 +1934,8 @@ systemctl start n...
         <span class="sidebar-tag-name" data-tags="gameapp"><span class="iconfont-archer"></span>gameapp</span>
     
         <span class="sidebar-tag-name" data-tags="idea"><span class="iconfont-archer"></span>idea</span>
+    
+        <span class="sidebar-tag-name" data-tags="自动导包"><span class="iconfont-archer"></span>自动导包</span>
     
         <span class="sidebar-tag-name" data-tags="hackbar"><span class="iconfont-archer"></span>hackbar</span>
     
@@ -1915,14 +1945,6 @@ systemctl start n...
     
         <span class="sidebar-tag-name" data-tags="JSON Web Token"><span class="iconfont-archer"></span>JSON Web Token</span>
     
-        <span class="sidebar-tag-name" data-tags="自动导包"><span class="iconfont-archer"></span>自动导包</span>
-    
-        <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer"></span>nginx</span>
-    
-        <span class="sidebar-tag-name" data-tags="sql"><span class="iconfont-archer"></span>sql</span>
-    
-        <span class="sidebar-tag-name" data-tags="优化"><span class="iconfont-archer"></span>优化</span>
-    
         <span class="sidebar-tag-name" data-tags="onetime"><span class="iconfont-archer"></span>onetime</span>
     
         <span class="sidebar-tag-name" data-tags="phone"><span class="iconfont-archer"></span>phone</span>
@@ -1931,9 +1953,15 @@ systemctl start n...
     
         <span class="sidebar-tag-name" data-tags="渗透测试资源"><span class="iconfont-archer"></span>渗透测试资源</span>
     
+        <span class="sidebar-tag-name" data-tags="Raspberry Pi"><span class="iconfont-archer"></span>Raspberry Pi</span>
+    
         <span class="sidebar-tag-name" data-tags="pentesterlab"><span class="iconfont-archer"></span>pentesterlab</span>
     
-        <span class="sidebar-tag-name" data-tags="Raspberry Pi"><span class="iconfont-archer"></span>Raspberry Pi</span>
+        <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer"></span>SpringBoot</span>
+    
+        <span class="sidebar-tag-name" data-tags="mybatis"><span class="iconfont-archer"></span>mybatis</span>
+    
+        <span class="sidebar-tag-name" data-tags="swagger2"><span class="iconfont-archer"></span>swagger2</span>
     
         <span class="sidebar-tag-name" data-tags="springboot"><span class="iconfont-archer"></span>springboot</span>
     
@@ -1941,19 +1969,11 @@ systemctl start n...
     
         <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer"></span>maven</span>
     
-        <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer"></span>SpringBoot</span>
-    
-        <span class="sidebar-tag-name" data-tags="swagger2"><span class="iconfont-archer"></span>swagger2</span>
+        <span class="sidebar-tag-name" data-tags="内网渗透"><span class="iconfont-archer"></span>内网渗透</span>
     
         <span class="sidebar-tag-name" data-tags="ubuntu"><span class="iconfont-archer"></span>ubuntu</span>
     
-        <span class="sidebar-tag-name" data-tags="vsftpd"><span class="iconfont-archer"></span>vsftpd</span>
-    
         <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer"></span>redis</span>
-    
-        <span class="sidebar-tag-name" data-tags="mybatis"><span class="iconfont-archer"></span>mybatis</span>
-    
-        <span class="sidebar-tag-name" data-tags="内网渗透"><span class="iconfont-archer"></span>内网渗透</span>
     
         <span class="sidebar-tag-name" data-tags="usb"><span class="iconfont-archer"></span>usb</span>
     
@@ -1969,17 +1989,19 @@ systemctl start n...
     
         <span class="sidebar-tag-name" data-tags="Visual Studio"><span class="iconfont-archer"></span>Visual Studio</span>
     
-        <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer"></span>vue-cli</span>
-    
-        <span class="sidebar-tag-name" data-tags="升级"><span class="iconfont-archer"></span>升级</span>
-    
-        <span class="sidebar-tag-name" data-tags="windows"><span class="iconfont-archer"></span>windows</span>
+        <span class="sidebar-tag-name" data-tags="vsftpd"><span class="iconfont-archer"></span>vsftpd</span>
     
         <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer"></span>vue</span>
     
         <span class="sidebar-tag-name" data-tags="uni-app"><span class="iconfont-archer"></span>uni-app</span>
     
         <span class="sidebar-tag-name" data-tags="小程序"><span class="iconfont-archer"></span>小程序</span>
+    
+        <span class="sidebar-tag-name" data-tags="windows"><span class="iconfont-archer"></span>windows</span>
+    
+        <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer"></span>vue-cli</span>
+    
+        <span class="sidebar-tag-name" data-tags="升级"><span class="iconfont-archer"></span>升级</span>
     
         <span class="sidebar-tag-name" data-tags="浙江省"><span class="iconfont-archer"></span>浙江省</span>
     
@@ -1990,6 +2012,16 @@ systemctl start n...
         <span class="sidebar-tag-name" data-tags="zsh"><span class="iconfont-archer"></span>zsh</span>
     
         <span class="sidebar-tag-name" data-tags="wsl2"><span class="iconfont-archer"></span>wsl2</span>
+    
+        <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer"></span>nginx</span>
+    
+        <span class="sidebar-tag-name" data-tags="sql"><span class="iconfont-archer"></span>sql</span>
+    
+        <span class="sidebar-tag-name" data-tags="优化"><span class="iconfont-archer"></span>优化</span>
+    
+        <span class="sidebar-tag-name" data-tags="漏洞挖掘"><span class="iconfont-archer"></span>漏洞挖掘</span>
+    
+        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer"></span>XSS</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty"></div>

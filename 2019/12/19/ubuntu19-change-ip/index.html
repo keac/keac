@@ -275,9 +275,9 @@ height:50vh;
                 
                     <div class="post-intro-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="ubuntu">ubuntu</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags="内网渗透">内网渗透</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="ubuntu">ubuntu</a>
     
 </div>
                 
@@ -414,7 +414,7 @@ height:50vh;
     <article class="article-entry">
         <p>学习内网渗透，首先准备好环境，我准备了一台ubuntu来作为靶机与跳板机来试验。</p>
 <p>安装了Ubuntu19 Server，为了在家和公司都能顺利的学习，为此我为虚拟机增加了一块网卡，现在来记录一下。</p>
-<h1 id="准备网卡"><a href="#准备网卡" class="headerlink" title="准备网卡"></a>准备网卡</h1><p><img src="ubuntu19-change-ip/1.png" alt></p>
+<h1 id="准备网卡"><a href="#准备网卡" class="headerlink" title="准备网卡"></a>准备网卡</h1><p><img src="1.png" alt></p>
 <p>从ubuntu从17.10开始，已经不再在/etc/network/interfaces里配置IP，即使配置了也不会生效，而是改成netplan方式 ，配置写在/etc/netplan/文件夹里或者类似名称的yaml文件里，19.04的版本安装好以后，配置文件是：/etc/netplan/50-cloud-init.yaml（看自己的情况），修改配置以后不用重启，执行 netplan apply 命令可以让配置直接生效。</p>
 <p>  注意：以前的重启网络服务命令/etc/init.d/networking restart或者services network restrart也都会提示为无效命令。</p>
 <p>用 <code>ip a</code> 看看有几块网卡</p>
@@ -436,13 +436,18 @@ height:50vh;
             <p>原文作者：<a href="http://www.loongten.com">keacwu</a>
             </p><p>原文链接：<a href="http://www.loongten.com/2019/12/19/ubuntu19-change-ip/">http://www.loongten.com/2019/12/19/ubuntu19-change-ip/</a>
             </p><p>发表日期：<a href="http://www.loongten.com/2019/12/19/ubuntu19-change-ip/">December 19th 2019, 10:13:38 pm</a>
-            </p><p>更新日期：<a href="http://www.loongten.com/2019/12/19/ubuntu19-change-ip/">December 19th 2019, 10:33:34 pm</a>
+            </p><p>更新日期：<a href="http://www.loongten.com/2019/12/19/ubuntu19-change-ip/">December 20th 2019, 10:42:27 pm</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
     <!-- paginator  -->
     <ul class="post-paginator">
         <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2019/12/20/find-alibaba-xss/" title="一枚阿里巴巴主站XSS挖掘之旅">
+                    <div class="nextTitle">一枚阿里巴巴主站XSS挖掘之旅</div>
+                </a>
             
         </li>
         <li class="previous">
@@ -1240,9 +1245,38 @@ height:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 47
+        Total : 48
         </div>
         <!-- search  -->
         
@@ -1255,6 +1289,11 @@ height:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/20</span><a class="archive-post-title" href="/2019/12/20/find-alibaba-xss/">一枚阿里巴巴主站XSS挖掘之旅</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1398,12 +1437,12 @@ height:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/springboot-and-swagger2/">学习SpringBoot之整合 Swagger2</a>
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/idea-auto-import/">idea 自动导包</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/idea-auto-import/">idea 自动导包</a>
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/springboot-and-swagger2/">学习SpringBoot之整合 Swagger2</a>
         </li>
     
     
@@ -1496,17 +1535,23 @@ height:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name" data-tags="Html"><span class="iconfont-archer"></span>Html</span>
+    
+        <span class="sidebar-tag-name" data-tags="实体字符"><span class="iconfont-archer"></span>实体字符</span>
+    
+        <span class="sidebar-tag-name" data-tags="xss"><span class="iconfont-archer"></span>xss</span>
+    
         <span class="sidebar-tag-name" data-tags="Burpsuite"><span class="iconfont-archer"></span>Burpsuite</span>
     
         <span class="sidebar-tag-name" data-tags="激活"><span class="iconfont-archer"></span>激活</span>
     
         <span class="sidebar-tag-name" data-tags="工具使用"><span class="iconfont-archer"></span>工具使用</span>
     
-        <span class="sidebar-tag-name" data-tags="Html"><span class="iconfont-archer"></span>Html</span>
+        <span class="sidebar-tag-name" data-tags="主页劫持"><span class="iconfont-archer"></span>主页劫持</span>
     
-        <span class="sidebar-tag-name" data-tags="实体字符"><span class="iconfont-archer"></span>实体字符</span>
+        <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer"></span>浏览器</span>
     
-        <span class="sidebar-tag-name" data-tags="xss"><span class="iconfont-archer"></span>xss</span>
+        <span class="sidebar-tag-name" data-tags="vmitools"><span class="iconfont-archer"></span>vmitools</span>
     
         <span class="sidebar-tag-name" data-tags="SrpingBoot"><span class="iconfont-archer"></span>SrpingBoot</span>
     
@@ -1516,21 +1561,17 @@ height:50vh;
     
         <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer"></span>ctf</span>
     
-        <span class="sidebar-tag-name" data-tags="主页劫持"><span class="iconfont-archer"></span>主页劫持</span>
-    
-        <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer"></span>浏览器</span>
-    
-        <span class="sidebar-tag-name" data-tags="vmitools"><span class="iconfont-archer"></span>vmitools</span>
-    
         <span class="sidebar-tag-name" data-tags="Bugku"><span class="iconfont-archer"></span>Bugku</span>
     
         <span class="sidebar-tag-name" data-tags="centos7"><span class="iconfont-archer"></span>centos7</span>
     
         <span class="sidebar-tag-name" data-tags="docker-ce"><span class="iconfont-archer"></span>docker-ce</span>
     
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer"></span>mysql</span>
+    
         <span class="sidebar-tag-name" data-tags="tomcat"><span class="iconfont-archer"></span>tomcat</span>
     
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer"></span>mysql</span>
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer"></span>web</span>
     
         <span class="sidebar-tag-name" data-tags="cmder"><span class="iconfont-archer"></span>cmder</span>
     
@@ -1540,8 +1581,6 @@ height:50vh;
     
         <span class="sidebar-tag-name" data-tags="右键清理"><span class="iconfont-archer"></span>右键清理</span>
     
-        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer"></span>web</span>
-    
         <span class="sidebar-tag-name" data-tags="数字经济"><span class="iconfont-archer"></span>数字经济</span>
     
         <span class="sidebar-tag-name" data-tags="云安全共测大赛初赛"><span class="iconfont-archer"></span>云安全共测大赛初赛</span>
@@ -1549,6 +1588,8 @@ height:50vh;
         <span class="sidebar-tag-name" data-tags="gameapp"><span class="iconfont-archer"></span>gameapp</span>
     
         <span class="sidebar-tag-name" data-tags="idea"><span class="iconfont-archer"></span>idea</span>
+    
+        <span class="sidebar-tag-name" data-tags="自动导包"><span class="iconfont-archer"></span>自动导包</span>
     
         <span class="sidebar-tag-name" data-tags="hackbar"><span class="iconfont-archer"></span>hackbar</span>
     
@@ -1558,14 +1599,6 @@ height:50vh;
     
         <span class="sidebar-tag-name" data-tags="JSON Web Token"><span class="iconfont-archer"></span>JSON Web Token</span>
     
-        <span class="sidebar-tag-name" data-tags="自动导包"><span class="iconfont-archer"></span>自动导包</span>
-    
-        <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer"></span>nginx</span>
-    
-        <span class="sidebar-tag-name" data-tags="sql"><span class="iconfont-archer"></span>sql</span>
-    
-        <span class="sidebar-tag-name" data-tags="优化"><span class="iconfont-archer"></span>优化</span>
-    
         <span class="sidebar-tag-name" data-tags="onetime"><span class="iconfont-archer"></span>onetime</span>
     
         <span class="sidebar-tag-name" data-tags="phone"><span class="iconfont-archer"></span>phone</span>
@@ -1574,9 +1607,15 @@ height:50vh;
     
         <span class="sidebar-tag-name" data-tags="渗透测试资源"><span class="iconfont-archer"></span>渗透测试资源</span>
     
+        <span class="sidebar-tag-name" data-tags="Raspberry Pi"><span class="iconfont-archer"></span>Raspberry Pi</span>
+    
         <span class="sidebar-tag-name" data-tags="pentesterlab"><span class="iconfont-archer"></span>pentesterlab</span>
     
-        <span class="sidebar-tag-name" data-tags="Raspberry Pi"><span class="iconfont-archer"></span>Raspberry Pi</span>
+        <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer"></span>SpringBoot</span>
+    
+        <span class="sidebar-tag-name" data-tags="mybatis"><span class="iconfont-archer"></span>mybatis</span>
+    
+        <span class="sidebar-tag-name" data-tags="swagger2"><span class="iconfont-archer"></span>swagger2</span>
     
         <span class="sidebar-tag-name" data-tags="springboot"><span class="iconfont-archer"></span>springboot</span>
     
@@ -1584,19 +1623,11 @@ height:50vh;
     
         <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer"></span>maven</span>
     
-        <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer"></span>SpringBoot</span>
-    
-        <span class="sidebar-tag-name" data-tags="swagger2"><span class="iconfont-archer"></span>swagger2</span>
+        <span class="sidebar-tag-name" data-tags="内网渗透"><span class="iconfont-archer"></span>内网渗透</span>
     
         <span class="sidebar-tag-name" data-tags="ubuntu"><span class="iconfont-archer"></span>ubuntu</span>
     
-        <span class="sidebar-tag-name" data-tags="vsftpd"><span class="iconfont-archer"></span>vsftpd</span>
-    
         <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer"></span>redis</span>
-    
-        <span class="sidebar-tag-name" data-tags="mybatis"><span class="iconfont-archer"></span>mybatis</span>
-    
-        <span class="sidebar-tag-name" data-tags="内网渗透"><span class="iconfont-archer"></span>内网渗透</span>
     
         <span class="sidebar-tag-name" data-tags="usb"><span class="iconfont-archer"></span>usb</span>
     
@@ -1612,17 +1643,19 @@ height:50vh;
     
         <span class="sidebar-tag-name" data-tags="Visual Studio"><span class="iconfont-archer"></span>Visual Studio</span>
     
-        <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer"></span>vue-cli</span>
-    
-        <span class="sidebar-tag-name" data-tags="升级"><span class="iconfont-archer"></span>升级</span>
-    
-        <span class="sidebar-tag-name" data-tags="windows"><span class="iconfont-archer"></span>windows</span>
+        <span class="sidebar-tag-name" data-tags="vsftpd"><span class="iconfont-archer"></span>vsftpd</span>
     
         <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer"></span>vue</span>
     
         <span class="sidebar-tag-name" data-tags="uni-app"><span class="iconfont-archer"></span>uni-app</span>
     
         <span class="sidebar-tag-name" data-tags="小程序"><span class="iconfont-archer"></span>小程序</span>
+    
+        <span class="sidebar-tag-name" data-tags="windows"><span class="iconfont-archer"></span>windows</span>
+    
+        <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer"></span>vue-cli</span>
+    
+        <span class="sidebar-tag-name" data-tags="升级"><span class="iconfont-archer"></span>升级</span>
     
         <span class="sidebar-tag-name" data-tags="浙江省"><span class="iconfont-archer"></span>浙江省</span>
     
@@ -1633,6 +1666,16 @@ height:50vh;
         <span class="sidebar-tag-name" data-tags="zsh"><span class="iconfont-archer"></span>zsh</span>
     
         <span class="sidebar-tag-name" data-tags="wsl2"><span class="iconfont-archer"></span>wsl2</span>
+    
+        <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer"></span>nginx</span>
+    
+        <span class="sidebar-tag-name" data-tags="sql"><span class="iconfont-archer"></span>sql</span>
+    
+        <span class="sidebar-tag-name" data-tags="优化"><span class="iconfont-archer"></span>优化</span>
+    
+        <span class="sidebar-tag-name" data-tags="漏洞挖掘"><span class="iconfont-archer"></span>漏洞挖掘</span>
+    
+        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer"></span>XSS</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty"></div>
