@@ -367,14 +367,17 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/06/09/bugku-%E4%BD%A0%E4%BB%8E%E5%93%AA%E9%87%8C%E6%9D%A5/" >
+        <a class="abstract-title" href = "/2019/06/09/bugku-%E5%89%8D%E5%A5%B3%E5%8F%8B-SKCTF/" >
             
-                <span>bugku-你从哪里来</span>
+                <span>bugku-前女友(SKCTF)</span>
         </a>
         <div class="abstract-content">
-            你从哪里来 
+            今天做了一道BugKu的简单题，来记录下
 
-123456789HTTP_REFERER 编辑HTTP Referer是header的一部分，当浏览器向web服务器发送请求的时候，一般会带上Referer，告诉服务器我是从哪个页面链接过来的，服务器基此可以获得一些信息用于处理。简而言之，HTTP Referer是header的一部分，当浏览器向web服务器发送请求的时候，一般会带上Referer，告诉服务器我是从哪个页面链接过来的，服务器藉此可以获得一些信息用于处理。比如从我主页上链接到一个朋友那里，他的服务器就能够从HTTP Referer中统计出每天有多少用户点击我主页上的链接访问他的网站。Referer的正确英...
+打开链接第一反应打开F12查看下源码里面有什么东西
+果然有玄机，这个CSS写的..
+打开 code.txt
+123456789101112&lt;?php if(isset($_GET[&#39;v1&#39;]) &amp;&amp; isset($_GET[&#39;v2&#39;]) &amp;&amp; isset($_GET[&#39;v3&#39;]))&#123;    $v1 &#x3D; $_GET[&#39;v1&#39;];    $v2 &#x3D; $_GET[&#39;v2&#39;];    $v3 &#x3D; ...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -385,9 +388,9 @@
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "bugku">bugku</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Bugku">Bugku</a>
     
 </div>
             
@@ -471,6 +474,7 @@
     <!-- powered by Hexo  -->
     <div class="copyright">
         <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+        <a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备15046327号-1</a>
     </div>
     <!-- 不蒜子  -->
     
@@ -2124,6 +2128,24 @@
             console.warn('jquery load from jsdelivr failed, will load local script')
             document.write('<script src="/lib/jquery.min.js">\x3C/script>')
         }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+     
+    </body>
+</html>
+
+
+
     </script>
     <script src="/scripts/main.js"></script>
     <!-- algolia -->
