@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.loongten.com/2022/05/23/java-reflection/</loc>
+    
+    <lastmod>2022-05-23T13:43:12.123Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.loongten.com/2022/05/23/java-ClassLoader/</loc>
+    
+    <lastmod>2022-05-23T13:43:10.066Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.loongten.com/2022/05/23/refection/</loc>
+    
+    <lastmod>2022-05-23T08:43:37.106Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.loongten.com/about/index.html</loc>
     
     <lastmod>2021-05-24T02:19:34.184Z</lastmod>

@@ -367,6 +367,116 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2020/01/08/pentest-xss-beef/" >
+            
+                <span>BEEF 安装使用</span>
+        </a>
+        <div class="abstract-content">
+            Beef(The Browser Exploitation Framework Project)是WEB框架攻击平台。 Beef利用简单的XSS漏洞，通过一段编写好的JavaScript（hook.js）控制目标主机的浏览器，通过目标主机浏览器获得该主机的详细信息，并进一步扫描内网。
+（在Google找beef相关资料的时候搜到了自己的这篇文章，还是来更新下
+安装我服务器使用的是Centos7，安装前最好安个screen避免各种原因导致安装中断
+yum install screen -y
+screen -S beef
+Kali安装(我发现最新版的kali好像没有带beef-xss了)
+a...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/08</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "xss">xss</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "beef">beef</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/12/30/find-UEditor-version/" >
+            
+                <span>渗透测试技巧-寻找 UEditor 版本</span>
+        </a>
+        <div class="abstract-content">
+            今天在做渗透测试的时候遇到一个UEditor站，首先去尝试 UEditor编辑器两个版本任意文件上传漏洞分析，发现controller.ashx文件不存在，怀疑是被删除或者是版本不对。
+根据官网演示站点 http://ueditor.baidu.com/website/onlinedemo.html 可以看到
+
+但是在我测试的站点里面找不到版本信息查看的按钮
+
+帮助文件是单独引用了一个框架 http://ueditor.baidu.com/ueditor/dialogs/help/help.html
+
+直接看并看不到什么版本信息，阅读下源码
+
+document.getElementByI...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/30</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "pentest">pentest</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "UEditor">UEditor</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/12/29/pentest-learn-xss-bypass/" >
+            
+                <span>XSS 绕过姿势</span>
+        </a>
+        <div class="abstract-content">
+            接着上一篇Xss介绍来学习XSS的一些绕过姿势
+当我们被waf各种拦截的时候，可以考虑利用以下方法来进行绕过
+script关键字被过滤大小写在测试过程中，我们可以改变测试语句的大小写来绕过XSS规则：
+比如：&lt;script&gt;alert(&quot;xss&quot;);&lt;/script&gt; 可以转换为：&lt;ScRipt&gt;ALeRt(&quot;XSS&quot;);&lt;/sCRipT&gt;
+嵌套嵌套&lt;script&gt;和&lt;/script&gt;突破 &lt;sc&lt;script&gt;ript&gt;alert(/xss/)&lt;...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/29</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "xss">xss</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/12/28/pentest-learn-sql-bypass/" >
             
                 <span>SQL注入绕过 方式总结</span>
@@ -603,154 +713,6 @@ yum update
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/08</span>
             </div>
             <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/06/pentest-disposable-mobile-number/" >
-            
-                <span>渗透测试资源-一次性手机号</span>
-        </a>
-        <div class="abstract-content">
-            渗透测试中经常会遇到需要验证码的情况，有些时候会暴露一些个人信息什么的
-总结一个列表，这些服务可以帮您提供一次性手机号码以接收各种平台上的注册验证短信，并避免暴露您的真实身份：
-https://www.materialtools.com/
-http://receive-sms-online.com
-http://receive-sms-now.com
-http://hs3x.com
-http://twilio.com
-http://freesmsverification.com
-http://freeonlinephone.org
-http://sms-receive.net
-http:...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/06</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "onetime">onetime</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "phone">phone</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "sms">sms</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "渗透测试资源">渗透测试资源</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/06/Burpsuite-v2-1-install/" >
-            
-                <span>Burpsuite 激活简便使用</span>
-        </a>
-        <div class="abstract-content">
-            用了好久的Burpsuite，每次启动都要先启动破解，点啊点，太麻烦了，在网上找了下有简便的方法启动burp。
-Burpsuite v2.1 下载链接：https://share.weiyun.com/58mhQWa 密码：6666sp
-下载下来先找个地方放好
-
-激活打开 burp-loader-keygen-2 点击run
-
-复制粘贴license 到输入框
-
-点击next 后点击 Manual activation
-
-把request复制到 Activation Requset，在下面的 Activation Response 会自动计算出结果
-
-复制粘贴过去
-
-成功激活
-
-
-快捷启...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/06</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Burpsuite">Burpsuite</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "激活">激活</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "工具使用">工具使用</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/22/zhejiang-ctf-College-Students-Offline-competition/" >
-            
-                <span>浙江省第二届大学生网络与信息安全竞赛线下赛</span>
-        </a>
-        <div class="abstract-content">
-            万能密码首先猜测是 or系列密码，无效，然后试着爆破
-爆破无效。。。
-之后翻找了下 
-
-试到 “ or 1=1—通过
-哭了。。。。
-
-1024
-看到这个去看储存
-
-
-改了下bsetcode然后试着玩输
-
-（似乎不是预期题解，之后再看看其他大佬的题解做补充）
-逆转思维
-代码审计，首先绕过 file_get_contents($text,&#39;r&#39;)
-heacbar 
-http://172.16.0.102:54321/JgJUfyW1wT?text=php://input
-data 直接 welcome to the zjctf
-
-过了上面的，看了下下面是php反序列化，获取源...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "浙江省">浙江省</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "网络与信息安全">网络与信息安全</a>
-    
-</div>
             
         </div>
     </article>
@@ -1912,9 +1874,54 @@ data 直接 welcome to the zjctf
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 71
+        Total : 74
         </div>
         <!-- search  -->
         
@@ -1924,6 +1931,30 @@ data 直接 welcome to the zjctf
     
     
     
+    
+    <div class="archive-year"> 2022 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-ClassLoader/" >Java ClassLoader</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-reflection/" >Java 反射机制</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/refection/" >refection</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">

@@ -380,6 +380,139 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/06/30/hackbar/" >
+            
+                <span>hackbar</span>
+        </a>
+        <div class="abstract-content">
+            HackBar 收费了 一直没去弄
+来记录下
+chrome由于Chrome的自动更新机制，一旦插件更新，需要重新来一遍，文件夹的版本号要看好了
+先打开开发者模式
+
+在这里
+1C:\Users\用户名\AppData\Local\Google\Chrome\User Data\Default\Extensions\djmoeoifnlhjolebkehmpaocfnipknbh\2.2.6_0\theme\js
+
+大约在25行的位置改为true
+
+现在可以用了，如果红色的条条烦 可以点save 就没了
+
+firefox不过firefox 的插件有签名，不能改
+https://github....
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/30</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "hackbar">hackbar</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "许可证">许可证</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/06/27/zsh/" >
+            
+                <span>zsh</span>
+        </a>
+        <div class="abstract-content">
+            先在控制面板里面开启windows linux子系统功能
+wsl在windows应用商店里面有，直接搜kali或者ubuntu就有了
+wsl2 （windows预览版）装了 windows预览版 试了下wsl2
+（目前还没试出来 wsl 和 wsl2 的区别在哪）
+
+
+安装完整版kali（wsl1 wsl2一样）
+装的是kali，因为kali主要用的是工具，所以我安装了完整的工具包
+apt-get update
+apt-get install kali-linux-full
+命令没有补全 sudo apt-get install bash-completion
+默认为root用户kali...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/27</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "zsh">zsh</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "wsl2">wsl2</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/06/25/usbWindows10/" >
+            
+                <span>usbWindows10</span>
+        </a>
+        <div class="abstract-content">
+            今天把一台kali安装回windows来记录下
+一个空U盘
+镜像
+我选用了 msdn我告诉你 提供的官方的镜像
+地址:https://msdn.itellyou.cn/
+
+
+ed2k://|file|cn_windows_10_consumer_edition_version_1903_updated_june_2019_x64_dvd_cedfd58d.iso|5126440960|73CC4AC1F0FA133E76DA82ECE0A3B240|/
+
+复制粘贴到迅雷下载，我这用了迅雷破解版
+刻录下载好之后我们用UltraISO来刻录
+打开镜像
+
+选择U盘，格式化之后点写入
+耐心等一会...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/25</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "usb">usb</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "windwos10">windwos10</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "安装系统">安装系统</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/06/23/WMITools/" >
             
                 <span>WMITools</span>
@@ -668,139 +801,6 @@ Cmder 下载地址
         <a class="post-tag" href="javascript:void(0);" data-tags = "bugku">bugku</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/06/09/bugku-%E5%89%8D%E5%A5%B3%E5%8F%8B-SKCTF/" >
-            
-                <span>bugku-前女友(SKCTF)</span>
-        </a>
-        <div class="abstract-content">
-            今天做了一道BugKu的简单题，来记录下
-
-打开链接第一反应打开F12查看下源码里面有什么东西
-果然有玄机，这个CSS写的..
-打开 code.txt
-123456789101112&lt;?php if(isset($_GET[&#39;v1&#39;]) &amp;&amp; isset($_GET[&#39;v2&#39;]) &amp;&amp; isset($_GET[&#39;v3&#39;]))&#123;    $v1 &#x3D; $_GET[&#39;v1&#39;];    $v2 &#x3D; $_GET[&#39;v2&#39;];    $v3 &#x3D; ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Bugku">Bugku</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/06/08/pi-screen/" >
-            
-                <span>树莓派分辨率调整</span>
-        </a>
-        <div class="abstract-content">
-            换了一台电脑vnc连接树莓派，发现分辨率不太对，有马赛克
-第一步
-
-sudo raspi-config
-
-选择 Advanced Options
-
-下一步选择 Resolution  
-
-接下来就可以看到选择分辨率的选项了
-
-选择想要的分辨率
-
- 如图所示，就代表你成功了
-
-接下来选择 Finish 
-
-提示我们是否重启树莓派，我们这里选择是
-
-重启完成之后可以看到分辨率已经调整为适合的状态了
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Raspberry Pi">Raspberry Pi</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/06/04/ctf-web/" >
-            
-                <span>ctf-web</span>
-        </a>
-        <div class="abstract-content">
-            通用（FUZZ阶段）代码泄露
-.文件名.swp/swn/swo  .bak  文件名~
-git文件泄露（可能不以.git命名）,存在HEAD文件来判断
-.svn文件泄露  wc.db  entries  文件名- .svn-base  space.xml
-robots.txt
-.phps
-.txt
-github搜索
-www.zip wwwroot.zip
-private/private.xml
-php-cgi arguments injection :  ?-s 泄露源码 [经过构造可getshell:) xd]
-
-
-PHP文件
-1.php 
-phpinfo.php 
-a.php
-con...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "web">web</a>
     
 </div>
             
@@ -2105,9 +2105,54 @@ con...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 71
+        Total : 74
         </div>
         <!-- search  -->
         
@@ -2117,6 +2162,30 @@ con...
     
     
     
+    
+    <div class="archive-year"> 2022 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-ClassLoader/" >Java ClassLoader</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-reflection/" >Java 反射机制</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/refection/" >refection</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">

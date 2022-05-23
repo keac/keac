@@ -367,6 +367,114 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/08/07/idea-Generate/" >
+            
+                <span>idea 自动添加get set</span>
+        </a>
+        <div class="abstract-content">
+            12345public class EUTreeNode &#123;    private long id;    private String text;    private String state;&#125;
+
+ (菜单栏-&gt;generator 或者 点击右键-&gt;generator) 
+ 快捷键为：alt+insert
+      
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/07</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "idea">idea</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/08/02/centos7-docker/" >
+            
+                <span>Centos7 安装 Docker-ce</span>
+        </a>
+        <div class="abstract-content">
+            前言Docker 提供了两个版本：社区版 (CE) 和企业版 (EE)。
+Docker 社区版 (CE) 是开发人员和小型团队开始使用 Docker 并尝试使用基于容器的应用的理想之选。
+本文介绍下Docker 社区版 (CE) 在CentOS 7系统中的里两种安装方式
+安装前提
+64 位版本的 CentOS 7
+CentOS 系统的内核版本高于 3.10（uname -r命令可查看系统内核版本）
+
+安装 Docker CE1) 设置 Docker 的镜像仓库并从中进行安装2) 下载 RPM 软件包并手动进行安装（例如，在不能访问互联网的隔离系统中安装 Docker）
+从镜像仓库安装 (...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/02</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "centos7">centos7</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "docker-ce">docker-ce</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/08/01/centos7-mysql/" >
+            
+                <span>centos7 yum 方式安装mysql</span>
+        </a>
+        <div class="abstract-content">
+            1) 下载mysql源安装包
+wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm
+2) 安装mysql源yum localinstall mysql57-community-release-el7-8.noarch.rpm
+
+3) 检查mysql源是否安装成功yum repolist enabled | grep &quot;mysql.*-community.*&quot;4) 修改 vim /etc/yum.repos.d/mysql-community.repo源 ，改变默认安装的mysq...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/01</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "centos7">centos7</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "mysql">mysql</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/08/01/firewalld/" >
             
                 <span>firewalld</span>
@@ -651,94 +759,6 @@ Tomcat 关了之后就成功跑起来了
         <a class="post-tag" href="javascript:void(0);" data-tags = "maven">maven</a>
     
 </div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/29/windows-tomcat/" >
-            
-                <span>windows 安装tomcat</span>
-        </a>
-        <div class="abstract-content">
-            下载tomcat下载链接：https://tomcat.apache.org/
-1) 进入tomcat官网后，选择需要下载的版本。我使用的是tomcat9，所以在这我选择tomcat9
-
-2) 选择zip(pgp,sha2,sha512)进行下载，下载zip的好处就是不用安装 ，直接下载解压就可以使用了。
-
-安装解压与环境变量配置因为之前我安装的时候用的是安装版，压缩包解压出来的内容差不多
-
-右键此电脑 选择打开属性后，选择单击弹窗左边的“高级系统设置”。
-打开‘“高级系统设置”后，单击“环境变量(N)..”按钮。
-
-先添加一个 JAVA_HOME 值为JDK安装目录
-一定要配，否则会显...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "tomcat">tomcat</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "windows">windows</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/26/SpringBoot-Mapper/" >
-            
-                <span>SpringBoot-Mapper</span>
-        </a>
-        <div class="abstract-content">
-            
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/26</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/26/SpringBoot-jpa/" >
-            
-                <span>SpringBoot-jpa</span>
-        </a>
-        <div class="abstract-content">
-            
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/26</span>
-            </div>
-            <!-- tags  -->
             
         </div>
     </article>
@@ -1900,9 +1920,54 @@ Tomcat 关了之后就成功跑起来了
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 71
+        Total : 74
         </div>
         <!-- search  -->
         
@@ -1912,6 +1977,30 @@ Tomcat 关了之后就成功跑起来了
     
     
     
+    
+    <div class="archive-year"> 2022 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-ClassLoader/" >Java ClassLoader</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-reflection/" >Java 反射机制</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/refection/" >refection</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">

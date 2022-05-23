@@ -380,6 +380,84 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2020/02/26/dns-rebinding-bypass/" >
+            
+                <span>dns rebinding bypass</span>
+        </a>
+        <div class="abstract-content">
+            前言DNS Rebinding (DNS重绑定攻击) 是一个比较早就出现的漏洞，被广泛用于bypass同源策略，绕过ssrf的过滤等等。
+DNS Rebinding 原理讲到 DNS Rebinding，就得先了解下DNS
+DNSDNS是Domain Name Service的缩写,计算机域名服务器,在Internet上域名与IP地址之间是一一对应的，域名虽然便于人们记忆，但机器之间只能互相认识IP地址，它们之间的转换工作称为域名解析，而域名解析需要由专门的域名解析服务器来完成，这就是DNS域名服务器。
+更多详细的关于dns原理可以看 阮一峰老师写的DNS 原理入门
+这里来讲几个DNS的...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/26</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/02/22/ctf-php-md5/" >
+            
+                <span>CTF中常见php-MD5()函数漏洞</span>
+        </a>
+        <div class="abstract-content">
+            数字与字符串之间的比较12var_dump( 0 &#x3D;&#x3D; &quot;a&quot; );var_dump( &quot;0&quot; &#x3D;&#x3D; &quot;a&quot; );
+第一个返回的是 true ，第二个返回的是 false因为php把字母开头的转化为整型时，转化为0， 前面数字后面字母的话就只取到第一个字母出现的位置之前（如intval(‘123abd45gf’)结果为123）
+MD5函数漏洞12$_GET[&#39;name&#39;] !&#x3D; $_GET[&#39;password&#39;]MD5($_GET[&#39;nam...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/22</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/02/15/install-libmysqld-dev/" >
+            
+                <span>Ubuntu 安装 libmysqld-dev</span>
+        </a>
+        <div class="abstract-content">
+            安装提示缺少libmysqld，随即安装
+apt-get install libmysqld-dev
+报错了，来fix看看
+12345678Reading package lists... DoneBuilding dependency tree       Reading state information... Donelibmysqld-dev is already the newest version (5.7.29-0ubuntu0.18.04.1).You might want to run &#39;apt --fix-broken install&#39; to corr...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/15</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2020/02/11/vmware-install-macos/" >
             
                 <span>Vmware 安装 Macos</span>
@@ -653,116 +731,6 @@ Base64 编码 Li4vLi4vLi4vLi4vLi4vLi4vLi4vZmxhZw==
         <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "wp">wp</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/01/08/pentest-xss-beef/" >
-            
-                <span>BEEF 安装使用</span>
-        </a>
-        <div class="abstract-content">
-            Beef(The Browser Exploitation Framework Project)是WEB框架攻击平台。 Beef利用简单的XSS漏洞，通过一段编写好的JavaScript（hook.js）控制目标主机的浏览器，通过目标主机浏览器获得该主机的详细信息，并进一步扫描内网。
-（在Google找beef相关资料的时候搜到了自己的这篇文章，还是来更新下
-安装我服务器使用的是Centos7，安装前最好安个screen避免各种原因导致安装中断
-yum install screen -y
-screen -S beef
-Kali安装(我发现最新版的kali好像没有带beef-xss了)
-a...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "xss">xss</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "beef">beef</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/30/find-UEditor-version/" >
-            
-                <span>渗透测试技巧-寻找 UEditor 版本</span>
-        </a>
-        <div class="abstract-content">
-            今天在做渗透测试的时候遇到一个UEditor站，首先去尝试 UEditor编辑器两个版本任意文件上传漏洞分析，发现controller.ashx文件不存在，怀疑是被删除或者是版本不对。
-根据官网演示站点 http://ueditor.baidu.com/website/onlinedemo.html 可以看到
-
-但是在我测试的站点里面找不到版本信息查看的按钮
-
-帮助文件是单独引用了一个框架 http://ueditor.baidu.com/ueditor/dialogs/help/help.html
-
-直接看并看不到什么版本信息，阅读下源码
-
-document.getElementByI...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/30</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "pentest">pentest</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "UEditor">UEditor</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/29/pentest-learn-xss-bypass/" >
-            
-                <span>XSS 绕过姿势</span>
-        </a>
-        <div class="abstract-content">
-            接着上一篇Xss介绍来学习XSS的一些绕过姿势
-当我们被waf各种拦截的时候，可以考虑利用以下方法来进行绕过
-script关键字被过滤大小写在测试过程中，我们可以改变测试语句的大小写来绕过XSS规则：
-比如：&lt;script&gt;alert(&quot;xss&quot;);&lt;/script&gt; 可以转换为：&lt;ScRipt&gt;ALeRt(&quot;XSS&quot;);&lt;/sCRipT&gt;
-嵌套嵌套&lt;script&gt;和&lt;/script&gt;突破 &lt;sc&lt;script&gt;ript&gt;alert(/xss/)&lt;...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "xss">xss</a>
     
 </div>
             
@@ -2067,9 +2035,54 @@ script关键字被过滤大小写在测试过程中，我们可以改变测试�
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 71
+        Total : 74
         </div>
         <!-- search  -->
         
@@ -2079,6 +2092,30 @@ script关键字被过滤大小写在测试过程中，我们可以改变测试�
     
     
     
+    
+    <div class="archive-year"> 2022 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-ClassLoader/" >Java ClassLoader</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-reflection/" >Java 反射机制</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/refection/" >refection</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">

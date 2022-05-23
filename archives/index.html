@@ -367,6 +367,79 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2022/05/23/java-ClassLoader/" >
+            
+                <span>Java ClassLoader</span>
+        </a>
+        <div class="abstract-content">
+            前言Java依赖于JVM（Java虚拟机），在运行前需要编译为class二进制文件，程序运行的时候不会一口气全部加载class到内存，而是通过java的类加载机制来进行动态加载。
+ClassLoader类再JVM类加载器中，最顶层的是Bootstrap ClassLoader（引导加载器）、Extension ClassLoader（拓展类加载器）、App ClassLoader（系统类加载器）。
+ClassLoader是一个抽象类，主要功能就是通过指定的类名称找到或生成对应的字节码返回一个java.lang.Class类的实例。开发者就可以通过继承ClassLoader类来实现自定义加...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/05/23</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2022/05/23/java-reflection/" >
+            
+                <span>Java 反射机制</span>
+        </a>
+        <div class="abstract-content">
+            前言Java反射机制可以无视类方法和变量去访问权限修饰符，并且可以调用任何类的任何方法，访问并修改成员变量值。也就是说能控制反射的类名、方法名和参数的前提下，如果我们发现了一个java反射调用的漏洞，我们就可以为所欲为了。
+反射 Reflection反射是java的特性之一，在C/C++语言中不存在反射这个概念，有了反射java可以更加灵活调控自身运行时的信息，操作类和对象的内部属性。
+反射的用途非常广，在我们使用IDE工具进行开发的时候，我们输入一个对象并且想调用它的属性或者方法的时候，IDE会自动列出它的属性和方法，这些就是通过反射来实现的。再比如JavaBean和JSP之间的调用也...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/05/23</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2022/05/23/refection/" >
+            
+                <span>refection</span>
+        </a>
+        <div class="abstract-content">
+            
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/05/23</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2020/08/09/idea-jetbrains-agent-latest/" >
             
                 <span>idea-jetbrains-agent-latest</span>
@@ -608,84 +681,6 @@ protected-mode no 设为no
         <a class="post-tag" href="javascript:void(0);" data-tags = "渗透测试学习">渗透测试学习</a>
     
 </div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/02/26/dns-rebinding-bypass/" >
-            
-                <span>dns rebinding bypass</span>
-        </a>
-        <div class="abstract-content">
-            前言DNS Rebinding (DNS重绑定攻击) 是一个比较早就出现的漏洞，被广泛用于bypass同源策略，绕过ssrf的过滤等等。
-DNS Rebinding 原理讲到 DNS Rebinding，就得先了解下DNS
-DNSDNS是Domain Name Service的缩写,计算机域名服务器,在Internet上域名与IP地址之间是一一对应的，域名虽然便于人们记忆，但机器之间只能互相认识IP地址，它们之间的转换工作称为域名解析，而域名解析需要由专门的域名解析服务器来完成，这就是DNS域名服务器。
-更多详细的关于dns原理可以看 阮一峰老师写的DNS 原理入门
-这里来讲几个DNS的...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/26</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/02/22/ctf-php-md5/" >
-            
-                <span>CTF中常见php-MD5()函数漏洞</span>
-        </a>
-        <div class="abstract-content">
-            数字与字符串之间的比较12var_dump( 0 &#x3D;&#x3D; &quot;a&quot; );var_dump( &quot;0&quot; &#x3D;&#x3D; &quot;a&quot; );
-第一个返回的是 true ，第二个返回的是 false因为php把字母开头的转化为整型时，转化为0， 前面数字后面字母的话就只取到第一个字母出现的位置之前（如intval(‘123abd45gf’)结果为123）
-MD5函数漏洞12$_GET[&#39;name&#39;] !&#x3D; $_GET[&#39;password&#39;]MD5($_GET[&#39;nam...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/22</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/02/15/install-libmysqld-dev/" >
-            
-                <span>Ubuntu 安装 libmysqld-dev</span>
-        </a>
-        <div class="abstract-content">
-            安装提示缺少libmysqld，随即安装
-apt-get install libmysqld-dev
-报错了，来fix看看
-12345678Reading package lists... DoneBuilding dependency tree       Reading state information... Donelibmysqld-dev is already the newest version (5.7.29-0ubuntu0.18.04.1).You might want to run &#39;apt --fix-broken install&#39; to corr...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/15</span>
-            </div>
-            <!-- tags  -->
             
         </div>
     </article>
@@ -1847,9 +1842,54 @@ apt-get install libmysqld-dev
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 71
+        Total : 74
         </div>
         <!-- search  -->
         
@@ -1859,6 +1899,30 @@ apt-get install libmysqld-dev
     
     
     
+    
+    <div class="archive-year"> 2022 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-ClassLoader/" >Java ClassLoader</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-reflection/" >Java 反射机制</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/refection/" >refection</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
