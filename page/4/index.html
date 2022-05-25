@@ -380,6 +380,102 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/12/20/find-alibaba-xss/" >
+            
+                <span>一枚阿里巴巴主站XSS挖掘之旅</span>
+        </a>
+        <div class="abstract-content">
+            不得不说，Xray是真的牛皮，试下扫描器随手扫个 alibaba.com 扫出一个主站的反射型XSS漏洞，于是有了下文。提交了ASRC，判为重复漏洞，可惜了。（漏洞修复真慢，等了一个星期多才修）
+漏洞分析漏洞就存在搜索处
+https://www.alibaba.com/trade/search?CatId=&lt;/sCrIpT&gt;&lt;img src=1234 &gt;&amp;IndexArea=product_en&amp;SearchText=gunkit-JZpTT&amp;fsb=y
+对搜索的参数 CatId 没有过滤，payload 为 ?CatId=&lt;/sCr...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/20</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "漏洞挖掘">漏洞挖掘</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "XSS">XSS</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/12/19/ubuntu19-change-ip/" >
+            
+                <span>Ubuntu19 更改ip - 内网渗透</span>
+        </a>
+        <div class="abstract-content">
+            学习内网渗透，首先准备好环境，我准备了一台ubuntu来作为靶机与跳板机来试验。
+安装了Ubuntu19 Server，为了在家和公司都能顺利的学习，为此我为虚拟机增加了一块网卡，现在来记录一下。
+准备网卡
+从ubuntu从17.10开始，已经不再在/etc/network/interfaces里配置IP，即使配置了也不会生效，而是改成netplan方式 ，配置写在/etc/netplan/文件夹里或者类似名称的yaml文件里，19.04的版本安装好以后，配置文件是：/etc/netplan/50-cloud-init.yaml（看自己的情况），修改配置以后不用重启，执行 netplan...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ubuntu">ubuntu</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "内网渗透">内网渗透</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/12/08/centos7-install-awvs/" >
+            
+                <span>Centos7 安装 AWVS</span>
+        </a>
+        <div class="abstract-content">
+            想在服务器上装下awvs，记录一下 终于艰难地安装好了
+安装下载链接 链接：https://share.weiyun.com/5sbSBGX 密码：abc666
+安装首先得先update一下，确保软件都是最新的
+yum update
+发现自己的centos 没得命令补全 yum -y install bash-completion 解决
+解决依赖的问题1yum install libXrender  libXext libXcursor  libXfixes libXcomposite libXrandr libXdamage  libXtst libXi cups-libs dbus-...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/08</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/12/06/pentest-disposable-mobile-number/" >
             
                 <span>渗透测试资源-一次性手机号</span>
@@ -679,111 +775,6 @@ yml 配置
             <!-- date  -->
             <div class="abstract-date">
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/10</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/07/Raspbian3b-Buster/" >
-            
-                <span>Raspbian3b+ 折腾 Buster</span>
-        </a>
-        <div class="abstract-content">
-            好久没折腾过树莓派了，看了下7月发布了新系统 Buster
-准备镜像
-我选择了 Raspbian Buster with desktop and recommended software 加上了推荐软件
-解压之后有5.99GB大小
-
-烧入sd卡我准备好了系统，接下来要把他烧入到sd卡里面
-我用了 Win32DiskImager 来烧入
-注意 需要以管理员身份运行，否则会显示无权限
-
-提示成功之后，在boot驱动器下，建立一个 SSH 文件，无后缀，默认开启ssh
-配置vnc烧入好之后，插入树莓派启动 
-Username: pi Password: raspberry
-用xhsell连接
-...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/07</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/19/ubuntu-vsftpd/" >
-            
-                <span>ubuntu 搭建 vsftpd 遇到的坑</span>
-        </a>
-        <div class="abstract-content">
-            今天在配置公司服务器环境的时候遇到点问题来记录下
-安装配置安装 vsftpd 
-sudo apt-get install vsftpd
-修改配置文件 /etc/vsftpd.conf
-12345678910111213141516171819202122#是否允许匿名访问，NO为不允许anonymous_enable&#x3D;NO#是否允许本地用户访问,就是linux本机中存在的用户，YES允许local_enable&#x3D;YES#去掉下边这句的注释&quot;#&quot;。是否开启写模式，YES为开启write_enable&#x3D;YES#是否启动userlist为通过模...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ubuntu">ubuntu</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "vsftpd">vsftpd</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/07/vsftpd/" >
-            
-                <span>centos7 安装配置 vsftpd</span>
-        </a>
-        <div class="abstract-content">
-            简介vsftpd是 “very secure FTP deamon”的缩写，是一个完全免费，开源的ftp服务器软件。
-特点小巧轻快，安全易用，支持虚拟用户、支持带宽限制等功能。
-安装注：在安装前需提前确认是否已经安装了vsftpd 命令如下：
-rpm -qa|grep vsftpd
-另外，默认的配置文件路径为： /etc/vsftpd.conf
-安装：
-yum update
-yum install vsftpd -y
-
-启动systemctl start vsftpd
-设置防火墙firewall-cmd --permanent --add-service=ftp
-firewall-cmd...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/07</span>
             </div>
             <!-- tags  -->
             
@@ -2133,9 +2124,68 @@ firewall-cmd...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 74
+        Total : 77
         </div>
         <!-- search  -->
         
@@ -2151,17 +2201,32 @@ firewall-cmd...
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2022/05/25/java-commons-collections/" >Apache Commons Collections反序列化漏洞</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2022/05/25/java-deserialization/" >Java反序列化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2022/05/24/java-sun-misc-Unsafe/" >Java Unsafe</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2022/05/24/java-dynamic-proxy/" >Java动态代理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-ClassLoader/" >Java ClassLoader</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-reflection/" >Java 反射机制</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/refection/" >refection</a>
         </li>
     
     

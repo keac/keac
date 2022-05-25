@@ -2,23 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.loongten.com/2022/05/25/java-commons-collections/</loc>
+    
+    <lastmod>2022-05-25T13:56:51.942Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.loongten.com/2022/05/25/java-deserialization/</loc>
+    
+    <lastmod>2022-05-25T06:38:32.267Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.loongten.com/2022/05/24/java-sun-misc-Unsafe/</loc>
+    
+    <lastmod>2022-05-24T08:13:12.470Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.loongten.com/2022/05/24/java-dynamic-proxy/</loc>
+    
+    <lastmod>2022-05-24T07:55:42.599Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.loongten.com/2022/05/23/java-reflection/</loc>
     
-    <lastmod>2022-05-23T13:43:12.123Z</lastmod>
+    <lastmod>2022-05-24T07:47:39.745Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.loongten.com/2022/05/23/java-ClassLoader/</loc>
     
-    <lastmod>2022-05-23T13:43:10.066Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.loongten.com/2022/05/23/refection/</loc>
-    
-    <lastmod>2022-05-23T08:43:37.106Z</lastmod>
+    <lastmod>2022-05-24T06:07:07.164Z</lastmod>
     
   </url>
   

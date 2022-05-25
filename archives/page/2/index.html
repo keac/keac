@@ -367,6 +367,101 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2020/03/15/redis-Loophole/" >
+            
+                <span>redis 未授权访问漏洞</span>
+        </a>
+        <div class="abstract-content">
+            yum install epel-release
+yum install redis
+
+去除ip访问限制，允许本机之外的主机登陆本机
+
+protected-mode no 设为no
+
+12345λ .\redis-cli.exe -h 192.168.224.129192.168.224.129:6379&gt; config get dir1) &quot;dir&quot;2) &quot;&#x2F;var&#x2F;lib&#x2F;redis&quot;192.168.224.129:6379&gt;
+
+更改redis备份路径为ssh公钥存放目录(一般默认为/root/.ssh...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/03/15</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/03/07/ctf-php-serialization/" >
+            
+                <span>php 反序列化漏洞</span>
+        </a>
+        <div class="abstract-content">
+            前言虽然PHP反序列化漏洞利用的条件比较苛刻，但是一旦被利用就会产生很严重的后果
+介绍什么是序列化与反序列化?
+维基百科中这样定义：序列化（serialization）在计算机科学的数据处理中，是指将数据结构或对象状态转换成可取用格式（例如存成文件，存于缓冲，或经由网络中发送），以留待后续在相同或另一台计算机环境中，能恢复原先状态的过程。
+概念很容易理解，其实就是将数据转化成一种可逆的数据结构， 复杂的数据类型压缩到一个字符串中 数据类型可以是数组，字符串，对象等，自然，逆向的过程就叫做反序列化。
+那么序列化与反序列化有什么用处呢？
+举个例子：
+比如：我们买一个桌子，这么大一个肯定不能直...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/03/07</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/02/27/pentest-ssrf/" >
+            
+                <span>SSRF服务器端请求伪造</span>
+        </a>
+        <div class="abstract-content">
+            定义SSRF（Server-side Request Forgery，服务器端请求伪造）
+是一种由攻击者构造形成由服务端发起请求的一个安全漏洞。一般情况下，SSRF攻击的目标是从外网无法访问的内部系统。正是因为它是由服务端发起的，所以它能够请求到与它相连而与外网隔离的内部系统。
+攻击利用了可访问Web服务器（A）的特定功能构造恶意payload
+攻击者在访问A时，利用A的特定功能构造特殊payload，由A发起对内部网络中系统B（内网隔离，外部不可访问）的请求，从而获取敏感信息。
+此时A被作为中间人（跳板）进行利用。
+原因SSRF 形成的原因大都是由于服务端提供了从其他服务器应用获取数据...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/27</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "渗透测试学习">渗透测试学习</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2020/02/26/dns-rebinding-bypass/" >
             
                 <span>dns rebinding bypass</span>
@@ -581,135 +676,6 @@ CONGR4Ts!:)
             <!-- date  -->
             <div class="abstract-date">
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "wp">wp</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/01/10/ctfwp-bugku-Careful-elephant/" >
-            
-                <span>CTFWP 细心的大象</span>
-        </a>
-        <div class="abstract-content">
-            一道bugku的隐写题
-链接：https://share.weiyun.com/5RtIUCG 密码：d5phuu
-打开来一张图
-
-看下属性，有个base64编码的
-
-解密出来 MSDS456ASD123zz 似乎没什么意义 先放着
-010Ediotr 打开图片 查看搜索jpg文件尾FFD9发现后面有Rar!标志，想必图片最后有个rar压缩包
-
-复制粘贴RAR的信息，新建一份保存
-
-发现需要密码解压，联想之前的奇怪的字符串，尝试解压
-
-解压出来一张图片
-
-看到图片尺寸有点奇怪下面可能藏了东西。
-123456789101112131415使用UltraEdit32打开该文件，如下：0000...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "wp">wp</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/01/09/ctfwp-jarvisoj-sdjmm/" >
-            
-                <span>CTFWP jarvisoj 神盾局的秘密</span>
-        </a>
-        <div class="abstract-content">
-            贴上题目链接 http://web.jarvisoj.com:32768/
-打开来是这样子一张图片
-
-分析下图片链接 showimg.php?img=c2hpZWxkLmpwZw==
-图片是从showing.php中读取的，且img=base64编码
-
-盲猜文件包含，直接 ../../../../../../../flag 读取
-Base64 编码 Li4vLi4vLi4vLi4vLi4vLi4vLi4vZmxhZw==
-
-似乎不对，接下来尝试读取已知showing.php文件的源码
-查看源代码 view-source:http://web.jarvisoj.com:32768/show...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "wp">wp</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/01/09/ctfwp-bugku-flag-php/" >
-            
-                <span>CTFWP BugKu flag.php 题解</span>
-        </a>
-        <div class="abstract-content">
-            Bugku flag.php
-
-地址：http://123.206.87.240:8002/flagphp/
-点了login咋没反应
-提示：hint
-打开网页看下，点login确实没有反应，源码里面input为button，没有什么用处
-
-提示 hint 我们把他作为get参数来试试 http://123.206.87.240:8002/flagphp/?hint
-这时候我们可以看到PHP源码，这道题很明显就是考PHP代码审计
-
-1234567891011121314151617181920212223242526272829303132333435 &lt;?phperror_repo...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/09</span>
             </div>
             <!-- tags  -->
             
@@ -1926,9 +1892,68 @@ Base64 编码 Li4vLi4vLi4vLi4vLi4vLi4vLi4vZmxhZw==
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 74
+        Total : 77
         </div>
         <!-- search  -->
         
@@ -1944,17 +1969,32 @@ Base64 编码 Li4vLi4vLi4vLi4vLi4vLi4vLi4vZmxhZw==
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2022/05/25/java-commons-collections/" >Apache Commons Collections反序列化漏洞</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2022/05/25/java-deserialization/" >Java反序列化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2022/05/24/java-sun-misc-Unsafe/" >Java Unsafe</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2022/05/24/java-dynamic-proxy/" >Java动态代理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-ClassLoader/" >Java ClassLoader</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-reflection/" >Java 反射机制</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/refection/" >refection</a>
         </li>
     
     

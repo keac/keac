@@ -367,6 +367,104 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2022/05/25/java-commons-collections/" >
+            
+                <span>Apache Commons Collections反序列化漏洞</span>
+        </a>
+        <div class="abstract-content">
+            前言Apache Commons是Apache开源的Java通用类项目在Java中项目中被广泛的使用，Apache Commons当中有一个组件叫做Apache Commons Collections，主要封装了Java的Collection（集合）相关类对象。
+Transformer该接口的重要实现类有：ConstantTransformer、invokerTransformer、ChainedTransformer、TransformedMap
+ConstantTransformerConstantTransformer类是Transformer接口其中的一个实现类，Constant...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/05/25</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2022/05/25/java-deserialization/" >
+            
+                <span>Java反序列化</span>
+        </a>
+        <div class="abstract-content">
+            什么是反序列化和序列化序列化合反序列化是什么呢，我们可以想象为比如我们从某宝买一张桌子或者柜子，这么大一个柜子肯定不会直接寄过来，那样太容易损坏而且也非常麻烦，一般来说的做法就是商家把桌子拆成一块块桌板寄过来，然后你自己拿到之后再进行拼接，那么商家在打包成木板的时候就是序列化的过程，反之你拆包装拼装桌子的时候就是反序列化的过程。
+他的定义呢就是把一个Java类的一个实例序列化为数组（打包，方便传输），用于存储对象实例化信息：类成员变量合属性值。
+因为Java序列化对象可以很方便的把对象转换成字节数组，又可以很方便的把字节数组反序列化成java对象，所以频繁的使用在Socket传输。在RM...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/05/25</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2022/05/24/java-sun-misc-Unsafe/" >
+            
+                <span>Java Unsafe</span>
+        </a>
+        <div class="abstract-content">
+            Unsafe 是Java底层API的一个类，从名字就知道这个类不太安全。
+Unsafe提供了非常底层的内存、CAS、线程调度、类、对象等操作
+反射调用Unsafe12345678910111213141516171819// 反射获取Unsafe的theUnsafe成员变量Field theUnsafeField = Unsafe.class.getDeclaredField("theUnsafe");// 反射设置theUnsafe访问权限theUnsafeField.setAccessible(true);// 反射获取theUnsafe成员变量值Unsafe unsafe = (U...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/05/24</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2022/05/24/java-dynamic-proxy/" >
+            
+                <span>Java动态代理</span>
+        </a>
+        <div class="abstract-content">
+            
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/05/24</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2022/05/23/java-ClassLoader/" >
             
                 <span>Java ClassLoader</span>
@@ -400,29 +498,6 @@ ClassLoader是一个抽象类，主要功能就是通过指定的类名称找到
             前言Java反射机制可以无视类方法和变量去访问权限修饰符，并且可以调用任何类的任何方法，访问并修改成员变量值。也就是说能控制反射的类名、方法名和参数的前提下，如果我们发现了一个java反射调用的漏洞，我们就可以为所欲为了。
 反射 Reflection反射是java的特性之一，在C/C++语言中不存在反射这个概念，有了反射java可以更加灵活调控自身运行时的信息，操作类和对象的内部属性。
 反射的用途非常广，在我们使用IDE工具进行开发的时候，我们输入一个对象并且想调用它的属性或者方法的时候，IDE会自动列出它的属性和方法，这些就是通过反射来实现的。再比如JavaBean和JSP之间的调用也...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/05/23</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2022/05/23/refection/" >
-            
-                <span>refection</span>
-        </a>
-        <div class="abstract-content">
-            
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1632,9 +1707,68 @@ ClassLoader是一个抽象类，主要功能就是通过指定的类名称找到
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 74
+        Total : 77
         </div>
         <!-- search  -->
         
@@ -1650,17 +1784,32 @@ ClassLoader是一个抽象类，主要功能就是通过指定的类名称找到
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2022/05/25/java-commons-collections/" >Apache Commons Collections反序列化漏洞</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2022/05/25/java-deserialization/" >Java反序列化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2022/05/24/java-sun-misc-Unsafe/" >Java Unsafe</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2022/05/24/java-dynamic-proxy/" >Java动态代理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-ClassLoader/" >Java ClassLoader</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-reflection/" >Java 反射机制</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/refection/" >refection</a>
         </li>
     
     

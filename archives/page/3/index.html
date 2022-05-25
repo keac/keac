@@ -367,6 +367,135 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2020/01/10/ctfwp-bugku-Careful-elephant/" >
+            
+                <span>CTFWP 细心的大象</span>
+        </a>
+        <div class="abstract-content">
+            一道bugku的隐写题
+链接：https://share.weiyun.com/5RtIUCG 密码：d5phuu
+打开来一张图
+
+看下属性，有个base64编码的
+
+解密出来 MSDS456ASD123zz 似乎没什么意义 先放着
+010Ediotr 打开图片 查看搜索jpg文件尾FFD9发现后面有Rar!标志，想必图片最后有个rar压缩包
+
+复制粘贴RAR的信息，新建一份保存
+
+发现需要密码解压，联想之前的奇怪的字符串，尝试解压
+
+解压出来一张图片
+
+看到图片尺寸有点奇怪下面可能藏了东西。
+123456789101112131415使用UltraEdit32打开该文件，如下：0000...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/10</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "wp">wp</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/01/09/ctfwp-jarvisoj-sdjmm/" >
+            
+                <span>CTFWP jarvisoj 神盾局的秘密</span>
+        </a>
+        <div class="abstract-content">
+            贴上题目链接 http://web.jarvisoj.com:32768/
+打开来是这样子一张图片
+
+分析下图片链接 showimg.php?img=c2hpZWxkLmpwZw==
+图片是从showing.php中读取的，且img=base64编码
+
+盲猜文件包含，直接 ../../../../../../../flag 读取
+Base64 编码 Li4vLi4vLi4vLi4vLi4vLi4vLi4vZmxhZw==
+
+似乎不对，接下来尝试读取已知showing.php文件的源码
+查看源代码 view-source:http://web.jarvisoj.com:32768/show...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/09</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "wp">wp</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/01/09/ctfwp-bugku-flag-php/" >
+            
+                <span>CTFWP BugKu flag.php 题解</span>
+        </a>
+        <div class="abstract-content">
+            Bugku flag.php
+
+地址：http://123.206.87.240:8002/flagphp/
+点了login咋没反应
+提示：hint
+打开网页看下，点login确实没有反应，源码里面input为button，没有什么用处
+
+提示 hint 我们把他作为get参数来试试 http://123.206.87.240:8002/flagphp/?hint
+这时候我们可以看到PHP源码，这道题很明显就是考PHP代码审计
+
+1234567891011121314151617181920212223242526272829303132333435 &lt;?phperror_repo...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/09</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "wp">wp</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2020/01/08/pentest-xss-beef/" >
             
                 <span>BEEF 安装使用</span>
@@ -617,102 +746,6 @@ CTF介绍CTF（Capture The Flag，夺旗赛）在网络安全领域中指的是�
         <a class="post-tag" href="javascript:void(0);" data-tags = "CTF">CTF</a>
     
 </div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/20/find-alibaba-xss/" >
-            
-                <span>一枚阿里巴巴主站XSS挖掘之旅</span>
-        </a>
-        <div class="abstract-content">
-            不得不说，Xray是真的牛皮，试下扫描器随手扫个 alibaba.com 扫出一个主站的反射型XSS漏洞，于是有了下文。提交了ASRC，判为重复漏洞，可惜了。（漏洞修复真慢，等了一个星期多才修）
-漏洞分析漏洞就存在搜索处
-https://www.alibaba.com/trade/search?CatId=&lt;/sCrIpT&gt;&lt;img src=1234 &gt;&amp;IndexArea=product_en&amp;SearchText=gunkit-JZpTT&amp;fsb=y
-对搜索的参数 CatId 没有过滤，payload 为 ?CatId=&lt;/sCr...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "漏洞挖掘">漏洞挖掘</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "XSS">XSS</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/19/ubuntu19-change-ip/" >
-            
-                <span>Ubuntu19 更改ip - 内网渗透</span>
-        </a>
-        <div class="abstract-content">
-            学习内网渗透，首先准备好环境，我准备了一台ubuntu来作为靶机与跳板机来试验。
-安装了Ubuntu19 Server，为了在家和公司都能顺利的学习，为此我为虚拟机增加了一块网卡，现在来记录一下。
-准备网卡
-从ubuntu从17.10开始，已经不再在/etc/network/interfaces里配置IP，即使配置了也不会生效，而是改成netplan方式 ，配置写在/etc/netplan/文件夹里或者类似名称的yaml文件里，19.04的版本安装好以后，配置文件是：/etc/netplan/50-cloud-init.yaml（看自己的情况），修改配置以后不用重启，执行 netplan...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ubuntu">ubuntu</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "内网渗透">内网渗透</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/08/centos7-install-awvs/" >
-            
-                <span>Centos7 安装 AWVS</span>
-        </a>
-        <div class="abstract-content">
-            想在服务器上装下awvs，记录一下 终于艰难地安装好了
-安装下载链接 链接：https://share.weiyun.com/5sbSBGX 密码：abc666
-安装首先得先update一下，确保软件都是最新的
-yum update
-发现自己的centos 没得命令补全 yum -y install bash-completion 解决
-解决依赖的问题1yum install libXrender  libXext libXcursor  libXfixes libXcomposite libXrandr libXdamage  libXtst libXi cups-libs dbus-...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/08</span>
-            </div>
-            <!-- tags  -->
             
         </div>
     </article>
@@ -1919,9 +1952,68 @@ yum update
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 74
+        Total : 77
         </div>
         <!-- search  -->
         
@@ -1937,17 +2029,32 @@ yum update
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2022/05/25/java-commons-collections/" >Apache Commons Collections反序列化漏洞</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2022/05/25/java-deserialization/" >Java反序列化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2022/05/24/java-sun-misc-Unsafe/" >Java Unsafe</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2022/05/24/java-dynamic-proxy/" >Java动态代理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-ClassLoader/" >Java ClassLoader</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-reflection/" >Java 反射机制</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/refection/" >refection</a>
         </li>
     
     

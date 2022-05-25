@@ -380,6 +380,137 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/24/vue/" >
+            
+                <span>vue-cli 升级踩坑</span>
+        </a>
+        <div class="abstract-content">
+            好久没用vue-cli脚手架来写东西了
+按照官网的说法是
+
+Vue CLI 的包名称由 vue-cli 改成了 @cli。 如果你已经全局安装了旧版本的 vue-cli (1.x 或 2.x)，你需要先通过 npm uninstall vue-cli -g 或 yarn global remove vue-cli 卸载它。https://cli.vuejs.org/zh/guide/installation.html
+
+看了眼本地的vuecli 是 2.x的 先 npm uninstall vue-cli -g 卸载了
+vue create hello-world 走起
+
+报错 仔细看了...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/24</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "vue-cli">vue-cli</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "升级">升级</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/07/pentesterlab-xss/" >
+            
+                <span>pentesterlab_xss</span>
+        </a>
+        <div class="abstract-content">
+            Example 1很简单，没有任何过滤
+1name&#x3D;&lt;script&gt;alert(&quot;xss&quot;)&lt;&#x2F;script&gt;
+
+
+Example 2可以看到这里过滤了 script 标签
+发现图片标签没过滤，构造
+12?name&#x3D;&lt;img onerror&#x3D;alert(&#x2F;xss&#x2F;) src &gt;
+
+Example 3构造 
+1?name&#x3D;&lt;img onerror&#x3D;alert(&#x2F;xss&#x2F;) src &gt;
+和2一样
+Example 4
+还是用
+1...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/07</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "xss">xss</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "pentesterlab">pentesterlab</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/07/pentesterlab/" >
+            
+                <span>pentesterlab</span>
+        </a>
+        <div class="abstract-content">
+            学渗透测试的时候 自己想搭个靶机环境，找到了 pentesterlab 这个好东西，之前一直都用Docker来搭建环境
+https://www.pentesterlab.com/exercises/web_for_pentester/attachments
+
+首先，下载ISO镜像文件
+在vmware 新建虚拟机
+
+选择镜像
+
+之后一路默认下去
+
+开启启动成功 输入ifconfig 查看当前ip
+
+似乎打不开，把网卡调成桥接模式 重启下
+
+
+已经可以看到了界面
+
+已经可以看到了界面
+
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/07</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "pentesterlab">pentesterlab</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/06/30/hackbar/" >
             
                 <span>hackbar</span>
@@ -674,133 +805,6 @@ vs2019 正式版发布的时候，把旧版的VS卸了，瞬间空出30G。。
         <a class="post-tag" href="javascript:void(0);" data-tags = "uni-app">uni-app</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "小程序">小程序</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/06/10/cmder-here/" >
-            
-                <span>cmder-here</span>
-        </a>
-        <div class="abstract-content">
-            每次想运行下脚本或者程序什的，都是用Cmder，每次启动cmder 都要切换目录过去，超级麻烦。在网上查看了下资料，发现可以实现cmder here，来记录下。
-Cmder 下载地址
-
-下载下来解压
-
-配置环境变量
- 配置环境变量：环境变量 –&gt; 系统变量
-
-添加 新建变量：CMDER_HOME=cmder所在的bin目录
-
-
-在path里面添加 %CMDER_HOME%
-
-
-
-切换到cmder 的目录 右键以管理员权限打开 Cmder.exe 输入 Cmder.exe /REGISTER ALL
-   
-
-再右键的时候就可以看到了cmder here  
-
-
-另外发现，右键菜单有...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "cmder">cmder</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "cmder here">cmder here</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "regedit">regedit</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "右键清理">右键清理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/06/09/HTML%E5%AD%97%E7%AC%A6%E5%AE%9E%E4%BD%93/" >
-            
-                <span>HTML字符实体</span>
-        </a>
-        <div class="abstract-content">
-            今天在做耗子师傅的 https://xss.haozi.me
-发现对HTML实体字符还不算太深入了解
-字符实体是用一个编号写入HTML代码中来代替一个字符，在使用浏览器访问网页时会将这个编号解析还原为字符以供阅读。
-
-解决HTML代码编写中的一些问题。例如需要在网页上显示小于号（&lt;）和大于号（&gt;），由于它们是HTML的预留标签，可能会被误解析。这时就需要将小于号和大于号写成字符实体：123小于号这样写：&lt; 或 &amp;#60;大于号这样写：&gt; 或 &amp;#62;&amp;#十进制; &amp;#x十六进制;
-比如 ) Html 实体字符为 &#x29; &#...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Html">Html</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "实体字符">实体字符</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "xss">xss</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/06/09/bugku-%E4%BD%A0%E4%BB%8E%E5%93%AA%E9%87%8C%E6%9D%A5/" >
-            
-                <span>bugku-你从哪里来</span>
-        </a>
-        <div class="abstract-content">
-            你从哪里来 
-
-123456789HTTP_REFERER 编辑HTTP Referer是header的一部分，当浏览器向web服务器发送请求的时候，一般会带上Referer，告诉服务器我是从哪个页面链接过来的，服务器基此可以获得一些信息用于处理。简而言之，HTTP Referer是header的一部分，当浏览器向web服务器发送请求的时候，一般会带上Referer，告诉服务器我是从哪个页面链接过来的，服务器藉此可以获得一些信息用于处理。比如从我主页上链接到一个朋友那里，他的服务器就能够从HTTP Referer中统计出每天有多少用户点击我主页上的链接访问他的网站。Referer的正确英...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "bugku">bugku</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
     
 </div>
             
@@ -2150,9 +2154,68 @@ Cmder 下载地址
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 74
+        Total : 77
         </div>
         <!-- search  -->
         
@@ -2168,17 +2231,32 @@ Cmder 下载地址
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2022/05/25/java-commons-collections/" >Apache Commons Collections反序列化漏洞</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2022/05/25/java-deserialization/" >Java反序列化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2022/05/24/java-sun-misc-Unsafe/" >Java Unsafe</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2022/05/24/java-dynamic-proxy/" >Java动态代理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-ClassLoader/" >Java ClassLoader</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-reflection/" >Java 反射机制</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/refection/" >refection</a>
         </li>
     
     

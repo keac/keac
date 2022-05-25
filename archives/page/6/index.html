@@ -367,6 +367,150 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/31/mysql-optimization/" >
+            
+                <span>mysql 优化</span>
+        </a>
+        <div class="abstract-content">
+            Mysql 优化
+表的设计合理化(符合3NF)
+
+添加适当索引(index) [四种: 普通索引、主键索引、唯一索引unique、全文索引]
+
+SQL语句优化
+
+分表技术(水平分割、垂直分割)
+
+读写[写: update/delete/add]分离
+
+存储过程 [模块化编程，可以提高速度]
+
+对mysql配置优化 [配置最大并发数my.ini, 调整缓存大小 ]
+
+mysql服务器硬件升级
+
+定时的去清除不需要的数据,定时进行碎片整理(MyISAM)
+
+
+数据库三大范式1NF1NF是对属性的原子性约束，要求属性(列)具有原子性，不可再分解；(只要是关系型数据库都满足1NF)
+1NF是关系...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/31</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "mysql">mysql</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "优化">优化</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/29/SpringBoot-profiles/" >
+            
+                <span>SpringBoot 多环境配置</span>
+        </a>
+        <div class="abstract-content">
+            环境概念
+test 本地开发环境
+sit 测试环境
+pre 预生产环境
+prd 生产环境
+
+设置application.yml 为默认的配置文件application-prd.yml 为生产环境配置文件
+
+通过改默认配置文件的读取方式，就可以切换环境，无需改动代码
+123srping:  profiles:    active: prd
+
+实例：
+1234567891011@Controllerpublic class IndexController &#123;    @Value(&quot;$&#123;test&#125;&quot;)    private String tes...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/29</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "SrpingBoot">SrpingBoot</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "多环境">多环境</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/29/springboot-package/" >
+            
+                <span>SpringBoot 打包</span>
+        </a>
+        <div class="abstract-content">
+            打包成 Jar 包添加  packaging在pom.xml 下加入
+1&lt;packaging&gt;jar&lt;&#x2F;packaging&gt;
+ 
+clean 在打包之前最好先clean以下
+
+
+打包打包 Jar 包，选择package
+看到 BUILD SUCCESS ，在 target 目录下可以找到打包好的jar 包
+运行java -jar xxx.jar
+如图已经启动起来了
+
+我刚刚安装的tomcat 也是一样的端口
+
+
+Tomcat 关了之后就成功跑起来了
+打包 War 包修改  packaging把原本的jar 修改为 war
+1&lt;packaging&g...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/29</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "springboot">springboot</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "打包">打包</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "maven">maven</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/07/29/windows-tomcat/" >
             
                 <span>windows 安装tomcat</span>
@@ -583,137 +727,6 @@ idea有很多快捷方式(Alt+Insert)，比如get,set,构造函数，hashcode,eq
         <a class="post-tag" href="javascript:void(0);" data-tags = "SpringBoot">SpringBoot</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "swagger2">swagger2</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/24/vue/" >
-            
-                <span>vue-cli 升级踩坑</span>
-        </a>
-        <div class="abstract-content">
-            好久没用vue-cli脚手架来写东西了
-按照官网的说法是
-
-Vue CLI 的包名称由 vue-cli 改成了 @cli。 如果你已经全局安装了旧版本的 vue-cli (1.x 或 2.x)，你需要先通过 npm uninstall vue-cli -g 或 yarn global remove vue-cli 卸载它。https://cli.vuejs.org/zh/guide/installation.html
-
-看了眼本地的vuecli 是 2.x的 先 npm uninstall vue-cli -g 卸载了
-vue create hello-world 走起
-
-报错 仔细看了...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "vue-cli">vue-cli</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "升级">升级</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/07/pentesterlab-xss/" >
-            
-                <span>pentesterlab_xss</span>
-        </a>
-        <div class="abstract-content">
-            Example 1很简单，没有任何过滤
-1name&#x3D;&lt;script&gt;alert(&quot;xss&quot;)&lt;&#x2F;script&gt;
-
-
-Example 2可以看到这里过滤了 script 标签
-发现图片标签没过滤，构造
-12?name&#x3D;&lt;img onerror&#x3D;alert(&#x2F;xss&#x2F;) src &gt;
-
-Example 3构造 
-1?name&#x3D;&lt;img onerror&#x3D;alert(&#x2F;xss&#x2F;) src &gt;
-和2一样
-Example 4
-还是用
-1...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/07</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "xss">xss</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "pentesterlab">pentesterlab</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/07/pentesterlab/" >
-            
-                <span>pentesterlab</span>
-        </a>
-        <div class="abstract-content">
-            学渗透测试的时候 自己想搭个靶机环境，找到了 pentesterlab 这个好东西，之前一直都用Docker来搭建环境
-https://www.pentesterlab.com/exercises/web_for_pentester/attachments
-
-首先，下载ISO镜像文件
-在vmware 新建虚拟机
-
-选择镜像
-
-之后一路默认下去
-
-开启启动成功 输入ifconfig 查看当前ip
-
-似乎打不开，把网卡调成桥接模式 重启下
-
-
-已经可以看到了界面
-
-已经可以看到了界面
-
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/07</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "pentesterlab">pentesterlab</a>
     
 </div>
             
@@ -1922,9 +1935,68 @@ https://www.pentesterlab.com/exercises/web_for_pentester/attachments
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 74
+        Total : 77
         </div>
         <!-- search  -->
         
@@ -1940,17 +2012,32 @@ https://www.pentesterlab.com/exercises/web_for_pentester/attachments
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2022/05/25/java-commons-collections/" >Apache Commons Collections反序列化漏洞</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2022/05/25/java-deserialization/" >Java反序列化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2022/05/24/java-sun-misc-Unsafe/" >Java Unsafe</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2022/05/24/java-dynamic-proxy/" >Java动态代理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-ClassLoader/" >Java ClassLoader</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-reflection/" >Java 反射机制</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/refection/" >refection</a>
         </li>
     
     

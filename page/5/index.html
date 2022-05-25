@@ -380,6 +380,111 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/09/07/Raspbian3b-Buster/" >
+            
+                <span>Raspbian3b+ 折腾 Buster</span>
+        </a>
+        <div class="abstract-content">
+            好久没折腾过树莓派了，看了下7月发布了新系统 Buster
+准备镜像
+我选择了 Raspbian Buster with desktop and recommended software 加上了推荐软件
+解压之后有5.99GB大小
+
+烧入sd卡我准备好了系统，接下来要把他烧入到sd卡里面
+我用了 Win32DiskImager 来烧入
+注意 需要以管理员身份运行，否则会显示无权限
+
+提示成功之后，在boot驱动器下，建立一个 SSH 文件，无后缀，默认开启ssh
+配置vnc烧入好之后，插入树莓派启动 
+Username: pi Password: raspberry
+用xhsell连接
+...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/07</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/08/19/ubuntu-vsftpd/" >
+            
+                <span>ubuntu 搭建 vsftpd 遇到的坑</span>
+        </a>
+        <div class="abstract-content">
+            今天在配置公司服务器环境的时候遇到点问题来记录下
+安装配置安装 vsftpd 
+sudo apt-get install vsftpd
+修改配置文件 /etc/vsftpd.conf
+12345678910111213141516171819202122#是否允许匿名访问，NO为不允许anonymous_enable&#x3D;NO#是否允许本地用户访问,就是linux本机中存在的用户，YES允许local_enable&#x3D;YES#去掉下边这句的注释&quot;#&quot;。是否开启写模式，YES为开启write_enable&#x3D;YES#是否启动userlist为通过模...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ubuntu">ubuntu</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "vsftpd">vsftpd</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/08/07/vsftpd/" >
+            
+                <span>centos7 安装配置 vsftpd</span>
+        </a>
+        <div class="abstract-content">
+            简介vsftpd是 “very secure FTP deamon”的缩写，是一个完全免费，开源的ftp服务器软件。
+特点小巧轻快，安全易用，支持虚拟用户、支持带宽限制等功能。
+安装注：在安装前需提前确认是否已经安装了vsftpd 命令如下：
+rpm -qa|grep vsftpd
+另外，默认的配置文件路径为： /etc/vsftpd.conf
+安装：
+yum update
+yum install vsftpd -y
+
+启动systemctl start vsftpd
+设置防火墙firewall-cmd --permanent --add-service=ftp
+firewall-cmd...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/07</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/08/07/idea-Generate/" >
             
                 <span>idea 自动添加get set</span>
@@ -626,150 +731,6 @@ yum install -y nginx 开始安装
         <a class="post-tag" href="javascript:void(0);" data-tags = "centos7">centos7</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "tomcat">tomcat</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/31/mysql-optimization/" >
-            
-                <span>mysql 优化</span>
-        </a>
-        <div class="abstract-content">
-            Mysql 优化
-表的设计合理化(符合3NF)
-
-添加适当索引(index) [四种: 普通索引、主键索引、唯一索引unique、全文索引]
-
-SQL语句优化
-
-分表技术(水平分割、垂直分割)
-
-读写[写: update/delete/add]分离
-
-存储过程 [模块化编程，可以提高速度]
-
-对mysql配置优化 [配置最大并发数my.ini, 调整缓存大小 ]
-
-mysql服务器硬件升级
-
-定时的去清除不需要的数据,定时进行碎片整理(MyISAM)
-
-
-数据库三大范式1NF1NF是对属性的原子性约束，要求属性(列)具有原子性，不可再分解；(只要是关系型数据库都满足1NF)
-1NF是关系...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/31</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "mysql">mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "优化">优化</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/29/SpringBoot-profiles/" >
-            
-                <span>SpringBoot 多环境配置</span>
-        </a>
-        <div class="abstract-content">
-            环境概念
-test 本地开发环境
-sit 测试环境
-pre 预生产环境
-prd 生产环境
-
-设置application.yml 为默认的配置文件application-prd.yml 为生产环境配置文件
-
-通过改默认配置文件的读取方式，就可以切换环境，无需改动代码
-123srping:  profiles:    active: prd
-
-实例：
-1234567891011@Controllerpublic class IndexController &#123;    @Value(&quot;$&#123;test&#125;&quot;)    private String tes...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "SrpingBoot">SrpingBoot</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "多环境">多环境</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/29/springboot-package/" >
-            
-                <span>SpringBoot 打包</span>
-        </a>
-        <div class="abstract-content">
-            打包成 Jar 包添加  packaging在pom.xml 下加入
-1&lt;packaging&gt;jar&lt;&#x2F;packaging&gt;
- 
-clean 在打包之前最好先clean以下
-
-
-打包打包 Jar 包，选择package
-看到 BUILD SUCCESS ，在 target 目录下可以找到打包好的jar 包
-运行java -jar xxx.jar
-如图已经启动起来了
-
-我刚刚安装的tomcat 也是一样的端口
-
-
-Tomcat 关了之后就成功跑起来了
-打包 War 包修改  packaging把原本的jar 修改为 war
-1&lt;packaging&g...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "springboot">springboot</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "打包">打包</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "maven">maven</a>
     
 </div>
             
@@ -2119,9 +2080,68 @@ Tomcat 关了之后就成功跑起来了
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 74
+        Total : 77
         </div>
         <!-- search  -->
         
@@ -2137,17 +2157,32 @@ Tomcat 关了之后就成功跑起来了
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2022/05/25/java-commons-collections/" >Apache Commons Collections反序列化漏洞</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2022/05/25/java-deserialization/" >Java反序列化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2022/05/24/java-sun-misc-Unsafe/" >Java Unsafe</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2022/05/24/java-dynamic-proxy/" >Java动态代理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-ClassLoader/" >Java ClassLoader</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/java-reflection/" >Java 反射机制</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2022/05/23/refection/" >refection</a>
         </li>
     
     

@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.loongten.com/2022/05/25/java-commons-collections/</loc>
+    <lastmod>2022-05-25</lastmod>
+  </url>  <url>
+    <loc>http://www.loongten.com/2022/05/25/java-deserialization/</loc>
+    <lastmod>2022-05-25</lastmod>
+  </url>  <url>
+    <loc>http://www.loongten.com/2022/05/24/java-sun-misc-Unsafe/</loc>
+    <lastmod>2022-05-24</lastmod>
+  </url>  <url>
+    <loc>http://www.loongten.com/2022/05/24/java-dynamic-proxy/</loc>
+    <lastmod>2022-05-24</lastmod>
+  </url>  <url>
     <loc>http://www.loongten.com/2022/05/23/java-reflection/</loc>
-    <lastmod>2022-05-23</lastmod>
+    <lastmod>2022-05-24</lastmod>
   </url>  <url>
     <loc>http://www.loongten.com/2022/05/23/java-ClassLoader/</loc>
-    <lastmod>2022-05-23</lastmod>
-  </url>  <url>
-    <loc>http://www.loongten.com/2022/05/23/refection/</loc>
-    <lastmod>2022-05-23</lastmod>
+    <lastmod>2022-05-24</lastmod>
   </url>  <url>
     <loc>http://www.loongten.com/2020/08/09/idea-jetbrains-agent-latest/</loc>
     <lastmod>2020-08-09</lastmod>
