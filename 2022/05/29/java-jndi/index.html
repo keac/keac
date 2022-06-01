@@ -22,7 +22,7 @@
     <meta name="description" content="A Network Security Amateur">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>keac&#39;s Blog</title>
+    <title>Java JNDI · keac&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -224,12 +224,23 @@
 <meta name="generator" content="Hexo 4.2.1"></head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >keac&#39;s Bolg.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Java JNDI</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>keac's Bolg.</a>
 </header>
@@ -241,24 +252,68 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            Java JNDI
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2022/05/29</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -359,81 +414,146 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/07/idea-Generate/" >
-            
-                <span>idea 自动添加get set</span>
-        </a>
-        <div class="abstract-content">
-            12345public class EUTreeNode &#123;    private long id;    private String text;    private String state;&#125;
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>JNDI 是Java提供的Java命令和目录接口，通过调用JNDI的接口可以快速，定位资源或者其他程序。可访问的服务和数据源有：<code>JDBC</code>、<code>LDAP</code>,<code>RMI</code>,<code>DNS</code>,<code>NIS</code>,<code>CORBA</code>。</p>
+<p><strong>Naming Service 命名服务：</strong></p>
+<p>命名服务将名称和对象进行关联，提供通过名称找到对象的操作，例如：DNS系统将计算机名和IP地址进行关联、文件系统将文件名和文件句柄进行关联等等。</p>
+<p><strong>Directory Service 目录服务：</strong></p>
+<p>目录服务是命名服务的扩展，除了提供名称和对象的关联，<strong>还允许对象具有属性</strong>。目录服务中的对象称之为目录对象。目录服务提供创建、添加、删除目录对象以及修改目录对象属性等操作。</p>
+<p><strong>Reference 引用：</strong></p>
+<p>在一些命名服务系统中，系统并不是直接将对象存储在系统中，而是保持对象的引用。引用包含了如何访问实际对象的信息。</p>
+<h1 id="JNDI-目录服务"><a href="#JNDI-目录服务" class="headerlink" title="JNDI 目录服务"></a>JNDI 目录服务</h1><p>访问<code>JNDI</code>目录服务时会通过预先设置好环境变量访问对应的服务， 如果创建<code>JNDI</code>上下文(<code>Context</code>)时未指定<code>环境变量</code>对象，<code>JNDI</code>会自动搜索<code>系统属性(System.getProperty())</code>、<code>applet 参数</code>和<code>应用程序资源文件(jndi.properties)</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建环境变量对象</span></span><br><span class="line"> Hashtable&lt;String, String&gt; env = <span class="keyword">new</span> Hashtable&lt;String, String&gt;();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置JNDI初始化工厂类名</span></span><br><span class="line">env.put(Context.INITIAL_CONTEXT_FACTORY, <span class="string">"类名"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置JNDI提供服务的URL地址</span></span><br><span class="line">env.put(Context.PROVIDER_URL, <span class="string">"url"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建JNDI目录服务对象</span></span><br><span class="line">DirContext context = <span class="keyword">new</span> InitialDirContext(env);</span><br></pre></td></tr></table></figure>
 
- (菜单栏-&gt;generator 或者 点击右键-&gt;generator) 
- 快捷键为：alt+insert
-      
 
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/07</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "idea">idea</a>
-    
-</div>
-            
-        </div>
+
+<p><code>Context.INITIAL_CONTEXT_FACTORY(初始上下文工厂的环境属性名称)</code>指的是<code>JNDI</code>服务处理的具体类名称，如：<code>DNS</code>服务可以使用<code>com.sun.jndi.dns.DnsContextFactory</code>类来处理，<code>JNDI</code>上下文工厂类必须实现<code>javax.naming.spi.InitialContextFactory</code>接口，通过重写<code>getInitialContext</code>方法来创建服务。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> javax.naming.spi;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">InitialContextFactory</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Context <span class="title">getInitialContext</span><span class="params">(Hashtable&lt;?,?&gt; environment)</span> <span class="keyword">throws</span> NamingException</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="JNDI-DNS解析"><a href="#JNDI-DNS解析" class="headerlink" title="JNDI-DNS解析"></a>JNDI-DNS解析</h1><p><code>JNDI</code>支持访问<code>DNS</code>服务，注册环境变量时设置<code>JNDI</code>服务处理的工厂类为<code>com.sun.jndi.dns.DnsContextFactory</code>即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> jndi;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Hashtable;</span><br><span class="line"><span class="keyword">import</span> javax.naming.Context;</span><br><span class="line"><span class="keyword">import</span> javax.naming.NamingException;</span><br><span class="line"><span class="keyword">import</span> javax.naming.directory.Attributes;</span><br><span class="line"><span class="keyword">import</span> javax.naming.directory.DirContext;</span><br><span class="line"><span class="keyword">import</span> javax.naming.directory.InitialDirContext;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DNSContextFactoryTest</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> NamingException </span>&#123;</span><br><span class="line">            <span class="comment">// 创建一个Hashtable，用于存放环境信息</span></span><br><span class="line">            Hashtable&lt;String, String&gt; env = <span class="keyword">new</span> Hashtable&lt;String, String&gt;();</span><br><span class="line">            <span class="comment">// 下面两行是必须的</span></span><br><span class="line">            env.put(Context.INITIAL_CONTEXT_FACTORY, <span class="string">"com.sun.jndi.dns.DnsContextFactory"</span>);</span><br><span class="line">            env.put(Context.PROVIDER_URL, <span class="string">"dns:///"</span>);</span><br><span class="line">            <span class="comment">// 创建一个InitialDirContext</span></span><br><span class="line">            DirContext ctx = <span class="keyword">new</span> InitialDirContext(env);</span><br><span class="line">            <span class="comment">// 查询域名</span></span><br><span class="line">            Attributes attrs = ctx.getAttributes(<span class="string">"www.baidu.com"</span>, <span class="keyword">new</span> String[] &#123; <span class="string">"A"</span> &#125;);</span><br><span class="line">            <span class="comment">// 获取域名对应的IP地址</span></span><br><span class="line">            String ip = (String) attrs.get(<span class="string">"A"</span>).get();</span><br><span class="line">            System.out.println(ip);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">180.101.49.12</span><br></pre></td></tr></table></figure>
+
+<h1 id="JNDI-RMI远程方法调用"><a href="#JNDI-RMI远程方法调用" class="headerlink" title="JNDI-RMI远程方法调用"></a>JNDI-RMI远程方法调用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> jndi;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> rmi.RMITestInterface;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.naming.Context;</span><br><span class="line"><span class="keyword">import</span> javax.naming.directory.DirContext;</span><br><span class="line"><span class="keyword">import</span> javax.naming.directory.InitialDirContext;</span><br><span class="line"><span class="keyword">import</span> java.util.Hashtable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> rmi.RmiServiceTest.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RMIRegistryContextFactoryTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        String providerURL = <span class="string">"rmi://"</span> + RMI_HOST + <span class="string">":"</span> + RMI_PORT;</span><br><span class="line">        Hashtable&lt;String, String&gt; env = <span class="keyword">new</span> Hashtable&lt;&gt;();</span><br><span class="line">        <span class="comment">// 设置JNDI初始化工厂类名</span></span><br><span class="line">        env.put(Context.INITIAL_CONTEXT_FACTORY, <span class="string">"com.sun.jndi.rmi.registry.RegistryContextFactory"</span>);</span><br><span class="line">        <span class="comment">// 设置JNDI提供服务的URL地址</span></span><br><span class="line">        env.put(Context.PROVIDER_URL, providerURL);</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="comment">// 创建JNDI目录服务对象</span></span><br><span class="line">            DirContext context = <span class="keyword">new</span> InitialDirContext(env);</span><br><span class="line">            <span class="comment">// 通过命名服务查找远程RMI绑定的RMITestInterface对象</span></span><br><span class="line">            RMITestInterface testInterface = (RMITestInterface) context.lookup(RMI_NAME);</span><br><span class="line">            String result = testInterface.test();</span><br><span class="line">            System.out.println(result);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="JNDI-协议转换"><a href="#JNDI-协议转换" class="headerlink" title="JNDI-协议转换"></a>JNDI-协议转换</h1><p>如果<code>JNDI</code>在<code>lookup</code>时没有指定初始化工厂名称，会自动根据协议类型动态查找内置的工厂类然后创建处理对应的服务请求。</p>
+<p><code>JNDI</code>默认支持自动转换的协议有：</p>
+<table>
+<thead>
+<tr>
+<th>协议名称</th>
+<th>协议URL</th>
+<th>Context类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DNS协议</td>
+<td><code>dns://</code></td>
+<td><code>com.sun.jndi.url.dns.dnsURLContext</code></td>
+</tr>
+<tr>
+<td>RMI协议</td>
+<td><code>rmi://</code></td>
+<td><code>com.sun.jndi.url.rmi.rmiURLContext</code></td>
+</tr>
+<tr>
+<td>LDAP协议</td>
+<td><code>ldap://</code></td>
+<td><code>com.sun.jndi.url.ldap.ldapURLContext</code></td>
+</tr>
+<tr>
+<td>LDAP协议</td>
+<td><code>ldaps://</code></td>
+<td><code>com.sun.jndi.url.ldaps.ldapsURLContextFactory</code></td>
+</tr>
+<tr>
+<td>IIOP对象请求代理协议</td>
+<td><code>iiop://</code></td>
+<td><code>com.sun.jndi.url.iiop.iiopURLContext</code></td>
+</tr>
+<tr>
+<td>IIOP对象请求代理协议</td>
+<td><code>iiopname://</code></td>
+<td><code>com.sun.jndi.url.iiopname.iiopnameURLContextFactory</code></td>
+</tr>
+<tr>
+<td>IIOP对象请求代理协议</td>
+<td><code>corbaname://</code></td>
+<td><code>com.sun.jndi.url.corbaname.corbanameURLContextFactory</code></td>
+</tr>
+</tbody></table>
+<h1 id="JNDI-Reference"><a href="#JNDI-Reference" class="headerlink" title="JNDI-Reference"></a>JNDI-Reference</h1><p>在<code>JNDI</code>服务中允许使用系统以外的对象，比如在某些目录服务中直接引用远程的Java对象，但遵循一些安全限制。</p>
+
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/24/idea-auto-import/" >
-            
-                <span>idea 自动导包</span>
-        </a>
-        <div class="abstract-content">
-            今天听课的时候听到一个问题，代码借（复）鉴（制）来的时候，包一个个都要手工去alt+enter 去导入很麻烦。
-在网上查了下 
-Editor -&gt; General -&gt; Auto Import
-
-标注的位置打上勾勾1、IntelliJ IDEA 将在我们书写代码的时候自动帮我们优化导入的包，比如自动去掉一些没有用到的包
-2、IntelliJ IDEA 将在我们书写代码的时候自动帮我们导入需要用到的包。但是对于那些同名的包，还是需要手动 Alt + Enter 进行导入的
-idea有很多快捷方式(Alt+Insert)，比如get,set,构造函数，hashcode,equla...
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://www.loongten.com">keacwu</a>
+            <p>原文链接：<a href="http://www.loongten.com/2022/05/29/java-jndi/">http://www.loongten.com/2022/05/29/java-jndi/</a>
+            <p>发表日期：<a href="http://www.loongten.com/2022/05/29/java-jndi/">May 29th 2022, 2:26:50 pm</a>
+            <p>更新日期：<a href="http://www.loongten.com/2022/05/29/java-jndi/">May 29th 2022, 4:41:11 pm</a>
+            <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "idea">idea</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "自动导包">自动导包</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2022/05/25/java-commons-collections/" title= "Apache Commons Collections反序列化漏洞">
+                    <div class="prevTitle">Apache Commons Collections反序列化漏洞</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+<div id="container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        id: "Java JNDI", // 可选。默认为 location.href
+        owner: 'keac',
+        repo: 'keac',
+        clientID: '4eb4b81722e704969d15',
+        clientSecret: '8a0cf2c65f9a922efa1560012652e383fb383d09',
+        admin:['keac'],
+        distractionFreeMode: false
+    })
+    gitalk.render('container')
+
+    // var gitment = new Gitment({
+    //     // id: "Java JNDI", // 可选。默认为 location.href
+    //     owner: 'keac',
+    //     repo: 'keac',
+    //     oauth: {
+    //         client_id: '4eb4b81722e704969d15',
+    //         client_secret: '8a0cf2c65f9a922efa1560012652e383fb383d09',
+    //     },
+    // })
+    // gitment.render('container')
+
+</script>
+
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -523,6 +643,24 @@ idea有很多快捷方式(Alt+Insert)，比如get,set,构造函数，hashcode,eq
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JNDI-目录服务"><span class="toc-number">1.</span> <span class="toc-text">JNDI 目录服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JNDI-DNS解析"><span class="toc-number">2.</span> <span class="toc-text">JNDI-DNS解析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JNDI-RMI远程方法调用"><span class="toc-number">3.</span> <span class="toc-text">JNDI-RMI远程方法调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JNDI-协议转换"><span class="toc-number">4.</span> <span class="toc-text">JNDI-协议转换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JNDI-Reference"><span class="toc-number">5.</span> <span class="toc-text">JNDI-Reference</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -2350,6 +2488,8 @@ idea有很多快捷方式(Alt+Insert)，比如get,set,构造函数，hashcode,eq
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

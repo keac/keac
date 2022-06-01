@@ -380,6 +380,43 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2020/04/06/study-rabbitMq-install/" >
+            
+                <span>rabbitMq 安装学习</span>
+        </a>
+        <div class="abstract-content">
+            
+由于rabbitMq需要erlang语言的支持，在安装rabbitMq之前需要安装erlang，执行命令：
+
+apt-get install erlang-nox
+erl    # 查看relang语言版本，成功执行则说明relang安装成功
+
+添加公钥
+wget -O- https://www.rabbitmq.com/rabbitmq-release-signing-key.asc | sudo apt-key add -
+
+更新软件包
+apt-get update
+
+安装 RabbitMQ apt-get install rabbitmq-server  安装成功自动启动
+
+sy...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/06</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2020/03/15/redis-Loophole/" >
             
                 <span>redis 未授权访问漏洞</span>
@@ -633,56 +670,6 @@ synt{ebguvegrranaqonfrfvkglrvtug}
 疑似凯撒密码 列出所有组合
 
 找到flag flag{rothirteenandbasesixtyeight}
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "wp">wp</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/01/10/ctfwp-Audio-steganography/" >
-            
-                <span>CTFWP 音频隐写</span>
-        </a>
-        <div class="abstract-content">
-            一道音频隐写题
-链接：https://share.weiyun.com/570TIj3 密码：569vpv
-下载下来解压是这样的
-
-使用AU打开
-
-前面都是差不多的声音，后面突然来一段异常的，肯定有东西
-
-快捷键 shift+d 看下频谱 
-
-CONGR4Ts!:)
-有个加密的压缩包来解压看看
-
-解压得到flag
-
-不过这flag好像只有一部分
-16进制查看器打开图片，看到另外一部分flag
-
-拼起来就是完整的flag flag{4c2b205a860b0f14f7e58885682dfbf72aeb7c40}
 
         </div>
         <div class="abstract-post-meta">
@@ -2105,9 +2092,36 @@ CONGR4Ts!:)
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 77
+        Total : 78
         </div>
         <!-- search  -->
         
@@ -2120,6 +2134,11 @@ CONGR4Ts!:)
     
     <div class="archive-year"> 2022 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/29</span><a class="archive-post-title" href= "/2022/05/29/java-jndi/" >Java JNDI</a>
+        </li>
     
     
         <li class="archive-post-item">
