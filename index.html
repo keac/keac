@@ -380,6 +380,44 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2022/06/02/java-package-jar/" >
+            
+                <span>将Java文件打包成Jar包</span>
+        </a>
+        <div class="abstract-content">
+            前言在学习中遇到了几个需求，需要把java文件给单独打包成jar包
+命令打包首先先使用javac 命令编译java文件得到class
+1javac ReferenceObjectFactory.java
+
+新建一个文件，名字随便起，可以叫manifest
+
+冒号后面必须跟上空格
+最后Main-Class 后面需要多出一行 参数为main函数的class
+
+12Manifest-Version: 1.0Main-Class: test
+
+把编译好的.class文件放到一个文件夹
+1jar -cvfm main.jar manifest -C test .
+
+
+注意路径问题，其中test后面...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/02</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2022/05/29/java-jndi/" >
             
                 <span>Java JNDI</span>
@@ -617,54 +655,6 @@ ClassLoader是一个抽象类，主要功能就是通过指定的类名称找到
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/02</span>
             </div>
             <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/05/31/xss-waf/" >
-            
-                <span>Xss bypass waf 并且构造函数 使危害更大</span>
-        </a>
-        <div class="abstract-content">
-            前言Xss bypass waf 并且构造函数 使危害更大,一般我们找到一个在js里面的可控点往往不能使危害更大，比如打开页面就执行
-正文正在干活，同事法来一条消息
-
-XSS？搞起
-随手试了下，发现网站存在WAF
-
-XSS利用第一步，寻找可控点
-根据提供的链接，找到了两个可控点
-
-
-首先来看下第一个可控点，是一个input，来看看又没过滤 &quot;
-&quot; 没有被过滤和转义，好家伙走起
-
-构造一波，在Chrome高亮显示帮助我们看清楚，我们已经把前面的 &quot; 给截断了
-
-oncange 没被识别为攻击拦截，但是onclick 被拦截了，应该是对组合关键词进行了识别
-
-这...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/05/31</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "xss">xss</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "waf">waf</a>
-    
-</div>
             
         </div>
     </article>
@@ -2098,9 +2088,18 @@ oncange 没被识别为攻击拦截，但是onclick 被拦截了，应该是对�
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 78
+        Total : 79
         </div>
         <!-- search  -->
         
@@ -2113,6 +2112,11 @@ oncange 没被识别为攻击拦截，但是onclick 被拦截了，应该是对�
     
     <div class="archive-year"> 2022 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/02</span><a class="archive-post-title" href= "/2022/06/02/java-package-jar/" >将Java文件打包成Jar包</a>
+        </li>
     
     
         <li class="archive-post-item">

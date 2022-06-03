@@ -380,6 +380,38 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/09/17/kali-install/" >
+            
+                <span>kali_install</span>
+        </a>
+        <div class="abstract-content">
+            kali 安装 到实体机出现了点问题，我用u盘安装，重启的时候发现 找不到 /dev/sdb2
+
+这里说一下问题所在，一般是由于系统启动路径而导致的问题
+解决办法就是修改一下启动路径
+快速方法我试了下，拿个u盘插各个口，再启动看看，就启动进去系统了
+临时修改输入blkid,查看分区状况，记下ext4这个盘，最好能拍个照，截个屏什么的，这个就是kali安装的位置
+
+记录好之后，重启物理机(ctrl+alt+del)，在kali首页那边，按e进入编辑模式进行修改
+
+按上下查看，找到初始化内存盘的样子，有一行在linux 后面有 /dev/sdb2 ro 这样的 改为 /dev/sda2 rw...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/17</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/09/10/spring-aliyun-oss/" >
             
                 <span>SpringBoot 整合 oss</span>
@@ -683,39 +715,6 @@ yum install -y nginx 开始安装
         <a class="post-tag" href="javascript:void(0);" data-tags = "centos7">centos7</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "nginx">nginx</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/01/mysql-optimization2/" >
-            
-                <span>Mysql 索引</span>
-        </a>
-        <div class="abstract-content">
-            索引什么是索引我们知道，数据库查询是数据库的最主要功能之一。我们都希望查询数据的速度能尽可能的快，因此数据库系统的设计者会从查询算法的角度进行优化。最基本的查询算法当然是顺序查找（linear search），这种复杂度为O(n)的算法在数据量很大时显然是糟糕的，好在计算机科学的发展提供了很多更优秀的查找算法，例如二分查找（binary search）、二叉树查找（binary tree search）等。如果稍微分析一下会发现，每种查找算法都只能应用于特定的数据结构之上，例如二分查找要求被检索数据有序，而二叉树查找只能应用于二叉查找树上，但是数据本身的组织结构不可能完全满足各种数据结构...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "mysql">mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "优化">优化</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "sql">sql</a>
     
 </div>
             
@@ -2151,9 +2150,18 @@ yum install -y nginx 开始安装
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 78
+        Total : 79
         </div>
         <!-- search  -->
         
@@ -2166,6 +2174,11 @@ yum install -y nginx 开始安装
     
     <div class="archive-year"> 2022 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/02</span><a class="archive-post-title" href= "/2022/06/02/java-package-jar/" >将Java文件打包成Jar包</a>
+        </li>
     
     
         <li class="archive-post-item">
