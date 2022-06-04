@@ -367,6 +367,43 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/12/28/pentest-learn-sql/" >
+            
+                <span>SQL注入学习</span>
+        </a>
+        <div class="abstract-content">
+            发现onenote有好多收藏的文章，想自己参考着来写一篇sql注入的总结文章。
+介绍sql注入就是一种通过操作输入来修改后台操作语句达到执行恶意sql语句来进行攻击的技术。
+程序对输入的文字没有进行过滤，而直接拿去拼接sql语句，我们可以通过截断sql语句来运行我们的的语句进行攻击实现比如脱裤等。
+分类按变量类型分
+数字型
+
+许多网页链接有类似的结构 http://xxx.com/users.php?id=1 基于此种形式的注入，注入点id为数字，一般被叫做数字型注入点，通过这种形式查询出后台数据库信息返回前台展示，可以构造类似以下的sql语句进行爆破：select *** from 表...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/28</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "渗透测试">渗透测试</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "sql">sql</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/12/23/pentest-learn-xss/" >
             
                 <span>XSS 学习</span>
@@ -722,63 +759,6 @@ Session 解密出来时 guset
         <a class="post-tag" href="javascript:void(0);" data-tags = "浙江省">浙江省</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "信息安全">信息安全</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/20/gc-xctf-gameapp/" >
-            
-                <span>数字经济”云安全共测大赛初赛 gameapp</span>
-        </a>
-        <div class="abstract-content">
-            打开网页，看到你能得到99999分吗
-
-看到还有个附件 下载下来为一个apk文件
-
-在夜神模拟器里面安装
-
-打开app
-
-玩了下就输了。。。
-
-考虑了一下，达到99999分，我这样手残党是玩不动的
-
-夜神模拟器中修改代理再点开请求
-
-
-打爆一只飞机 发了个请求
-
-打爆第二只飞机 发了个请求
-
-分析session里面的 jwt
-
-
-首先尝试了破解jwt密匙，但是跑了好久都没跑出来
-然后看了下把session复制过来重新发，可以持续加分数
-12345678910111213import requestsurl &#x3D; &#39;http:&#x2F;&#x2F;121.40.219.1...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数字经济">数字经济</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "云安全共测大赛初赛">云安全共测大赛初赛</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "gameapp">gameapp</a>
     
 </div>
             
@@ -2082,9 +2062,40 @@ Session 解密出来时 guset
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 79
+        Total : 80
         </div>
         <!-- search  -->
         
@@ -2097,6 +2108,11 @@ Session 解密出来时 guset
     
     <div class="archive-year"> 2022 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/04</span><a class="archive-post-title" href= "/2022/06/04/java-MemoryShell/" >Java内存马</a>
+        </li>
     
     
         <li class="archive-post-item">

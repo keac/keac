@@ -380,6 +380,63 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/09/20/gc-xctf-gameapp/" >
+            
+                <span>数字经济”云安全共测大赛初赛 gameapp</span>
+        </a>
+        <div class="abstract-content">
+            打开网页，看到你能得到99999分吗
+
+看到还有个附件 下载下来为一个apk文件
+
+在夜神模拟器里面安装
+
+打开app
+
+玩了下就输了。。。
+
+考虑了一下，达到99999分，我这样手残党是玩不动的
+
+夜神模拟器中修改代理再点开请求
+
+
+打爆一只飞机 发了个请求
+
+打爆第二只飞机 发了个请求
+
+分析session里面的 jwt
+
+
+首先尝试了破解jwt密匙，但是跑了好久都没跑出来
+然后看了下把session复制过来重新发，可以持续加分数
+12345678910111213import requestsurl &#x3D; &#39;http:&#x2F;&#x2F;121.40.219.1...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/20</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数字经济">数字经济</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "云安全共测大赛初赛">云安全共测大赛初赛</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "gameapp">gameapp</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/09/17/kali-install/" >
             
                 <span>kali_install</span>
@@ -676,47 +733,6 @@ PS. –permanent为永久生效，没有此参数centos重启后该配置将失�
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/01</span>
             </div>
             <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/01/centos7-nginx/" >
-            
-                <span>Centos7 安装 Nginx 实现 负载均衡和反向代理.</span>
-        </a>
-        <div class="abstract-content">
-            准备首先准备好Centos7 系统 在我之前的博客有介绍安装 可以参考下
-惯例，连接上系统先 yum update 一下
-安装Centos7 默认 yum源里面没有nginx
-1sudo rpm -Uvh http:&#x2F;&#x2F;nginx.org&#x2F;packages&#x2F;centos&#x2F;7&#x2F;noarch&#x2F;RPMS&#x2F;nginx-release-centos-7-0.el7.ngx.noarch.rpm
-
-
-yum search nginx 看下有没有Nginx的包了
-
-yum install -y nginx 开始安装
-
-看到...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "centos7">centos7</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "nginx">nginx</a>
-    
-</div>
             
         </div>
     </article>
@@ -2159,9 +2175,40 @@ yum install -y nginx 开始安装
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 79
+        Total : 80
         </div>
         <!-- search  -->
         
@@ -2174,6 +2221,11 @@ yum install -y nginx 开始安装
     
     <div class="archive-year"> 2022 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/04</span><a class="archive-post-title" href= "/2022/06/04/java-MemoryShell/" >Java内存马</a>
+        </li>
     
     
         <li class="archive-post-item">

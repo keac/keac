@@ -22,7 +22,7 @@
     <meta name="description" content="A Network Security Amateur">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>keac&#39;s Blog</title>
+    <title>Java内存马 · keac&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -77,6 +77,8 @@
 
     <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdn.staticfile.org/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -222,14 +224,23 @@
 <meta name="generator" content="Hexo 4.2.1"></head>
 
     
-        <body class="home-body">
+        <body class="post-body">
     
     
-<header class="header index-header">
+<header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >keac&#39;s Bolg.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Java内存马</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>keac's Bolg.</a>
 </header>
@@ -248,17 +259,17 @@ height:50vh;
     <!-- 主页  -->
     
     
-    <!-- 文章页  -->
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            keac's Bolg.
-            <!-- 文章页  -->
+            Java内存马
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
@@ -266,12 +277,43 @@ height:50vh;
             <!-- 主页副标题  -->
             
             
-                A Network Security Amateur
-            
-            <!-- 文章页  -->
+            <!-- 404 -->
             
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">418</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2022/06/04</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -372,553 +414,96 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/01/14/use-supervisor/" >
-            
-                <span>Supervisor 守护进程工具 使用详解</span>
-        </a>
-        <div class="abstract-content">
-            之前在使用脚本跑东西的时候经常出现各种各样的问题导致服务崩溃。
-找到了一款工具，Supervisor 在程序crash的时候能够自动起来。
-简介supervisor是用Python开发的一个client/server服务，是Linux/Unix系统下的一个进程管理工具。可以很方便的监听、启动、停止、重启一个或多个进程。用supervisor管理的进程，当一个进程意外被杀死，supervisor监听到进程死后，会自动将它重启，很方便的做到进程自动恢复的功能，不再需要自己写shell脚本来控制。
-本文以Ubuntu 18 为例 Supervisor 版本 &gt; 3.3.0
-supervi...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/14</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "supervisor">supervisor</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Java内存马，顾名思义就是无文件落地的webshell。</p>
+<p>目前业内主要讨论的内存马有以下几种</p>
+<ul>
+<li>动态注册 servlet/filter/listener（使用 servlet-api 的具体实现）</li>
+<li>动态注册 interceptor/controller（使用框架如 spring/struts2）</li>
+<li>动态注册使用<strong>职责链</strong>设计模式的中间件、框架的实现（例如 Tomcat 的 Pipeline &amp; Valve，Grizzly 的 FilterChain &amp; Filter 等等）</li>
+<li>使用 java agent 技术写入字节码</li>
+</ul>
+<h2 id="Servlet-API-提供的动态注册机制"><a href="#Servlet-API-提供的动态注册机制" class="headerlink" title="Servlet API 提供的动态注册机制"></a>Servlet API 提供的动态注册机制</h2><p>Servlet、Listener、Filter 由 <code>javax.servlet.ServletContext</code> 去加载，无论是使用 xml 配置文件还是使用 Annotation 注解配置，均由 Web 容器进行初始化，读取其中的配置属性，然后向容器中进行注册。</p>
+<p>Servlet 3.0 API 允许使 ServletContext 用动态进行注册，在 Web 容器初始化的时候（即建立ServletContext 对象的时候）进行动态注册。可以看到 ServletContext 提供了 add<em>/create</em> 方法来实现动态注册的功能。</p>
+<h3 id="Filter-内存马"><a href="#Filter-内存马" class="headerlink" title="Filter 内存马"></a>Filter 内存马</h3><p>Filter 我们称之为过滤器，是 Java 中最常见也最实用的技术之一，通常被用来处理静态 web 资源、访问权限控制、记录日志等附加功能等等。一次请求进入到服务器后，将先由 Filter 对用户请求进行预处理，再交给 Servlet。</p>
+<p>通常情况下，Filter 配置在配置文件和注解中，在其他代码中如果想要完成注册，主要有以下几种方式：</p>
+<ol>
+<li>使用 ServletContext 的 addFilter/createFilter 方法注册；</li>
+<li>使用 ServletContextListener 的 contextInitialized 方法在服务器启动时注册（将会在 Listener 中进行描述）；</li>
+<li>使用 ServletContainerInitializer 的 onStartup 方法在初始化时注册</li>
+</ol>
+<p>….</p>
+
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/01/10/ctfwp-simple-Crypto/" >
-            
-                <span>CTFWP 简单密码</span>
-        </a>
-        <div class="abstract-content">
-            c3ludHtlYmd1dmVncnJhbmFxb25mcmZ2a2dscnZ0dWd9
-base64 解码看看 
-synt{ebguvegrranaqonfrfvkglrvtug}
-疑似凯撒密码 列出所有组合
-
-找到flag flag{rothirteenandbasesixtyeight}
-
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://www.loongten.com">keacwu</a>
+            <p>原文链接：<a href="http://www.loongten.com/2022/06/04/java-MemoryShell/">http://www.loongten.com/2022/06/04/java-MemoryShell/</a>
+            <p>发表日期：<a href="http://www.loongten.com/2022/06/04/java-MemoryShell/">June 4th 2022, 3:15:47 pm</a>
+            <p>更新日期：<a href="http://www.loongten.com/2022/06/04/java-MemoryShell/">June 4th 2022, 3:34:44 pm</a>
+            <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "wp">wp</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/01/10/ctfwp-Audio-steganography/" >
-            
-                <span>CTFWP 音频隐写</span>
-        </a>
-        <div class="abstract-content">
-            一道音频隐写题
-链接：https://share.weiyun.com/570TIj3 密码：569vpv
-下载下来解压是这样的
-
-使用AU打开
-
-前面都是差不多的声音，后面突然来一段异常的，肯定有东西
-
-快捷键 shift+d 看下频谱 
-
-CONGR4Ts!:)
-有个加密的压缩包来解压看看
-
-解压得到flag
-
-不过这flag好像只有一部分
-16进制查看器打开图片，看到另外一部分flag
-
-拼起来就是完整的flag flag{4c2b205a860b0f14f7e58885682dfbf72aeb7c40}
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "wp">wp</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/01/10/ctfwp-bugku-Careful-elephant/" >
-            
-                <span>CTFWP 细心的大象</span>
-        </a>
-        <div class="abstract-content">
-            一道bugku的隐写题
-链接：https://share.weiyun.com/5RtIUCG 密码：d5phuu
-打开来一张图
-
-看下属性，有个base64编码的
-
-解密出来 MSDS456ASD123zz 似乎没什么意义 先放着
-010Ediotr 打开图片 查看搜索jpg文件尾FFD9发现后面有Rar!标志，想必图片最后有个rar压缩包
-
-复制粘贴RAR的信息，新建一份保存
-
-发现需要密码解压，联想之前的奇怪的字符串，尝试解压
-
-解压出来一张图片
-
-看到图片尺寸有点奇怪下面可能藏了东西。
-123456789101112131415使用UltraEdit32打开该文件，如下：0000...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "wp">wp</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/01/09/ctfwp-jarvisoj-sdjmm/" >
-            
-                <span>CTFWP jarvisoj 神盾局的秘密</span>
-        </a>
-        <div class="abstract-content">
-            贴上题目链接 http://web.jarvisoj.com:32768/
-打开来是这样子一张图片
-
-分析下图片链接 showimg.php?img=c2hpZWxkLmpwZw==
-图片是从showing.php中读取的，且img=base64编码
-
-盲猜文件包含，直接 ../../../../../../../flag 读取
-Base64 编码 Li4vLi4vLi4vLi4vLi4vLi4vLi4vZmxhZw==
-
-似乎不对，接下来尝试读取已知showing.php文件的源码
-查看源代码 view-source:http://web.jarvisoj.com:32768/show...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "wp">wp</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/01/09/ctfwp-bugku-flag-php/" >
-            
-                <span>CTFWP BugKu flag.php 题解</span>
-        </a>
-        <div class="abstract-content">
-            Bugku flag.php
-
-地址：http://123.206.87.240:8002/flagphp/
-点了login咋没反应
-提示：hint
-打开网页看下，点login确实没有反应，源码里面input为button，没有什么用处
-
-提示 hint 我们把他作为get参数来试试 http://123.206.87.240:8002/flagphp/?hint
-这时候我们可以看到PHP源码，这道题很明显就是考PHP代码审计
-
-1234567891011121314151617181920212223242526272829303132333435 &lt;?phperror_repo...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "wp">wp</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/01/08/pentest-xss-beef/" >
-            
-                <span>BEEF 安装使用</span>
-        </a>
-        <div class="abstract-content">
-            Beef(The Browser Exploitation Framework Project)是WEB框架攻击平台。 Beef利用简单的XSS漏洞，通过一段编写好的JavaScript（hook.js）控制目标主机的浏览器，通过目标主机浏览器获得该主机的详细信息，并进一步扫描内网。
-（在Google找beef相关资料的时候搜到了自己的这篇文章，还是来更新下
-安装我服务器使用的是Centos7，安装前最好安个screen避免各种原因导致安装中断
-yum install screen -y
-screen -S beef
-Kali安装(我发现最新版的kali好像没有带beef-xss了)
-a...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "xss">xss</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "beef">beef</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/30/find-UEditor-version/" >
-            
-                <span>渗透测试技巧-寻找 UEditor 版本</span>
-        </a>
-        <div class="abstract-content">
-            今天在做渗透测试的时候遇到一个UEditor站，首先去尝试 UEditor编辑器两个版本任意文件上传漏洞分析，发现controller.ashx文件不存在，怀疑是被删除或者是版本不对。
-根据官网演示站点 http://ueditor.baidu.com/website/onlinedemo.html 可以看到
-
-但是在我测试的站点里面找不到版本信息查看的按钮
-
-帮助文件是单独引用了一个框架 http://ueditor.baidu.com/ueditor/dialogs/help/help.html
-
-直接看并看不到什么版本信息，阅读下源码
-
-document.getElementByI...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/30</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "pentest">pentest</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "UEditor">UEditor</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/29/pentest-learn-xss-bypass/" >
-            
-                <span>XSS 绕过姿势</span>
-        </a>
-        <div class="abstract-content">
-            接着上一篇Xss介绍来学习XSS的一些绕过姿势
-当我们被waf各种拦截的时候，可以考虑利用以下方法来进行绕过
-script关键字被过滤大小写在测试过程中，我们可以改变测试语句的大小写来绕过XSS规则：
-比如：&lt;script&gt;alert(&quot;xss&quot;);&lt;/script&gt; 可以转换为：&lt;ScRipt&gt;ALeRt(&quot;XSS&quot;);&lt;/sCRipT&gt;
-嵌套嵌套&lt;script&gt;和&lt;/script&gt;突破 &lt;sc&lt;script&gt;ript&gt;alert(/xss/)&lt;...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "xss">xss</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/28/pentest-learn-sql-bypass/" >
-            
-                <span>SQL注入绕过 方式总结</span>
-        </a>
-        <div class="abstract-content">
-            接着上一篇文章讲一讲sql注入绕过
-前言select * from user where id = 1 union select 1,2,table_name from information_schema.tables···
-上面这条sql语句，是一条正常的SQL注入语句。它的斜体是后台PHP进行的正常查询，斜体后面的语句则是我们的注入语句。不过实践中，肯定会存在WAF，会对我们输入的空格、SQL语句关键词做处理。那我今天要研究的就是，如何绕过WAF的检测过滤。
-常见的bypass
-id=1+(UnIoN)+(SelECT)+
-id=1+(UnIoN+SeLeCT)+
-id=1+(Un...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "渗透测试">渗透测试</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "sql">sql</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
-    
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/page/2/">&lt; PREV</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">NEXT &gt;</a>
-    </nav>
-    
-</main>
-            <!-- profile -->
+    <ul class="post-paginator">
+        <li class="next">
             
-            <div class="profile">
-    <img class="profile-avatar" alt="avatar" src= /avatar/keacwu.jpg >
-    <div class="profile-name">keacwu</div>
-    
-    <div class="profile-signature">
-        路虽远，行则必达。事虽难，做则必成。
-    </div>
-    
-    
-    <div class="profile-social">
-        
-    
-        
+        </li>
+        <li class="previous">
             
-                <a href="mailto:admin@wgpsec.org" class="iconfont-archer email" title=email ></a>
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2022/06/02/java-package-jar/" title= "将Java文件打包成Jar包">
+                    <div class="prevTitle">将Java文件打包成Jar包</div>
+                </a>
             
-        
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-        
-            
-                <a href="//github.com/keac" class="iconfont-archer github" target="_blank" title=github></a>
-            
-        
     
-        
+<div id="container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        id: "Java内存马", // 可选。默认为 location.href
+        owner: 'keac',
+        repo: 'keac',
+        clientID: '4eb4b81722e704969d15',
+        clientSecret: '8a0cf2c65f9a922efa1560012652e383fb383d09',
+        admin:['keac'],
+        distractionFreeMode: false
+    })
+    gitalk.render('container')
+
+    // var gitment = new Gitment({
+    //     // id: "Java内存马", // 可选。默认为 location.href
+    //     owner: 'keac',
+    //     repo: 'keac',
+    //     oauth: {
+    //         client_id: '4eb4b81722e704969d15',
+    //         client_secret: '8a0cf2c65f9a922efa1560012652e383fb383d09',
+    //     },
+    // })
+    // gitment.render('container')
+
+</script>
+
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
     
-        
-            
-                <span class="iconfont-archer qq" title=qq>
-                  
-                  <img class="profile-qr" src="/2113907307" />
-                </span>
-            
-        
-    
-        
-    
-        
-    
-        
-            
-                <a href="//www.zhihu.com/people/keac" class="iconfont-archer zhihu" target="_blank" title=zhihu></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
     
 
-    </div>
-    
-    
-        <div class="friends">
-            <div>FRIENDS</div>
-            
-                
-                    <span>
-                        <a href= //hacknical.com/keac/github?locale=zh target="_black">简历</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href= //hanweizhe.learn-code.cn target="_black">菠萝味的汽水</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href= http://blog.pingchas.com target="_black">Pigchas</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href= https://chen.oinsm.com target="_black">chen'blog</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href= https://www.wgpsec.org target="_black">WgpSec 狼组安全团队</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href= https://www.teamssix.com target="_black">teamssix</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href= http://www.0-sec.org target="_black">零组资料文库</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href= https://blog.ncsec.cn target="_black">RoarNya的咸鱼窝</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href= https://blog.dreams-wj.top target="_black">HKer_YM's Blog</a>
-                    </span>
-                
-            
-        </div>
-    
-    
-        <div class="about-me">
-            <a href = "/about" >ABOUT ME</a>
-        </div>
-    
-</div>
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
             
         </div>
         <footer class="footer footer-unloaded">
@@ -1006,6 +591,24 @@ id=1+(Un...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet-API-提供的动态注册机制"><span class="toc-number">1.1.</span> <span class="toc-text">Servlet API 提供的动态注册机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Filter-内存马"><span class="toc-number">1.1.1.</span> <span class="toc-text">Filter 内存马</span></a></li></ol></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -2883,6 +2486,8 @@ id=1+(Un...
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
