@@ -287,7 +287,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">945</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.3k</span>阅读时长: <span class="post-count reading-time">5 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -419,10 +419,30 @@ height:50vh;
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Java反射机制可以无视类方法和变量去访问权限修饰符，并且可以调用任何类的任何方法，访问并修改成员变量值。也就是说能控制反射的类名、方法名和参数的前提下，如果我们发现了一个java反射调用的漏洞，我们就可以为所欲为了。</p>
 <h1 id="反射-Reflection"><a href="#反射-Reflection" class="headerlink" title="反射 Reflection"></a>反射 Reflection</h1><p>反射是java的特性之一，在C/C++语言中不存在反射这个概念，有了反射java可以更加灵活调控自身运行时的信息，操作类和对象的内部属性。</p>
 <p>反射的用途非常广，在我们使用IDE工具进行开发的时候，我们输入一个对象并且想调用它的属性或者方法的时候，IDE会自动列出它的属性和方法，这些就是通过反射来实现的。再比如JavaBean和JSP之间的调用也是通过反射来实现的。最重要的就是各种通用用途的开发框架，比如Spring框架以及ORM框架，他们都是通过反射机制来实现的。</p>
+<p>对象可以通过反射获取其他的类，类可以通过反射拿到所有方法（包括私有），拿到的方法可以调用，通过反射功能我们可以给Java这种静态语言加上动态特性。</p>
+<p>动态特性是什么呢，<code>phith0n</code> 师傅提到过 <strong>“一段代码，改变其中的变量，将会导致这段代码产生功能性的变化，我称之为动态特性”</strong></p>
 <h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2><h3 id="获取对象类"><a href="#获取对象类" class="headerlink" title="获取对象类"></a>获取对象类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(<span class="string">"java.lang.Runtime"</span>)</span><br><span class="line">Runtime<span class="class">.<span class="keyword">class</span></span></span><br><span class="line"><span class="class"><span class="title">runtime</span>.<span class="title">getClass</span>()</span></span><br><span class="line">ClassLoader.getSystemClassLoader().loadClass("java.lang.Runtime") // 和forName类似 但是不会执行static代码</span><br><span class="line"></span><br><span class="line">Class.forName(<span class="string">"[D"</span>) <span class="comment">// 相当于double[].class</span></span><br><span class="line">Class.forName(<span class="string">"[[Ljava.lang.String"</span>)<span class="comment">// 相当于 String[][].class</span></span><br></pre></td></tr></table></figure>
 
 <p>反射调用内部类的时候需要用$</p>
 <p>如 com.xxx.test 内有个H的类，调用的时候就需要写成com.xxx.test$H</p>
+<p>forName 有两个函数重载：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(className)</span><br><span class="line">&#x2F;&#x2F; 等于</span><br><span class="line">Class.forName(className,true,currentLoader)</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下forName 第一个参数是类名，第二个参数表示是否初始化，第三个参数就是Classloader</p>
+<p>是否初始化是什么意思呢</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TrainPrint</span> </span>&#123;</span><br><span class="line">    &#123;</span><br><span class="line">    	System.out.printf(<span class="string">"Empty block initial %s\n"</span>, <span class="keyword">this</span>.getClass());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">    	System.out.printf(<span class="string">"Static initial %s\n"</span>, TrainPrint<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TrainPrint</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	System.out.printf(<span class="string">"Initial %s\n"</span>, <span class="keyword">this</span>.getClass());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>比如这段代码，首先调用的是<code>static{}</code> 其次是 <code>{}</code>，最后是构造函数。</p>
+<p>其中<code>static{}</code> 就是在类初始化的时候调用的，而<code>{}</code>中的代码会放在构造函数<code>super()</code>的后面，但在当前构造函数内容的前面。</p>
+<p>所以说，forName 的初始化就是告诉Java虚拟机是否执行“类初始化”。</p>
+<p>比如我们有如下函数，name参数可控</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ref</span><span class="params">(String name)</span><span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">   Class.forName(name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们就可以编写一个恶意类，放在<code>static{}</code>中，从而执行</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Touch</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Runtime runtime=Runtime.getRuntime();</span><br><span class="line">            String[] commands=&#123;<span class="string">"touch"</span>,<span class="string">"/tmp/ss"</span>&#125;;</span><br><span class="line">            Process pc= runtime.exec(commands);</span><br><span class="line">            pc.waitFor();</span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="获取类方法"><a href="#获取类方法" class="headerlink" title="获取类方法"></a>获取类方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">getDeclaredMethods() <span class="comment">//获取所有方法，不包括继承方法</span></span><br><span class="line">getMethods() <span class="comment">//获取所有public方法，包括继承的 Method[]</span></span><br><span class="line">getMethod(<span class="string">"exec"</span>, String<span class="class">.<span class="keyword">class</span>) //获取一个特定的方法，后面的对应参数类型的<span class="title">Class</span>对象 只可以<span class="title">public</span>修饰符</span></span><br><span class="line">getDeclaredMethod("exec", String.class) //获取所有修饰符的方法，跟getMethod一样</span><br><span class="line">getDeclaredConstructor <span class="comment">// 获取类构造方法，可以获取到私有</span></span><br><span class="line">getConstructor <span class="comment">//获取类构造方法</span></span><br></pre></td></tr></table></figure>
 
 <p>如果构造方法有一个或多个参数的情况下我们应该在获取构造方法时候传入对应的参数类型数组</p>
@@ -459,7 +479,7 @@ height:50vh;
             <p>原文作者：<a href="http://www.loongten.com">keacwu</a>
             <p>原文链接：<a href="http://www.loongten.com/2022/05/23/java-reflection/">http://www.loongten.com/2022/05/23/java-reflection/</a>
             <p>发表日期：<a href="http://www.loongten.com/2022/05/23/java-reflection/">May 23rd 2022, 4:44:06 pm</a>
-            <p>更新日期：<a href="http://www.loongten.com/2022/05/23/java-reflection/">May 24th 2022, 3:47:39 pm</a>
+            <p>更新日期：<a href="http://www.loongten.com/2022/05/23/java-reflection/">July 8th 2022, 12:18:34 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     

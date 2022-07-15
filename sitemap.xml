@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.loongten.com/2022/05/23/java-reflection/</loc>
+    
+    <lastmod>2022-07-08T04:18:34.700Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.loongten.com/2022/06/04/java-MemoryShell/</loc>
     
     <lastmod>2022-06-04T07:34:44.672Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>http://www.loongten.com/2022/05/24/java-dynamic-proxy/</loc>
     
     <lastmod>2022-05-24T07:55:42.599Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.loongten.com/2022/05/23/java-reflection/</loc>
-    
-    <lastmod>2022-05-24T07:47:39.745Z</lastmod>
     
   </url>
   
