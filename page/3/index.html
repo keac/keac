@@ -380,6 +380,68 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2020/02/15/install-libmysqld-dev/" >
+            
+                <span>Ubuntu 安装 libmysqld-dev</span>
+        </a>
+        <div class="abstract-content">
+            安装提示缺少libmysqld，随即安装
+apt-get install libmysqld-dev
+报错了，来fix看看
+12345678Reading package lists... DoneBuilding dependency tree       Reading state information... Donelibmysqld-dev is already the newest version (5.7.29-0ubuntu0.18.04.1).You might want to run &#39;apt --fix-broken install&#39; to corr...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/15</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/02/11/vmware-install-macos/" >
+            
+                <span>Vmware 安装 Macos</span>
+        </a>
+        <div class="abstract-content">
+            下载安装解锁VMware15.5因为最新的Windows10只支持当前最新的VMware15.5，所以要下载最新的，可以下Workstation Pro，序列码YG5H2-ANZ0H-M8ERY-TXZZZ-YKRV8
+用Unlocker解锁下载安装没什么好讲的，就说怎么用Unlocker解锁VMware使其支持MacOS吧
+大佬魔改过的 MK Unlocker
+Github
+下载解压后（可以不放入VMware安装文件夹）右键“以管理员身份打开” win_install.cmd，让它自己进行就好了，这个版本应该不会有问题。
+脚本长这个样子
+
+再次打开VMware新建虚拟机可以看到如图就成...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/11</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "工具使用">工具使用</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2020/01/14/use-supervisor/" >
             
                 <span>Supervisor 守护进程工具 使用详解</span>
@@ -700,80 +762,10 @@ document.getElementByI...
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/29/pentest-learn-xss-bypass/" >
-            
-                <span>XSS 绕过姿势</span>
-        </a>
-        <div class="abstract-content">
-            接着上一篇Xss介绍来学习XSS的一些绕过姿势
-当我们被waf各种拦截的时候，可以考虑利用以下方法来进行绕过
-script关键字被过滤大小写在测试过程中，我们可以改变测试语句的大小写来绕过XSS规则：
-比如：&lt;script&gt;alert(&quot;xss&quot;);&lt;/script&gt; 可以转换为：&lt;ScRipt&gt;ALeRt(&quot;XSS&quot;);&lt;/sCRipT&gt;
-嵌套嵌套&lt;script&gt;和&lt;/script&gt;突破 &lt;sc&lt;script&gt;ript&gt;alert(/xss/)&lt;...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "xss">xss</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/28/pentest-learn-sql-bypass/" >
-            
-                <span>SQL注入绕过 方式总结</span>
-        </a>
-        <div class="abstract-content">
-            接着上一篇文章讲一讲sql注入绕过
-前言select * from user where id = 1 union select 1,2,table_name from information_schema.tables···
-上面这条sql语句，是一条正常的SQL注入语句。它的斜体是后台PHP进行的正常查询，斜体后面的语句则是我们的注入语句。不过实践中，肯定会存在WAF，会对我们输入的空格、SQL语句关键词做处理。那我今天要研究的就是，如何绕过WAF的检测过滤。
-常见的bypass
-id=1+(UnIoN)+(SelECT)+
-id=1+(UnIoN+SeLeCT)+
-id=1+(Un...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "渗透测试">渗透测试</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "sql">sql</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/page/2/">&lt; PREV</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">NEXT &gt;</a>
+        <a class="extend prev" rel="prev" href="/page/2/">&lt; PREV</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/">NEXT &gt;</a>
     </nav>
     
 </main>
@@ -2239,9 +2231,43 @@ id=1+(Un...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 80
+        Total : 82
         </div>
         <!-- search  -->
         
@@ -2254,6 +2280,16 @@ id=1+(Un...
     
     <div class="archive-year"> 2022 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2022/08/31/f5-big-ip-vul-rce/" >F5 BIG IP 漏洞复现</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2022/08/31/landray-vul-0/" >treexml 复现</a>
+        </li>
     
     
         <li class="archive-post-item">

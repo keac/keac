@@ -367,6 +367,76 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/12/29/pentest-learn-xss-bypass/" >
+            
+                <span>XSS 绕过姿势</span>
+        </a>
+        <div class="abstract-content">
+            接着上一篇Xss介绍来学习XSS的一些绕过姿势
+当我们被waf各种拦截的时候，可以考虑利用以下方法来进行绕过
+script关键字被过滤大小写在测试过程中，我们可以改变测试语句的大小写来绕过XSS规则：
+比如：&lt;script&gt;alert(&quot;xss&quot;);&lt;/script&gt; 可以转换为：&lt;ScRipt&gt;ALeRt(&quot;XSS&quot;);&lt;/sCRipT&gt;
+嵌套嵌套&lt;script&gt;和&lt;/script&gt;突破 &lt;sc&lt;script&gt;ript&gt;alert(/xss/)&lt;...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/29</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "xss">xss</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/12/28/pentest-learn-sql-bypass/" >
+            
+                <span>SQL注入绕过 方式总结</span>
+        </a>
+        <div class="abstract-content">
+            接着上一篇文章讲一讲sql注入绕过
+前言select * from user where id = 1 union select 1,2,table_name from information_schema.tables···
+上面这条sql语句，是一条正常的SQL注入语句。它的斜体是后台PHP进行的正常查询，斜体后面的语句则是我们的注入语句。不过实践中，肯定会存在WAF，会对我们输入的空格、SQL语句关键词做处理。那我今天要研究的就是，如何绕过WAF的检测过滤。
+常见的bypass
+id=1+(UnIoN)+(SelECT)+
+id=1+(UnIoN+SeLeCT)+
+id=1+(Un...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/28</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "渗透测试">渗透测试</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "sql">sql</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/12/28/pentest-learn-sql/" >
             
                 <span>SQL注入学习</span>
@@ -665,110 +735,10 @@ Burpsuite v2.1 下载链接：https://share.weiyun.com/58mhQWa 密码：6666sp
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/22/zhejiang-ctf-College-Students-Offline-competition/" >
-            
-                <span>浙江省第二届大学生网络与信息安全竞赛线下赛</span>
-        </a>
-        <div class="abstract-content">
-            万能密码首先猜测是 or系列密码，无效，然后试着爆破
-爆破无效。。。
-之后翻找了下 
-
-试到 “ or 1=1—通过
-哭了。。。。
-
-1024
-看到这个去看储存
-
-
-改了下bsetcode然后试着玩输
-
-（似乎不是预期题解，之后再看看其他大佬的题解做补充）
-逆转思维
-代码审计，首先绕过 file_get_contents($text,&#39;r&#39;)
-heacbar 
-http://172.16.0.102:54321/JgJUfyW1wT?text=php://input
-data 直接 welcome to the zjctf
-
-过了上面的，看了下下面是php反序列化，获取源...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "浙江省">浙江省</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "网络与信息安全">网络与信息安全</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/22/zhejiang-ctf-College-Students-Online-competition/" >
-            
-                <span>浙江省第二届大学生网络与信息安全竞赛线上赛</span>
-        </a>
-        <div class="abstract-content">
-            Please log in as an admin
-Session 解密出来时 guset
-
-加密成 admin 21232f297a57a5a743894a0e4a801fc3
-
-
-黑白块
-看了下js 60000 。。。
-带上token请求
-
-
-试了好久，有提示chrome，难道得chrome请求，用chrome 插件请求看看
-
-粗来flag
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "浙江省">浙江省</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "信息安全">信息安全</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/page/3/">&lt; PREV</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/8/">8</a><a class="extend next" rel="next" href="/archives/page/5/">NEXT &gt;</a>
+        <a class="extend prev" rel="prev" href="/archives/page/3/">&lt; PREV</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/9/">9</a><a class="extend next" rel="next" href="/archives/page/5/">NEXT &gt;</a>
     </nav>
     
 </main>
@@ -2093,9 +2063,43 @@ Session 解密出来时 guset
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 80
+        Total : 82
         </div>
         <!-- search  -->
         
@@ -2108,6 +2112,16 @@ Session 解密出来时 guset
     
     <div class="archive-year"> 2022 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2022/08/31/f5-big-ip-vul-rce/" >F5 BIG IP 漏洞复现</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2022/08/31/landray-vul-0/" >treexml 复现</a>
+        </li>
     
     
         <li class="archive-post-item">

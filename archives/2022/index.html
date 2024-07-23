@@ -367,6 +367,55 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2022/08/31/f5-big-ip-vul-rce/" >
+            
+                <span>F5 BIG IP 漏洞复现</span>
+        </a>
+        <div class="abstract-content">
+            F5怎么找漏洞很简单，/mgmt/shared/authn/login 看看有没有
+EXP就是
+123456789101112131415command &#x3D; &quot;whoami&quot;        url &#x3D; f&#39;&#123;host&#125;&#x2F;mgmt&#x2F;tm&#x2F;util&#x2F;bash&#39;        headers &#x3D; &#123;            &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;,            &#39;Ac...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/08/31</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2022/08/31/landray-vul-0/" >
+            
+                <span>treexml 复现</span>
+        </a>
+        <div class="abstract-content">
+            开始从群里看到师傅发的oa的漏洞，跟着源码跟踪学习下
+123456789101112131415161718192021222324252627POST &#x2F;data&#x2F;sys-common&#x2F;treexml.tmpl HTTP&#x2F;1.1Host: xxxxx:8443Connection: closeUser-Agent: Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;102.0.0.0 Safa...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/08/31</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2022/06/04/java-MemoryShell/" >
             
                 <span>Java内存马</span>
@@ -581,32 +630,11 @@ ClassLoader是一个抽象类，主要功能就是通过指定的类名称找到
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2022/05/23/java-reflection/" >
-            
-                <span>Java 反射机制</span>
-        </a>
-        <div class="abstract-content">
-            前言Java反射机制可以无视类方法和变量去访问权限修饰符，并且可以调用任何类的任何方法，访问并修改成员变量值。也就是说能控制反射的类名、方法名和参数的前提下，如果我们发现了一个java反射调用的漏洞，我们就可以为所欲为了。
-反射 Reflection反射是java的特性之一，在C/C++语言中不存在反射这个概念，有了反射java可以更加灵活调控自身运行时的信息，操作类和对象的内部属性。
-反射的用途非常广，在我们使用IDE工具进行开发的时候，我们输入一个对象并且想调用它的属性或者方法的时候，IDE会自动列出它的属性和方法，这些就是通过反射来实现的。再比如JavaBean和JSP之间的调用也...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/05/23</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
+    
+    <nav class="page-nav">
+        <span class="page-number current">1</span><a class="page-number" href="/archives/2022/page/2/">2</a><a class="extend next" rel="next" href="/archives/2022/page/2/">NEXT &gt;</a>
+    </nav>
     
 </main>
             <!-- profile -->
@@ -1930,9 +1958,43 @@ ClassLoader是一个抽象类，主要功能就是通过指定的类名称找到
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 80
+        Total : 82
         </div>
         <!-- search  -->
         
@@ -1945,6 +2007,16 @@ ClassLoader是一个抽象类，主要功能就是通过指定的类名称找到
     
     <div class="archive-year"> 2022 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2022/08/31/f5-big-ip-vul-rce/" >F5 BIG IP 漏洞复现</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2022/08/31/landray-vul-0/" >treexml 复现</a>
+        </li>
     
     
         <li class="archive-post-item">

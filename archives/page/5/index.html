@@ -367,6 +367,106 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/09/22/zhejiang-ctf-College-Students-Offline-competition/" >
+            
+                <span>浙江省第二届大学生网络与信息安全竞赛线下赛</span>
+        </a>
+        <div class="abstract-content">
+            万能密码首先猜测是 or系列密码，无效，然后试着爆破
+爆破无效。。。
+之后翻找了下 
+
+试到 “ or 1=1—通过
+哭了。。。。
+
+1024
+看到这个去看储存
+
+
+改了下bsetcode然后试着玩输
+
+（似乎不是预期题解，之后再看看其他大佬的题解做补充）
+逆转思维
+代码审计，首先绕过 file_get_contents($text,&#39;r&#39;)
+heacbar 
+http://172.16.0.102:54321/JgJUfyW1wT?text=php://input
+data 直接 welcome to the zjctf
+
+过了上面的，看了下下面是php反序列化，获取源...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/22</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "浙江省">浙江省</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "网络与信息安全">网络与信息安全</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/09/22/zhejiang-ctf-College-Students-Online-competition/" >
+            
+                <span>浙江省第二届大学生网络与信息安全竞赛线上赛</span>
+        </a>
+        <div class="abstract-content">
+            Please log in as an admin
+Session 解密出来时 guset
+
+加密成 admin 21232f297a57a5a743894a0e4a801fc3
+
+
+黑白块
+看了下js 60000 。。。
+带上token请求
+
+
+试了好久，有提示chrome，难道得chrome请求，用chrome 插件请求看看
+
+粗来flag
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/22</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "浙江省">浙江省</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "信息安全">信息安全</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/09/20/gc-xctf-gameapp/" >
             
                 <span>数字经济”云安全共测大赛初赛 gameapp</span>
@@ -655,79 +755,10 @@ CentOS 系统的内核版本高于 3.10（uname -r命令可查看系统内核版
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/01/centos7-mysql/" >
-            
-                <span>centos7 yum 方式安装mysql</span>
-        </a>
-        <div class="abstract-content">
-            1) 下载mysql源安装包
-wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm
-2) 安装mysql源yum localinstall mysql57-community-release-el7-8.noarch.rpm
-
-3) 检查mysql源是否安装成功yum repolist enabled | grep &quot;mysql.*-community.*&quot;4) 修改 vim /etc/yum.repos.d/mysql-community.repo源 ，改变默认安装的mysq...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "centos7">centos7</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "mysql">mysql</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/01/firewalld/" >
-            
-                <span>firewalld</span>
-        </a>
-        <div class="abstract-content">
-            常用操作1) 重新加载配置
-firewall-cmd --reload
-2) 查看所有配置
-firewall-cmd --list-all
-3) 查看当前开放的端口(允许任意IP访问) 
-firewall-cmd --zone=public --list-ports
-4) 开放指定端口(允许任意IP访问) 
-以开放80端口为例
-firewall-cmd --zone=public --add-port=80/tcp --permanent
-firewall-cmd --reload
-PS. –permanent为永久生效，没有此参数centos重启后该配置将失效
-5) 移除端口(允许任意...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/01</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/page/4/">&lt; PREV</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/archives/page/6/">6</a><a class="page-number" href="/archives/page/7/">7</a><a class="page-number" href="/archives/page/8/">8</a><a class="extend next" rel="next" href="/archives/page/6/">NEXT &gt;</a>
+        <a class="extend prev" rel="prev" href="/archives/page/4/">&lt; PREV</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/archives/page/6/">6</a><a class="page-number" href="/archives/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/9/">9</a><a class="extend next" rel="next" href="/archives/page/6/">NEXT &gt;</a>
     </nav>
     
 </main>
@@ -2052,9 +2083,43 @@ PS. –permanent为永久生效，没有此参数centos重启后该配置将失�
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 80
+        Total : 82
         </div>
         <!-- search  -->
         
@@ -2067,6 +2132,16 @@ PS. –permanent为永久生效，没有此参数centos重启后该配置将失�
     
     <div class="archive-year"> 2022 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2022/08/31/f5-big-ip-vul-rce/" >F5 BIG IP 漏洞复现</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2022/08/31/landray-vul-0/" >treexml 复现</a>
+        </li>
     
     
         <li class="archive-post-item">

@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.loongten.com/2022/08/31/f5-big-ip-vul-rce/</loc>
+    <lastmod>2022-08-31</lastmod>
+  </url>  <url>
+    <loc>http://www.loongten.com/2022/08/31/landray-vul-0/</loc>
+    <lastmod>2022-08-31</lastmod>
+  </url>  <url>
     <loc>http://www.loongten.com/2022/05/23/java-reflection/</loc>
     <lastmod>2022-07-08</lastmod>
   </url>  <url>

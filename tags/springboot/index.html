@@ -367,43 +367,97 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/29/springboot-package/" >
+        <a class="abstract-title" href = "/2019/07/26/springboot-redis/" >
             
-                <span>SpringBoot 打包</span>
+                <span>springboot学习 整合redis</span>
         </a>
         <div class="abstract-content">
-            打包成 Jar 包添加  packaging在pom.xml 下加入
-1&lt;packaging&gt;jar&lt;&#x2F;packaging&gt;
- 
-clean 在打包之前最好先clean以下
+            下载windows版本的redis官网上不提供windows版本的，现在官网没有下载地址，只能在github上下载，官网只提供linux版本的下载官网下载地址：redis.io/download
+ Github源码地址：https://github.com/antirez/redisGithub
+ 下载地址：https://github.com/MicrosoftArchive/redis/releases
+ 或者  https://github.com/antirez/redis/releases
 
+下载下来，打开之后是这样的安装程序
 
-打包打包 Jar 包，选择package
-看到 BUILD SUCCESS ，在 target 目录下可以找到打包好的jar 包
-运行java -jar xxx.jar
-如图已经启动起来了
-
-我刚刚安装的tomcat 也是一样的端口
-
-
-Tomcat 关了之后就成功跑起来了
-打包 War 包修改  packaging把原本的jar 修改为 war
-1&lt;packaging&g...
+项目我的源码的Github地址
+SpringBo...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/29</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/26</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "springboot">springboot</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "SpringBoot">SpringBoot</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "打包">打包</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "redis">redis</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "maven">maven</a>
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/25/spirngboot-mybatis/" >
+            
+                <span>spirngboot学习 整合mybatis</span>
+        </a>
+        <div class="abstract-content">
+            SpirngBoot 学习  整合mybatis加入依赖1234567891011121314151617&lt;!--JDBC--&gt;&lt;dependency&gt;    &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;spring-boot-starter-jdbc&lt;&#x2F;artifactId&gt;&lt;&#x2F;dependency&gt;&lt;!--mybatis--&gt;&lt;dependency&gt;    &lt;group...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/25</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "SpringBoot">SpringBoot</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "mybatis">mybatis</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/24/springboot-and-swagger2/" >
+            
+                <span>学习SpringBoot之整合 Swagger2</span>
+        </a>
+        <div class="abstract-content">
+            SpringBoot 整合 Swagger2我写的Github 地址  SpringBoot+Swagger2 Github
+我在使用的时候遇到一点很神奇的问题，SpringBoot 版本为 2.1.6.RELEASE的时候，就会报错，换到2.1.4.RELEASE的时候就正常了，很神奇。回头再研究下
+加入依赖12345678910&lt;dependency&gt;    &lt;groupId&gt;io.springfox&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;springfox-swagger2&lt;&#x2F;artifactId...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/24</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "SpringBoot">SpringBoot</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "swagger2">swagger2</a>
     
 </div>
             
@@ -1734,9 +1788,43 @@ Tomcat 关了之后就成功跑起来了
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 80
+        Total : 82
         </div>
         <!-- search  -->
         
@@ -1749,6 +1837,16 @@ Tomcat 关了之后就成功跑起来了
     
     <div class="archive-year"> 2022 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2022/08/31/f5-big-ip-vul-rce/" >F5 BIG IP 漏洞复现</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2022/08/31/landray-vul-0/" >treexml 复现</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -2320,70 +2418,6 @@ Tomcat 关了之后就成功跑起来了
         <span class="sidebar-tag-name" data-tags="windows"><span class="iconfont-archer">&#xe606;</span>windows</span>
     
         <span class="sidebar-tag-name" data-tags="网络与信息安全"><span class="iconfont-archer">&#xe606;</span>网络与信息安全</span>
-    
-        <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer">&#xe606;</span>nginx</span>
-    
-        <span class="sidebar-tag-name" data-tags="优化"><span class="iconfont-archer">&#xe606;</span>优化</span>
-    
-        <span class="sidebar-tag-name" data-tags="sql"><span class="iconfont-archer">&#xe606;</span>sql</span>
-    
-        <span class="sidebar-tag-name" data-tags="supervisor"><span class="iconfont-archer">&#xe606;</span>supervisor</span>
-    
-        <span class="sidebar-tag-name" data-tags="CTF"><span class="iconfont-archer">&#xe606;</span>CTF</span>
-    
-        <span class="sidebar-tag-name" data-tags="waf"><span class="iconfont-archer">&#xe606;</span>waf</span>
-    
-    </div>
-    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
-    <div class="sidebar-tags-list"></div>
-</div>
-        <div class="sidebar-panel-categories">
-    <div class="sidebar-categories-name">
-    
-        <span class="sidebar-category-name" data-categories="pentest"><span class="iconfont-archer">&#xe60a;</span>pentest</span>
-    
-        <span class="sidebar-category-name" data-categories="pentest/xss"><span class="iconfont-archer">&#xe60a;</span>pentest/xss</span>
-    
-        <span class="sidebar-category-name" data-categories="pentest/xss/工具使用"><span class="iconfont-archer">&#xe60a;</span>pentest/xss/工具使用</span>
-    
-    </div>
-    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
-    <div class="sidebar-categories-list"></div>
-</div>
-    </div>
-</div> 
-    <script>
-    var siteMeta = {
-        root: "/",
-        author: "keacwu"
-    }
-</script>
-    <!-- CDN failover -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-    <script type="text/javascript">
-        if (typeof window.$ === 'undefined')
-        {
-            console.warn('jquery load from jsdelivr failed, will load local script')
-            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
-        }
-    </script>
-    <script src="/scripts/main.js"></script>
-    <!-- algolia -->
-    
-    <!-- busuanzi  -->
-    
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    
-    <!-- CNZZ  -->
-    
-    </div>
-    <!-- async load share.js -->
-     
-    </body>
-</html>
-
-
-�全"><span class="iconfont-archer">&#xe606;</span>网络与信息安全</span>
     
         <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer">&#xe606;</span>nginx</span>
     

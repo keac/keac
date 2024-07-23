@@ -380,6 +380,75 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/08/01/centos7-mysql/" >
+            
+                <span>centos7 yum 方式安装mysql</span>
+        </a>
+        <div class="abstract-content">
+            1) 下载mysql源安装包
+wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm
+2) 安装mysql源yum localinstall mysql57-community-release-el7-8.noarch.rpm
+
+3) 检查mysql源是否安装成功yum repolist enabled | grep &quot;mysql.*-community.*&quot;4) 修改 vim /etc/yum.repos.d/mysql-community.repo源 ，改变默认安装的mysq...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/01</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "centos7">centos7</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "mysql">mysql</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/08/01/firewalld/" >
+            
+                <span>firewalld</span>
+        </a>
+        <div class="abstract-content">
+            常用操作1) 重新加载配置
+firewall-cmd --reload
+2) 查看所有配置
+firewall-cmd --list-all
+3) 查看当前开放的端口(允许任意IP访问) 
+firewall-cmd --zone=public --list-ports
+4) 开放指定端口(允许任意IP访问) 
+以开放80端口为例
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+firewall-cmd --reload
+PS. –permanent为永久生效，没有此参数centos重启后该配置将失效
+5) 移除端口(允许任意...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/01</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/08/01/centos7-nginx/" >
             
                 <span>Centos7 安装 Nginx 实现 负载均衡和反向代理.</span>
@@ -699,72 +768,10 @@ Tomcat 关了之后就成功跑起来了
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/26/SpringBoot-jpa/" >
-            
-                <span>SpringBoot-jpa</span>
-        </a>
-        <div class="abstract-content">
-            
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/26</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/26/springboot-redis/" >
-            
-                <span>springboot学习 整合redis</span>
-        </a>
-        <div class="abstract-content">
-            下载windows版本的redis官网上不提供windows版本的，现在官网没有下载地址，只能在github上下载，官网只提供linux版本的下载官网下载地址：redis.io/download
- Github源码地址：https://github.com/antirez/redisGithub
- 下载地址：https://github.com/MicrosoftArchive/redis/releases
- 或者  https://github.com/antirez/redis/releases
-
-下载下来，打开之后是这样的安装程序
-
-项目我的源码的Github地址
-SpringBo...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/26</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "SpringBoot">SpringBoot</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "redis">redis</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/page/5/">&lt; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/">NEXT &gt;</a>
+        <a class="extend prev" rel="prev" href="/page/5/">&lt; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">NEXT &gt;</a>
     </nav>
     
 </main>
@@ -2230,9 +2237,43 @@ SpringBo...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 80
+        Total : 82
         </div>
         <!-- search  -->
         
@@ -2245,6 +2286,16 @@ SpringBo...
     
     <div class="archive-year"> 2022 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2022/08/31/f5-big-ip-vul-rce/" >F5 BIG IP 漏洞复现</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2022/08/31/landray-vul-0/" >treexml 复现</a>
+        </li>
     
     
         <li class="archive-post-item">
